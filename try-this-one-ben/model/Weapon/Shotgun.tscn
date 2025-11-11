@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://oeiy0k8c25nm"]
+
+[ext_resource type="PackedScene" uid="uid://djua6pstim032" path="res://model/Weapon/WillFiles/Shotgun Prototype.gltf" id="1_cai7t"]
+
+[node name="Shotgun" instance=ExtResource("1_cai7t")]

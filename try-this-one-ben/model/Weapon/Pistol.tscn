@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://161akjekqo6a"]
+
+[ext_resource type="PackedScene" uid="uid://o0jcneb0y6kr" path="res://model/Weapon/WillFiles/Pistol Prototype.gltf" id="1_87kqg"]
+
+[node name="Pistol" instance=ExtResource("1_87kqg")]
+
+[node name="Slide" parent="Weapon/Slide2" index="0"]
+layers = 2
+
+[node name="Decoration - glow" parent="Weapon/Slide2" index="1"]
+layers = 2
+
+[node name="Glowstick - glow" parent="Weapon/Magazine" index="0"]
+layers = 2
+
+[node name="Cap" parent="Weapon/Magazine" index="1"]
+layers = 2
+
+[node name="Trigger - glow" parent="Weapon/Trigger" index="0"]
+layers = 2
+
+[node name="Base" parent="Weapon" index="3"]
+layers = 2
+
+[node name="Grip" parent="Weapon" index="4"]
+layers = 2
+
+[node name="Barrel - glow" parent="Weapon" index="5"]
+layers = 2
+
+[node name="Handle" parent="Weapon" index="6"]
+layers = 2
+
+[node name="Decoration - glow2" parent="Weapon" index="7"]
+layers = 2

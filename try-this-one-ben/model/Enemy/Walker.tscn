@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://btlese8oo6kxm"]
+
+[ext_resource type="PackedScene" uid="uid://ccs0ngwqu3u1s" path="res://model/Enemy/LIGHT walker.gltf" id="1_rhunh"]
+
+[node name="_Walker" instance=ExtResource("1_rhunh")]

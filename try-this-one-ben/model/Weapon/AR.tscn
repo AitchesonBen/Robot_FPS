@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqbukoq6s8cea"]
+
+[ext_resource type="PackedScene" uid="uid://danss6r1hogm4" path="res://model/Weapon/WillFiles/Assault Rifle Prototype.gltf" id="1_klpsb"]
+
+[node name="AR" instance=ExtResource("1_klpsb")]
+
+[node name="Drum" parent="Weapon/Drum2" index="0"]
+layers = 2
+
+[node name="Drum Cover" parent="Weapon/Drum_Cover" index="0"]
+layers = 2
+
+[node name="Trigger - glow" parent="Weapon/Trigger" index="0"]
+layers = 2
+
+[node name="Stock" parent="Weapon" index="3"]
+layers = 2
+
+[node name="Stock Support" parent="Weapon" index="4"]
+layers = 2
+
+[node name="Grip" parent="Weapon" index="5"]
+layers = 2
+
+[node name="Body" parent="Weapon" index="6"]
+layers = 2
+
+[node name="Barrel(s)" parent="Weapon" index="7"]
+layers = 2
+
+[node name="Pipe" parent="Weapon" index="8"]
+layers = 2
+
+[node name="Glow" parent="Weapon" index="9"]
+layers = 2
