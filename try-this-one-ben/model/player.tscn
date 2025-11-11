@@ -1,13 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://l66v3s8xrv5c"]
+[gd_scene load_steps=25 format=3 uid="uid://l66v3s8xrv5c"]
 
 [ext_resource type="Script" uid="uid://dnguk1ygniers" path="res://scripts/player.gd" id="1_gbl1t"]
+[ext_resource type="PackedScene" uid="uid://c5blk6vftnf5q" path="res://model/Weapon/weapon.tscn" id="2_gbmfk"]
 [ext_resource type="Script" uid="uid://brt888aumwlad" path="res://scripts/reticle.gd" id="2_ynuub"]
-[ext_resource type="PackedScene" uid="uid://bqbukoq6s8cea" path="res://model/Weapon/AR.tscn" id="3_ivps1"]
-[ext_resource type="PackedScene" uid="uid://161akjekqo6a" path="res://model/Weapon/Pistol.tscn" id="3_urp6f"]
 [ext_resource type="Theme" uid="uid://d3nq0ldiofmv1" path="res://ui/debug.tres" id="3_x5mhj"]
 [ext_resource type="Script" uid="uid://dgk4gl3qcdl7q" path="res://scripts/debug.gd" id="4_4s6qj"]
-[ext_resource type="PackedScene" uid="uid://oeiy0k8c25nm" path="res://model/Weapon/Shotgun.tscn" id="4_u1c27"]
-[ext_resource type="PackedScene" uid="uid://bt8ivqrwr4mcy" path="res://model/Weapon/Sniper.tscn" id="5_op7ga"]
 [ext_resource type="Script" uid="uid://dibr3v5r85kbs" path="res://scripts/state_machine.gd" id="5_p0pvw"]
 [ext_resource type="Script" uid="uid://cp4bq5jel0dfi" path="res://scripts/IdlePlayerState.gd" id="6_udyl3"]
 [ext_resource type="Script" uid="uid://cmexjsnw6uj1o" path="res://scripts/WalkingPlayerState.gd" id="7_helrf"]
@@ -412,19 +409,9 @@ cull_mask = 1048573
 update_mode = 1
 
 [node name="WeaponRig" type="Node3D" parent="Camera/Camera3D"]
-transform = Transform3D(0.052191067, -0.005493916, -0.9986219, -0.1633101, 0.9864761, -0.0139621785, 0.98519355, 0.16381371, 0.050588004, 0.4247054, -1.103584, -1.0445045)
+transform = Transform3D(0.052191067, -0.005493916, -0.9986219, -0.1633101, 0.9864761, -0.0139621785, 0.98519355, 0.16381371, 0.050588004, 0.44877958, -0.6382694, -0.7411317)
 
-[node name="Sniper" parent="Camera/Camera3D/WeaponRig" instance=ExtResource("5_op7ga")]
-transform = Transform3D(0.49271277, -0.067486085, -0.05176812, 0.0680296, 0.4953474, 0.0017383504, 0.051051762, -0.008756541, 0.4973099, 0.3991512, 0.6635027, -0.0071833134)
-visible = false
-
-[node name="Pistol" parent="Camera/Camera3D/WeaponRig" instance=ExtResource("3_urp6f")]
-visible = false
-
-[node name="Shotgun" parent="Camera/Camera3D/WeaponRig" instance=ExtResource("4_u1c27")]
-
-[node name="AR" parent="Camera/Camera3D/WeaponRig" instance=ExtResource("3_ivps1")]
-visible = false
+[node name="Weapon" parent="Camera/Camera3D/WeaponRig" instance=ExtResource("2_gbmfk")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -512,7 +499,7 @@ script = ExtResource("8_h7pl7")
 [node name="SlidingPlayerState" type="Node" parent="StateMachine"]
 script = ExtResource("9_s5g8d")
 SPEED = null
-SLIDE_ANIM_SPEED = 5.0
+SLIDE_ANIM_SPEED = 6.0
 
 [node name="JumpingPlayerState" type="Node" parent="StateMachine"]
 script = ExtResource("10_lyj86")

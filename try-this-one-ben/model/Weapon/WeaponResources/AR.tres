@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Weapons" load_steps=3 format=3 uid="uid://n83lnrew6bdw"]
+
+[ext_resource type="Script" uid="uid://248vpyxv5gvs" path="res://scripts/weapons.gd" id="1_hu16l"]
+[ext_resource type="PackedScene" uid="uid://bqbukoq6s8cea" path="res://model/Weapon/AR.tscn" id="1_risby"]
+
+[resource]
+script = ExtResource("1_hu16l")
+name = &"AR"
+scene = ExtResource("1_risby")
+metadata/_custom_type_script = "uid://248vpyxv5gvs"

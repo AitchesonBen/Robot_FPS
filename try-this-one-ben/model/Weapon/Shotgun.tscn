@@ -3,3 +3,28 @@
 [ext_resource type="PackedScene" uid="uid://djua6pstim032" path="res://model/Weapon/WillFiles/Shotgun Prototype.gltf" id="1_cai7t"]
 
 [node name="Shotgun" instance=ExtResource("1_cai7t")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="Slide" parent="Weapon/Slide2" index="0"]
+layers = 2
+
+[node name="Trigger - glow" parent="Weapon/Trigger" index="0"]
+layers = 2
+
+[node name="Barrel" parent="Weapon/Head" index="0"]
+layers = 2
+
+[node name="Mag Socket" parent="Weapon/Head" index="1"]
+layers = 2
+
+[node name="Stock" parent="Weapon" index="3"]
+layers = 2
+
+[node name="Body" parent="Weapon" index="4"]
+layers = 2
+
+[node name="Magazine - glow" parent="Weapon" index="5"]
+layers = 2
+
+[node name="Mag Socket2" parent="Weapon" index="6"]
+layers = 2

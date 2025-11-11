@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5blk6vftnf5q"]
+
+[ext_resource type="Script" uid="uid://4nddntaffm2w" path="res://model/Weapon/init_weapon.gd" id="1_f7kkn"]
+[ext_resource type="Resource" uid="uid://cg332uykm5cxn" path="res://model/Weapon/WeaponResources/Pistol.tres" id="2_f7kkn"]
+
+[node name="Weapon" type="Node3D"]
+script = ExtResource("1_f7kkn")
+WEAPON_TYPE = ExtResource("2_f7kkn")

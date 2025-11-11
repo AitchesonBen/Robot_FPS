@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://danss6r1hogm4" path="res://model/Weapon/WillFiles/Assault Rifle Prototype.gltf" id="1_klpsb"]
 
 [node name="AR" instance=ExtResource("1_klpsb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Drum" parent="Weapon/Drum2" index="0"]
 layers = 2
