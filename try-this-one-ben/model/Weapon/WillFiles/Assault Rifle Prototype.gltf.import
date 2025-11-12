@@ -38,6 +38,23 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"material_0": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Weapon/ARMesh/material_0.tres",
+"use_external/path": "uid://fufb1antsbvw"
+},
+"material_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Weapon/ARMesh/material_1.tres",
+"use_external/path": "uid://0h3d57xp4j88"
+},
+"material_2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Weapon/ARMesh/material_2.tres",
+"use_external/path": "uid://c2nc704brkk0g"
+}
+},
 "meshes": {
 "blockbench_export_mesh": {
 "generate/lightmap_uv": 0,

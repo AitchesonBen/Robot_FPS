@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2y4sputlwne3"
-path.s3tc="res://.godot/imported/Crate Explosive Prototype_0.png-bf9882b54b752f43f29de14feac5face.s3tc.ctex"
+uid="uid://crvc5f6ba5cey"
+path.s3tc="res://.godot/imported/Crate Basic Large Tarp Industrial_0.png-55d49c711befd9b662a4e469c5834b92.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://model/Boxes/Crate Explosive Prototype_0.png"
-dest_files=["res://.godot/imported/Crate Explosive Prototype_0.png-bf9882b54b752f43f29de14feac5face.s3tc.ctex"]
+source_file="res://model/Boxes/WillStuff/Crate Basic Large Tarp Industrial_0.png"
+dest_files=["res://.godot/imported/Crate Basic Large Tarp Industrial_0.png-55d49c711befd9b662a4e469c5834b92.s3tc.ctex"]
 
 [params]
 

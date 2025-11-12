@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://l66v3s8xrv5c" path="res://model/player.tscn" id="1_82owt"]
 [ext_resource type="Texture2D" uid="uid://dfpg2k8sit5kt" path="res://checkboard.png" id="2_cg56m"]
 [ext_resource type="PackedScene" uid="uid://btlese8oo6kxm" path="res://model/Enemy/Walker.tscn" id="3_bnlx1"]
-[ext_resource type="PackedScene" uid="uid://bnhgxe5tvt8u0" path="res://model/Boxes/Bomb.tscn" id="4_cg56m"]
+[ext_resource type="PackedScene" uid="uid://mpfi5j5ni4qn" path="res://model/Boxes/LargeTarp.tscn" id="4_cg56m"]
 
 [sub_resource type="Environment" id="Environment_n57o6"]
 background_mode = 1
@@ -40,6 +40,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.86602545, 0, -0.86602545, 0.5, 0, 6, 4)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.86602545, 0, -0.86602545, 0.5, 0, 6, 4)
+layers = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n57o6")
@@ -133,31 +137,24 @@ use_collision = true
 size = Vector3(5, 1, 5)
 material = SubResource("StandardMaterial3D_cjmh7")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Enemy" type="Node3D" parent="."]
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Node3D"]
+[node name="_Walker" parent="Enemy" instance=ExtResource("3_bnlx1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.8542228, 0.06250003, -69.82615)
+
+[node name="_Walker2" parent="Enemy" instance=ExtResource("3_bnlx1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.8542228, 0.06250003, -69.82615)
+
+[node name="_Walker3" parent="Enemy" instance=ExtResource("3_bnlx1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.1457772, 0.06250003, -69.82615)
+
+[node name="Obstacle" type="Node3D" parent="."]
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Obstacle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 2.5, -45)
 use_collision = true
 size = Vector3(8, 1, 1)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="_Walker" parent="." instance=ExtResource("3_bnlx1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.8542228, 0.06250003, -69.82615)
-
-[node name="_Walker2" parent="." instance=ExtResource("3_bnlx1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.8542228, 0.06250003, -69.82615)
-
-[node name="_Walker3" parent="." instance=ExtResource("3_bnlx1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.1457772, 0.06250003, -69.82615)
-
-[node name="EBarrel" parent="." instance=ExtResource("4_cg56m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -56)
-
-[node name="EBarrel2" parent="." instance=ExtResource("4_cg56m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -56)
-
-[node name="EBarrel3" parent="." instance=ExtResource("4_cg56m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -56)
-
-[node name="EBarrel4" parent="." instance=ExtResource("4_cg56m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -54)
+[node name="LargeTarp" parent="." instance=ExtResource("4_cg56m")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -9.927688, 0.009374738, -55.083588)
