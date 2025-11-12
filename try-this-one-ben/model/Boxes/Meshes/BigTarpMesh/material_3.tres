@@ -6,4 +6,4 @@ transparency = 2
 alpha_scissor_threshold = 0.05
 alpha_antialiasing_mode = 0
 cull_mode = 2
-albedo_color = Color(0.5568628, 0.19215687, 0.23137255, 1)
+albedo_color = Color(0.4509804, 0.40392157, 0.14509805, 1)

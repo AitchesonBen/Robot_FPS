@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqbukoq6s8cea"]
+[gd_scene load_steps=3 format=3 uid="uid://bqbukoq6s8cea"]
 
 [ext_resource type="PackedScene" uid="uid://danss6r1hogm4" path="res://model/Weapon/WillFiles/Assault Rifle Prototype.gltf" id="1_klpsb"]
+[ext_resource type="Material" uid="uid://bgyr2ytvg1o46" path="res://ui/Transparancy.tres" id="2_t82l8"]
 
 [node name="AR" instance=ExtResource("1_klpsb")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -13,6 +14,7 @@ layers = 2
 
 [node name="Trigger - glow" parent="Weapon/Trigger" index="0"]
 layers = 2
+surface_material_override/0 = ExtResource("2_t82l8")
 
 [node name="Stock" parent="Weapon" index="3"]
 layers = 2
@@ -34,3 +36,4 @@ layers = 2
 
 [node name="Glow" parent="Weapon" index="9"]
 layers = 2
+surface_material_override/0 = ExtResource("2_t82l8")
