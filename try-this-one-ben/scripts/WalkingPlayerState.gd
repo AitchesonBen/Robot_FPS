@@ -5,7 +5,7 @@ class_name WalkingPlayerState extends PlayerMovementState
 @export var DECELERATION : float  = 0.25
 @export var TOP_ANIM_SPEED : float = 2.2
 
-func enter(previous_state) -> void:
+func enter(_previous_state) -> void:
 	ANIMATION.play("Headbob", -1.0, 1.0)
 	Global.player._speed = Global.player.SPEED_DEFAULT
 

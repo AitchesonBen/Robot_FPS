@@ -182,29 +182,29 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6, 
 [node name="WideTarp" parent="Boxes" instance=ExtResource("7_lt333")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14, 0, -56)
 
-[node name="FrameTall" parent="." instance=ExtResource("8_i3wmk")]
+[node name="FrameTall" parent="Boxes" instance=ExtResource("8_i3wmk")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -11.6, 0, -60)
 
-[node name="FrameCrate" parent="." instance=ExtResource("9_xuiht")]
+[node name="FrameCrate" parent="Boxes" instance=ExtResource("9_xuiht")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -8, 0, -59)
 
-[node name="LargeTarp" parent="." instance=ExtResource("4_cg56m")]
+[node name="LargeTarp2" parent="Boxes" instance=ExtResource("4_cg56m")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -5.3, 0, -59)
 
-[node name="SmallTallTarp" parent="." instance=ExtResource("10_fdwi1")]
+[node name="SmallTallTarp" parent="Boxes" instance=ExtResource("10_fdwi1")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14, 0, -54)
 
-[node name="TallCrate" parent="." instance=ExtResource("11_kf75o")]
+[node name="TallCrate" parent="Boxes" instance=ExtResource("11_kf75o")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -10, 0, -58.4)
 
-[node name="SmallCrate" parent="." instance=ExtResource("12_6wt63")]
+[node name="SmallCrate" parent="Boxes" instance=ExtResource("12_6wt63")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -6, 0, -57)
 
-[node name="SmallCrate2" parent="." instance=ExtResource("12_6wt63")]
+[node name="SmallCrate2" parent="Boxes" instance=ExtResource("12_6wt63")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.2000003, 0, -57)
 
-[node name="LargeBox" parent="." instance=ExtResource("13_6582d")]
+[node name="LargeBox" parent="Boxes" instance=ExtResource("13_6582d")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14, 0, -52)
 
-[node name="TallCrate2" parent="." instance=ExtResource("11_kf75o")]
+[node name="TallCrate2" parent="Boxes" instance=ExtResource("11_kf75o")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -8.7, 0, -57)

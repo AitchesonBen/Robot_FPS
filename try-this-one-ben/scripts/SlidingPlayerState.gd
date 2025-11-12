@@ -10,7 +10,7 @@ class_name SlidingPlayerState extends PlayerMovementState
 
 var ifJumped : bool = false
 
-func enter(previous_state) -> void:
+func enter(_previous_state) -> void:
 	set_tilt(PLAYER._current_rotation)
 	ANIMATION.get_animation("Sliding").track_set_key_value(5, 0, PLAYER.velocity.length())
 	ANIMATION.speed_scale = 1.0
