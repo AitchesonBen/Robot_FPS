@@ -21,6 +21,9 @@ func update(delta) -> void:
 	PLAYER.update_input(SPEED * INPUT_MULTIPLIER, ACCELERATION, DECELERATION)
 	PLAYER.update_velocity()
 	
+	WEAPON.sway_weapon(delta, false, 1)
+	WEAPON._weapon_dip(delta, PLAYER.velocity.y)
+	
 	if Input.is_action_just_pressed("jump") and DOUBLE_JUMP == false and not PLAYER.is_on_floor():
 		DOUBLE_JUMP = true
 		PLAYER.velocity.y = max(PLAYER.velocity.y, DOUBLE_JUMP_VELOCITY)
@@ -36,5 +39,6 @@ func update(delta) -> void:
 			PLAYER.velocity.y = PLAYER.velocity.y / 2.0
 	
 	if PLAYER.is_on_floor():
+		WEAPON.jump_fall_offset = lerp(WEAPON.jump_fall_offset, 0.0, WEAPON.jump_fall_speed * delta)
 		transition.emit("IdlePlayerState")
 		

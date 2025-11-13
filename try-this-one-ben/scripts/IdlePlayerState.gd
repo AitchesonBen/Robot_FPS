@@ -12,6 +12,9 @@ func update(delta: float) -> void:
 	PLAYER.update_input(SPEED, ACCELERATION, DECELERATION)
 	PLAYER.update_velocity()
 	
+	WEAPON.sway_weapon(delta, true, 1)
+	WEAPON.jump_fall_offset = lerp(WEAPON.jump_fall_offset, 0.0, WEAPON.jump_fall_speed * delta)
+	
 	if Input.is_action_just_pressed("crouch") and PLAYER.is_on_floor():
 		transition.emit("CrouchingPlayerState")
 	

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_q4gy1")
 name = &"Shotgun"
-position = Vector3(0.011, -0.008, 0.001)
-rotation = Vector3(-1.1, -8.2, 2.5)
+position = Vector3(0.069, -0.018, -0.012)
+rotation = Vector3(6.5, -50.2, 1.7)
 scene = ExtResource("1_q6ilu")
 metadata/_custom_type_script = "uid://248vpyxv5gvs"

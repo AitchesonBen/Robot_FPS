@@ -20,6 +20,8 @@ func update(delta):
 	PLAYER.update_gravity(delta)
 	PLAYER.update_velocity()
 	
+	WEAPON.sway_weapon(delta, false, 2.5)
+	
 	if Input.is_action_just_released("crouch"):
 		ANIMATION.stop()
 		finish()
