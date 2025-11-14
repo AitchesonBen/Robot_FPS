@@ -2,11 +2,13 @@
 
 class_name WeaponController extends Node3D
 
+signal weapon_fired
+
 @export var WEAPON_TYPE : Weapons
 
 var weapon_instance : Node3D
 
-@onready var weapon_pivot : Node3D = $weapon_pivot
+@onready var weapon_pivot : Node3D = $"Recoil Position/weapon_pivot"
 
 @export var sway_noise : NoiseTexture2D
 @export var sway_speed : float = 1.2
@@ -26,13 +28,14 @@ var idle_sway_rotation_strength
 var weapon_bob_amount : Vector2 = Vector2(0,0)
 
 var jump_fall_offset: float = 0.0
-var jump_fall_speed: float = 2.0  # How quickly the weapon moves to the target offset
-var max_jump_offset: float = 0.3  # Max raise when jumping
-var max_fall_offset: float = -0.3 # Max drop when falling
-var max_offset: float = 0.3
+var jump_fall_speed: float = 10.0  # How quickly the weapon moves to the target offset
+var max_jump_offset: float = 0.1  # Max raise when jumping
+var max_fall_offset: float = -0.15 # Max drop when falling
 
 var base_position : Vector3
 var base_rotation : Vector3
+
+var test_raycast = preload("res://raycast.tscn")
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
@@ -135,3 +138,30 @@ func get_sway_noise(delta) -> float:
 		
 	var noise_location : float = sway_noise.noise.get_noise_2d(player_position.x, player_position.y+(delta*100))
 	return noise_location
+
+func _attack() -> void:
+	weapon_fired.emit()
+	var camera = Global.player.CAMERA_CONTROLLER
+	var space_state = camera.get_world_3d().direct_space_state
+	var screen_center = get_viewport().size / 2
+	var origin = camera.project_ray_origin(screen_center)
+	var end = origin + camera.project_ray_normal(screen_center) * 1000
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.collide_with_bodies = true
+	var result = space_state.intersect_ray(query)
+	print(result)
+	if result:
+		raycast(result.get("position"), result.get("normal"))
+
+func raycast(position: Vector3, normal: Vector3) -> void:
+	var instance = test_raycast.instantiate()
+	get_tree().root.add_child(instance)
+	instance.global_position = position
+	instance.look_at(instance.global_transform.origin + normal, Vector3.UP)
+	instance.rotate_object_local(Vector3(1, 0, 0), 90)
+	#instance.scale *= 2  <-- To increase size of decal based on damage later
+	await get_tree().create_timer(10).timeout
+	var fade = get_tree().create_tween()
+	fade.tween_property(instance, "modulate:a", 0, 5)
+	await get_tree().create_timer(5).timeout
+	instance.queue_free()

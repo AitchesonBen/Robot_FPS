@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://l66v3s8xrv5c"]
+[gd_scene load_steps=26 format=3 uid="uid://l66v3s8xrv5c"]
 
 [ext_resource type="Script" uid="uid://dnguk1ygniers" path="res://scripts/player.gd" id="1_gbl1t"]
+[ext_resource type="Script" uid="uid://hqy25httlnxt" path="res://scripts/weapon_recoil.gd" id="2_1m16y"]
 [ext_resource type="PackedScene" uid="uid://c5blk6vftnf5q" path="res://model/Weapon/weapon.tscn" id="2_gbmfk"]
 [ext_resource type="Script" uid="uid://brt888aumwlad" path="res://scripts/reticle.gd" id="2_ynuub"]
 [ext_resource type="Theme" uid="uid://d3nq0ldiofmv1" path="res://ui/debug.tres" id="3_x5mhj"]
@@ -387,10 +388,10 @@ _data = {
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WEAPON_CONTROLLER")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_gbl1t")
-CAMERA_CONTROLLER = NodePath("Camera/Camera3D")
+CAMERA_CONTROLLER = NodePath("Camera/Recoil/Camera3D")
 ANIMATIONPLAYER = NodePath("AnimationPlayer")
 CROUCH_SHAPECAST = NodePath("ShapeCast3D")
-WEAPON_CONTROLLER = NodePath("Camera/Camera3D/WeaponRig/Weapon")
+WEAPON_CONTROLLER = NodePath("Camera/Recoil/Camera3D/WeaponRig/Weapon")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_lrm1h")
@@ -402,17 +403,24 @@ mesh = SubResource("CapsuleMesh_ek63y")
 [node name="Camera" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Camera"]
+[node name="Recoil" type="Node3D" parent="Camera" node_paths=PackedStringArray("weapon")]
+script = ExtResource("2_1m16y")
+recoil_amount = Vector3(0.1, 0.03, 0)
+snap_amount = 10.0
+speed = 20.0
+weapon = NodePath("Camera3D/WeaponRig/Weapon")
+
+[node name="Camera3D" type="Camera3D" parent="Camera/Recoil"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33178425, 0)
 cull_mask = 1048573
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="Camera/Camera3D"]
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Camera/Recoil/Camera3D"]
 update_mode = 1
 
-[node name="WeaponRig" type="Node3D" parent="Camera/Camera3D"]
+[node name="WeaponRig" type="Node3D" parent="Camera/Recoil/Camera3D"]
 transform = Transform3D(0.9865724, 0.16332598, 0, -0.1633101, 0.9864761, -0.0139621785, -0.002280387, 0.0137747, 0.9999024, 0.44877958, -0.6382694, -0.7411317)
 
-[node name="Weapon" parent="Camera/Camera3D/WeaponRig" instance=ExtResource("2_gbmfk")]
+[node name="Weapon" parent="Camera/Recoil/Camera3D/WeaponRig" instance=ExtResource("2_gbmfk")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -440,10 +448,6 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_ynuub")
@@ -532,6 +536,6 @@ script = ExtResource("14_bwjto")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83, 0)
 cull_mask = 2
 script = ExtResource("15_606se")
-MAIN_CAMERA = NodePath("../../../Camera/Camera3D")
+MAIN_CAMERA = NodePath("../../../Camera/Recoil/Camera3D")
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
