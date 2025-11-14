@@ -8,7 +8,7 @@ class_name FallingPlayerScript extends PlayerMovementState
 
 var DOUBLE_JUMP : bool = false
 
-func enter(previous_state) -> void:
+func enter(_previous_state) -> void:
 	ANIMATION.pause()
 
 func exit() -> void:
@@ -18,6 +18,9 @@ func update(delta: float) -> void:
 	PLAYER.update_gravity(delta)
 	PLAYER.update_input(SPEED, ACCELERATION, DECELERATION)
 	PLAYER.update_velocity()
+	
+	WEAPON.sway_weapon(delta, false, 1)
+	WEAPON._weapon_dip(delta, PLAYER.velocity.y)
 	
 	if Input.is_action_just_pressed("jump") and DOUBLE_JUMP == false:
 		DOUBLE_JUMP = true
@@ -35,4 +38,5 @@ func update(delta: float) -> void:
 		
 	if PLAYER.is_on_floor():
 		#ANIMATION.play("JumpEnd")
+		WEAPON.jump_fall_offset = lerp(WEAPON.jump_fall_offset, 0.0, WEAPON.jump_fall_speed * delta)
 		transition.emit("IdlePlayerState")

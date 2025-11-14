@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbpt2xolrjtvs"]
+
+[ext_resource type="PackedScene" uid="uid://rocugh7k6r43" path="res://model/Boxes/WillStuff/Hologram Square (3).gltf" id="1_6gywb"]
+[ext_resource type="Material" uid="uid://bgyr2ytvg1o46" path="res://ui/Transparancy.tres" id="2_tetjt"]
+
+[node name="blockbench_export" instance=ExtResource("1_6gywb")]
+
+[node name="1" parent="Hologram Projector/Hologram/Shield 1" index="0"]
+surface_material_override/0 = ExtResource("2_tetjt")
+
+[node name="2" parent="Hologram Projector/Hologram/Shield 1" index="1"]
+surface_material_override/0 = ExtResource("2_tetjt")
+
+[node name="4" parent="Hologram Projector/Hologram/Shield 2" index="0"]
+surface_material_override/0 = ExtResource("2_tetjt")
+
+[node name="3" parent="Hologram Projector/Hologram/Shield 2" index="1"]
+surface_material_override/0 = ExtResource("2_tetjt")
+
+[node name="6" parent="Hologram Projector/Hologram/Shield 3" index="0"]
+surface_material_override/0 = ExtResource("2_tetjt")
+
+[node name="5" parent="Hologram Projector/Hologram/Shield 3" index="1"]
+surface_material_override/0 = ExtResource("2_tetjt")
+
+[node name="7" parent="Hologram Projector/Hologram/Shield 4" index="0"]
+surface_material_override/0 = ExtResource("2_tetjt")
+
+[node name="8" parent="Hologram Projector/Hologram/Shield 4" index="1"]
+surface_material_override/0 = ExtResource("2_tetjt")

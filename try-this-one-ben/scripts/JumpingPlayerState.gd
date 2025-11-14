@@ -9,7 +9,7 @@ class_name JumpingPlayerState extends PlayerMovementState
 
 var DOUBLE_JUMP : bool = false
 
-func enter(previous_state) -> void:
+func enter(_previous_state) -> void:
 	PLAYER.velocity.y += JUMP_VELOCITY
 	ANIMATION.pause()
 
@@ -20,6 +20,9 @@ func update(delta) -> void:
 	PLAYER.update_gravity(delta)
 	PLAYER.update_input(SPEED * INPUT_MULTIPLIER, ACCELERATION, DECELERATION)
 	PLAYER.update_velocity()
+	
+	WEAPON.sway_weapon(delta, false, 1)
+	WEAPON._weapon_dip(delta, PLAYER.velocity.y)
 	
 	if Input.is_action_just_pressed("jump") and DOUBLE_JUMP == false and not PLAYER.is_on_floor():
 		DOUBLE_JUMP = true
@@ -36,5 +39,6 @@ func update(delta) -> void:
 			PLAYER.velocity.y = PLAYER.velocity.y / 2.0
 	
 	if PLAYER.is_on_floor():
+		WEAPON.jump_fall_offset = lerp(WEAPON.jump_fall_offset, 0.0, WEAPON.jump_fall_speed * delta)
 		transition.emit("IdlePlayerState")
 		

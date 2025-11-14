@@ -1,13 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://l66v3s8xrv5c"]
+[gd_scene load_steps=26 format=3 uid="uid://l66v3s8xrv5c"]
 
 [ext_resource type="Script" uid="uid://dnguk1ygniers" path="res://scripts/player.gd" id="1_gbl1t"]
+[ext_resource type="Script" uid="uid://hqy25httlnxt" path="res://scripts/weapon_recoil.gd" id="2_1m16y"]
+[ext_resource type="PackedScene" uid="uid://c5blk6vftnf5q" path="res://model/Weapon/weapon.tscn" id="2_gbmfk"]
 [ext_resource type="Script" uid="uid://brt888aumwlad" path="res://scripts/reticle.gd" id="2_ynuub"]
-[ext_resource type="PackedScene" uid="uid://bqbukoq6s8cea" path="res://model/Weapon/AR.tscn" id="3_ivps1"]
-[ext_resource type="PackedScene" uid="uid://161akjekqo6a" path="res://model/Weapon/Pistol.tscn" id="3_urp6f"]
 [ext_resource type="Theme" uid="uid://d3nq0ldiofmv1" path="res://ui/debug.tres" id="3_x5mhj"]
 [ext_resource type="Script" uid="uid://dgk4gl3qcdl7q" path="res://scripts/debug.gd" id="4_4s6qj"]
-[ext_resource type="PackedScene" uid="uid://oeiy0k8c25nm" path="res://model/Weapon/Shotgun.tscn" id="4_u1c27"]
-[ext_resource type="PackedScene" uid="uid://bt8ivqrwr4mcy" path="res://model/Weapon/Sniper.tscn" id="5_op7ga"]
 [ext_resource type="Script" uid="uid://dibr3v5r85kbs" path="res://scripts/state_machine.gd" id="5_p0pvw"]
 [ext_resource type="Script" uid="uid://cp4bq5jel0dfi" path="res://scripts/IdlePlayerState.gd" id="6_udyl3"]
 [ext_resource type="Script" uid="uid://cmexjsnw6uj1o" path="res://scripts/WalkingPlayerState.gd" id="7_helrf"]
@@ -387,12 +385,13 @@ _data = {
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j68t0"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST")]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WEAPON_CONTROLLER")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_gbl1t")
-CAMERA_CONTROLLER = NodePath("Camera/Camera3D")
+CAMERA_CONTROLLER = NodePath("Camera/Recoil/Camera3D")
 ANIMATIONPLAYER = NodePath("AnimationPlayer")
 CROUCH_SHAPECAST = NodePath("ShapeCast3D")
+WEAPON_CONTROLLER = NodePath("Camera/Recoil/Camera3D/WeaponRig/Weapon")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_lrm1h")
@@ -404,27 +403,24 @@ mesh = SubResource("CapsuleMesh_ek63y")
 [node name="Camera" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Camera"]
+[node name="Recoil" type="Node3D" parent="Camera" node_paths=PackedStringArray("weapon")]
+script = ExtResource("2_1m16y")
+recoil_amount = Vector3(0.1, 0.03, 0)
+snap_amount = 10.0
+speed = 20.0
+weapon = NodePath("Camera3D/WeaponRig/Weapon")
+
+[node name="Camera3D" type="Camera3D" parent="Camera/Recoil"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33178425, 0)
 cull_mask = 1048573
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="Camera/Camera3D"]
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Camera/Recoil/Camera3D"]
 update_mode = 1
 
-[node name="WeaponRig" type="Node3D" parent="Camera/Camera3D"]
-transform = Transform3D(0.052191067, -0.005493916, -0.9986219, -0.1633101, 0.9864761, -0.0139621785, 0.98519355, 0.16381371, 0.050588004, 0.4247054, -1.103584, -1.0445045)
+[node name="WeaponRig" type="Node3D" parent="Camera/Recoil/Camera3D"]
+transform = Transform3D(0.9865724, 0.16332598, 0, -0.1633101, 0.9864761, -0.0139621785, -0.002280387, 0.0137747, 0.9999024, 0.44877958, -0.6382694, -0.7411317)
 
-[node name="Sniper" parent="Camera/Camera3D/WeaponRig" instance=ExtResource("5_op7ga")]
-transform = Transform3D(0.49271277, -0.067486085, -0.05176812, 0.0680296, 0.4953474, 0.0017383504, 0.051051762, -0.008756541, 0.4973099, 0.3991512, 0.6635027, -0.0071833134)
-visible = false
-
-[node name="Pistol" parent="Camera/Camera3D/WeaponRig" instance=ExtResource("3_urp6f")]
-visible = false
-
-[node name="Shotgun" parent="Camera/Camera3D/WeaponRig" instance=ExtResource("4_u1c27")]
-
-[node name="AR" parent="Camera/Camera3D/WeaponRig" instance=ExtResource("3_ivps1")]
-visible = false
+[node name="Weapon" parent="Camera/Recoil/Camera3D/WeaponRig" instance=ExtResource("2_gbmfk")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -452,10 +448,6 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_ynuub")
@@ -508,11 +500,13 @@ script = ExtResource("7_helrf")
 
 [node name="CrouchingPlayerState" type="Node" parent="StateMachine"]
 script = ExtResource("8_h7pl7")
+WEAPON_BOB_H = 1.0
+WEAPON_BOB_V = 0.5
 
 [node name="SlidingPlayerState" type="Node" parent="StateMachine"]
 script = ExtResource("9_s5g8d")
 SPEED = null
-SLIDE_ANIM_SPEED = 5.0
+SLIDE_ANIM_SPEED = 6.0
 
 [node name="JumpingPlayerState" type="Node" parent="StateMachine"]
 script = ExtResource("10_lyj86")
@@ -542,6 +536,6 @@ script = ExtResource("14_bwjto")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83, 0)
 cull_mask = 2
 script = ExtResource("15_606se")
-MAIN_CAMERA = NodePath("../../../Camera/Camera3D")
+MAIN_CAMERA = NodePath("../../../Camera/Recoil/Camera3D")
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]

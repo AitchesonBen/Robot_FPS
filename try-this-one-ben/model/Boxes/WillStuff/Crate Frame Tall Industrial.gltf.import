@@ -1,0 +1,103 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dd63h58afqv80"
+path="res://.godot/imported/Crate Frame Tall Industrial.gltf-e8a8f3a8d00f637ebde026c5b47ad438.scn"
+
+[deps]
+
+source_file="res://model/Boxes/WillStuff/Crate Frame Tall Industrial.gltf"
+dest_files=["res://.godot/imported/Crate Frame Tall Industrial.gltf-e8a8f3a8d00f637ebde026c5b47ad438.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"material_0": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Boxes/Meshes/FrameTallMesh/material_0.tres",
+"use_external/path": "uid://km0686s5dfv1"
+},
+"material_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Boxes/Meshes/FrameTallMesh/material_1.tres",
+"use_external/path": "uid://bq4d8bt7jc7w6"
+},
+"material_2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Boxes/Meshes/FrameTallMesh/material_2.tres",
+"use_external/path": "uid://qsq1xdpcopgr"
+},
+"material_3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Boxes/Meshes/FrameTallMesh/material_3.tres",
+"use_external/path": "uid://nm04wr1dkk8q"
+}
+},
+"meshes": {
+"blockbench_export_mesh": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Boxes/Meshes/FrameTallMesh/blockbench_export_mesh.res",
+"save_to_file/path": "uid://deap7fn0wypji"
+},
+"blockbench_export_mesh2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Boxes/Meshes/FrameTallMesh/blockbench_export_mesh2.res",
+"save_to_file/path": "uid://c3qy4xt82tlj4"
+},
+"blockbench_export_mesh3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Boxes/Meshes/FrameTallMesh/blockbench_export_mesh3.res",
+"save_to_file/path": "uid://cudscqf6yx0fw"
+},
+"blockbench_export_mesh4": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Boxes/Meshes/FrameTallMesh/blockbench_export_mesh4.res",
+"save_to_file/path": "uid://dtjywx2dhk7tx"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

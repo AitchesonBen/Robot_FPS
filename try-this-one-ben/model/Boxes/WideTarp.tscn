@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://26yomfbvqjh"]
+
+[ext_resource type="PackedScene" uid="uid://cm4pndtkfbhlf" path="res://model/Boxes/WillStuff/Crate Basic Wide Tarp Industrial.gltf" id="1_4s235"]
+
+[node name="WideTarp" instance=ExtResource("1_4s235")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Object" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.4375, 0.015625)

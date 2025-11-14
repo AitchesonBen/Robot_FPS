@@ -11,6 +11,7 @@ class_name Player extends CharacterBody3D
 @export var CAMERA_CONTROLLER : Camera3D
 @export var ANIMATIONPLAYER : AnimationPlayer
 @export var CROUCH_SHAPECAST : Node3D
+@export var WEAPON_CONTROLLER : WeaponController
 
 var _speed : float
 var _mouse_input : bool = false
@@ -21,8 +22,6 @@ var _player_rotation: Vector3
 var _camera_rotation: Vector3
 
 var _current_rotation: float
-
-var _is_crouching : bool = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("exit"):

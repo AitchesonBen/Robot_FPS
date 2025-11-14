@@ -58,6 +58,7 @@ _data = {
 }
 
 [node name="Sniper" instance=ExtResource("1_ansij")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Weapon" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

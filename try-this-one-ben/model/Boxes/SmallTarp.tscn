@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsb4td2ptwk0t"]
+
+[ext_resource type="PackedScene" uid="uid://bp74n120gfao5" path="res://model/Boxes/WillStuff/Crate Basic Small Tarp Industrial.gltf" id="1_smsy6"]
+
+[node name="SmallTarp" instance=ExtResource("1_smsy6")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)

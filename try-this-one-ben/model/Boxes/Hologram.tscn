@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c88qel830gli1"]
+
+[ext_resource type="PackedScene" uid="uid://dejhg6bellwtj" path="res://model/Boxes/WillStuff/Hologram Square (1).gltf" id="1_aqxko"]
+[ext_resource type="Material" uid="uid://bgyr2ytvg1o46" path="res://ui/Transparancy.tres" id="2_bbuhw"]
+
+[node name="Hologram" instance=ExtResource("1_aqxko")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="1" parent="Hologram Projector/Hologram/Shield 1" index="0"]
+surface_material_override/0 = ExtResource("2_bbuhw")
+
+[node name="2" parent="Hologram Projector/Hologram/Shield 2" index="0"]
+surface_material_override/0 = ExtResource("2_bbuhw")
+
+[node name="3" parent="Hologram Projector/Hologram/Shield 3" index="0"]
+surface_material_override/0 = ExtResource("2_bbuhw")
+
+[node name="4" parent="Hologram Projector/Hologram/Shield 4" index="0"]
+surface_material_override/0 = ExtResource("2_bbuhw")

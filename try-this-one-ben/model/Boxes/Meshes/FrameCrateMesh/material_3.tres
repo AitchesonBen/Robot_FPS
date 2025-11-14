@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dst833o65yrdo"]
+
+[ext_resource type="Texture2D" uid="uid://bfxeo0qk3wp0h" path="res://model/Boxes/WillStuff/Crate Frame Large Industrial_0.png" id="1_vaoda"]
+
+[resource]
+resource_name = "material_3"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_vaoda")
+texture_filter = 0
+texture_repeat = false

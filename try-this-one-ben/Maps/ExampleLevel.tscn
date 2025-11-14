@@ -1,9 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://0lqdfe5dkd1j"]
+[gd_scene load_steps=19 format=3 uid="uid://0lqdfe5dkd1j"]
 
 [ext_resource type="PackedScene" uid="uid://l66v3s8xrv5c" path="res://model/player.tscn" id="1_82owt"]
 [ext_resource type="Texture2D" uid="uid://dfpg2k8sit5kt" path="res://checkboard.png" id="2_cg56m"]
 [ext_resource type="PackedScene" uid="uid://btlese8oo6kxm" path="res://model/Enemy/Walker.tscn" id="3_bnlx1"]
-[ext_resource type="PackedScene" uid="uid://bnhgxe5tvt8u0" path="res://model/Boxes/Bomb.tscn" id="4_cg56m"]
+[ext_resource type="PackedScene" uid="uid://mpfi5j5ni4qn" path="res://model/Boxes/LargeTarp.tscn" id="4_cg56m"]
+[ext_resource type="PackedScene" uid="uid://cdb3ovru6mduw" path="res://model/Boxes/LargeBigTarp.tscn" id="5_bnlx1"]
+[ext_resource type="PackedScene" uid="uid://gy7khll2l63u" path="res://model/Boxes/Explosive.tscn" id="6_kb7r7"]
+[ext_resource type="PackedScene" uid="uid://26yomfbvqjh" path="res://model/Boxes/WideTarp.tscn" id="7_lt333"]
+[ext_resource type="PackedScene" uid="uid://b63f4vuexx1g8" path="res://model/Boxes/FrameTall.tscn" id="8_i3wmk"]
+[ext_resource type="PackedScene" uid="uid://ds4ebdf4el4p3" path="res://model/Boxes/FrameCrate.tscn" id="9_xuiht"]
+[ext_resource type="PackedScene" uid="uid://b4qwe6m5e66ps" path="res://model/Boxes/SmallTallTarp.tscn" id="10_fdwi1"]
+[ext_resource type="PackedScene" uid="uid://bjhy3rradomgm" path="res://model/Boxes/TallCrate.tscn" id="11_kf75o"]
+[ext_resource type="PackedScene" uid="uid://cq1rirkhlxx7d" path="res://model/Boxes/SmallCrate.tscn" id="12_6wt63"]
+[ext_resource type="PackedScene" uid="uid://dxwpfetmqmy8c" path="res://model/Boxes/LargeBox.tscn" id="13_6582d"]
 
 [sub_resource type="Environment" id="Environment_n57o6"]
 background_mode = 1
@@ -40,6 +49,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.86602545, 0, -0.86602545, 0.5, 0, 6, 4)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.86602545, 0, -0.86602545, 0.5, 0, 6, 4)
+layers = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n57o6")
@@ -133,31 +146,65 @@ use_collision = true
 size = Vector3(5, 1, 5)
 material = SubResource("StandardMaterial3D_cjmh7")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Enemy" type="Node3D" parent="."]
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Node3D"]
+[node name="_Walker" parent="Enemy" instance=ExtResource("3_bnlx1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.8542228, 0.06250003, -69.82615)
+
+[node name="_Walker2" parent="Enemy" instance=ExtResource("3_bnlx1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.8542228, 0.06250003, -69.82615)
+
+[node name="_Walker3" parent="Enemy" instance=ExtResource("3_bnlx1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.1457772, 0.06250003, -69.82615)
+
+[node name="Obstacle" type="Node3D" parent="."]
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Obstacle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 2.5, -45)
 use_collision = true
 size = Vector3(8, 1, 1)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="_Walker" parent="." instance=ExtResource("3_bnlx1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.8542228, 0.06250003, -69.82615)
+[node name="Boxes" type="Node3D" parent="."]
 
-[node name="_Walker2" parent="." instance=ExtResource("3_bnlx1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.8542228, 0.06250003, -69.82615)
+[node name="LargeTarp" parent="Boxes" instance=ExtResource("4_cg56m")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -13.927688, 0.009374738, -59.083588)
 
-[node name="_Walker3" parent="." instance=ExtResource("3_bnlx1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.1457772, 0.06250003, -69.82615)
+[node name="LargeBigTarp" parent="Boxes" instance=ExtResource("5_bnlx1")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 5, 0, -59)
 
-[node name="EBarrel" parent="." instance=ExtResource("4_cg56m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -56)
+[node name="Explosive" parent="Boxes" instance=ExtResource("6_kb7r7")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 0, -52)
 
-[node name="EBarrel2" parent="." instance=ExtResource("4_cg56m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -56)
+[node name="Explosive2" parent="Boxes" instance=ExtResource("6_kb7r7")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6, 0, -52)
 
-[node name="EBarrel3" parent="." instance=ExtResource("4_cg56m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -56)
+[node name="WideTarp" parent="Boxes" instance=ExtResource("7_lt333")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14, 0, -56)
 
-[node name="EBarrel4" parent="." instance=ExtResource("4_cg56m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -54)
+[node name="FrameTall" parent="Boxes" instance=ExtResource("8_i3wmk")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -11.6, 0, -60)
+
+[node name="FrameCrate" parent="Boxes" instance=ExtResource("9_xuiht")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -8, 0, -59)
+
+[node name="LargeTarp2" parent="Boxes" instance=ExtResource("4_cg56m")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -5.3, 0, -59)
+
+[node name="SmallTallTarp" parent="Boxes" instance=ExtResource("10_fdwi1")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14, 0, -54)
+
+[node name="TallCrate" parent="Boxes" instance=ExtResource("11_kf75o")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -10, 0, -58.4)
+
+[node name="SmallCrate" parent="Boxes" instance=ExtResource("12_6wt63")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -6, 0, -57)
+
+[node name="SmallCrate2" parent="Boxes" instance=ExtResource("12_6wt63")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.2000003, 0, -57)
+
+[node name="LargeBox" parent="Boxes" instance=ExtResource("13_6582d")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14, 0, -52)
+
+[node name="TallCrate2" parent="Boxes" instance=ExtResource("11_kf75o")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -8.7, 0, -57)

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://o0jcneb0y6kr" path="res://model/Weapon/WillFiles/Pistol Prototype.gltf" id="1_87kqg"]
 
 [node name="Pistol" instance=ExtResource("1_87kqg")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Slide" parent="Weapon/Slide2" index="0"]
 layers = 2

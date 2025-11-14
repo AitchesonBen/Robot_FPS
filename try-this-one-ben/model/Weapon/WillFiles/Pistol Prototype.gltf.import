@@ -38,6 +38,28 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"material_0": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Weapon/PistolMesh/material_0.tres",
+"use_external/path": "uid://ci6o71tl3i8e1"
+},
+"material_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Weapon/PistolMesh/material_1.tres",
+"use_external/path": "uid://b35oxwq3kytoi"
+},
+"material_2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Weapon/PistolMesh/material_2.tres",
+"use_external/path": "uid://c0lg8pp756k68"
+},
+"material_3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Weapon/PistolMesh/material_3.tres",
+"use_external/path": "uid://r0nghe4i1p62"
+}
+},
 "meshes": {
 "blockbench_export_mesh": {
 "generate/lightmap_uv": 0,

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds4ebdf4el4p3"]
+
+[ext_resource type="PackedScene" uid="uid://bkvafcvr2bvwa" path="res://model/Boxes/WillStuff/Crate Frame Large Industrial.gltf" id="1_6pf7q"]
+
+[node name="FrameCrate" instance=ExtResource("1_6pf7q")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)

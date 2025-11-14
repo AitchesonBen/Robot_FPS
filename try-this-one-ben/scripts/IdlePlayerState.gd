@@ -4,13 +4,16 @@ class_name IdlePlayerState extends PlayerMovementState
 @export var ACCELERATION : float = 0.1
 @export var DECELERATION : float  = 0.25
 
-func enter(previous_state) -> void:
+func enter(_previous_state) -> void:
 	ANIMATION.pause()
 
 func update(delta: float) -> void:
 	PLAYER.update_gravity(delta)
 	PLAYER.update_input(SPEED, ACCELERATION, DECELERATION)
 	PLAYER.update_velocity()
+	
+	WEAPON.sway_weapon(delta, true, 1)
+	WEAPON.jump_fall_offset = lerp(WEAPON.jump_fall_offset, 0.0, WEAPON.jump_fall_speed * delta)
 	
 	if Input.is_action_just_pressed("crouch") and PLAYER.is_on_floor():
 		transition.emit("CrouchingPlayerState")
@@ -23,3 +26,6 @@ func update(delta: float) -> void:
 		
 	if PLAYER.velocity.y < -3.0 and !PLAYER.is_on_floor():
 		transition.emit("FallingPlayerState")
+		
+	if Input.is_action_just_pressed("shoot"):
+		WEAPON._attack()

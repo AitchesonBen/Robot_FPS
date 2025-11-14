@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Weapons" load_steps=3 format=3 uid="uid://duytxb2toykoq"]
+
+[ext_resource type="PackedScene" uid="uid://bt8ivqrwr4mcy" path="res://model/Weapon/Sniper.tscn" id="1_3yk1a"]
+[ext_resource type="Script" uid="uid://248vpyxv5gvs" path="res://scripts/weapons.gd" id="1_nj57j"]
+
+[resource]
+script = ExtResource("1_nj57j")
+name = &"Sniper"
+position = Vector3(0.221, 0.202, -0.11)
+rotation = Vector3(3.8, -6.1, 1.3)
+scene = ExtResource("1_3yk1a")
+metadata/_custom_type_script = "uid://248vpyxv5gvs"
