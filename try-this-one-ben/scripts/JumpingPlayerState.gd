@@ -24,7 +24,11 @@ func update(delta) -> void:
 	WEAPON.sway_weapon(delta, false, 1)
 	WEAPON._weapon_dip(delta, PLAYER.velocity.y)
 	
+	if Input.is_action_just_pressed("shoot"):
+		WEAPON._attack()
+	
 	if Input.is_action_just_pressed("jump") and DOUBLE_JUMP == false and not PLAYER.is_on_floor():
+		PLAYER.velocity.y = 0
 		DOUBLE_JUMP = true
 		PLAYER.velocity.y = max(PLAYER.velocity.y, DOUBLE_JUMP_VELOCITY)
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -34,9 +38,10 @@ func update(delta) -> void:
 			PLAYER.velocity.x += boost_vector.x
 			PLAYER.velocity.z += boost_vector.z
 	
-	if Input.is_action_just_released("jump"):
-		if PLAYER.velocity.y > 0:
-			PLAYER.velocity.y = PLAYER.velocity.y / 2.0
+	if DOUBLE_JUMP == false:
+		if Input.is_action_just_released("jump"):
+			if PLAYER.velocity.y > 0:
+				PLAYER.velocity.y = PLAYER.velocity.y / 2.0
 	
 	if PLAYER.is_on_floor():
 		WEAPON.jump_fall_offset = lerp(WEAPON.jump_fall_offset, 0.0, WEAPON.jump_fall_speed * delta)

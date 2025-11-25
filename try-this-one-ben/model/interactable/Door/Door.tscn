@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhfsoqpdlmdxa"]
+
+[ext_resource type="PackedScene" uid="uid://caqkscvxtnfnp" path="res://model/interactable/Door/Left.tscn" id="1_k8lbh"]
+[ext_resource type="Script" uid="uid://buvtiknajn4tb" path="res://scripts/door_component.gd" id="2_8ysxn"]
+[ext_resource type="PackedScene" uid="uid://iwarcvq2055y" path="res://model/interactable/Door/Frame.tscn" id="2_mhxe1"]
+[ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/interact_component.gd" id="2_viccl"]
+[ext_resource type="PackedScene" uid="uid://dmdjpqaiv106r" path="res://model/interactable/Door/Right.tscn" id="3_8ysxn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ysxn"]
+size = Vector3(3.1, 6, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_viccl"]
+size = Vector3(18, 6, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mhxe1"]
+size = Vector3(3.1000001, 6, 1)
+
+[node name="Door" type="Node3D"]
+
+[node name="Left" type="AnimatableBody3D" parent="."]
+
+[node name="Left" parent="Left" instance=ExtResource("1_k8lbh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Left"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 3, 0)
+shape = SubResource("BoxShape3D_8ysxn")
+
+[node name="DoorComponent" type="Area3D" parent="Left"]
+script = ExtResource("2_8ysxn")
+direction = Vector3(2.3, 0, 0)
+door_size = Vector3(1, 6, 3)
+door_operation = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Left/DoorComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, -1)
+shape = SubResource("BoxShape3D_viccl")
+
+[node name="InteractionComponent" type="Node" parent="Left"]
+script = ExtResource("2_viccl")
+metadata/_custom_type_script = "uid://d2x2ex6en6u0n"
+
+[node name="Frame" parent="." instance=ExtResource("2_mhxe1")]
+
+[node name="Right" type="AnimatableBody3D" parent="."]
+
+[node name="Right" parent="Right" instance=ExtResource("3_8ysxn")]
+
+[node name="InteractionComponent" type="Node" parent="Right"]
+script = ExtResource("2_viccl")
+metadata/_custom_type_script = "uid://d2x2ex6en6u0n"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Right"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79999983, 3, 0)
+shape = SubResource("BoxShape3D_mhxe1")
+
+[node name="DoorComponent" type="Area3D" parent="Right"]
+script = ExtResource("2_8ysxn")
+direction = Vector3(-2.3, 0, 0)
+door_size = Vector3(1, 6, 3)
+door_operation = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Right/DoorComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, -1)
+shape = SubResource("BoxShape3D_viccl")
+
+[connection signal="body_entered" from="Left/DoorComponent" to="Left/DoorComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="Left/DoorComponent" to="Left/DoorComponent" method="_on_body_exited"]
+[connection signal="body_entered" from="Right/DoorComponent" to="Right/DoorComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="Right/DoorComponent" to="Right/DoorComponent" method="_on_body_exited"]

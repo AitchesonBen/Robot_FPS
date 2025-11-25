@@ -13,6 +13,8 @@ class_name Player extends CharacterBody3D
 @export var CROUCH_SHAPECAST : Node3D
 @export var WEAPON_CONTROLLER : WeaponController
 
+@export var Cell : Node3D
+
 var _speed : float
 var _mouse_input : bool = false
 var _mouse_rotation : Vector3
@@ -62,8 +64,17 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	Global.debug.add_property("MovementSpeed", _speed, 1)
 	Global.debug.add_property("Velocity", "%.2f" % velocity.length(), 2)
+	Global.debug.add_property("Velocity X", "%.2f" % velocity.x, 2)
+	Global.debug.add_property("Velocity Y", "%.2f" % velocity.y, 2)
+	Global.debug.add_property("Velocity Z", "%.2f" % velocity.z, 2)
 	
 	_update_camera(delta)
+	
+	if Global.gotCell:
+		Cell.visible = true
+	
+	if !Global.gotCell:
+		Cell.visible = false
 
 func update_gravity(delta: float) -> void:
 	velocity += get_gravity() * delta

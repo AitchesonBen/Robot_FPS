@@ -30,6 +30,9 @@ func update(delta):
 		ifJumped = true
 		ANIMATION.stop()
 		finish()
+	
+	if Input.is_action_just_pressed("shoot"):
+		WEAPON._attack()
 
 func set_tilt(player_rotation) -> void:
 	var tilt = Vector3.ZERO

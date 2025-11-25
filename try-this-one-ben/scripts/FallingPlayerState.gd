@@ -23,6 +23,7 @@ func update(delta: float) -> void:
 	WEAPON._weapon_dip(delta, PLAYER.velocity.y)
 	
 	if Input.is_action_just_pressed("jump") and DOUBLE_JUMP == false:
+		PLAYER.velocity.y = 0
 		DOUBLE_JUMP = true
 		PLAYER.velocity.y = max(PLAYER.velocity.y, DOUBLE_JUMP_VELOCITY)
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -35,6 +36,9 @@ func update(delta: float) -> void:
 	if Input.is_action_just_released("jump"):
 		if PLAYER.velocity.y > 0:
 			PLAYER.velocity.y = PLAYER.velocity.y / 2.0
+			
+	if Input.is_action_just_pressed("shoot"):
+		WEAPON._attack()
 		
 	if PLAYER.is_on_floor():
 		#ANIMATION.play("JumpEnd")

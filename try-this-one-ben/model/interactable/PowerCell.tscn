@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg4icuyadata5"]
+
+[ext_resource type="PackedScene" uid="uid://cxewx6p1svnkf" path="res://model/interactable/WillStuff/Power Cell.gltf" id="1_0bdmd"]
+[ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/interact_component.gd" id="2_evdr1"]
+[ext_resource type="Script" uid="uid://dd5efw1st2g13" path="res://scripts/cell_component.gd" id="3_jdtkd"]
+
+[node name="PowerCell" instance=ExtResource("1_0bdmd")]
+
+[node name="InteractionComponent" type="Node" parent="Object/mesh/Hitbox_Main/StaticBody3D" index="1" node_paths=PackedStringArray("mesh")]
+script = ExtResource("2_evdr1")
+mesh = NodePath("../../../../Body/Capsule")
+context = "Pick up Cell"
+metadata/_custom_type_script = "uid://d2x2ex6en6u0n"
+
+[node name="CellComponent" type="Node" parent="Object/mesh/Hitbox_Main/StaticBody3D" index="2"]
+script = ExtResource("3_jdtkd")
