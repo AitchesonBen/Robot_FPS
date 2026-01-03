@@ -22,8 +22,13 @@ func update(delta: float) -> void:
 	WEAPON.sway_weapon(delta, false, 1)
 	WEAPON._weapon_dip(delta, PLAYER.velocity.y)
 	
-	if Input.is_action_just_pressed("jump") and DOUBLE_JUMP == false:
+	if Global.double_jumped:
 		DOUBLE_JUMP = true
+	
+	if Input.is_action_just_pressed("jump") and DOUBLE_JUMP == false:
+		PLAYER.velocity.y = 0
+		DOUBLE_JUMP = true
+		Global.double_jumped = true
 		PLAYER.velocity.y = max(PLAYER.velocity.y, DOUBLE_JUMP_VELOCITY)
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 		if input_dir.length() > 0:
@@ -35,6 +40,12 @@ func update(delta: float) -> void:
 	if Input.is_action_just_released("jump"):
 		if PLAYER.velocity.y > 0:
 			PLAYER.velocity.y = PLAYER.velocity.y / 2.0
+			
+	if Input.is_action_just_pressed("shoot"):
+		WEAPON._attack()
+		
+	if Input.is_action_just_pressed("dash"):
+		transition.emit("DashPlayerState")
 		
 	if PLAYER.is_on_floor():
 		#ANIMATION.play("JumpEnd")

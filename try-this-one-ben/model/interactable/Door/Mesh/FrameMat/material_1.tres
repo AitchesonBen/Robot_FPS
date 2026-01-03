@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://1o6hsupaf6p2"]
+
+[ext_resource type="Texture2D" uid="uid://dc6qimdusj4f5" path="res://model/interactable/Door/Will/Door_Frame_0.png" id="1_vwvlj"]
+
+[resource]
+resource_name = "material_1"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_vwvlj")
+texture_filter = 0
+texture_repeat = false

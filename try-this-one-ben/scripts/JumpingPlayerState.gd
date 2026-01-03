@@ -7,6 +7,8 @@ class_name JumpingPlayerState extends PlayerMovementState
 @export var DOUBLE_JUMP_VELOCITY : float = 4.5
 @export_range(0.5, 1.0, 0.01) var INPUT_MULTIPLIER : float = 0.85
 
+@onready var WALL_SHAPECAST : ShapeCast3D = $"../../WallShapeCast3D2"
+
 var DOUBLE_JUMP : bool = false
 
 func enter(_previous_state) -> void:
@@ -15,6 +17,7 @@ func enter(_previous_state) -> void:
 
 func exit() -> void:
 	DOUBLE_JUMP = false
+	WALL_SHAPECAST.enabled = true
 
 func update(delta) -> void:
 	PLAYER.update_gravity(delta)
@@ -24,8 +27,21 @@ func update(delta) -> void:
 	WEAPON.sway_weapon(delta, false, 1)
 	WEAPON._weapon_dip(delta, PLAYER.velocity.y)
 	
+	WALL_SHAPECAST.force_shapecast_update()
+	
+	if WALL_SHAPECAST.is_colliding():
+		transition.emit("WallRunPlayerState")
+	
+	if Input.is_action_just_pressed("shoot"):
+		WEAPON._attack()
+	
+	if Input.is_action_just_pressed("dash"):
+		transition.emit("DashPlayerState")
+	
 	if Input.is_action_just_pressed("jump") and DOUBLE_JUMP == false and not PLAYER.is_on_floor():
+		PLAYER.velocity.y = 0
 		DOUBLE_JUMP = true
+		Global.double_jumped = true
 		PLAYER.velocity.y = max(PLAYER.velocity.y, DOUBLE_JUMP_VELOCITY)
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 		if input_dir.length() > 0:
@@ -34,9 +50,10 @@ func update(delta) -> void:
 			PLAYER.velocity.x += boost_vector.x
 			PLAYER.velocity.z += boost_vector.z
 	
-	if Input.is_action_just_released("jump"):
-		if PLAYER.velocity.y > 0:
-			PLAYER.velocity.y = PLAYER.velocity.y / 2.0
+	if DOUBLE_JUMP == false:
+		if Input.is_action_just_released("jump"):
+			if PLAYER.velocity.y > 0:
+				PLAYER.velocity.y = PLAYER.velocity.y / 2.0
 	
 	if PLAYER.is_on_floor():
 		WEAPON.jump_fall_offset = lerp(WEAPON.jump_fall_offset, 0.0, WEAPON.jump_fall_speed * delta)

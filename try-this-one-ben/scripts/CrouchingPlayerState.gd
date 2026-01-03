@@ -8,7 +8,7 @@ class_name CrouchingPlayerState extends PlayerMovementState
 @export var WEAPON_BOB_H : float = 2.0
 @export var WEAPON_BOB_V : float = 1.0
 
-@onready var CROUCH_SHAPECAST : ShapeCast3D = $"../../ShapeCast3D"
+@onready var CROUCH_SHAPECAST : ShapeCast3D = $"../../CrouchShapeCast3D"
 
 var RELEASED : bool = false
 
@@ -30,6 +30,9 @@ func update(delta: float) -> void:
 	
 	WEAPON.sway_weapon(delta, false, 1)
 	WEAPON._weapon_bob(delta, WEAPON_BOB_SPD, WEAPON_BOB_H, WEAPON_BOB_V)
+	
+	if Input.is_action_just_pressed("shoot"):
+		WEAPON._attack()
 	
 	if Input.is_action_just_released("crouch"):
 		uncrouch()

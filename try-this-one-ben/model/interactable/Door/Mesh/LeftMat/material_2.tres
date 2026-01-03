@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d1ax0t725y3y0"]
+
+[ext_resource type="Texture2D" uid="uid://dtdn0icq3t4b4" path="res://model/interactable/Door/Will/Door_Left_0.png" id="1_xs33l"]
+
+[resource]
+resource_name = "material_2"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_xs33l")
+texture_filter = 0
+texture_repeat = false

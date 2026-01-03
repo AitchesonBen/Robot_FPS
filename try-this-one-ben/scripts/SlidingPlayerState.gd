@@ -6,7 +6,7 @@ class_name SlidingPlayerState extends PlayerMovementState
 @export var TILT_AMOUNT : float = 0.09
 @export_range(1, 6, 0.1) var SLIDE_ANIM_SPEED : float = 4.0
 
-@onready var CROUCH_SHAPECAST : ShapeCast3D = $"../../ShapeCast3D"
+@onready var CROUCH_SHAPECAST : ShapeCast3D = $"../../CrouchShapeCast3D"
 
 var ifJumped : bool = false
 
@@ -30,6 +30,9 @@ func update(delta):
 		ifJumped = true
 		ANIMATION.stop()
 		finish()
+	
+	if Input.is_action_just_pressed("shoot"):
+		WEAPON._attack()
 
 func set_tilt(player_rotation) -> void:
 	var tilt = Vector3.ZERO

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://iwarcvq2055y"]
+
+[ext_resource type="PackedScene" uid="uid://bg705ks174xc" path="res://model/interactable/Door/Will/Door_Frame.gltf" id="1_l0rg5"]
+
+[node name="Frame" instance=ExtResource("1_l0rg5")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
