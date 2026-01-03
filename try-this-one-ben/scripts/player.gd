@@ -11,6 +11,7 @@ class_name Player extends CharacterBody3D
 @export var CAMERA_CONTROLLER : Camera3D
 @export var ANIMATIONPLAYER : AnimationPlayer
 @export var CROUCH_SHAPECAST : Node3D
+@export var WALL_SHAPECAST : Node3D
 @export var WEAPON_CONTROLLER : WeaponController
 
 @export var Cell : Node3D
@@ -60,6 +61,7 @@ func _ready():
 	_speed = SPEED_DEFAULT
 	
 	CROUCH_SHAPECAST.add_exception($".")
+	WALL_SHAPECAST.add_exception($".")
 
 func _physics_process(delta: float) -> void:
 	Global.debug.add_property("MovementSpeed", _speed, 1)
@@ -89,6 +91,25 @@ func update_input(speed: float, acceleration: float, deceleration: float) -> voi
 	else:
 		velocity.x = move_toward(velocity.x, 0, deceleration)
 		velocity.z = move_toward(velocity.z, 0, deceleration)
+
+func update_wall_run_input(speed: float, acceleration: float, deceleration: float, wall_normal: Vector3) -> void:
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	
+	if input_dir.length() == 0:
+		velocity.x = move_toward(velocity.x, 0, deceleration)
+		velocity.z = move_toward(velocity.z, 0, deceleration)
+		return
+	
+	var wish_dir := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+	var wall_dir := wish_dir.slide(wall_normal).normalized()
+
+	velocity.x = lerp(velocity.x, wall_dir.x * speed, acceleration)
+	velocity.z = lerp(velocity.z, wall_dir.z * speed, acceleration)
+
+	var push := velocity.dot(wall_normal)
+	if push > 0:
+		velocity -= wall_normal * push
 
 func update_velocity() -> void:
 	move_and_slide()

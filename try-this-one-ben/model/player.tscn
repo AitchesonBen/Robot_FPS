@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://l66v3s8xrv5c"]
+[gd_scene load_steps=32 format=3 uid="uid://l66v3s8xrv5c"]
 
 [ext_resource type="Script" uid="uid://dnguk1ygniers" path="res://scripts/player.gd" id="1_gbl1t"]
 [ext_resource type="Script" uid="uid://hqy25httlnxt" path="res://scripts/weapon_recoil.gd" id="2_1m16y"]
@@ -19,6 +19,8 @@
 [ext_resource type="Script" uid="uid://8hndqsnb5cb3" path="res://scripts/FallingPlayerState.gd" id="13_urp6f"]
 [ext_resource type="Script" uid="uid://cnxh3y4hr2ixw" path="res://scripts/WeaponViewport.gd" id="14_bwjto"]
 [ext_resource type="Script" uid="uid://baub5jgf125s8" path="res://scripts/WeaponCamera.gd" id="15_606se"]
+[ext_resource type="Script" uid="uid://cqqrms3uwmvp7" path="res://scripts/WallRunPlayerState.gd" id="18_ejh3u"]
+[ext_resource type="Script" uid="uid://cfs4ttivjis1n" path="res://scripts/DashPlayerState.gd" id="19_hbtid"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrm1h"]
 
@@ -139,7 +141,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("ShapeCast3D:position")
+tracks/7/path = NodePath("CrouchShapeCast3D:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -227,7 +229,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ShapeCast3D:position")
+tracks/4/path = NodePath("CrouchShapeCast3D:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -389,12 +391,13 @@ _data = {
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j68t0"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WEAPON_CONTROLLER", "Cell")]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WALL_SHAPECAST", "WEAPON_CONTROLLER", "Cell")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_gbl1t")
 CAMERA_CONTROLLER = NodePath("Camera/Recoil/Camera3D")
 ANIMATIONPLAYER = NodePath("AnimationPlayer")
-CROUCH_SHAPECAST = NodePath("ShapeCast3D")
+CROUCH_SHAPECAST = NodePath("CrouchShapeCast3D")
+WALL_SHAPECAST = NodePath("WallShapeCast3D2")
 WEAPON_CONTROLLER = NodePath("Camera/Recoil/Camera3D/WeaponRig/Weapon")
 Cell = NodePath("Camera/Recoil/Camera3D/PowerCell")
 
@@ -445,10 +448,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_4j1qc")
 }
 
-[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+[node name="CrouchShapeCast3D" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_j68t0")
 target_position = Vector3(0, -0.5, 0)
+
+[node name="WallShapeCast3D2" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3744301, 0.83221555, 0)
+shape = SubResource("SphereShape3D_j68t0")
+target_position = Vector3(0, -0.5, 0)
+collision_mask = 4
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -472,7 +481,7 @@ script = ExtResource("2_ynuub")
 RETICLE_LINES = [NodePath("Top"), NodePath("Right"), NodePath("Bottom"), NodePath("Left")]
 PLAYER_CONTROLLER = NodePath("../..")
 RETICLE_SPEED = 0.05
-RETICLE_DISTANCE = 5.0
+RETICLE_DISTANCE = 3.0
 
 [node name="Top" type="Line2D" parent="UI/Reticle"]
 points = PackedVector2Array(0, -5, 0, -15)
@@ -558,6 +567,12 @@ DOUBLE_JUMP_VELOCITY = 15.0
 script = ExtResource("13_urp6f")
 SPEED = 10.0
 DOUBLE_JUMP_VELOCITY = 15.0
+
+[node name="WallRunPlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("18_ejh3u")
+
+[node name="DashPlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("19_hbtid")
 
 [node name="WeaponViewport" type="SubViewportContainer" parent="."]
 anchors_preset = 15

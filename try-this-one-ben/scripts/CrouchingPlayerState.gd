@@ -8,7 +8,7 @@ class_name CrouchingPlayerState extends PlayerMovementState
 @export var WEAPON_BOB_H : float = 2.0
 @export var WEAPON_BOB_V : float = 1.0
 
-@onready var CROUCH_SHAPECAST : ShapeCast3D = $"../../ShapeCast3D"
+@onready var CROUCH_SHAPECAST : ShapeCast3D = $"../../CrouchShapeCast3D"
 
 var RELEASED : bool = false
 

@@ -43,6 +43,9 @@ func update(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("shoot"):
 		WEAPON._attack()
+	
+	if Input.is_action_just_pressed("dash") and PLAYER.is_on_floor():
+		transition.emit("DashPlayerState")
 
 func set_animation_speed(spd):
 	var alpha = remap(spd, 0.0, SPEED, 0.0, 1.0)
