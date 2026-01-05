@@ -12,6 +12,7 @@ func enter(_previous_state) -> void:
 	ANIMATION.play("Headbob", -1.0, 1.0)
 	Global.player._speed = Global.player.SPEED_DEFAULT
 	Global.player.velocity.y = 0
+	Global.double_jumped = false
 
 func exit() -> void:
 	pass

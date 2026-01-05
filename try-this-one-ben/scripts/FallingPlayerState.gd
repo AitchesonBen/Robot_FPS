@@ -7,6 +7,7 @@ class_name FallingPlayerScript extends PlayerMovementState
 @export_range(0.5, 1.0, 0.01) var INPUT_MULTIPLIER : float = 0.85
 
 var DOUBLE_JUMP : bool = false
+var has_dash : bool = false
 
 func enter(_previous_state) -> void:
 	ANIMATION.pause()
@@ -15,6 +16,7 @@ func exit() -> void:
 	DOUBLE_JUMP = false
 
 func update(delta: float) -> void:
+	has_dash = Global.has_dashed
 	PLAYER.update_gravity(delta)
 	PLAYER.update_input(SPEED, ACCELERATION, DECELERATION)
 	PLAYER.update_velocity()
@@ -45,9 +47,12 @@ func update(delta: float) -> void:
 		WEAPON._attack()
 		
 	if Input.is_action_just_pressed("dash"):
-		transition.emit("DashPlayerState")
+		if PLAYER.can_dash() && !has_dash:
+			PLAYER.start_dash_cooldown()
+			transition.emit("DashPlayerState")
 		
 	if PLAYER.is_on_floor():
 		#ANIMATION.play("JumpEnd")
+		Global.has_dashed = false
 		WEAPON.jump_fall_offset = lerp(WEAPON.jump_fall_offset, 0.0, WEAPON.jump_fall_speed * delta)
 		transition.emit("IdlePlayerState")

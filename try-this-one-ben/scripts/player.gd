@@ -16,6 +16,9 @@ class_name Player extends CharacterBody3D
 
 @export var Cell : Node3D
 
+@export var DASH_COOLDOWN := 2
+var dash_cooldown_timer := 0.0
+
 var _speed : float
 var _mouse_input : bool = false
 var _mouse_rotation : Vector3
@@ -72,6 +75,9 @@ func _physics_process(delta: float) -> void:
 	
 	_update_camera(delta)
 	
+	if dash_cooldown_timer > 0.0:
+		dash_cooldown_timer -= delta
+	
 	if Global.gotCell:
 		Cell.visible = true
 	
@@ -110,6 +116,12 @@ func update_wall_run_input(speed: float, acceleration: float, deceleration: floa
 	var push := velocity.dot(wall_normal)
 	if push > 0:
 		velocity -= wall_normal * push
+
+func can_dash() -> bool:
+	return dash_cooldown_timer <= 0.0
+	
+func start_dash_cooldown() -> void:
+	dash_cooldown_timer = DASH_COOLDOWN
 
 func update_velocity() -> void:
 	move_and_slide()

@@ -454,7 +454,7 @@ shape = SubResource("SphereShape3D_j68t0")
 target_position = Vector3(0, -0.5, 0)
 
 [node name="WallShapeCast3D2" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3744301, 0.83221555, 0)
+transform = Transform3D(1.2107844, 0, 0, 0, 1, 0, 0, 0, 1, -0.02297315, 0.83221555, 0)
 shape = SubResource("SphereShape3D_j68t0")
 target_position = Vector3(0, -0.5, 0)
 collision_mask = 4

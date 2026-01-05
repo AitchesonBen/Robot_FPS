@@ -6,10 +6,13 @@ class_name DashPlayerState extends PlayerMovementState
 
 var dash_timer := 0.0
 
+var has_dash = false
+
 func enter(_previous_state) -> void:
 	dash_timer = DASH_DURATION
 	Global.player._speed = Global.player.SPEED_DEFAULT
 	Global.player.velocity.y = 0
+	Global.has_dashed = true
 	
 	var input_dir := Input.get_vector(
 		"move_left",
@@ -39,4 +42,7 @@ func update(delta: float) -> void:
 	Global.player.update_velocity()
 
 	if dash_timer <= 0:
-		transition.emit("FallingPlayerState")
+		if Global.player.velocity.y > 0.0:
+			transition.emit("FallingPlayerState")
+		else:
+			transition.emit("IdlePlayerState")
