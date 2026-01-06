@@ -13,6 +13,7 @@ func enter(_previous_state) -> void:
 	Global.player._speed = Global.player.SPEED_DEFAULT
 	Global.player.velocity.y = 0
 	Global.has_dashed = true
+	print(Global.double_jumped)
 	
 	var input_dir := Input.get_vector(
 		"move_left",

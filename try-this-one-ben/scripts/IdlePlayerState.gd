@@ -5,7 +5,8 @@ class_name IdlePlayerState extends PlayerMovementState
 @export var DECELERATION : float  = 0.25
 
 func enter(_previous_state) -> void:
-	Global.double_jumped = false
+	if PLAYER.is_on_floor():
+		Global.double_jumped = false
 	ANIMATION.pause()
 
 func update(delta: float) -> void:

@@ -6,3 +6,4 @@ var gotCell : bool = false
 var chargerEquipped : bool = false
 var double_jumped : bool = false
 var has_dashed: bool = false
+var cooldown : float = 0.0

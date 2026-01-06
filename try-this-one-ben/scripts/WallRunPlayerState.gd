@@ -17,7 +17,7 @@ func enter(_previous_state) -> void:
 func exit() -> void:
 	pass
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	var wall_normal := WALL_SHAPECAST.get_collision_normal(0)
 	PLAYER.update_wall_run_input(SPEED, ACCELERATION, DECELERATION, wall_normal)
 	PLAYER.update_velocity()
