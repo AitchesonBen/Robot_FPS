@@ -14,10 +14,11 @@ class_name Player extends CharacterBody3D
 @export var WALL_SHAPECAST : Node3D
 @export var WEAPON_CONTROLLER : WeaponController
 @export var WALL_SPEED_BOOST : float = 1.25
+@export var DASH_ANIMATION_IMAGE : Node
 
 @export var Cell : Node3D
 
-@export var DASH_COOLDOWN := 2
+@export var DASH_COOLDOWN : float = 2.0
 var dash_cooldown_timer := 0.0
 
 var _speed : float
@@ -74,10 +75,13 @@ func _physics_process(delta: float) -> void:
 	Global.debug.add_property("Velocity Y", "%.2f" % velocity.y, 2)
 	Global.debug.add_property("Velocity Z", "%.2f" % velocity.z, 2)
 	
+	DASH_ANIMATION_IMAGE.enable_cooldown()
+	
 	_update_camera(delta)
 	
 	if dash_cooldown_timer > 0.0:
 		dash_cooldown_timer -= delta
+		Global.cooldown = dash_cooldown_timer
 	
 	if Global.gotCell:
 		Cell.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://l66v3s8xrv5c"]
+[gd_scene load_steps=36 format=3 uid="uid://l66v3s8xrv5c"]
 
 [ext_resource type="Script" uid="uid://dnguk1ygniers" path="res://scripts/player.gd" id="1_gbl1t"]
 [ext_resource type="Script" uid="uid://hqy25httlnxt" path="res://scripts/weapon_recoil.gd" id="2_1m16y"]
@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://d2be2g5papncg" path="res://ui/keyboard_e.png" id="9_7jrhr"]
 [ext_resource type="Script" uid="uid://b8n6wuky4naqp" path="res://scripts/SlidingPlayerState.gd" id="9_s5g8d"]
 [ext_resource type="Script" uid="uid://blwsr5vbeyc2p" path="res://scripts/JumpingPlayerState.gd" id="10_lyj86"]
+[ext_resource type="Texture2D" uid="uid://dyl32xc8ujlma" path="res://ui/Dash.png" id="11_j64lu"]
+[ext_resource type="Texture2D" uid="uid://bdjyr10vw3gsv" path="res://ui/DashRed.png" id="12_5d00c"]
+[ext_resource type="Script" uid="uid://d0iy8sugx6phy" path="res://scripts/animation_component.gd" id="13_ngsdc"]
 [ext_resource type="Script" uid="uid://8hndqsnb5cb3" path="res://scripts/FallingPlayerState.gd" id="13_urp6f"]
 [ext_resource type="Script" uid="uid://cnxh3y4hr2ixw" path="res://scripts/WeaponViewport.gd" id="14_bwjto"]
 [ext_resource type="Script" uid="uid://baub5jgf125s8" path="res://scripts/WeaponCamera.gd" id="15_606se"]
@@ -393,7 +396,7 @@ _data = {
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j68t0"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WALL_SHAPECAST", "WEAPON_CONTROLLER", "Cell")]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WALL_SHAPECAST", "WEAPON_CONTROLLER", "DASH_ANIMATION_IMAGE", "Cell")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2742698, 0)
 script = ExtResource("1_gbl1t")
 CAMERA_CONTROLLER = NodePath("Camera/Recoil/Camera3D")
@@ -401,7 +404,9 @@ ANIMATIONPLAYER = NodePath("AnimationPlayer")
 CROUCH_SHAPECAST = NodePath("CrouchShapeCast3D")
 WALL_SHAPECAST = NodePath("WallShapeCast3D2")
 WEAPON_CONTROLLER = NodePath("Camera/Recoil/Camera3D/WeaponRig/Weapon")
+DASH_ANIMATION_IMAGE = NodePath("UI/DashRed/AnimationComponent")
 Cell = NodePath("Camera/Recoil/Camera3D/PowerCell")
+DASH_COOLDOWN = 1.5
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_lrm1h")
@@ -438,6 +443,7 @@ visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Camera/Recoil/Camera3D"]
 transform = Transform3D(0.98472905, 0.05557202, 0.16498636, -0.034279745, 0.9910254, -0.12920476, -0.17068578, 0.121576, 0.9777964, -0.53599703, -0.35093808, -0.6536727)
+visible = false
 size = Vector3(0.14013672, 0.14147949, 0.58551025)
 
 [node name="InteractionRaycast" type="RayCast3D" parent="Camera/Recoil/Camera3D"]
@@ -539,6 +545,28 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/ContextContainter/HBoxContainer"]
 layout_mode = 2
+
+[node name="Dash" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 26.000122
+offset_top = 565.0
+offset_right = 251.00012
+offset_bottom = 790.0
+scale = Vector2(0.27999997, 0.27999997)
+texture = ExtResource("11_j64lu")
+
+[node name="DashRed" type="TextureRect" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 26.000122
+offset_top = 565.0
+offset_right = 251.00012
+offset_bottom = 790.0
+scale = Vector2(0.27999997, 0.27999997)
+texture = ExtResource("12_5d00c")
+
+[node name="AnimationComponent" type="Node" parent="UI/DashRed"]
+script = ExtResource("13_ngsdc")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("5_p0pvw")
