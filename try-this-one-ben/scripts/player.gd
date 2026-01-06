@@ -13,8 +13,12 @@ class_name Player extends CharacterBody3D
 @export var CROUCH_SHAPECAST : Node3D
 @export var WALL_SHAPECAST : Node3D
 @export var WEAPON_CONTROLLER : WeaponController
+@export var WALL_SPEED_BOOST : float = 1.25
 
 @export var Cell : Node3D
+
+@export var DASH_COOLDOWN := 2
+var dash_cooldown_timer := 0.0
 
 var _speed : float
 var _mouse_input : bool = false
@@ -72,6 +76,9 @@ func _physics_process(delta: float) -> void:
 	
 	_update_camera(delta)
 	
+	if dash_cooldown_timer > 0.0:
+		dash_cooldown_timer -= delta
+	
 	if Global.gotCell:
 		Cell.visible = true
 	
@@ -104,12 +111,18 @@ func update_wall_run_input(speed: float, acceleration: float, deceleration: floa
 
 	var wall_dir := wish_dir.slide(wall_normal).normalized()
 
-	velocity.x = lerp(velocity.x, wall_dir.x * speed, acceleration)
-	velocity.z = lerp(velocity.z, wall_dir.z * speed, acceleration)
+	velocity.x = lerp(velocity.x, wall_dir.x * speed * WALL_SPEED_BOOST, acceleration)
+	velocity.z = lerp(velocity.z, wall_dir.z * speed * WALL_SPEED_BOOST, acceleration)
 
 	var push := velocity.dot(wall_normal)
 	if push > 0:
 		velocity -= wall_normal * push
+
+func can_dash() -> bool:
+	return dash_cooldown_timer <= 0.0
+	
+func start_dash_cooldown() -> void:
+	dash_cooldown_timer = DASH_COOLDOWN
 
 func update_velocity() -> void:
 	move_and_slide()

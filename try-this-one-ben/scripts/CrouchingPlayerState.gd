@@ -11,6 +11,7 @@ class_name CrouchingPlayerState extends PlayerMovementState
 @onready var CROUCH_SHAPECAST : ShapeCast3D = $"../../CrouchShapeCast3D"
 
 var RELEASED : bool = false
+var is_uncrouching = false
 
 func enter(previous_state) -> void:
 	ANIMATION.speed_scale = 1.0
@@ -39,9 +40,17 @@ func update(delta: float) -> void:
 	elif Input.is_action_pressed("crouch") == false and RELEASED == false:
 		RELEASED = true
 		uncrouch()
+		
+	if CROUCH_SHAPECAST.is_colliding() == false and not is_uncrouching:
+		uncrouch()
 
 func uncrouch():
+	if is_uncrouching:
+		return 
+		
+	is_uncrouching = true
 	CROUCH_SHAPECAST.force_shapecast_update()
+	print(CROUCH_SHAPECAST.is_colliding())
 	if CROUCH_SHAPECAST.is_colliding() == false and Input.is_action_pressed("crouch") == false:
 		ANIMATION.play("crouch", -1.0, -CROUCH_SPEED, true)
 		if ANIMATION.is_playing():
@@ -53,3 +62,5 @@ func uncrouch():
 	elif CROUCH_SHAPECAST.is_colliding() == true:
 		await get_tree().create_timer(0.1).timeout
 		uncrouch()
+		
+	is_uncrouching = false

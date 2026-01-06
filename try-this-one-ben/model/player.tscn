@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://l66v3s8xrv5c"]
+[gd_scene load_steps=33 format=3 uid="uid://l66v3s8xrv5c"]
 
 [ext_resource type="Script" uid="uid://dnguk1ygniers" path="res://scripts/player.gd" id="1_gbl1t"]
 [ext_resource type="Script" uid="uid://hqy25httlnxt" path="res://scripts/weapon_recoil.gd" id="2_1m16y"]
@@ -236,7 +236,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.96666664),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0.5, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0.89997673, 0), Vector3(0, 0.5, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -389,10 +389,12 @@ _data = {
 &"uncrouch": SubResource("Animation_86jfw")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hbtid"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_j68t0"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WALL_SHAPECAST", "WEAPON_CONTROLLER", "Cell")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2742698, 0)
 script = ExtResource("1_gbl1t")
 CAMERA_CONTROLLER = NodePath("Camera/Recoil/Camera3D")
 ANIMATIONPLAYER = NodePath("AnimationPlayer")
@@ -405,7 +407,7 @@ Cell = NodePath("Camera/Recoil/Camera3D/PowerCell")
 shape = SubResource("CapsuleShape3D_lrm1h")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23067832, 0)
+transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, 0.23067832, 0)
 mesh = SubResource("CapsuleMesh_ek63y")
 
 [node name="Camera" type="Node3D" parent="."]
@@ -419,7 +421,7 @@ speed = 20.0
 weapon = NodePath("Camera3D/WeaponRig/Weapon")
 
 [node name="Camera3D" type="Camera3D" parent="Camera/Recoil"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33178425, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41215014, 0)
 cull_mask = 1048573
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="Camera/Recoil/Camera3D"]
@@ -449,12 +451,12 @@ libraries = {
 }
 
 [node name="CrouchShapeCast3D" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("SphereShape3D_j68t0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_hbtid")
 target_position = Vector3(0, -0.5, 0)
 
 [node name="WallShapeCast3D2" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3744301, 0.83221555, 0)
+transform = Transform3D(1.2107844, 0, 0, 0, 1, 0, 0, 0, 1, -0.02297315, 0.83221555, 0)
 shape = SubResource("SphereShape3D_j68t0")
 target_position = Vector3(0, -0.5, 0)
 collision_mask = 4

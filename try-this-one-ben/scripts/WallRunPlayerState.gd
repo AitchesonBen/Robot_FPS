@@ -12,6 +12,7 @@ func enter(_previous_state) -> void:
 	ANIMATION.play("Headbob", -1.0, 1.0)
 	Global.player._speed = Global.player.SPEED_DEFAULT
 	Global.player.velocity.y = 0
+	Global.double_jumped = false
 
 func exit() -> void:
 	pass
@@ -22,7 +23,7 @@ func update(delta: float) -> void:
 	PLAYER.update_velocity()
 	
 	if Input.is_action_just_pressed("jump"):
-		WALL_SHAPECAST.enabled = false
+		#WALL_SHAPECAST.enabled = false
 		transition.emit("JumpingPlayerState")
 		ifJumped = true
 		

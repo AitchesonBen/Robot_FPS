@@ -8,14 +8,19 @@ class_name WalkingPlayerState extends PlayerMovementState
 @export var WEAPON_BOB_H : float = 2.0
 @export var WEAPON_BOB_V : float = 1.0
 
+var has_dash : bool = false
+
 func enter(_previous_state) -> void:
 	ANIMATION.play("Headbob", -1.0, 1.0)
 	Global.player._speed = Global.player.SPEED_DEFAULT
 
 func exit() -> void:
+	Global.has_dashed = false
 	ANIMATION.speed_scale = 1.0
 
 func update(delta: float) -> void:
+	has_dash = Global.has_dashed
+	
 	PLAYER.update_gravity(delta)
 	PLAYER.update_input(SPEED, ACCELERATION, DECELERATION)
 	PLAYER.update_velocity()
@@ -45,7 +50,12 @@ func update(delta: float) -> void:
 		WEAPON._attack()
 	
 	if Input.is_action_just_pressed("dash") and PLAYER.is_on_floor():
-		transition.emit("DashPlayerState")
+		if PLAYER.can_dash() && !has_dash:
+			PLAYER.start_dash_cooldown()
+			transition.emit("DashPlayerState")
+			
+	if PLAYER.can_dash():
+		Global.has_dashed = false
 
 func set_animation_speed(spd):
 	var alpha = remap(spd, 0.0, SPEED, 0.0, 1.0)
