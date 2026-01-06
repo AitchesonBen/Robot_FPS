@@ -4,10 +4,14 @@ class_name FallingPlayerScript extends PlayerMovementState
 @export var ACCELERATION : float = 0.1
 @export var DECELERATION : float = 0.25
 @export var DOUBLE_JUMP_VELOCITY : float = 4.5
+@export var WALL_DELAY : float = 1.0
 @export_range(0.5, 1.0, 0.01) var INPUT_MULTIPLIER : float = 0.85
+
+@onready var WALL_SHAPECAST : ShapeCast3D = $"../../WallShapeCast3D2"
 
 var DOUBLE_JUMP : bool = false
 var has_dash : bool = false
+var cooldown : float = 0.0
 
 func enter(_previous_state) -> void:
 	ANIMATION.pause()
@@ -43,6 +47,13 @@ func update(delta: float) -> void:
 		if PLAYER.velocity.y > 0:
 			PLAYER.velocity.y = PLAYER.velocity.y / 2.0
 			
+	if WALL_SHAPECAST.is_colliding() and cooldown <= 0:
+		transition.emit("WallRunPlayerState")
+		cooldown = WALL_DELAY
+		
+	if cooldown > 0:
+		cooldown -= delta
+			
 	if Input.is_action_just_pressed("shoot"):
 		WEAPON._attack()
 		
@@ -52,7 +63,6 @@ func update(delta: float) -> void:
 			transition.emit("DashPlayerState")
 		
 	if PLAYER.is_on_floor():
-		#ANIMATION.play("JumpEnd")
 		Global.has_dashed = false
 		WEAPON.jump_fall_offset = lerp(WEAPON.jump_fall_offset, 0.0, WEAPON.jump_fall_speed * delta)
 		transition.emit("IdlePlayerState")

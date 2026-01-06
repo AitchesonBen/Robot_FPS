@@ -5,12 +5,14 @@ class_name JumpingPlayerState extends PlayerMovementState
 @export var DECELERATION : float = 0.25
 @export var JUMP_VELOCITY : float = 4.5
 @export var DOUBLE_JUMP_VELOCITY : float = 4.5
+@export var WALL_DELAY : float = 1.0
 @export_range(0.5, 1.0, 0.01) var INPUT_MULTIPLIER : float = 0.85
 
 @onready var WALL_SHAPECAST : ShapeCast3D = $"../../WallShapeCast3D2"
 
 var DOUBLE_JUMP : bool = false
 var has_dash : bool = false
+var cooldown : float = 0.0
 
 func enter(_previous_state) -> void:
 	PLAYER.velocity.y += JUMP_VELOCITY
@@ -31,8 +33,12 @@ func update(delta) -> void:
 	
 	WALL_SHAPECAST.force_shapecast_update()
 	
-	if WALL_SHAPECAST.is_colliding():
+	if WALL_SHAPECAST.is_colliding() and cooldown <= 0:
 		transition.emit("WallRunPlayerState")
+		cooldown = WALL_DELAY
+		
+	if cooldown > 0:
+		cooldown -= delta
 	
 	if Input.is_action_just_pressed("shoot"):
 		WEAPON._attack()

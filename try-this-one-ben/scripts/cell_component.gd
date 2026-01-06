@@ -13,6 +13,7 @@ func pick_up_cell(state: bool) -> void:
 	if state:
 		print("Picked")
 		Global.gotCell = true
+		
 	else:
 		print("unpicked")
 		Global.gotCell = false

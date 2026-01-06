@@ -13,6 +13,7 @@ class_name Player extends CharacterBody3D
 @export var CROUCH_SHAPECAST : Node3D
 @export var WALL_SHAPECAST : Node3D
 @export var WEAPON_CONTROLLER : WeaponController
+@export var WALL_SPEED_BOOST : float = 1.25
 
 @export var Cell : Node3D
 
@@ -110,8 +111,8 @@ func update_wall_run_input(speed: float, acceleration: float, deceleration: floa
 
 	var wall_dir := wish_dir.slide(wall_normal).normalized()
 
-	velocity.x = lerp(velocity.x, wall_dir.x * speed, acceleration)
-	velocity.z = lerp(velocity.z, wall_dir.z * speed, acceleration)
+	velocity.x = lerp(velocity.x, wall_dir.x * speed * WALL_SPEED_BOOST, acceleration)
+	velocity.z = lerp(velocity.z, wall_dir.z * speed * WALL_SPEED_BOOST, acceleration)
 
 	var push := velocity.dot(wall_normal)
 	if push > 0:

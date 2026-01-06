@@ -23,7 +23,7 @@ func update(delta: float) -> void:
 	PLAYER.update_velocity()
 	
 	if Input.is_action_just_pressed("jump"):
-		WALL_SHAPECAST.enabled = false
+		#WALL_SHAPECAST.enabled = false
 		transition.emit("JumpingPlayerState")
 		ifJumped = true
 		
