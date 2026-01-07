@@ -16,6 +16,7 @@ var cooldown : float = 0.0
 
 func enter(_previous_state) -> void:
 	PLAYER.velocity.y += JUMP_VELOCITY
+	DOUBLE_JUMP = Global.double_jumped
 	ANIMATION.pause()
 
 func exit() -> void:
@@ -35,6 +36,7 @@ func update(delta) -> void:
 	
 	if WALL_SHAPECAST.is_colliding() and cooldown <= 0:
 		transition.emit("WallRunPlayerState")
+		Global.has_dashed = false
 		cooldown = WALL_DELAY
 		
 	if cooldown > 0:
