@@ -41,27 +41,27 @@ _subresources={
 "materials": {
 "material_0": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://model/Boxes/BigTarpMesh/material_0.tres",
+"use_external/fallback_path": "res://model/Boxes/Meshes/BigTarpMesh/material_0.tres",
 "use_external/path": "uid://c3yibjk48hd4p"
 },
 "material_1": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://model/Boxes/BigTarpMesh/material_1.tres",
+"use_external/fallback_path": "res://model/Boxes/Meshes/BigTarpMesh/material_1.tres",
 "use_external/path": "uid://beo4flerc5ecn"
 },
 "material_2": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://model/Boxes/BigTarpMesh/material_2.tres",
+"use_external/fallback_path": "res://model/Boxes/Meshes/BigTarpMesh/material_2.tres",
 "use_external/path": "uid://ci1r3ypwsp7a4"
 },
 "material_3": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://model/Boxes/BigTarpMesh/material_3.tres",
+"use_external/fallback_path": "res://model/Boxes/Meshes/BigTarpMesh/material_3.tres",
 "use_external/path": "uid://bn8l83xd6mr4d"
 },
 "material_4": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://model/Boxes/BigTarpMesh/material_4.tres",
+"use_external/fallback_path": "res://model/Boxes/Meshes/BigTarpMesh/material_4.tres",
 "use_external/path": "uid://deth71sfs4jop"
 }
 },
@@ -72,7 +72,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://model/Boxes/BigTarpMesh/blockbench_export_mesh.res",
+"save_to_file/fallback_path": "res://model/Boxes/Meshes/BigTarpMesh/blockbench_export_mesh.res",
 "save_to_file/path": "uid://v4v2nsexjmc8"
 },
 "blockbench_export_mesh2": {
@@ -81,7 +81,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://model/Boxes/BigTarpMesh/blockbench_export_mesh2.res",
+"save_to_file/fallback_path": "res://model/Boxes/Meshes/BigTarpMesh/blockbench_export_mesh2.res",
 "save_to_file/path": "uid://dakqshb40wfgn"
 },
 "blockbench_export_mesh3": {
@@ -90,7 +90,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://model/Boxes/BigTarpMesh/blockbench_export_mesh3.res",
+"save_to_file/fallback_path": "res://model/Boxes/Meshes/BigTarpMesh/blockbench_export_mesh3.res",
 "save_to_file/path": "uid://chhj172xwkkp0"
 },
 "blockbench_export_mesh4": {
@@ -99,7 +99,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://model/Boxes/BigTarpMesh/blockbench_export_mesh4.res",
+"save_to_file/fallback_path": "res://model/Boxes/Meshes/BigTarpMesh/blockbench_export_mesh4.res",
 "save_to_file/path": "uid://booqq7a2v7qn3"
 },
 "blockbench_export_mesh5": {
@@ -108,7 +108,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://model/Boxes/BigTarpMesh/blockbench_export_mesh5.res",
+"save_to_file/fallback_path": "res://model/Boxes/Meshes/BigTarpMesh/blockbench_export_mesh5.res",
 "save_to_file/path": "uid://c8ymomqp63ehi"
 }
 }
