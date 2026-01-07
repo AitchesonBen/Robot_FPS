@@ -38,7 +38,6 @@ func connect_parent() -> void:
 		parent.connect("interacted", Callable(self, "check_door"))
 
 func check_door() -> void:
-	print(door_status)
 	match door_status:
 		DoorStatus.CLOSED:
 			open_door()
@@ -48,7 +47,6 @@ func check_door() -> void:
 func open_door() -> void:
 		door_status = DoorStatus.OPEN
 	#if Global.chargerEquipped:
-		print("open")
 		var tween = get_tree().create_tween()
 		tween.tween_property(parent, "position", orig_pos + (direction * door_size), speed).set_trans(transition).set_ease(easing)
 		if door_operation == DoorOperation.CLOSE_AUTOMATICALLY:

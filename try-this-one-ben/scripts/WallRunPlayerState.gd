@@ -6,6 +6,7 @@ class_name WallRunPlayerState extends PlayerMovementState
 @export var WEAPON_BOB_SPD : float = 6.0
 @export var WEAPON_BOB_H : float = 2.0
 @export var WEAPON_BOB_V : float = 1.0
+@export var WALL_FALL_VELOCITY : float = 7.0
 
 @onready var WALL_SHAPECAST : ShapeCast3D = $"../../WallShapeCast3D2"
 
@@ -24,7 +25,6 @@ func exit() -> void:
 
 func update(delta: float) -> void:
 	has_dash = Global.has_dashed
-	print(has_dash)
 	var wall_normal := WALL_SHAPECAST.get_collision_normal(0)
 	PLAYER.update_wall_run_input(SPEED, ACCELERATION, DECELERATION, wall_normal)
 	PLAYER.update_velocity()
@@ -38,7 +38,7 @@ func update(delta: float) -> void:
 		transition.emit("JumpingPlayerState")
 		ifJumped = true
 		
-	if WALL_SHAPECAST.is_colliding() == false || PLAYER.velocity.length() <= 2.0:
+	if WALL_SHAPECAST.is_colliding() == false || PLAYER.velocity.length() <= WALL_FALL_VELOCITY:
 		transition.emit("FallingPlayerState")
 	
 	if Input.is_action_just_pressed("shoot"):

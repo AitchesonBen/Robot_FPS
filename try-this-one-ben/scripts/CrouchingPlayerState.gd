@@ -50,7 +50,6 @@ func uncrouch():
 		
 	is_uncrouching = true
 	CROUCH_SHAPECAST.force_shapecast_update()
-	print(CROUCH_SHAPECAST.is_colliding())
 	if CROUCH_SHAPECAST.is_colliding() == false and Input.is_action_pressed("crouch") == false:
 		ANIMATION.play("crouch", -1.0, -CROUCH_SPEED, true)
 		if ANIMATION.is_playing():

@@ -15,5 +15,5 @@ func pick_up_cell(state: bool) -> void:
 		Global.gotCell = true
 		
 	else:
-		print("unpicked")
+		print("Unpicked")
 		Global.gotCell = false
