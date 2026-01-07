@@ -6,8 +6,6 @@ class_name DashPlayerState extends PlayerMovementState
 
 var dash_timer := 0.0
 
-var has_dash = false
-
 func enter(_previous_state) -> void:
 	dash_timer = DASH_DURATION
 	Global.player._speed = Global.player.SPEED_DEFAULT

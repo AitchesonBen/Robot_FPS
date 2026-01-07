@@ -149,7 +149,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_2nhc5")
 text = "Controls     "
 alignment = 2
 
-[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Main Menu" type="Button" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -157,7 +157,7 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_8hk36")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l022b")
 theme_override_styles/hover = SubResource("StyleBoxTexture_0snkj")
-text = "Quit     "
+text = "Main Menu     "
 alignment = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -166,4 +166,5 @@ libraries = {
 }
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Restart Mission" to="." method="_on_restart_mission_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Main Menu" to="." method="_on_quit_pressed"]

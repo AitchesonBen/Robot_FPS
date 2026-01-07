@@ -1,13 +1,18 @@
-[gd_scene load_steps=29 format=3 uid="uid://0lqdfe5dkd1j"]
+[gd_scene load_steps=38 format=3 uid="uid://0lqdfe5dkd1j"]
 
 [ext_resource type="PackedScene" uid="uid://l66v3s8xrv5c" path="res://model/player.tscn" id="1_82owt"]
+[ext_resource type="Shader" uid="uid://clxf2fyb8eebe" path="res://Maps/UI Scenes/sky.gdshader" id="1_6582d"]
+[ext_resource type="Texture2D" uid="uid://b6ldpw5n4luwh" path="res://Maps/UI Scenes/AllSkyFree_Skyboxes/Epic_GloriousPink_EquiRect.png" id="2_65204"]
 [ext_resource type="Texture2D" uid="uid://dfpg2k8sit5kt" path="res://checkboard.png" id="2_cg56m"]
+[ext_resource type="Texture2D" uid="uid://cwwfp4vjwdm5g" path="res://Maps/UI Scenes/gradient_pause.tres" id="2_n8uhs"]
+[ext_resource type="Texture2D" uid="uid://3suljlk3m2ij" path="res://Maps/UI Scenes/AllSkyFree_Skyboxes/AllSky_Overcast4_Low.png" id="3_6g866"]
 [ext_resource type="PackedScene" uid="uid://btlese8oo6kxm" path="res://model/Enemy/Walker.tscn" id="3_bnlx1"]
 [ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/interact_component.gd" id="3_xuiht"]
 [ext_resource type="PackedScene" uid="uid://mpfi5j5ni4qn" path="res://model/Boxes/LargeTarp.tscn" id="4_cg56m"]
 [ext_resource type="Script" uid="uid://buvtiknajn4tb" path="res://scripts/door_component.gd" id="4_fdwi1"]
 [ext_resource type="PackedScene" uid="uid://cdb3ovru6mduw" path="res://model/Boxes/LargeBigTarp.tscn" id="5_bnlx1"]
 [ext_resource type="PackedScene" uid="uid://5giwamtjgrmd" path="res://model/interactable/CellCharger.tscn" id="5_kf75o"]
+[ext_resource type="Texture2D" uid="uid://c81sp6dbi6gyc" path="res://ui/boy_got_rizz.png" id="6_imwdw"]
 [ext_resource type="PackedScene" uid="uid://dhfsoqpdlmdxa" path="res://model/interactable/Door/Door.tscn" id="6_kf75o"]
 [ext_resource type="PackedScene" uid="uid://26yomfbvqjh" path="res://model/Boxes/WideTarp.tscn" id="7_lt333"]
 [ext_resource type="PackedScene" uid="uid://b63f4vuexx1g8" path="res://model/Boxes/FrameTall.tscn" id="8_i3wmk"]
@@ -18,10 +23,22 @@
 [ext_resource type="PackedScene" uid="uid://dxwpfetmqmy8c" path="res://model/Boxes/LargeBox.tscn" id="13_6582d"]
 [ext_resource type="PackedScene" uid="uid://bg4icuyadata5" path="res://model/interactable/PowerCell.tscn" id="14_i3wmk"]
 [ext_resource type="PackedScene" uid="uid://cifidnybuvi6h" path="res://Maps/UI Scenes/Pause_Menu.tscn" id="18_6wt63"]
+[ext_resource type="PackedScene" uid="uid://gy7khll2l63u" path="res://model/Boxes/Explosive.tscn" id="23_6g866"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_65204"]
+shader = ExtResource("1_6582d")
+shader_parameter/sky_background = ExtResource("2_65204")
+shader_parameter/clouds = ExtResource("3_6g866")
+shader_parameter/cloud_color = ExtResource("2_n8uhs")
+shader_parameter/exposure = 0.0
+
+[sub_resource type="Sky" id="Sky_8e2af"]
+sky_material = SubResource("ShaderMaterial_65204")
 
 [sub_resource type="Environment" id="Environment_n57o6"]
 background_mode = 1
 background_color = Color(0.7647059, 0.92941177, 0.91764706, 1)
+sky = SubResource("Sky_8e2af")
 fog_enabled = true
 fog_light_color = Color(0.20878956, 0.44672328, 0.5921006, 1)
 fog_height = 0.5
@@ -34,8 +51,16 @@ uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_krafm"]
 albedo_color = Color(0.8862745, 0.89411765, 0.20784314, 1)
-albedo_texture = ExtResource("2_cg56m")
-uv1_triplanar = true
+albedo_texture = ExtResource("6_imwdw")
+metallic = 0.44
+normal_texture = ExtResource("6_imwdw")
+bent_normal_texture = ExtResource("6_imwdw")
+rim_enabled = true
+rim = 0.4
+rim_tint = 1.0
+subsurf_scatter_strength = 1.0
+subsurf_scatter_texture = ExtResource("6_imwdw")
+detail_albedo = ExtResource("6_imwdw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3wmk"]
 albedo_color = Color(1, 0, 1, 1)
@@ -49,6 +74,10 @@ size = Vector3(0.2, 3.5, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdwi1"]
 size = Vector3(11, 8, 21)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erjw0"]
+normal_enabled = true
+normal_texture = ExtResource("6_imwdw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kf75o"]
 albedo_color = Color(0.56078434, 0.16078432, 1, 1)
@@ -68,11 +97,13 @@ uv1_triplanar = true
 [node name="Level-Example" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.86602545, 0, -0.86602545, 0.5, 0, 6, 4)
+transform = Transform3D(0.9659258, 0.2241438, -0.12940949, -0.12940946, 0.8512707, 0.5085185, 0.22414386, -0.47444427, 0.8512708, 0, 6, 4)
+shadow_enabled = true
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.86602545, 0, -0.86602545, 0.5, 0, 6, 4)
+transform = Transform3D(1, 0, 0, 0, 0.86602545, 0.5, 0, -0.5, 0.86602545, 0, 6, 4)
 layers = 2
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n57o6")
@@ -268,8 +299,9 @@ material = SubResource("StandardMaterial3D_krafm")
 transform = Transform3D(-4.4148504e-08, 0, -1.01, 0, 1.01, 0, 1.01, 0, -4.4148504e-08, 0, -2.7619998, -0.20000005)
 operation = 2
 size = Vector3(6.9, 3.5, 1)
+material = SubResource("StandardMaterial3D_erjw0")
 
-[node name="Wall" type="CSGBox3D" parent="Walls"]
+[node name="RunWall" type="CSGBox3D" parent="Walls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 29.089676, 5.453759, -60.494743)
 use_collision = true
 collision_layer = 5
@@ -277,7 +309,7 @@ collision_mask = 5
 size = Vector3(1, 7, 20.24524)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(-0.7707802, 0, 0.6371011, 0, 1.1619157, 0, -0.6371011, 0, -0.7707802, -7.766636, 5.0674696, 21.958902)
 use_collision = true
 collision_layer = 5
@@ -285,7 +317,7 @@ collision_mask = 5
 size = Vector3(1, 8.676758, 6.8857727)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall2" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall2" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(-0.060194895, 0, 0.9981865, 0, 1.1619157, 0, -0.9981865, 0, -0.060194895, -24.37009, 8.733905, 30.135641)
 use_collision = true
 collision_layer = 5
@@ -293,7 +325,7 @@ collision_mask = 5
 size = Vector3(1, 8.676758, 7.826187)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall3" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall3" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(-0.060194895, 0, 0.9981865, 0, 1.1619157, 0, -0.9981865, 0, -0.060194895, -46.19465, 12.438144, 23.42462)
 use_collision = true
 collision_layer = 5
@@ -301,7 +333,7 @@ collision_mask = 5
 size = Vector3(1, 8.676758, 6.8857727)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall4" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall4" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(-0.9565238, 0, 0.29165384, 0, 1.1619153, 0, -0.29165384, 0, -0.9565238, -70.3004, 16.024101, 46.92124)
 use_collision = true
 collision_layer = 5
@@ -309,7 +341,7 @@ collision_mask = 5
 size = Vector3(1, 8.676758, 31.704117)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall5" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall5" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(0.52181375, 0, -0.85305905, 0, 0.810181, 0, 0.85305905, 0, 0.52181375, -87.92464, 19.052956, 79.12778)
 use_collision = true
 collision_layer = 5
@@ -317,7 +349,7 @@ collision_mask = 5
 size = Vector3(1, 8.676758, 39.998173)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall6" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall6" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(-0.99999815, 0, 0.0019024302, 0, 0.81018114, 0, -0.0019024302, 0, -0.99999815, -131.25928, 21.39846, 89.62414)
 use_collision = true
 collision_layer = 5
@@ -325,7 +357,7 @@ collision_mask = 5
 size = Vector3(1, 9.6796875, 14.202668)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall7" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall7" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(-0.99999815, 0, 0.0019024302, 0, 0.81018114, 0, -0.0019024302, 0, -0.99999815, -139.2554, 28.795162, 89.60816)
 use_collision = true
 collision_layer = 5
@@ -333,7 +365,7 @@ collision_mask = 5
 size = Vector3(1, 8.254761, 14.202668)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall8" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall8" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(-0.94550717, 0, -0.32560113, 0, 0.81018096, 0, 0.32560113, 0, -0.94550717, -101.53145, 36.53786, 42.381287)
 use_collision = true
 collision_layer = 5
@@ -341,7 +373,7 @@ collision_mask = 5
 size = Vector3(0.43444824, 9.009956, 44.86805)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall9" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall9" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(-0.94550717, 0, -0.32560113, 0, 0.81018096, 0, 0.32560113, 0, -0.94550717, -96.54957, 21.277153, -24.690311)
 use_collision = true
 collision_layer = 5
@@ -349,7 +381,7 @@ collision_mask = 5
 size = Vector3(12.01889, 9.035408, 12.587624)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall10" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall10" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(-0.94550717, 0, -0.32560113, 0, 0.81018096, 0, 0.32560113, 0, -0.94550717, -80.621765, 28.539734, -19.263718)
 use_collision = true
 collision_layer = 5
@@ -357,7 +389,7 @@ collision_mask = 5
 size = Vector3(1.1905975, 9.035408, 12.319752)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall11" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall11" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(-0.94550717, 0, -0.32560113, 0, 0.81018096, 0, 0.32560113, 0, -0.94550717, -91.017784, 36.040104, -26.396868)
 use_collision = true
 collision_layer = 5
@@ -365,7 +397,7 @@ collision_mask = 5
 size = Vector3(1.1905975, 9.035408, 12.2436075)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall12" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall12" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(-0.99075013, 0, 0.13569827, 0, 0.81018096, 0, -0.13569827, 0, -0.99075013, -95.34558, 51.235523, 24.779623)
 use_collision = true
 collision_layer = 5
@@ -373,7 +405,7 @@ collision_mask = 5
 size = Vector3(11.956463, 5.276005, 0.4637394)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall13" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall13" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(-0.6575462, 0, -0.75341415, 0, 0.81018096, 0, 0.75341415, 0, -0.6575462, -78.04117, 55.398712, 18.003988)
 use_collision = true
 collision_layer = 5
@@ -381,7 +413,7 @@ collision_mask = 5
 size = Vector3(12.386559, 5.276005, 0.4637394)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Wall14" type="CSGBox3D" parent="Walls/Wall"]
+[node name="Wall14" type="CSGBox3D" parent="Walls/RunWall"]
 transform = Transform3D(0.5465843, 0, -0.83740413, 0, 0.810181, 0, 0.83740413, 0, 0.5465843, -78.04117, 58.6575, -1.4052982)
 use_collision = true
 collision_layer = 5
@@ -480,6 +512,9 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -8.7, 0, -57)
 
 [node name="PowerCell" parent="." instance=ExtResource("14_i3wmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7, 0, -34)
+
+[node name="Explosive" parent="." instance=ExtResource("23_6g866")]
+transform = Transform3D(-1, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, -1, -6, 0, -54)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_82owt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)

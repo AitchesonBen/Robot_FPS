@@ -78,7 +78,6 @@ func _physics_process(delta: float) -> void:
 	if dash_cooldown_timer > 0.0:
 		dash_cooldown_timer -= delta
 		Global.cooldown = dash_cooldown_timer
-		#print(Global.cooldown)
 	
 	if Global.gotCell:
 		Cell.visible = true

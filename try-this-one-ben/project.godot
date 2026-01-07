@@ -13,12 +13,22 @@ config_version=5
 config/name="Robot FPS"
 run/main_scene="uid://0lqdfe5dkd1j"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="uid://c81sp6dbi6gyc"
+config/icon="uid://c4xhxj24sj43b"
 
 [autoload]
 
 Global="*res://scripts/global.gd"
 MessageBus="*res://scripts/message_bus.gd"
+
+[display]
+
+window/size/resizable=false
+mouse_cursor/custom_image="uid://1epqabsew2hu"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
