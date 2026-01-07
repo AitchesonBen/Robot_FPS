@@ -103,6 +103,7 @@ dash={
 3d_render/layer_1="World"
 3d_render/layer_2="Weapon"
 3d_render/layer_3="Wall Run"
+3d_render/layer_4="Hud"
 
 [physics]
 

@@ -6,10 +6,12 @@ class_name SlidingPlayerState extends PlayerMovementState
 @export var TILT_AMOUNT : float = 0.09
 @export var SLIDE_SPEED : float = 1.25
 @export_range(1, 6, 0.1) var SLIDE_ANIM_SPEED : float = 4.0
+@export_range(1, 6, 0.1) var CROUCH_SPEED : float = 4.0
 
 @onready var CROUCH_SHAPECAST : ShapeCast3D = $"../../CrouchShapeCast3D"
 
 var ifJumped : bool = false
+var is_uncrouching = false
 
 func enter(_previous_state) -> void:
 	set_tilt(PLAYER._current_rotation)
@@ -35,6 +37,9 @@ func update(delta):
 	PLAYER.velocity.z = lerp(PLAYER.velocity.z, PLAYER.velocity.z * SLIDE_SPEED, ACCELERATION * delta)
 		
 	if Input.is_action_just_pressed("jump"):
+		if !PLAYER.is_on_floor():
+			Global.player.velocity.y = 0
+			Global.double_jumped = true
 		ifJumped = true
 		ANIMATION.stop()
 		finish()
@@ -52,7 +57,11 @@ func set_tilt(player_rotation) -> void:
 
 func finish():
 	if ifJumped == false:
-		transition.emit("CrouchingPlayerState")
+		if CROUCH_SHAPECAST.is_colliding():
+			transition.emit("CrouchingPlayerState")
+		else:
+			transition.emit("WalkingPlayerState")
+			ANIMATION.play("crouch", -1.0, -CROUCH_SPEED, true)
 	else:
 		transition.emit("JumpingPlayerState")
 		ifJumped = false

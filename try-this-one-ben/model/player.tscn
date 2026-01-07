@@ -467,6 +467,63 @@ shape = SubResource("SphereShape3D_j68t0")
 target_position = Vector3(0, -0.5, 0)
 collision_mask = 4
 
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+script = ExtResource("5_p0pvw")
+CURRENT_STATE = NodePath("IdlePlayerState")
+
+[node name="IdlePlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("6_udyl3")
+
+[node name="WalkingPlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("7_helrf")
+
+[node name="CrouchingPlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("8_h7pl7")
+WEAPON_BOB_H = 1.0
+WEAPON_BOB_V = 0.5
+
+[node name="SlidingPlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("9_s5g8d")
+SPEED = null
+SLIDE_ANIM_SPEED = 6.0
+
+[node name="JumpingPlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("10_lyj86")
+JUMP_VELOCITY = 12.0
+DOUBLE_JUMP_VELOCITY = 15.0
+WALL_DELAY = 0.5
+
+[node name="FallingPlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("13_urp6f")
+SPEED = 10.0
+DOUBLE_JUMP_VELOCITY = 15.0
+
+[node name="WallRunPlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("18_ejh3u")
+
+[node name="DashPlayerState" type="Node" parent="StateMachine"]
+script = ExtResource("19_hbtid")
+
+[node name="WeaponViewport" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="WeaponViewport"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+script = ExtResource("14_bwjto")
+
+[node name="Camera3DWeap" type="Camera3D" parent="WeaponViewport/SubViewport" node_paths=PackedStringArray("MAIN_CAMERA")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83, 0)
+cull_mask = 2
+script = ExtResource("15_606se")
+MAIN_CAMERA = NodePath("../../../Camera/Recoil/Camera3D")
+
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -548,80 +605,23 @@ layout_mode = 2
 
 [node name="Dash" type="TextureRect" parent="UI"]
 layout_mode = 0
-offset_left = 26.000122
+offset_left = 1058.9999
 offset_top = 565.0
-offset_right = 251.00012
+offset_right = 1283.9999
 offset_bottom = 790.0
 scale = Vector2(0.27999997, 0.27999997)
 texture = ExtResource("11_j64lu")
 
 [node name="DashRed" type="TextureRect" parent="UI"]
-visible = false
 layout_mode = 0
-offset_left = 26.000122
-offset_top = 565.0
-offset_right = 251.00012
-offset_bottom = 790.0
+offset_left = 1059.0001
+offset_top = 564.0
+offset_right = 1284.0001
+offset_bottom = 789.0
 scale = Vector2(0.27999997, 0.27999997)
 texture = ExtResource("12_5d00c")
 
 [node name="AnimationComponent" type="Node" parent="UI/DashRed"]
 script = ExtResource("13_ngsdc")
-
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
-script = ExtResource("5_p0pvw")
-CURRENT_STATE = NodePath("IdlePlayerState")
-
-[node name="IdlePlayerState" type="Node" parent="StateMachine"]
-script = ExtResource("6_udyl3")
-
-[node name="WalkingPlayerState" type="Node" parent="StateMachine"]
-script = ExtResource("7_helrf")
-
-[node name="CrouchingPlayerState" type="Node" parent="StateMachine"]
-script = ExtResource("8_h7pl7")
-WEAPON_BOB_H = 1.0
-WEAPON_BOB_V = 0.5
-
-[node name="SlidingPlayerState" type="Node" parent="StateMachine"]
-script = ExtResource("9_s5g8d")
-SPEED = null
-SLIDE_ANIM_SPEED = 6.0
-
-[node name="JumpingPlayerState" type="Node" parent="StateMachine"]
-script = ExtResource("10_lyj86")
-JUMP_VELOCITY = 12.0
-DOUBLE_JUMP_VELOCITY = 15.0
-
-[node name="FallingPlayerState" type="Node" parent="StateMachine"]
-script = ExtResource("13_urp6f")
-SPEED = 10.0
-DOUBLE_JUMP_VELOCITY = 15.0
-
-[node name="WallRunPlayerState" type="Node" parent="StateMachine"]
-script = ExtResource("18_ejh3u")
-
-[node name="DashPlayerState" type="Node" parent="StateMachine"]
-script = ExtResource("19_hbtid")
-
-[node name="WeaponViewport" type="SubViewportContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SubViewport" type="SubViewport" parent="WeaponViewport"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1152, 648)
-render_target_update_mode = 4
-script = ExtResource("14_bwjto")
-
-[node name="Camera3DWeap" type="Camera3D" parent="WeaponViewport/SubViewport" node_paths=PackedStringArray("MAIN_CAMERA")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83, 0)
-cull_mask = 2
-script = ExtResource("15_606se")
-MAIN_CAMERA = NodePath("../../../Camera/Recoil/Camera3D")
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]

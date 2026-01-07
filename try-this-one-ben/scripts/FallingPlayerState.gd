@@ -49,6 +49,7 @@ func update(delta: float) -> void:
 			
 	if WALL_SHAPECAST.is_colliding() and cooldown <= 0:
 		transition.emit("WallRunPlayerState")
+		Global.has_dashed = false
 		cooldown = WALL_DELAY
 		
 	if cooldown > 0:

@@ -153,10 +153,10 @@ func _attack() -> void:
 	if result:
 		raycast(result.get("position"), result.get("normal"))
 
-func raycast(position: Vector3, normal: Vector3) -> void:
+func raycast(positionRC: Vector3, normal: Vector3) -> void:
 	var instance = test_raycast.instantiate()
 	get_tree().root.add_child(instance)
-	instance.global_position = position
+	instance.global_position = positionRC
 	instance.look_at(instance.global_transform.origin + normal, Vector3.UP)
 	instance.rotate_object_local(Vector3(1, 0, 0), 90)
 	#instance.scale *= 2  <-- To increase size of decal based on damage later

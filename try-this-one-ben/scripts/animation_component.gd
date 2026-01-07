@@ -13,8 +13,13 @@ func _process(_delta: float) -> void:
 func enable_cooldown() -> void:
 	dashed = Global.has_dashed
 	dash_cooldown = Global.cooldown
-	#print(dash_cooldown)
 	if dash_cooldown > 0.0 || dashed == true:
 		target.visible = true
 	else:
 		target.visible = false
+
+func on_hover() -> void:
+	pass
+
+func off_hover() -> void:
+	pass

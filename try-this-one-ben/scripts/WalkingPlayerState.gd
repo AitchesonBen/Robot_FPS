@@ -13,6 +13,7 @@ var has_dash : bool = false
 func enter(_previous_state) -> void:
 	ANIMATION.play("Headbob", -1.0, 1.0)
 	Global.player._speed = Global.player.SPEED_DEFAULT
+	Global.has_dashed = false
 
 func exit() -> void:
 	Global.has_dashed = false

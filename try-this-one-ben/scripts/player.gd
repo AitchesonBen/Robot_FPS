@@ -31,10 +31,6 @@ var _camera_rotation: Vector3
 
 var _current_rotation: float
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("exit"):
-		get_tree().quit()
-
 func _unhandled_input(event: InputEvent) -> void:
 	_mouse_input = event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
 	if _mouse_input:
@@ -82,6 +78,7 @@ func _physics_process(delta: float) -> void:
 	if dash_cooldown_timer > 0.0:
 		dash_cooldown_timer -= delta
 		Global.cooldown = dash_cooldown_timer
+		#print(Global.cooldown)
 	
 	if Global.gotCell:
 		Cell.visible = true
