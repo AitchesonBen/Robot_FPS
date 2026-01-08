@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c88qel830gli1"]
 
-[ext_resource type="PackedScene" uid="uid://dejhg6bellwtj" path="res://model/Boxes/WillStuff/Hologram Square (1).gltf" id="1_aqxko"]
-[ext_resource type="Material" uid="uid://bgyr2ytvg1o46" path="res://ui/Transparancy.tres" id="2_bbuhw"]
+[ext_resource type="PackedScene" path="res://model/Boxes/WillStuff/Hologram Square (1).gltf" id="1_aqxko"]
+[ext_resource type="Material" uid="uid://bgyr2ytvg1o46" path="res://ui/Textures/Transparancy.tres" id="2_bbuhw"]
 
 [node name="Hologram" instance=ExtResource("1_aqxko")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

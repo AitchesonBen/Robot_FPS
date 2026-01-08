@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://djmika8an4spa" path="res://model/Boxes/WillStuff/Crate Explosive Industrial.gltf" id="1_mvqxq"]
 [ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/interact_component.gd" id="2_ds57m"]
-[ext_resource type="Material" uid="uid://3ac4o3d7qisw" path="res://ui/interactable_highlight.tres" id="2_jq52h"]
+[ext_resource type="Material" uid="uid://3ac4o3d7qisw" path="res://ui/Textures/interactable_highlight.tres" id="2_jq52h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jq52h"]
 blend_mode = 4

@@ -1,8 +1,11 @@
 extends Node2D
 
+@export var ControlEnable : Node2D
+
 func _ready() -> void:
 	hide()
 	get_tree().paused = false
+	ControlEnable.visible = false
 	$AnimationPlayer.play("RESET")
 
 func resume():
@@ -10,6 +13,7 @@ func resume():
 	hide()
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("blur")
+	ControlEnable.visible = false
 
 func pause():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -22,8 +26,9 @@ func restart():
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("blur")
 	get_tree().change_scene_to_file("res://Maps/ExampleLevel.tscn")
+	ControlEnable.visible = false
 
-func test():
+func enter_exit():
 	if Input.is_action_just_pressed("exit") and !get_tree().paused:
 		pause()
 	elif Input.is_action_just_pressed("exit") and get_tree().paused:
@@ -33,12 +38,15 @@ func _on_start_pressed() -> void:
 	resume()
 
 func _on_quit_pressed() -> void:
-	#get_tree().change_scene_to_file("res://Maps/UI Scenes/Main_Menu.tscn")
-	get_tree().quit()
-
-func _process(_delta: float) -> void:
-	test()
-
+	hide()
+	get_tree().change_scene_to_file("res://Maps/UI Scenes/Main_Menu.tscn")
+	#get_tree().quit()
 
 func _on_restart_mission_pressed() -> void:
 	restart()
+	
+func _on_controls_pressed() -> void:
+	ControlEnable.visible = true
+
+func _process(_delta: float) -> void:
+	enter_exit()

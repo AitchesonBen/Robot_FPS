@@ -2,10 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://l66v3s8xrv5c" path="res://model/player.tscn" id="1_82owt"]
 [ext_resource type="Shader" uid="uid://clxf2fyb8eebe" path="res://Maps/UI Scenes/sky.gdshader" id="1_6582d"]
-[ext_resource type="Texture2D" uid="uid://b6ldpw5n4luwh" path="res://Maps/UI Scenes/AllSkyFree_Skyboxes/Epic_GloriousPink_EquiRect.png" id="2_65204"]
-[ext_resource type="Texture2D" uid="uid://dfpg2k8sit5kt" path="res://checkboard.png" id="2_cg56m"]
-[ext_resource type="Texture2D" uid="uid://cwwfp4vjwdm5g" path="res://Maps/UI Scenes/gradient_pause.tres" id="2_n8uhs"]
-[ext_resource type="Texture2D" uid="uid://3suljlk3m2ij" path="res://Maps/UI Scenes/AllSkyFree_Skyboxes/AllSky_Overcast4_Low.png" id="3_6g866"]
+[ext_resource type="Texture2D" uid="uid://dfpg2k8sit5kt" path="res://ui/Textures/checkboard.png" id="2_cg56m"]
+[ext_resource type="Texture2D" uid="uid://cwwfp4vjwdm5g" path="res://ui/Textures/gradient_pause.tres" id="2_n8uhs"]
 [ext_resource type="PackedScene" uid="uid://btlese8oo6kxm" path="res://model/Enemy/Walker.tscn" id="3_bnlx1"]
 [ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/interact_component.gd" id="3_xuiht"]
 [ext_resource type="PackedScene" uid="uid://mpfi5j5ni4qn" path="res://model/Boxes/LargeTarp.tscn" id="4_cg56m"]
@@ -25,10 +23,16 @@
 [ext_resource type="PackedScene" uid="uid://cifidnybuvi6h" path="res://Maps/UI Scenes/Pause_Menu.tscn" id="18_6wt63"]
 [ext_resource type="PackedScene" uid="uid://gy7khll2l63u" path="res://model/Boxes/Explosive.tscn" id="23_6g866"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n8uhs"]
+load_path = "res://.godot/imported/AllSky_Overcast4_Low.png-ced08d4fb0f53f70df08c77cb628b161.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6g866"]
+load_path = "res://.godot/imported/Epic_GloriousPink_EquiRect.png-eeed49c274712e3f5f90d45b2c3877c5.s3tc.ctex"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_65204"]
 shader = ExtResource("1_6582d")
-shader_parameter/sky_background = ExtResource("2_65204")
-shader_parameter/clouds = ExtResource("3_6g866")
+shader_parameter/sky_background = SubResource("CompressedTexture2D_6g866")
+shader_parameter/clouds = SubResource("CompressedTexture2D_n8uhs")
 shader_parameter/cloud_color = ExtResource("2_n8uhs")
 shader_parameter/exposure = 0.0
 
@@ -51,16 +55,16 @@ uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_krafm"]
 albedo_color = Color(0.8862745, 0.89411765, 0.20784314, 1)
-albedo_texture = ExtResource("6_imwdw")
+albedo_texture = ExtResource("2_cg56m")
 metallic = 0.44
 normal_texture = ExtResource("6_imwdw")
 bent_normal_texture = ExtResource("6_imwdw")
-rim_enabled = true
 rim = 0.4
 rim_tint = 1.0
 subsurf_scatter_strength = 1.0
 subsurf_scatter_texture = ExtResource("6_imwdw")
 detail_albedo = ExtResource("6_imwdw")
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3wmk"]
 albedo_color = Color(1, 0, 1, 1)
@@ -97,11 +101,11 @@ uv1_triplanar = true
 [node name="Level-Example" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.9659258, 0.2241438, -0.12940949, -0.12940946, 0.8512707, 0.5085185, 0.22414386, -0.47444427, 0.8512708, 0, 6, 4)
+transform = Transform3D(0.96592575, 0.22414383, -0.1294095, -0.066987254, 0.6994692, 0.7115163, 0.25, -0.6786032, 0.6906502, 0, 6, 4)
 shadow_enabled = true
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.86602545, 0.5, 0, -0.5, 0.86602545, 0, 6, 4)
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 6, 4)
 layers = 2
 shadow_enabled = true
 
@@ -517,7 +521,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7, 0, -34)
 transform = Transform3D(-1, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, -1, -6, 0, -54)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_82owt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
