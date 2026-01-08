@@ -6,7 +6,7 @@ class_name InteractionComponent extends Node
 @export var new_icon : Texture2D
 
 var parent
-var highlight = preload("res://ui/interactable_highlight.tres")
+var highlight = preload("res://ui/Textures/interactable_highlight.tres")
 var isActive : bool = false
 
 func _ready() -> void:

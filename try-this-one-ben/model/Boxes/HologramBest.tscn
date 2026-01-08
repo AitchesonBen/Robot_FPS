@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbpt2xolrjtvs"]
 
 [ext_resource type="PackedScene" uid="uid://rocugh7k6r43" path="res://model/Boxes/WillStuff/Hologram Square (3).gltf" id="1_6gywb"]
-[ext_resource type="Material" uid="uid://bgyr2ytvg1o46" path="res://ui/Transparancy.tres" id="2_tetjt"]
+[ext_resource type="Material" uid="uid://bgyr2ytvg1o46" path="res://ui/Textures/Transparancy.tres" id="2_tetjt"]
 
 [node name="blockbench_export" instance=ExtResource("1_6gywb")]
 

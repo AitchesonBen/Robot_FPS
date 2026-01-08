@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://cifidnybuvi6h"]
+[gd_scene load_steps=19 format=3 uid="uid://cifidnybuvi6h"]
 
 [ext_resource type="Script" uid="uid://cppeo8pvjsyqd" path="res://scripts/UI Scripts/pause_menu.gd" id="1_trps6"]
 [ext_resource type="Shader" uid="uid://cq406rt3n6w4r" path="res://Maps/UI Scenes/Pause_Menu_Blur.gdshader" id="2_trps6"]
-[ext_resource type="Texture2D" uid="uid://cwwfp4vjwdm5g" path="res://Maps/UI Scenes/gradient_pause.tres" id="4_8hk36"]
+[ext_resource type="Texture2D" uid="uid://cwwfp4vjwdm5g" path="res://ui/Textures/gradient_pause.tres" id="4_8hk36"]
+[ext_resource type="PackedScene" uid="uid://rwclum0jq8m7" path="res://Maps/UI Scenes/Controls_Menu.tscn" id="4_l022b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cty0h"]
 shader = ExtResource("2_trps6")
@@ -76,40 +77,42 @@ _data = {
 &"blur": SubResource("Animation_cty0h")
 }
 
-[node name="Pause Menu" type="Node2D"]
+[node name="Pause Menu" type="Node2D" node_paths=PackedStringArray("ControlEnable")]
 script = ExtResource("1_trps6")
+ControlEnable = NodePath("Controls")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_cty0h")
-custom_minimum_size = Vector2(1200, 650)
+custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1200.0
 offset_bottom = 650.0
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-offset_right = 300.0
-offset_bottom = 648.0
+offset_right = 450.0
+offset_bottom = 1080.0
 theme = SubResource("Theme_405uy")
 theme_override_styles/panel = SubResource("StyleBoxFlat_trps6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
-custom_minimum_size = Vector2(300, 400)
+custom_minimum_size = Vector2(450, 800)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+alignment = 1
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 60
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Start" type="Button" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 75)
+custom_minimum_size = Vector2(450, 125)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_cty0h")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l022b")
 theme_override_styles/hover = SubResource("StyleBoxTexture_l022b")
@@ -117,10 +120,10 @@ text = "Resume     "
 alignment = 2
 
 [node name="Restart Mission" type="Button" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 75)
+custom_minimum_size = Vector2(450, 125)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_8hk36")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l022b")
 theme_override_styles/hover = SubResource("StyleBoxTexture_cty0h")
@@ -128,10 +131,10 @@ text = "Restart Mission     "
 alignment = 2
 
 [node name="Abort Mission" type="Button" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 75)
+custom_minimum_size = Vector2(450, 125)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_8hk36")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l022b")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8hk36")
@@ -139,10 +142,10 @@ text = "Abort Mission     "
 alignment = 2
 
 [node name="Controls" type="Button" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 75)
+custom_minimum_size = Vector2(450, 125)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_8hk36")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l022b")
 theme_override_styles/hover = SubResource("StyleBoxTexture_2nhc5")
@@ -150,10 +153,11 @@ text = "Controls     "
 alignment = 2
 
 [node name="Main Menu" type="Button" parent="PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 75)
+custom_minimum_size = Vector2(450, 125)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
+theme_override_colors/font_pressed_color = Color(1, 0.16470589, 1, 1)
+theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_8hk36")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l022b")
 theme_override_styles/hover = SubResource("StyleBoxTexture_0snkj")
@@ -165,6 +169,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_l022b")
 }
 
+[node name="Controls" parent="." instance=ExtResource("4_l022b")]
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Restart Mission" to="." method="_on_restart_mission_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Main Menu" to="." method="_on_quit_pressed"]

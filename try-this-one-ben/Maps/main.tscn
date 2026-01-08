@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://co7wv5yjr3l1o"]
 
-[ext_resource type="Texture2D" uid="uid://dfpg2k8sit5kt" path="res://checkboard.png" id="1_ovdoy"]
+[ext_resource type="Texture2D" uid="uid://dfpg2k8sit5kt" path="res://ui/Textures/checkboard.png" id="1_ovdoy"]
 [ext_resource type="PackedScene" uid="uid://l66v3s8xrv5c" path="res://model/player.tscn" id="2_4fjle"]
 [ext_resource type="PackedScene" uid="uid://ccs0ngwqu3u1s" path="res://model/Enemy/LIGHT walker.gltf" id="3_m05do"]
 
