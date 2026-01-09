@@ -149,9 +149,16 @@ func _attack() -> void:
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.collide_with_bodies = true
 	var result = space_state.intersect_ray(query)
-	print(result)
 	if result:
 		raycast(result.get("position"), result.get("normal"))
+		var node = result.get("collider")
+		var enemy = node.get_parent()
+		var limbMesh = enemy.get_parent()
+		var limb = limbMesh.get_parent()
+		while enemy and not enemy.is_in_group("Enemy"):
+			enemy = enemy.get_parent()
+		if enemy:
+			MessageBus.raycastResult.emit(enemy, limb)
 
 func raycast(positionRC: Vector3, normal: Vector3) -> void:
 	var instance = test_raycast.instantiate()

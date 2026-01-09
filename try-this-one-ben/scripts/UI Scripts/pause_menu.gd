@@ -25,8 +25,10 @@ func restart():
 	hide()
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("blur")
-	get_tree().change_scene_to_file("res://Maps/ExampleLevel.tscn")
+	#get_tree().change_scene_to_file("res://Maps/ExampleLevel.tscn")
+	get_tree().reload_current_scene()
 	ControlEnable.visible = false
+	Global.has_dashed = false
 
 func enter_exit():
 	if Input.is_action_just_pressed("exit") and !get_tree().paused:
