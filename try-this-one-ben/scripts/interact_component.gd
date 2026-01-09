@@ -14,9 +14,6 @@ func _ready() -> void:
 	connect_parent()
 	set_default_mesh()
 
-#func _process(_delta: float) -> void:
-	#pass
-
 func in_range() -> void:
 	#mesh.material_overlay = highlight
 	MessageBus.interaction_focused.emit(context, new_icon, override_icon)
