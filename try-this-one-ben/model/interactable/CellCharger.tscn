@@ -20,5 +20,6 @@ Cell = NodePath("../../../../Power Cell")
 [node name="InteractionComponent" type="Node" parent="Object/Charger/Hitbox_Main2/StaticBody3D" index="2" node_paths=PackedStringArray("mesh")]
 script = ExtResource("2_r0mfd")
 mesh = NodePath("../..")
+context = "Insert Cell"
 override_icon = true
 metadata/_custom_type_script = "uid://d2x2ex6en6u0n"
