@@ -1,6 +1,7 @@
 class_name SlidingPlayerState extends PlayerMovementState
 
 @export var SPEED: float = 12.0
+@export var SLOPE_SPEED : float = 8.0
 @export var ACCELERATION : float = 0.1
 @export var DECELERATION : float = 0.25
 @export var TILT_AMOUNT : float = 0.09
@@ -16,7 +17,7 @@ var is_uncrouching = false
 func enter(_previous_state) -> void:
 	set_tilt(PLAYER._current_rotation)
 	ANIMATION.get_animation("Sliding").track_set_key_value(5, 0, PLAYER.velocity.length())
-	ANIMATION.speed_scale = 1.0
+	ANIMATION.speed_scale = 1
 	ANIMATION.play("Sliding", -1.0, SLIDE_ANIM_SPEED)
 	
 	PLAYER.velocity.x *= SLIDE_SPEED
@@ -32,10 +33,15 @@ func update(delta):
 	#if Input.is_action_just_released("crouch"):
 		#ANIMATION.stop()
 		#finish()
-		
+	
 	PLAYER.velocity.x = lerp(PLAYER.velocity.x, PLAYER.velocity.x * SLIDE_SPEED, ACCELERATION * delta)
 	PLAYER.velocity.z = lerp(PLAYER.velocity.z, PLAYER.velocity.z * SLIDE_SPEED, ACCELERATION * delta)
 		
+	if PLAYER.is_on_floor() and is_on_slope(): 
+		var floor_normal = PLAYER.get_floor_normal()
+		var slope_dir = floor_normal.cross(Vector3.UP).cross(floor_normal).normalized()
+		PLAYER.velocity -= slope_dir * SLOPE_SPEED * delta
+	
 	if Input.is_action_just_pressed("jump"):
 		if !PLAYER.is_on_floor():
 			Global.player.velocity.y = 0
@@ -47,7 +53,7 @@ func update(delta):
 	if Input.is_action_just_pressed("shoot"):
 		WEAPON._attack()
 	
-	if PLAYER.velocity.length() <= 0.0:
+	if PLAYER.velocity.length() <= 0.5 and !is_on_slope():
 		ANIMATION.stop()
 		finish()
 
@@ -58,6 +64,14 @@ func set_tilt(player_rotation) -> void:
 		tilt.z = 0.05
 	ANIMATION.get_animation("Sliding").track_set_key_value(3, 1, tilt)
 	ANIMATION.get_animation("Sliding").track_set_key_value(3, 2, tilt)
+
+func is_on_slope() -> bool:
+	if not PLAYER.is_on_floor():
+		return false
+	var floor_normal = PLAYER.get_floor_normal()
+	var slope_angle = rad_to_deg(acos(floor_normal.dot(Vector3.UP)))
+	#print(slope_angle)
+	return slope_angle > 3
 
 func finish():
 	if ifJumped == false:
