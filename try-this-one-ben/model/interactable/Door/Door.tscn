@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhfsoqpdlmdxa"]
+[gd_scene load_steps=8 format=3 uid="uid://dhfsoqpdlmdxa"]
 
 [ext_resource type="PackedScene" uid="uid://caqkscvxtnfnp" path="res://model/interactable/Door/Left.tscn" id="1_k8lbh"]
 [ext_resource type="Script" uid="uid://buvtiknajn4tb" path="res://scripts/door_component.gd" id="2_8ysxn"]
 [ext_resource type="PackedScene" uid="uid://iwarcvq2055y" path="res://model/interactable/Door/Frame.tscn" id="2_mhxe1"]
-[ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/interact_component.gd" id="2_viccl"]
 [ext_resource type="PackedScene" uid="uid://dmdjpqaiv106r" path="res://model/interactable/Door/Right.tscn" id="3_8ysxn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ysxn"]
@@ -35,19 +34,11 @@ door_operation = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, -1)
 shape = SubResource("BoxShape3D_viccl")
 
-[node name="InteractionComponent" type="Node" parent="Left"]
-script = ExtResource("2_viccl")
-metadata/_custom_type_script = "uid://d2x2ex6en6u0n"
-
 [node name="Frame" parent="." instance=ExtResource("2_mhxe1")]
 
 [node name="Right" type="AnimatableBody3D" parent="."]
 
 [node name="Right" parent="Right" instance=ExtResource("3_8ysxn")]
-
-[node name="InteractionComponent" type="Node" parent="Right"]
-script = ExtResource("2_viccl")
-metadata/_custom_type_script = "uid://d2x2ex6en6u0n"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Right"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79999983, 3, 0)

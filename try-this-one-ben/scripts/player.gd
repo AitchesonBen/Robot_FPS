@@ -88,7 +88,7 @@ func _physics_process(delta: float) -> void:
 		Cell.visible = false
 	
 	if position.y <= -10:
-		position = Vector3(0, 1, 0)
+		position = Vector3(-26, 7, -43)
 
 func update_gravity(delta: float) -> void:
 	velocity += get_gravity() * delta

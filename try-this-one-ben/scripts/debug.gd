@@ -11,7 +11,7 @@ func _ready() -> void:
 	
 	visible = false
 	
-	add_debug_property("test", "test")
+	add_debug_property("FPS", "test")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

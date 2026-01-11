@@ -28,10 +28,17 @@ func _ready() -> void:
 	orig_pos = parent.position
 	parent.ready.connect(connect_parent)
 	MessageBus.unlock_door.connect(Callable (self, "recievedSignal"))
+	MessageBus.no_lock.connect(Callable (self, "no_lock_on_door"))
 	
 func recievedSignal(Doors: Array):
 	if not Doors.has(self):
 		return
+	have_Cell = true
+
+func no_lock_on_door(Doors: Array):
+	if not Doors.has(self):
+		return
+	print("enable?")
 	have_Cell = true
 
 func _process(_delta) -> void:
