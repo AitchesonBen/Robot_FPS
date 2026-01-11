@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://gy7khll2l63u"]
+[gd_scene load_steps=5 format=4 uid="uid://gy7khll2l63u"]
 
 [ext_resource type="PackedScene" uid="uid://djmika8an4spa" path="res://model/Boxes/WillStuff/Crate Explosive Industrial.gltf" id="1_mvqxq"]
-[ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/interact_component.gd" id="2_ds57m"]
 [ext_resource type="Material" uid="uid://3ac4o3d7qisw" path="res://ui/Textures/interactable_highlight.tres" id="2_jq52h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jq52h"]
@@ -30,11 +29,6 @@ blend_shape_mode = 0
 
 [node name="Frame" parent="Object/Body" index="0"]
 material_overlay = ExtResource("2_jq52h")
-
-[node name="InteractionComponent" type="Node" parent="Object/mesh/Hitbox_Main/StaticBody3D" index="1" node_paths=PackedStringArray("mesh")]
-script = ExtResource("2_ds57m")
-mesh = NodePath("../../../../Body/Frame")
-metadata/_custom_type_script = "uid://d2x2ex6en6u0n"
 
 [node name="Hitbox_Main2" type="MeshInstance3D" parent="Object/mesh" index="1"]
 transform = Transform3D(1.03, 0, 0, 0, 1.03, 0, 0, 0, 1.03, 0, 0, 0)
