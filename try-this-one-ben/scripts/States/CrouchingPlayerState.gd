@@ -37,6 +37,7 @@ func update(delta: float) -> void:
 	
 	if Input.is_action_just_released("crouch"):
 		uncrouch()
+		
 	elif Input.is_action_pressed("crouch") == false and RELEASED == false:
 		RELEASED = true
 		uncrouch()

@@ -14,24 +14,31 @@ enum DoorStatus {OPEN, CLOSED}
 @export var door_operation : DoorOperation
 #@export var close_automatically : bool = true
 
-@onready var trigger_shape := $CollisionShape3D
+@onready var trigger_shape := $"CollisionShape3D"
 #@onready var parent_door := $"../AnimatableBody3D"
 var parent
 var orig_pos : Vector3
 var isActive : bool = false
 var door_status : DoorStatus = DoorStatus.CLOSED
 var door_direction : Vector3
+var have_Cell : bool = false
 
 func _ready() -> void:
 	parent = get_parent()
 	orig_pos = parent.position
 	parent.ready.connect(connect_parent)
+	MessageBus.unlock_door.connect(Callable (self, "recievedSignal"))
+	
+func recievedSignal(Doors: Array):
+	if not Doors.has(self):
+		return
+	have_Cell = true
 
 func _process(_delta) -> void:
 	update_trigger()
 
 func update_trigger() -> void:
-	trigger_shape.disabled = not Global.chargerEquipped
+	trigger_shape.disabled = not have_Cell
 
 func connect_parent() -> void:
 	if door_operation == DoorOperation.MANUAL:
@@ -45,18 +52,21 @@ func check_door() -> void:
 			close_door()
 
 func open_door() -> void:
-		door_status = DoorStatus.OPEN
-	#if Global.chargerEquipped:
-		var tween = get_tree().create_tween()
-		tween.tween_property(parent, "position", orig_pos + (direction * door_size), speed).set_trans(transition).set_ease(easing)
-		if door_operation == DoorOperation.CLOSE_AUTOMATICALLY:
-			tween.tween_interval(close_time)
-			tween.tween_callback(close_door)
+	door_status = DoorStatus.OPEN
+	var tween = get_tree().create_tween()
+	tween.tween_property(parent, "position", orig_pos + (direction * door_size), speed).set_trans(transition).set_ease(easing)
+	var tween2 = trigger_shape.create_tween()
+	tween2.tween_property(trigger_shape, "position", orig_pos - (direction * door_size), speed).set_trans(transition).set_ease(easing)
+	if door_operation == DoorOperation.CLOSE_AUTOMATICALLY:
+		tween.tween_interval(close_time)
+		tween.tween_callback(close_door)
 
 func close_door() -> void:
 	door_status = DoorStatus.CLOSED
 	var tween = get_tree().create_tween()
 	tween.tween_property(parent, "position", orig_pos, speed).set_trans(transition).set_ease(easing)
+	var tween2 = trigger_shape.create_tween()
+	tween2.tween_property(trigger_shape, "position", orig_pos, speed).set_trans(transition).set_ease(easing)
 
 
 func _on_body_entered(body: Node3D) -> void:

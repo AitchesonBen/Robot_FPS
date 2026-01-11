@@ -156,7 +156,6 @@ alignment = 2
 custom_minimum_size = Vector2(450, 125)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_pressed_color = Color(1, 0.16470589, 1, 1)
 theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_8hk36")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l022b")

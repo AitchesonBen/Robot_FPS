@@ -224,7 +224,7 @@ tracks/3/path = NodePath("Camera:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 3, 4.9),
+"times": PackedFloat32Array(0, 0.5, 3, 5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
@@ -397,7 +397,7 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_j68t0"]
 radius = 0.6
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WALL_SHAPECAST", "WEAPON_CONTROLLER", "DASH_ANIMATION_IMAGE", "Cell")]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WALL_SHAPECAST", "WEAPON_CONTROLLER", "DASH_ANIMATION_IMAGE", "DASH_IMAGE", "Cell")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2742698, 0)
 script = ExtResource("1_gbl1t")
 CAMERA_CONTROLLER = NodePath("Camera/Recoil/Camera3D")
@@ -406,6 +406,7 @@ CROUCH_SHAPECAST = NodePath("CrouchShapeCast3D")
 WALL_SHAPECAST = NodePath("WallShapeCast3D2")
 WEAPON_CONTROLLER = NodePath("Camera/Recoil/Camera3D/WeaponRig/Weapon")
 DASH_ANIMATION_IMAGE = NodePath("UI/DashRed/AnimationComponent")
+DASH_IMAGE = NodePath("UI/DashRed")
 Cell = NodePath("Camera/Recoil/Camera3D/PowerCell")
 DASH_COOLDOWN = 1.5
 
@@ -587,6 +588,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 186.0
+offset_bottom = 186.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_g5mw0")
@@ -602,6 +605,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/ContextContainter/HBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 
 [node name="Dash" type="TextureRect" parent="UI"]
 layout_mode = 0

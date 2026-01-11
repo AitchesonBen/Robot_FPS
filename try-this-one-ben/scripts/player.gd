@@ -15,6 +15,7 @@ class_name Player extends CharacterBody3D
 @export var WEAPON_CONTROLLER : WeaponController
 @export var WALL_SPEED_BOOST : float = 1.25
 @export var DASH_ANIMATION_IMAGE : Node
+@export var DASH_IMAGE : Control
 
 @export var Cell : Node3D
 
@@ -56,6 +57,7 @@ func _update_camera(delta : float) -> void:
 		
 func _ready():
 	Global.player = self
+	Global.reset()
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -84,6 +86,9 @@ func _physics_process(delta: float) -> void:
 	
 	if !Global.gotCell:
 		Cell.visible = false
+	
+	if position.y <= -10:
+		position = Vector3(0, 1, 0)
 
 func update_gravity(delta: float) -> void:
 	velocity += get_gravity() * delta

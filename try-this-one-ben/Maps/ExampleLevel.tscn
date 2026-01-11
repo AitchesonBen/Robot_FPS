@@ -139,8 +139,9 @@ size = Vector3(5.8, 6, 1)
 [node name="Door" parent="Walls/CSGBox3D5" instance=ExtResource("6_kf75o")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -5.5, 5.9000015)
 
-[node name="CellCharger2" parent="Walls/CSGBox3D5/Door" instance=ExtResource("5_kf75o")]
+[node name="CellCharger2" parent="Walls/CSGBox3D5/Door" node_paths=PackedStringArray("Doors") instance=ExtResource("5_kf75o")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -4.550003, 2.9, 0.5)
+Doors = [NodePath("../Left/DoorComponent"), NodePath("../Right/DoorComponent")]
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 5.5, -77.05)

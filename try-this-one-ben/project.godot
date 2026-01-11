@@ -32,6 +32,10 @@ window/stretch/mode="canvas_items"
 
 import/blender/enabled=false
 
+[global_group]
+
+Enemy="EnemyCollision"
+
 [input]
 
 move_forward={
