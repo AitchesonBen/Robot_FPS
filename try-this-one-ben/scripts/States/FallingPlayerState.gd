@@ -43,10 +43,6 @@ func update(delta: float) -> void:
 			PLAYER.velocity.x += boost_vector.x
 			PLAYER.velocity.z += boost_vector.z
 			
-	if Input.is_action_just_released("jump"):
-		if PLAYER.velocity.y > 0:
-			PLAYER.velocity.y = PLAYER.velocity.y / 2.0
-			
 	if WALL_SHAPECAST.is_colliding() and cooldown <= 0:
 		transition.emit("WallRunPlayerState")
 		Global.has_dashed = false

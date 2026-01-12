@@ -19,7 +19,7 @@ var fromSlideInAir : bool = false
 func enter(_previous_state) -> void:
 	PLAYER.velocity.y += JUMP_VELOCITY
 	DOUBLE_JUMP = Global.double_jumped
-	if _previous_state.name == "SlidingPlayerState" and !PLAYER.is_on_floor():
+	if _previous_state.name == "SlidingPlayerState" || _previous_state.name == "WalkingPlayerState" and !PLAYER.is_on_floor():
 		boost = 1.5
 		fromSlideInAir = true
 	ANIMATION.pause()

@@ -6,6 +6,7 @@ class_name SlidingPlayerState extends PlayerMovementState
 @export var DECELERATION : float = 0.25
 @export var TILT_AMOUNT : float = 0.09
 @export var SLIDE_SPEED : float = 1.25
+@export var SLIDE_DECELERATE : float = 1.1
 @export_range(1, 6, 0.1) var SLIDE_ANIM_SPEED : float = 4.0
 @export_range(1, 6, 0.1) var CROUCH_SPEED : float = 4.0
 
@@ -41,6 +42,9 @@ func update(delta):
 		var floor_normal = PLAYER.get_floor_normal()
 		var slope_dir = floor_normal.cross(Vector3.UP).cross(floor_normal).normalized()
 		PLAYER.velocity -= slope_dir * SLOPE_SPEED * delta
+	
+	if PLAYER.velocity.length() > 14:
+		PLAYER.velocity /= SLIDE_DECELERATE
 	
 	if Input.is_action_just_pressed("jump"):
 		if !PLAYER.is_on_floor():
