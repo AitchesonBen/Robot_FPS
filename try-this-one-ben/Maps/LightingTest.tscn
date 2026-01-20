@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dfpg2k8sit5kt" path="res://ui/Textures/checkboard.png" id="1_gj7nn"]
 [ext_resource type="Texture2D" uid="uid://c81sp6dbi6gyc" path="res://ui/boy_got_rizz.png" id="2_lh00p"]
 [ext_resource type="PackedScene" uid="uid://l66v3s8xrv5c" path="res://model/player.tscn" id="3_lh00p"]
+[ext_resource type="PackedScene" uid="uid://bopikp1mplop1" path="res://model/lighting_rect.tscn" id="4_k3iry"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lh00p"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -35,11 +36,6 @@ uv1_triplanar = true
 albedo_color = Color(0.25490198, 0.31764707, 0.79607844, 1)
 albedo_texture = ExtResource("1_gj7nn")
 uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lh00p"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 2.0
 
 [node name="LightingTest" type="Node3D"]
 
@@ -91,38 +87,10 @@ use_collision = true
 size = Vector3(30, 2, 26)
 material = SubResource("StandardMaterial3D_gj7nn")
 
-[node name="CeilingLighty" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+[node name="Lighting" type="Node3D" parent="."]
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CeilingLighty"]
-transform = Transform3D(1, 0, 0, 0, 0.39999998, 0, 0, 0, 1, 1.5, 9.5, 4)
-use_collision = true
-size = Vector3(4, 2, 12)
-material = SubResource("StandardMaterial3D_lh00p")
+[node name="LightingRect" parent="Lighting" instance=ExtResource("4_k3iry")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 10, 4)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CeilingLighty"]
-
-[node name="OmniLight3D" type="OmniLight3D" parent="CeilingLighty"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 9.1, 4)
-layers = 3
-light_energy = 4.0
-shadow_enabled = true
-omni_range = 35.0
-
-[node name="CeilingLighty2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="CeilingLighty2"]
-transform = Transform3D(1, 0, 0, 0, 0.39999998, 0, 0, 0, 1, 2.5, 9.5, 4)
-use_collision = true
-size = Vector3(4, 2, 12)
-material = SubResource("StandardMaterial3D_lh00p")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CeilingLighty2"]
-
-[node name="OmniLight3D" type="OmniLight3D" parent="CeilingLighty2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 9.1, 4)
-layers = 3
-light_energy = 4.0
-shadow_enabled = true
-omni_range = 35.0
+[node name="LightingRect2" parent="Lighting" instance=ExtResource("4_k3iry")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 10, 4)
