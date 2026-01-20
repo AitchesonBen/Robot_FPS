@@ -38,7 +38,6 @@ func recievedSignal(Doors: Array):
 func no_lock_on_door(Doors: Array):
 	if not Doors.has(self):
 		return
-	print("enable?")
 	have_Cell = true
 
 func _process(_delta) -> void:
