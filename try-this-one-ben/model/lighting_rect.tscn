@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bopikp1mplop1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_616p4"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.0
+
+[node name="LightingRect" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(4, 2, 12)
+material = SubResource("StandardMaterial3D_616p4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+light_energy = 4.0
+omni_range = 35.0
