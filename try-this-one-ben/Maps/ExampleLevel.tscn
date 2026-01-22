@@ -37,10 +37,10 @@ sky_material = SubResource("ShaderMaterial_65204")
 
 [sub_resource type="Environment" id="Environment_n57o6"]
 background_mode = 1
-background_color = Color(0.7647059, 0.92941177, 0.91764706, 1)
+background_color = Color(0.7708395, 0.77083945, 0.77083945, 1)
 sky = SubResource("Sky_8e2af")
 fog_enabled = true
-fog_light_color = Color(0.20878956, 0.44672328, 0.5921006, 1)
+fog_light_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
 fog_height_density = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n57o6"]
@@ -99,6 +99,12 @@ use_collision = true
 size = Vector3(30, 2, 22.399414)
 material = SubResource("StandardMaterial3D_n57o6")
 
+[node name="CSGBox3D5" type="CSGBox3D" parent="Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 29, 2.800293)
+use_collision = true
+size = Vector3(30, 2, 22.399414)
+material = SubResource("StandardMaterial3D_n57o6")
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="Floors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.310333, -0.99999905, -46.99684)
 use_collision = true
@@ -136,14 +142,17 @@ operation = 2
 size = Vector3(5.8, 6, 1)
 
 [node name="Door" parent="Walls/CSGBox3D5" instance=ExtResource("6_kf75o")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -7.5, 5.9000015)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -7.7, 5.9000015)
 
 [node name="CellCharger2" parent="Walls/CSGBox3D5/Door" node_paths=PackedStringArray("Doors") instance=ExtResource("5_kf75o")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -4.550003, 2.4, 0.5)
 Doors = [NodePath("../Left/DoorComponent"), NodePath("../Right/DoorComponent")]
 
 [node name="Door2" parent="Walls/CSGBox3D5" instance=ExtResource("6_kf75o")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -7.5, 48.9)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -7.6, 48.9)
+
+[node name="Frame" parent="Walls/CSGBox3D5/Door2" index="1"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.1, 0)
 
 [node name="CellCharger2" parent="Walls/CSGBox3D5/Door2" node_paths=PackedStringArray("Doors") instance=ExtResource("5_kf75o")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -4.550003, 2.9, 0.5)
@@ -525,6 +534,12 @@ material = SubResource("StandardMaterial3D_n57o6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.210884, 0.31352592, -36.53232)
 use_collision = true
 size = Vector3(10, 0.8520508, 9.732544)
+material = SubResource("StandardMaterial3D_n57o6")
+
+[node name="BasicFloor65" type="CSGBox3D" parent="Walls/WillsWalls&Floors/Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.710884, 5.7135262, -20.532318)
+use_collision = true
+size = Vector3(27, 0.8520508, 9.732544)
 material = SubResource("StandardMaterial3D_n57o6")
 
 [node name="BasicFloor56" type="CSGBox3D" parent="Walls/WillsWalls&Floors/Floors"]
@@ -1112,6 +1127,12 @@ material = SubResource("StandardMaterial3D_krafm")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.0672092, 20.239868, -61.443798)
 use_collision = true
 size = Vector3(0.77923584, 18.546997, 29.261963)
+material = SubResource("StandardMaterial3D_krafm")
+
+[node name="BasicWall99" type="CSGBox3D" parent="Walls/WillsWalls&Floors/Walls/BasicWall"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.0672092, 14.96637, -7.443798)
+use_collision = true
+size = Vector3(0.77923584, 30, 29.261963)
 material = SubResource("StandardMaterial3D_krafm")
 
 [node name="BasicWall4" type="CSGBox3D" parent="Walls/WillsWalls&Floors/Walls/BasicWall"]

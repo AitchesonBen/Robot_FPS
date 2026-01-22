@@ -9,10 +9,8 @@ var parent
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#parent = get_parent()
-	print(Doors)
 	if NoLock:
 		no_lock()
-		print("emit")
 		return
 	MessageBus.cell_recieved.connect(Callable(self, "unlockDoor"))
 
