@@ -37,10 +37,10 @@ sky_material = SubResource("ShaderMaterial_65204")
 
 [sub_resource type="Environment" id="Environment_n57o6"]
 background_mode = 1
-background_color = Color(0.7647059, 0.92941177, 0.91764706, 1)
+background_color = Color(0.7708395, 0.77083945, 0.77083945, 1)
 sky = SubResource("Sky_8e2af")
 fog_enabled = true
-fog_light_color = Color(0.20878956, 0.44672328, 0.5921006, 1)
+fog_light_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
 fog_height_density = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n57o6"]
@@ -534,6 +534,12 @@ material = SubResource("StandardMaterial3D_n57o6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.210884, 0.31352592, -36.53232)
 use_collision = true
 size = Vector3(10, 0.8520508, 9.732544)
+material = SubResource("StandardMaterial3D_n57o6")
+
+[node name="BasicFloor65" type="CSGBox3D" parent="Walls/WillsWalls&Floors/Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.710884, 5.7135262, -20.532318)
+use_collision = true
+size = Vector3(27, 0.8520508, 9.732544)
 material = SubResource("StandardMaterial3D_n57o6")
 
 [node name="BasicFloor56" type="CSGBox3D" parent="Walls/WillsWalls&Floors/Floors"]
