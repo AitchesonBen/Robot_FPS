@@ -13,9 +13,13 @@ ChargerInteraction = NodePath("Object/Charger/Hitbox_Main2/StaticBody3D/ChargerC
 [node name="Power Cell" parent="Object" index="0"]
 visible = false
 
-[node name="ChargerComponent" type="Node" parent="Object/Charger/Hitbox_Main2/StaticBody3D" index="0" node_paths=PackedStringArray("Cell")]
+[node name="CollisionShape3D" parent="Object/Power Cell/mesh/Hitbox_Main/StaticBody3D" index="0"]
+disabled = true
+
+[node name="ChargerComponent" type="Node" parent="Object/Charger/Hitbox_Main2/StaticBody3D" index="0" node_paths=PackedStringArray("Cell", "Cell_Collision")]
 script = ExtResource("2_jtrpk")
 Cell = NodePath("../../../../Power Cell")
+Cell_Collision = NodePath("../../../../Power Cell/mesh/Hitbox_Main/StaticBody3D/CollisionShape3D")
 
 [node name="InteractionComponent" type="Node" parent="Object/Charger/Hitbox_Main2/StaticBody3D" index="2" node_paths=PackedStringArray("mesh")]
 script = ExtResource("2_r0mfd")

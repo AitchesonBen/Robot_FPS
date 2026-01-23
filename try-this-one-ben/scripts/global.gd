@@ -7,6 +7,8 @@ var double_jumped : bool = false
 var has_dashed: bool = false
 var cooldown : float = 0.0
 
+var ammo : int = 10
+
 var defaultGotCell : bool = false
 var defaultDouble_jumped : bool = false
 var defaultHas_dashed: bool = false

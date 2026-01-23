@@ -11,6 +11,7 @@ class_name WalkingPlayerState extends PlayerMovementState
 var has_dash : bool = false
 
 func enter(_previous_state) -> void:
+	#PLAYER.floor_snap_length = 0.8
 	ANIMATION.play("Headbob", -1.0, 1.0)
 	Global.player._speed = Global.player.SPEED_DEFAULT
 	Global.has_dashed = false
@@ -47,7 +48,7 @@ func update(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and PLAYER.is_on_floor():
 		transition.emit("JumpingPlayerState")
 		
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
 		WEAPON._attack()
 	
 	if Input.is_action_just_pressed("dash") and PLAYER.is_on_floor() and not Input.is_action_just_pressed("crouch"):
