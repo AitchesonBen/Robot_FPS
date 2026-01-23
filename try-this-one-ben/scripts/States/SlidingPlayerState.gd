@@ -27,7 +27,10 @@ func enter(_previous_state) -> void:
 	ANIMATION.get_animation("Sliding").track_set_key_value(5, 0, PLAYER.velocity.length())
 	ANIMATION.speed_scale = 1
 	ANIMATION.play("Sliding_Intro", -1.0, SLIDE_ANIM_SPEED)
-	await ANIMATION.animation_finished
+	#var intro_len := ANIMATION.get_animation("Sliding_Intro").length
+	#await get_tree().create_timer(intro_len / SLIDE_ANIM_SPEED).timeout
+	if ANIMATION.is_playing():
+		await ANIMATION.animation_finished
 	ANIMATION.play("Sliding", -1.0, SLIDE_ANIM_SPEED)
 	ANIMATION.seek(1.0, true)
 	
@@ -40,16 +43,18 @@ func update(delta):
 	PLAYER.update_gravity(delta)
 	PLAYER.update_velocity()
 	
+	WEAPON.sway_weapon(delta, false, 2.5)
+	
 	allow_animation_functions = not is_on_slope()
 	Global.debug.add_property("On Slope? ", is_on_slope(), 8)
 	
-	WEAPON.sway_weapon(delta, false, 2.5)
-	
 	if was_on_sloop and not is_on_slope() and PLAYER.is_on_floor():
 		allow_animation_functions = true
+		if ANIMATION.is_playing():
+			await ANIMATION.animation_finished
 		ANIMATION.stop()
 		finish()
-	
+		
 	# This here is the hold to slide
 	#if Input.is_action_just_released("crouch"):
 		#ANIMATION.stop()
@@ -57,7 +62,7 @@ func update(delta):
 	
 	PLAYER.velocity.x = lerp(PLAYER.velocity.x, PLAYER.velocity.x * SLIDE_SPEED, ACCELERATION * delta)
 	PLAYER.velocity.z = lerp(PLAYER.velocity.z, PLAYER.velocity.z * SLIDE_SPEED, ACCELERATION * delta)
-		
+	
 	if PLAYER.is_on_floor() and is_on_slope(): 
 		update_slope(delta)
 		if Input.is_action_just_pressed("jump"):
@@ -76,13 +81,23 @@ func update(delta):
 		ANIMATION.stop()
 		finish()
 	
+	if PLAYER.is_on_floor():
+		var hvel := Vector3(PLAYER.velocity.x, 0, PLAYER.velocity.z)
+		if hvel.length() < 0.2 and not is_on_slope():
+			# Player is blocked by a wall while sliding
+			allow_animation_functions = true
+			ANIMATION.stop()
+			finish()
+			return
+	
 	if PLAYER.velocity.length() > 14:
 		PLAYER.velocity /= SLIDE_DECELERATE
 	
 	if Input.is_action_just_pressed("shoot"):
 		WEAPON._attack()
 	
-	if PLAYER.velocity.length() <= 0.5 and !is_on_slope() and PLAYER.is_on_floor():
+	if PLAYER.velocity.length() <= 0.5:
+		print("its trying")
 		ANIMATION.stop()
 		finish()
 
@@ -97,19 +112,23 @@ func update_slope(delta) -> void:
 		var uphill_decel = 10.0
 		PLAYER.velocity -= slope_dir * SLOPE_SPEED * delta
 		PLAYER.velocity -= hvel.normalized() * uphill_decel * delta
+		if hvel.length() < 3.0:
+			allow_animation_functions = true
+			ANIMATION.stop()
+			finish()
 	else:
 		PLAYER.velocity -= slope_dir * SLOPE_SPEED * delta
 	
-	if was_moving_uphill and not uphill and not cancelled_uphill:
-		cancelled_uphill = true
-		allow_animation_functions = true
-		ANIMATION.speed_scale = 0.3
-
-		await get_tree().process_frame
-		ANIMATION.speed_scale = 1.0
-		finish()
+	#if was_moving_uphill and not uphill and not cancelled_uphill:
+		#cancelled_uphill = true
+		#allow_animation_functions = true
+		#ANIMATION.speed_scale = 0.3
+#
+		#await get_tree().process_frame
+		#ANIMATION.speed_scale = 1.0
+		#finish()
 	
-	was_moving_uphill = uphill
+	#was_moving_uphill = uphill
 
 func set_tilt(player_rotation) -> void:
 	var tilt = Vector3.ZERO
@@ -121,9 +140,17 @@ func set_tilt(player_rotation) -> void:
 	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 1, tilt)
 	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 2, tilt)
 
+func reset_tilt() -> void:
+	var tilt = Vector3.ZERO
+	ANIMATION.get_animation("Sliding").track_set_key_value(3, 1, tilt)
+	ANIMATION.get_animation("Sliding").track_set_key_value(3, 2, tilt)
+	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 1, tilt)
+	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 2, tilt)
+
 func is_on_slope() -> bool:
 	if not PLAYER.is_on_floor():
 		return false
+
 	var floor_normal = PLAYER.get_floor_normal()
 	var slope_angle = rad_to_deg(acos(floor_normal.dot(Vector3.UP)))
 	return slope_angle > 3
@@ -137,8 +164,11 @@ func finish():
 			transition.emit("CrouchingPlayerState")
 		else:
 			ANIMATION.play("crouch", -1.0, -CROUCH_SPEED, true)
+			await get_tree().create_timer(0.18).timeout
+			#if ANIMATION.is_playing():
+				#await ANIMATION.animation_finished
+			#ANIMATION.stop()
 			transition.emit("WalkingPlayerState")
-			
 	else:
 		transition.emit("JumpingPlayerState")
 		ifJumped = false

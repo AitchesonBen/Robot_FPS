@@ -11,6 +11,7 @@ class_name WalkingPlayerState extends PlayerMovementState
 var has_dash : bool = false
 
 func enter(_previous_state) -> void:
+	#PLAYER.floor_snap_length = 0.8
 	ANIMATION.play("Headbob", -1.0, 1.0)
 	Global.player._speed = Global.player.SPEED_DEFAULT
 	Global.has_dashed = false
