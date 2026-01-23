@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://l66v3s8xrv5c"]
+[gd_scene load_steps=38 format=3 uid="uid://l66v3s8xrv5c"]
 
 [ext_resource type="Script" uid="uid://dnguk1ygniers" path="res://scripts/player.gd" id="1_gbl1t"]
 [ext_resource type="Script" uid="uid://hqy25httlnxt" path="res://scripts/weapon_recoil.gd" id="2_1m16y"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cl8ebuxppfcsa" path="res://model/interactable/PowerCellPlayer.tscn" id="16_j64lu"]
 [ext_resource type="Script" uid="uid://cqqrms3uwmvp7" path="res://scripts/States/WallRunPlayerState.gd" id="18_ejh3u"]
 [ext_resource type="Script" uid="uid://cfs4ttivjis1n" path="res://scripts/States/DashPlayerState.gd" id="19_hbtid"]
+[ext_resource type="Script" uid="uid://bb6gd2yi0ttom" path="res://scripts/UI Scripts/ammo_container.gd" id="22_5d00c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrm1h"]
 
@@ -694,6 +695,29 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="UI/ContextContainter/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+
+[node name="AmmoContainer" type="CenterContainer" parent="UI" node_paths=PackedStringArray("context")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1247.0
+offset_top = 815.0
+offset_right = -237.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_5d00c")
+context = NodePath("HBoxContainer/Label")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/AmmoContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/AmmoContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/AmmoContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 

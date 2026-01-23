@@ -5,6 +5,7 @@ class_name IdlePlayerState extends PlayerMovementState
 @export var DECELERATION : float  = 0.25
 
 func enter(_previous_state) -> void:
+	#PLAYER.floor_snap_length = 0.8
 	if PLAYER.is_on_floor():
 		Global.double_jumped = false
 	ANIMATION.pause()
@@ -29,5 +30,6 @@ func update(delta: float) -> void:
 	if PLAYER.velocity.y < -3.0 and !PLAYER.is_on_floor():
 		transition.emit("FallingPlayerState")
 		
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
+		#print(Global.ammo)
 		WEAPON._attack()

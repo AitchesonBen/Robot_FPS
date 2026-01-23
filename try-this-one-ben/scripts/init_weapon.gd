@@ -6,9 +6,15 @@ signal weapon_fired
 
 @export var WEAPON_TYPE : Weapons
 
+enum BulletType {Bullet, Cooldown}
+
 var weapon_instance : Node3D
 
 @onready var weapon_pivot : Node3D = $"Recoil Position/weapon_pivot"
+
+@export var bullet_type : BulletType
+#@export var AmmoCompacity : int
+#@export var Ammo : int = AmmoCompacity
 
 @export var sway_noise : NoiseTexture2D
 @export var sway_speed : float = 1.2
@@ -37,6 +43,9 @@ var base_rotation : Vector3
 
 var test_raycast = preload("res://raycast.tscn")
 
+var Ammo : int
+var AmmoCompacity : int
+
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		load_weapon()
@@ -56,11 +65,14 @@ func _input(event) -> void:
 	if event.is_action_pressed("weapon4"):
 		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/Sniper.tres")
 		load_weapon()
+	if event.is_action_pressed("reload"):
+		Ammo = WEAPON_TYPE.Ammoo
+		Global.ammo = Ammo
+		MessageBus.ammo_count.emit(Ammo, AmmoCompacity)
 	if event is InputEventMouseMotion:
 		mouse_movement = event.relative
 
 func load_weapon() -> void:
-
 	if weapon_instance and weapon_instance.is_inside_tree():
 		weapon_instance.queue_free()
 		weapon_instance = null
@@ -80,7 +92,13 @@ func load_weapon() -> void:
 	idle_sway_adjustment = WEAPON_TYPE.idle_sway_adjustment
 	idle_sway_rotation_strength = WEAPON_TYPE.idle_sway_rotation_strength
 	random_sway_amount = WEAPON_TYPE.random_sway_amount
-
+	
+	Ammo = WEAPON_TYPE.Ammoo
+	AmmoCompacity = WEAPON_TYPE.AmmoCapa
+	
+	Global.ammo = Ammo
+	MessageBus.ammo_count.emit(Ammo, AmmoCompacity)
+	
 	weapon_instance = inst
 
 func sway_weapon(delta, isIdle: bool, sway_spd: float) -> void:
@@ -149,6 +167,11 @@ func _attack() -> void:
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.collide_with_bodies = true
 	var result = space_state.intersect_ray(query)
+	Ammo -= 1
+	Global.ammo = Ammo
+	print(Ammo)
+	MessageBus.ammo_count.emit(Ammo, AmmoCompacity)
+	
 	if result:
 		raycast(result.get("position"), result.get("normal"))
 		var node = result.get("collider")

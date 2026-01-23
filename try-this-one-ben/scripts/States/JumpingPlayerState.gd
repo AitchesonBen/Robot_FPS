@@ -48,7 +48,7 @@ func update(delta) -> void:
 	if cooldown > 0:
 		cooldown -= delta
 	
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
 		WEAPON._attack()
 	
 	if Input.is_action_just_pressed("dash"):

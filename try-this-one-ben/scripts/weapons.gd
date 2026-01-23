@@ -18,3 +18,6 @@ class_name Weapons extends Resource
 @export var scene : PackedScene
 @export var mesh : Mesh
 @export var shadow : bool
+@export_category("Ammo")
+@export var AmmoCapa : int = 10
+@export var Ammoo : int = AmmoCapa
