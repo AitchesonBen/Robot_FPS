@@ -8,8 +8,8 @@ var dash_timer := 0.0
 
 func enter(_previous_state) -> void:
 	dash_timer = DASH_DURATION
-	Global.player._speed = Global.player.SPEED_DEFAULT
-	Global.player.velocity.y = 0
+	PLAYER._speed = PLAYER.SPEED_DEFAULT
+	PLAYER.velocity.y = 0
 	Global.has_dashed = true
 	
 	var input_dir := Input.get_vector(
@@ -19,12 +19,14 @@ func enter(_previous_state) -> void:
 		"move_backward"
 	)
 	
-	var dash_dir: Vector3 = -Global.player.transform.basis.z
+	var dash_dir: Vector3 = -PLAYER.transform.basis.z
 	if input_dir.length() > 0:
-		dash_dir = (Global.player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		dash_dir = (PLAYER.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	Global.player.velocity.x = dash_dir.x * DASH_SPEED
-	Global.player.velocity.z = dash_dir.z * DASH_SPEED
+	PLAYER.velocity.x = dash_dir.x * DASH_SPEED
+	PLAYER.velocity.z = dash_dir.z * DASH_SPEED
+	
+	PLAYER.floor_snap_length = 0.8
 
 func exit() -> void:
 	pass
@@ -32,13 +34,13 @@ func exit() -> void:
 func update(delta: float) -> void:
 	dash_timer -= delta
 
-	Global.player.velocity.x = move_toward(Global.player.velocity.x, 0, DASH_DECELERATION * delta)
-	Global.player.velocity.z = move_toward(Global.player.velocity.z, 0, DASH_DECELERATION * delta)
+	PLAYER.velocity.x = move_toward(PLAYER.velocity.x, 0, DASH_DECELERATION * delta)
+	PLAYER.velocity.z = move_toward(PLAYER.velocity.z, 0, DASH_DECELERATION * delta)
 
-	Global.player.update_velocity()
+	PLAYER.update_velocity()
 
 	if dash_timer <= 0:
-		if Global.player.velocity.y > 0.0:
+		if PLAYER.velocity.y > 0.0:
 			transition.emit("FallingPlayerState")
 		else:
 			transition.emit("IdlePlayerState")

@@ -9,4 +9,6 @@ name = &"AR"
 position = Vector3(0.082, 0.015, 0.047)
 rotation = Vector3(8.8, -46.2, 1.2)
 scene = ExtResource("1_risby")
+AmmoCapa = 20
+Ammoo = 20
 metadata/_custom_type_script = "uid://248vpyxv5gvs"

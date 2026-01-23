@@ -16,19 +16,14 @@ var ifJumped : bool = false
 var is_uncrouching = false
 var allow_animation_functions: bool = true
 var was_on_sloop : bool = false
-var cancelled_uphill := false
-var was_moving_uphill: bool = false
 
 func enter(_previous_state) -> void:
-	cancelled_uphill = false
 	was_on_sloop = false
 	set_tilt(PLAYER._current_rotation)
 	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(5, 0, PLAYER.velocity.length())
 	ANIMATION.get_animation("Sliding").track_set_key_value(5, 0, PLAYER.velocity.length())
 	ANIMATION.speed_scale = 1
 	ANIMATION.play("Sliding_Intro", -1.0, SLIDE_ANIM_SPEED)
-	#var intro_len := ANIMATION.get_animation("Sliding_Intro").length
-	#await get_tree().create_timer(intro_len / SLIDE_ANIM_SPEED).timeout
 	if ANIMATION.is_playing():
 		await ANIMATION.animation_finished
 	ANIMATION.play("Sliding", -1.0, SLIDE_ANIM_SPEED)
@@ -46,7 +41,6 @@ func update(delta):
 	WEAPON.sway_weapon(delta, false, 2.5)
 	
 	allow_animation_functions = not is_on_slope()
-	Global.debug.add_property("On Slope? ", is_on_slope(), 8)
 	
 	if was_on_sloop and not is_on_slope() and PLAYER.is_on_floor():
 		allow_animation_functions = true
@@ -73,7 +67,7 @@ func update(delta):
 	
 	was_on_sloop = is_on_slope()
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and !CROUCH_SHAPECAST.is_colliding():
 		if !PLAYER.is_on_floor():
 			Global.player.velocity.y = 0
 			Global.double_jumped = true
@@ -84,23 +78,39 @@ func update(delta):
 	if PLAYER.is_on_floor():
 		var hvel := Vector3(PLAYER.velocity.x, 0, PLAYER.velocity.z)
 		if hvel.length() < 0.2 and not is_on_slope():
-			# Player is blocked by a wall while sliding
 			allow_animation_functions = true
 			ANIMATION.stop()
 			finish()
 			return
 	
-	if PLAYER.velocity.length() > 14:
+	if PLAYER.velocity.length() > 14 and !is_on_slope():
 		PLAYER.velocity /= SLIDE_DECELERATE
 	
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
 		WEAPON._attack()
 	
-	if PLAYER.velocity.length() <= 0.5:
-		print("its trying")
+	if PLAYER.velocity.length() <= 0.5 and !is_on_slope() and PLAYER.is_on_floor():
 		ANIMATION.stop()
 		finish()
 
+func set_tilt(player_rotation) -> void:
+	var tilt = Vector3.ZERO
+	tilt.z = clamp(TILT_AMOUNT * player_rotation, -0.1, 0.1)
+	if tilt.z == 0.0:
+		tilt.z = 0.05
+	ANIMATION.get_animation("Sliding").track_set_key_value(3, 1, tilt)
+	ANIMATION.get_animation("Sliding").track_set_key_value(3, 2, tilt)
+	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 1, tilt)
+	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 2, tilt)
+
+func is_on_slope() -> bool:
+	if not PLAYER.is_on_floor():
+		return false
+
+	var floor_normal = PLAYER.get_floor_normal()
+	var slope_angle = rad_to_deg(acos(floor_normal.dot(Vector3.UP)))
+	return slope_angle > 3
+	
 func update_slope(delta) -> void:
 	var floor_normal = PLAYER.get_floor_normal()
 	var slope_dir = floor_normal.cross(Vector3.UP).cross(floor_normal).normalized()
@@ -118,42 +128,6 @@ func update_slope(delta) -> void:
 			finish()
 	else:
 		PLAYER.velocity -= slope_dir * SLOPE_SPEED * delta
-	
-	#if was_moving_uphill and not uphill and not cancelled_uphill:
-		#cancelled_uphill = true
-		#allow_animation_functions = true
-		#ANIMATION.speed_scale = 0.3
-#
-		#await get_tree().process_frame
-		#ANIMATION.speed_scale = 1.0
-		#finish()
-	
-	#was_moving_uphill = uphill
-
-func set_tilt(player_rotation) -> void:
-	var tilt = Vector3.ZERO
-	tilt.z = clamp(TILT_AMOUNT * player_rotation, -0.1, 0.1)
-	if tilt.z == 0.0:
-		tilt.z = 0.05
-	ANIMATION.get_animation("Sliding").track_set_key_value(3, 1, tilt)
-	ANIMATION.get_animation("Sliding").track_set_key_value(3, 2, tilt)
-	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 1, tilt)
-	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 2, tilt)
-
-func reset_tilt() -> void:
-	var tilt = Vector3.ZERO
-	ANIMATION.get_animation("Sliding").track_set_key_value(3, 1, tilt)
-	ANIMATION.get_animation("Sliding").track_set_key_value(3, 2, tilt)
-	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 1, tilt)
-	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 2, tilt)
-
-func is_on_slope() -> bool:
-	if not PLAYER.is_on_floor():
-		return false
-
-	var floor_normal = PLAYER.get_floor_normal()
-	var slope_angle = rad_to_deg(acos(floor_normal.dot(Vector3.UP)))
-	return slope_angle > 3
 
 func finish():
 	if not allow_animation_functions:
@@ -165,9 +139,6 @@ func finish():
 		else:
 			ANIMATION.play("crouch", -1.0, -CROUCH_SPEED, true)
 			await get_tree().create_timer(0.18).timeout
-			#if ANIMATION.is_playing():
-				#await ANIMATION.animation_finished
-			#ANIMATION.stop()
 			transition.emit("WalkingPlayerState")
 	else:
 		transition.emit("JumpingPlayerState")

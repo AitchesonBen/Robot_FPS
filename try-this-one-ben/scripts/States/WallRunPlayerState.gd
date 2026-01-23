@@ -41,5 +41,5 @@ func update(delta: float) -> void:
 	if WALL_SHAPECAST.is_colliding() == false || PLAYER.velocity.length() <= WALL_FALL_VELOCITY:
 		transition.emit("FallingPlayerState")
 	
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
 		WEAPON._attack()
