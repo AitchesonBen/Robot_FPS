@@ -53,6 +53,8 @@ func update(delta: float) -> void:
 			
 	if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
 		WEAPON._attack()
+	elif Input.is_action_just_pressed("shoot") and Global.ammo == 0:
+		WEAPON.reload()
 		
 	if Input.is_action_just_pressed("dash"):
 		if PLAYER.can_dash() && !has_dash:
