@@ -22,7 +22,7 @@ var weapon_instance : Node3D
 	set(value):
 		reset = value
 		if Engine.is_editor_hint():
-			load_weapon()
+			load_weapon(weapon_name)
 
 var mouse_movement : Vector2
 var random_sway_x
@@ -40,39 +40,61 @@ var max_fall_offset: float = -0.15 # Max drop when falling
 
 var base_position : Vector3
 var base_rotation : Vector3
+var scene
+var ANIMATION
 
 var test_raycast = preload("res://raycast.tscn")
 
 var Ammo : int
 var AmmoCompacity : int
+var weapon_name : String = ""
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
-		load_weapon()
+		load_weapon(weapon_name)
 	base_position = weapon_pivot.position
 	base_rotation = weapon_pivot.rotation_degrees
+	weapon_name = "Pistol"
+	Ammo = 10
+	AmmoCompacity = 10
+	MessageBus.ammo_count.emit(weapon_name, Ammo, AmmoCompacity)
 
 func _input(event) -> void:
 	if event.is_action_pressed("weapon1"):
 		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/Pistol.tres")
-		load_weapon()
+		weapon_name = "Pistol"
+		load_weapon(weapon_name)
 	if event.is_action_pressed("weapon2"):
 		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/AR.tres")
-		load_weapon()
+		weapon_name = "AR"
+		load_weapon(weapon_name)
 	if event.is_action_pressed("weapon3"):
 		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/Shotgun.tres")
-		load_weapon()
+		weapon_name = "Shotgun"
+		load_weapon(weapon_name)
 	if event.is_action_pressed("weapon4"):
-		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/Sniper.tres")
-		load_weapon()
-	if event.is_action_pressed("reload"):
-		Ammo = WEAPON_TYPE.Ammoo
-		Global.ammo = Ammo
-		MessageBus.ammo_count.emit(Ammo, AmmoCompacity)
+		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/SniperMuz.tres")
+		weapon_name = "Sniper"
+		load_weapon(weapon_name)
+	if event.is_action_pressed("reload") and Ammo != AmmoCompacity:
+		reload()
+	if event.is_action_pressed("inspect"):
+		inspect()
 	if event is InputEventMouseMotion:
 		mouse_movement = event.relative
 
-func load_weapon() -> void:
+func inspect() -> void:
+	if ANIMATION:
+		ANIMATION.play("Inspect")
+
+func reload() -> void:
+	Ammo = WEAPON_TYPE.Ammoo
+	Global.ammo = Ammo
+	MessageBus.ammo_count.emit(weapon_name, Ammo, AmmoCompacity)
+	if ANIMATION:
+		ANIMATION.play("Reload")
+
+func load_weapon(_name: String) -> void:
 	if weapon_instance and weapon_instance.is_inside_tree():
 		weapon_instance.queue_free()
 		weapon_instance = null
@@ -85,6 +107,8 @@ func load_weapon() -> void:
 	
 	if Engine.is_editor_hint():
 		inst.owner = get_tree().edited_scene_root
+	
+	ANIMATION = inst.get_node("AnimationPlayer")
 
 	inst.position = WEAPON_TYPE.position
 	inst.rotation_degrees = WEAPON_TYPE.rotation
@@ -97,7 +121,7 @@ func load_weapon() -> void:
 	AmmoCompacity = WEAPON_TYPE.AmmoCapa
 	
 	Global.ammo = Ammo
-	MessageBus.ammo_count.emit(Ammo, AmmoCompacity)
+	MessageBus.ammo_count.emit(_name, Ammo, AmmoCompacity)
 	
 	weapon_instance = inst
 
@@ -158,6 +182,9 @@ func get_sway_noise(delta) -> float:
 	return noise_location
 
 func _attack() -> void:
+	if ANIMATION.is_playing():
+		return
+	MessageBus.fired.emit()
 	weapon_fired.emit()
 	var camera = Global.player.CAMERA_CONTROLLER
 	var space_state = camera.get_world_3d().direct_space_state
@@ -170,7 +197,7 @@ func _attack() -> void:
 	Ammo -= 1
 	Global.ammo = Ammo
 	print(Ammo)
-	MessageBus.ammo_count.emit(Ammo, AmmoCompacity)
+	MessageBus.ammo_count.emit(weapon_name, Ammo, AmmoCompacity)
 	
 	if result:
 		raycast(result.get("position"), result.get("normal"))

@@ -33,3 +33,5 @@ func update(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
 		#print(Global.ammo)
 		WEAPON._attack()
+	elif Input.is_action_just_pressed("shoot") and Global.ammo == 0:
+		WEAPON.reload()
