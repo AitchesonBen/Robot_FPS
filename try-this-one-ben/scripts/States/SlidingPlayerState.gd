@@ -42,7 +42,8 @@ func update(delta):
 	
 	allow_animation_functions = not is_on_slope()
 	
-	if was_on_sloop and not is_on_slope() and PLAYER.is_on_floor():
+	#THERE WAS A ISONFLOOR CONDITION IF SOMETHING BROKE CHECK THIS
+	if was_on_sloop and not is_on_slope():
 		allow_animation_functions = true
 		if ANIMATION.is_playing():
 			await ANIMATION.animation_finished
@@ -60,6 +61,7 @@ func update(delta):
 	if PLAYER.is_on_floor() and is_on_slope(): 
 		update_slope(delta)
 		if Input.is_action_just_pressed("jump"):
+			ANIMATION.play("RESET")
 			allow_animation_functions = true
 			ifJumped = true
 			ANIMATION.stop()
@@ -68,6 +70,7 @@ func update(delta):
 	was_on_sloop = is_on_slope()
 	
 	if Input.is_action_just_pressed("jump") and !CROUCH_SHAPECAST.is_colliding():
+		ANIMATION.play("RESET")
 		if !PLAYER.is_on_floor():
 			Global.player.velocity.y = 0
 			Global.double_jumped = true
@@ -77,7 +80,7 @@ func update(delta):
 	
 	if PLAYER.is_on_floor():
 		var hvel := Vector3(PLAYER.velocity.x, 0, PLAYER.velocity.z)
-		if hvel.length() < 0.2 and not is_on_slope():
+		if hvel.length() <= 0.2 and not is_on_slope() and can_stand():
 			allow_animation_functions = true
 			ANIMATION.stop()
 			finish()
@@ -85,13 +88,21 @@ func update(delta):
 	
 	if PLAYER.velocity.length() > 14 and !is_on_slope():
 		PLAYER.velocity /= SLIDE_DECELERATE
+	elif PLAYER.velocity.length() > 18 and is_on_slope():
+		PLAYER.velocity /= SLIDE_DECELERATE
 	
 	if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
 		WEAPON._attack()
+	elif Input.is_action_just_pressed("shoot") and Global.ammo == 0:
+		WEAPON.reload()
 	
-	if PLAYER.velocity.length() <= 0.5 and !is_on_slope() and PLAYER.is_on_floor():
-		ANIMATION.stop()
-		finish()
+	#if PLAYER.velocity.length() <= 0.5 and !is_on_slope() and PLAYER.is_on_floor():
+		#ANIMATION.stop()
+		#finish()
+
+func can_stand() -> bool:
+	CROUCH_SHAPECAST.force_shapecast_update()
+	return not CROUCH_SHAPECAST.is_colliding()
 
 func set_tilt(player_rotation) -> void:
 	var tilt = Vector3.ZERO
@@ -133,8 +144,10 @@ func finish():
 	if not allow_animation_functions:
 		return
 		
+	PLAYER.floor_snap_length = 0.0
+		
 	if ifJumped == false:
-		if CROUCH_SHAPECAST.is_colliding():
+		if !can_stand():
 			transition.emit("CrouchingPlayerState")
 		else:
 			ANIMATION.play("crouch", -1.0, -CROUCH_SPEED, true)

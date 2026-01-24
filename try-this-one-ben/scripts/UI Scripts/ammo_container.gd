@@ -5,6 +5,6 @@ class_name AmmoComponent extends CenterContainer
 func _ready() -> void:
 	MessageBus.ammo_count.connect(display_ammo)
 
-func display_ammo(ammo: int, ammoCap: int) -> void:
-	var ammoList := str(ammo) + "/" + str(ammoCap)
+func display_ammo(name: String, ammo: int, ammoCap: int) -> void:
+	var ammoList := name + " " + str(ammo) + "/" + str(ammoCap)
 	context.text = ammoList
