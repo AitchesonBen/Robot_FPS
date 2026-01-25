@@ -88,6 +88,12 @@ explosiveness = 0.95
 process_material = SubResource("ParticleProcessMaterial_6huwq")
 draw_pass_1 = SubResource("QuadMesh_wqqtf")
 
+[node name="Knob" parent="Weapon/Pins/Left" index="0"]
+layers = 2
+
+[node name="Knob2" parent="Weapon/Pins/Right" index="0"]
+layers = 2
+
 [node name="Trigger - glow" parent="Weapon/Trigger" index="0"]
 layers = 2
 

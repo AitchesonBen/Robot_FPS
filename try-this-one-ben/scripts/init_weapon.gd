@@ -57,7 +57,7 @@ func _ready() -> void:
 	weapon_name = "Pistol"
 	Ammo = 10
 	AmmoCompacity = 10
-	MessageBus.ammo_count.emit(weapon_name, Ammo, AmmoCompacity)
+	MessageBus.set_ammo(weapon_name, Ammo, AmmoCompacity)
 
 func _input(event) -> void:
 	if event.is_action_pressed("weapon1"):
@@ -84,15 +84,17 @@ func _input(event) -> void:
 		mouse_movement = event.relative
 
 func inspect() -> void:
-	if ANIMATION:
+	if ANIMATION && !ANIMATION.is_playing():
 		ANIMATION.play("Inspect")
 
 func reload() -> void:
+	if ANIMATION:
+		ANIMATION.play("Reload")
+	if ANIMATION.is_playing():
+		await ANIMATION.animation_finished
 	Ammo = WEAPON_TYPE.Ammoo
 	Global.ammo = Ammo
 	MessageBus.ammo_count.emit(weapon_name, Ammo, AmmoCompacity)
-	if ANIMATION:
-		ANIMATION.play("Reload")
 
 func load_weapon(_name: String) -> void:
 	if weapon_instance and weapon_instance.is_inside_tree():
@@ -182,7 +184,9 @@ func get_sway_noise(delta) -> float:
 	return noise_location
 
 func _attack() -> void:
-	if ANIMATION.is_playing():
+	if ANIMATION.is_playing() && ANIMATION.current_animation == "Inspect":
+		ANIMATION.stop()
+	elif ANIMATION.is_playing():
 		return
 	MessageBus.fired.emit()
 	weapon_fired.emit()

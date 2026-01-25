@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://l66v3s8xrv5c"]
+[gd_scene load_steps=39 format=3 uid="uid://l66v3s8xrv5c"]
 
 [ext_resource type="Script" uid="uid://dnguk1ygniers" path="res://scripts/player.gd" id="1_gbl1t"]
 [ext_resource type="Script" uid="uid://hqy25httlnxt" path="res://scripts/weapon_recoil.gd" id="2_1m16y"]
@@ -21,7 +21,8 @@
 [ext_resource type="Script" uid="uid://8hndqsnb5cb3" path="res://scripts/States/FallingPlayerState.gd" id="13_urp6f"]
 [ext_resource type="Script" uid="uid://cnxh3y4hr2ixw" path="res://scripts/WeaponViewport.gd" id="14_bwjto"]
 [ext_resource type="Script" uid="uid://baub5jgf125s8" path="res://scripts/WeaponCamera.gd" id="15_606se"]
-[ext_resource type="PackedScene" uid="uid://cl8ebuxppfcsa" path="res://model/interactable/PowerCellPlayer.tscn" id="16_j64lu"]
+[ext_resource type="PackedScene" uid="uid://bg4icuyadata5" path="res://model/interactable/PowerCell.tscn" id="17_ngsdc"]
+[ext_resource type="PackedScene" uid="uid://cl8ebuxppfcsa" path="res://model/interactable/PowerCellPlayer.tscn" id="17_w3hl1"]
 [ext_resource type="Script" uid="uid://cqqrms3uwmvp7" path="res://scripts/States/WallRunPlayerState.gd" id="18_ejh3u"]
 [ext_resource type="Script" uid="uid://cfs4ttivjis1n" path="res://scripts/States/DashPlayerState.gd" id="19_hbtid"]
 [ext_resource type="Script" uid="uid://bb6gd2yi0ttom" path="res://scripts/UI Scripts/ammo_container.gd" id="22_5d00c"]
@@ -489,7 +490,6 @@ _data = {
 radius = 0.6
 
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WALL_SHAPECAST", "WEAPON_CONTROLLER", "DASH_ANIMATION_IMAGE", "DASH_IMAGE", "Cell")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2742698, 0)
 script = ExtResource("1_gbl1t")
 CAMERA_CONTROLLER = NodePath("Camera/Recoil/Camera3D")
 ANIMATIONPLAYER = NodePath("AnimationPlayer")
@@ -498,7 +498,7 @@ WALL_SHAPECAST = NodePath("WallShapeCast3D2")
 WEAPON_CONTROLLER = NodePath("Camera/Recoil/Camera3D/WeaponRig/Weapon")
 DASH_ANIMATION_IMAGE = NodePath("UI/DashRed/AnimationComponent")
 DASH_IMAGE = NodePath("UI/DashRed")
-Cell = NodePath("WeaponViewport/SubViewport/Camera3DWeap/PowerCell")
+Cell = NodePath("WeaponViewport/SubViewport/Camera3DWeap/PowerCell2")
 DASH_COOLDOWN = 1.5
 
 [node name="Collision" type="CollisionShape3D" parent="."]
@@ -614,8 +614,12 @@ cull_mask = 2
 script = ExtResource("15_606se")
 MAIN_CAMERA = NodePath("../../../Camera/Recoil/Camera3D")
 
-[node name="PowerCell" parent="WeaponViewport/SubViewport/Camera3DWeap" instance=ExtResource("16_j64lu")]
-transform = Transform3D(0.9944468, 0, 0.10524011, 0, 1, 0, -0.10524011, 0, 0.9944468, -1.2849284, -1.1574776, -1.8099154)
+[node name="PowerCell" parent="WeaponViewport/SubViewport/Camera3DWeap" instance=ExtResource("17_ngsdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.285, -1.157, -1.81)
+visible = false
+
+[node name="PowerCell2" parent="WeaponViewport/SubViewport/Camera3DWeap" instance=ExtResource("17_w3hl1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.285, -1.157, -1.81)
 visible = false
 
 [node name="UI" type="Control" parent="."]

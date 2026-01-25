@@ -32,6 +32,8 @@ var _camera_rotation: Vector3
 
 var _current_rotation: float
 
+var movement_lock := false
+
 func _unhandled_input(event: InputEvent) -> void:
 	_mouse_input = event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
 	if _mouse_input:
@@ -75,7 +77,8 @@ func _physics_process(delta: float) -> void:
 	
 	DASH_ANIMATION_IMAGE.enable_cooldown()
 	
-	_update_camera(delta)
+	if !movement_lock:
+		_update_camera(delta)
 	
 	if dash_cooldown_timer > 0.0:
 		dash_cooldown_timer -= delta
@@ -93,16 +96,38 @@ func _physics_process(delta: float) -> void:
 func update_gravity(delta: float) -> void:
 	velocity += get_gravity() * delta
 
+#func update_input(speed: float, acceleration: float, deceleration: float) -> void:
+	#if movement_lock:
+		#return
+	#var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	#var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	#
+	#if direction:
+		#velocity.x = lerp(velocity.x, direction.x * speed, acceleration)
+		#velocity.z = lerp(velocity.z, direction.z * speed, acceleration)
+	#else:
+		#velocity.x = move_toward(velocity.x, 0, deceleration)
+		#velocity.z = move_toward(velocity.z, 0, deceleration)
+
 func update_input(speed: float, acceleration: float, deceleration: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
-	if direction:
-		velocity.x = lerp(velocity.x, direction.x * speed, acceleration)
-		velocity.z = lerp(velocity.z, direction.z * speed, acceleration)
+
+	var desired_dir := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
+	var desired_velocity := Vector3.ZERO
+
+	if desired_dir.length() > 0.0:
+		desired_velocity = desired_dir.normalized() * speed
+
+	var horizontal_velocity := Vector3(velocity.x, 0, velocity.z)
+
+	if desired_velocity != Vector3.ZERO:
+		horizontal_velocity = horizontal_velocity.lerp(desired_velocity, acceleration)
 	else:
-		velocity.x = move_toward(velocity.x, 0, deceleration)
-		velocity.z = move_toward(velocity.z, 0, deceleration)
+		horizontal_velocity = horizontal_velocity.move_toward(Vector3.ZERO, deceleration)
+
+	velocity.x = horizontal_velocity.x
+	velocity.z = horizontal_velocity.z
+
 
 func update_wall_run_input(speed: float, acceleration: float, deceleration: float, wall_normal: Vector3) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
