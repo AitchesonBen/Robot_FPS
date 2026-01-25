@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://0lqdfe5dkd1j"]
+[gd_scene load_steps=33 format=3 uid="uid://0lqdfe5dkd1j"]
 
 [ext_resource type="PackedScene" uid="uid://l66v3s8xrv5c" path="res://model/player.tscn" id="1_82owt"]
 [ext_resource type="Shader" uid="uid://clxf2fyb8eebe" path="res://Maps/UI Scenes/sky.gdshader" id="1_6582d"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dxwpfetmqmy8c" path="res://model/Boxes/LargeBox.tscn" id="13_6582d"]
 [ext_resource type="PackedScene" uid="uid://bg4icuyadata5" path="res://model/interactable/PowerCell.tscn" id="14_i3wmk"]
 [ext_resource type="PackedScene" uid="uid://cifidnybuvi6h" path="res://Maps/UI Scenes/Pause_Menu.tscn" id="18_6wt63"]
+[ext_resource type="PackedScene" uid="uid://bopikp1mplop1" path="res://model/lighting_rect.tscn" id="21_8e2af"]
 [ext_resource type="PackedScene" uid="uid://gy7khll2l63u" path="res://model/Boxes/Explosive.tscn" id="23_6g866"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n8uhs"]
@@ -2143,6 +2144,11 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26,
 process_mode = 3
 
 [node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("18_6wt63")]
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="LightingRect" parent="Lights" instance=ExtResource("21_8e2af")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 27, 0)
 
 [editable path="Walls/CSGBox3D5/Door"]
 [editable path="Walls/CSGBox3D5/Door2"]

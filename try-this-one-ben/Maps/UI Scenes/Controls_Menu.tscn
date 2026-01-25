@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://rwclum0jq8m7"]
+[gd_scene load_steps=10 format=3 uid="uid://rwclum0jq8m7"]
 
 [ext_resource type="Texture2D" uid="uid://csv0biacjc6ew" path="res://ui/Default/keyboard_space.png" id="1_iup6g"]
 [ext_resource type="Texture2D" uid="uid://bav60xc8x0yyn" path="res://ui/Default/keyboard_shift.png" id="2_tc0f1"]
 [ext_resource type="Texture2D" uid="uid://da13loq5df2b6" path="res://ui/Default/keyboard_ctrl.png" id="3_8umco"]
 [ext_resource type="Texture2D" uid="uid://cqb5ks48cr13e" path="res://ui/Default/keyboard_c.png" id="3_ewgfd"]
 [ext_resource type="Texture2D" uid="uid://du1u5udxk6lk2" path="res://ui/Default/mouse_left.png" id="4_8umco"]
+[ext_resource type="Texture2D" uid="uid://cfulu0hj0y7mf" path="res://ui/Default/keyboard_r.png" id="6_o7xhd"]
+[ext_resource type="Texture2D" uid="uid://bbkpc6rqrdjxa" path="res://ui/Default/keyboard_t.png" id="6_uckh5"]
 
 [sub_resource type="Theme" id="Theme_knyqd"]
 
@@ -105,3 +107,35 @@ offset_right = 411.0
 offset_bottom = 75.0
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_8umco")
+
+[node name="Reload" type="Label" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = " Reload"
+vertical_alignment = 1
+
+[node name="TextureRect4" type="TextureRect" parent="PanelContainer/VBoxContainer/Reload"]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 11.0
+offset_right = 411.0
+offset_bottom = 75.0
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("6_o7xhd")
+
+[node name="Inspect" type="Label" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = " Inspect"
+vertical_alignment = 1
+
+[node name="TextureRect4" type="TextureRect" parent="PanelContainer/VBoxContainer/Inspect"]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 11.0
+offset_right = 411.0
+offset_bottom = 75.0
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("6_uckh5")
