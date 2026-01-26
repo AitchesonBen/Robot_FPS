@@ -57,7 +57,7 @@ func _ready() -> void:
 	weapon_name = "Pistol"
 	Ammo = 10
 	AmmoCompacity = 10
-	MessageBus.set_ammo(weapon_name, Ammo, AmmoCompacity)
+	#MessageBus.set_ammo(weapon_name, Ammo, AmmoCompacity)
 
 func _input(event) -> void:
 	if event.is_action_pressed("weapon1"):
@@ -200,7 +200,6 @@ func _attack() -> void:
 	var result = space_state.intersect_ray(query)
 	Ammo -= 1
 	Global.ammo = Ammo
-	print(Ammo)
 	MessageBus.ammo_count.emit(weapon_name, Ammo, AmmoCompacity)
 	
 	if result:
@@ -208,11 +207,11 @@ func _attack() -> void:
 		var node = result.get("collider")
 		var enemy = node.get_parent()
 		var limbMesh = enemy.get_parent()
-		var limb = limbMesh.get_parent()
+		#var limb = limbMesh.get_parent()
 		while enemy and not enemy.is_in_group("Enemy"):
 			enemy = enemy.get_parent()
 		if enemy:
-			MessageBus.raycastResult.emit(enemy, limb)
+			MessageBus.raycastResult.emit(enemy, limbMesh)
 
 func raycast(positionRC: Vector3, normal: Vector3) -> void:
 	var instance = test_raycast.instantiate()
