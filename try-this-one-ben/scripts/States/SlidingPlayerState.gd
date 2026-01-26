@@ -16,9 +16,11 @@ var ifJumped : bool = false
 var is_uncrouching = false
 var allow_animation_functions: bool = true
 var was_on_sloop : bool = false
+var thing : bool = false
 
 func enter(_previous_state) -> void:
 	was_on_sloop = false
+	thing = false
 	set_tilt(PLAYER._current_rotation)
 	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(5, 0, PLAYER.velocity.length())
 	ANIMATION.get_animation("Sliding").track_set_key_value(5, 0, PLAYER.velocity.length())
@@ -43,12 +45,7 @@ func update(delta):
 	allow_animation_functions = not is_on_slope()
 	
 	#THERE WAS A ISONFLOOR CONDITION IF SOMETHING BROKE CHECK THIS
-	if was_on_sloop and not is_on_slope():
-		allow_animation_functions = true
-		if ANIMATION.is_playing():
-			await ANIMATION.animation_finished
-		ANIMATION.stop()
-		finish()
+	#Reaching top of slope
 		
 	# This here is the hold to slide
 	#if Input.is_action_just_released("crouch"):
@@ -69,15 +66,27 @@ func update(delta):
 	
 	was_on_sloop = is_on_slope()
 	
+	print(PLAYER.is_on_floor())
+
+	#Jumping allowed unless under a block
 	if Input.is_action_just_pressed("jump") and !CROUCH_SHAPECAST.is_colliding():
 		ANIMATION.play("RESET")
 		if !PLAYER.is_on_floor():
 			Global.player.velocity.y = 0
 			Global.double_jumped = true
+		#PLAYER.floor_snap_length = 0.8
 		ifJumped = true
 		ANIMATION.stop()
 		finish()
 	
+	if was_on_sloop and not is_on_slope():
+		allow_animation_functions = true
+		if ANIMATION.is_playing():
+			await ANIMATION.animation_finished
+		ANIMATION.stop()
+		finish()
+	
+	#Slide into Wall cancel
 	if PLAYER.is_on_floor():
 		var hvel := Vector3(PLAYER.velocity.x, 0, PLAYER.velocity.z)
 		if hvel.length() <= 0.2 and not is_on_slope() and can_stand():
@@ -86,6 +95,7 @@ func update(delta):
 			finish()
 			return
 	
+	#Capping Velocity
 	if PLAYER.velocity.length() > 14 and !is_on_slope():
 		PLAYER.velocity /= SLIDE_DECELERATE
 	elif PLAYER.velocity.length() > 18 and is_on_slope():
@@ -99,20 +109,6 @@ func update(delta):
 	#if PLAYER.velocity.length() <= 0.5 and !is_on_slope() and PLAYER.is_on_floor():
 		#ANIMATION.stop()
 		#finish()
-
-func can_stand() -> bool:
-	CROUCH_SHAPECAST.force_shapecast_update()
-	return not CROUCH_SHAPECAST.is_colliding()
-
-func set_tilt(player_rotation) -> void:
-	var tilt = Vector3.ZERO
-	tilt.z = clamp(TILT_AMOUNT * player_rotation, -0.1, 0.1)
-	if tilt.z == 0.0:
-		tilt.z = 0.05
-	ANIMATION.get_animation("Sliding").track_set_key_value(3, 1, tilt)
-	ANIMATION.get_animation("Sliding").track_set_key_value(3, 2, tilt)
-	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 1, tilt)
-	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 2, tilt)
 
 func is_on_slope() -> bool:
 	if not PLAYER.is_on_floor():
@@ -135,24 +131,44 @@ func update_slope(delta) -> void:
 		PLAYER.velocity -= hvel.normalized() * uphill_decel * delta
 		if hvel.length() < 3.0:
 			allow_animation_functions = true
+			thing = true
+			ANIMATION.play("RESET")
+			#ANIMATION.play("crouch", -1.0, -CROUCH_SPEED, true)
+			#await get_tree().create_timer(0.18).timeout
 			ANIMATION.stop()
 			finish()
 	else:
 		PLAYER.velocity -= slope_dir * SLOPE_SPEED * delta
 
+func can_stand() -> bool:
+	CROUCH_SHAPECAST.force_shapecast_update()
+	return not CROUCH_SHAPECAST.is_colliding()
+
+func set_tilt(player_rotation) -> void:
+	var tilt = Vector3.ZERO
+	tilt.z = clamp(TILT_AMOUNT * player_rotation, -0.1, 0.1)
+	if tilt.z == 0.0:
+		tilt.z = 0.05
+	ANIMATION.get_animation("Sliding").track_set_key_value(3, 1, tilt)
+	ANIMATION.get_animation("Sliding").track_set_key_value(3, 2, tilt)
+	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 1, tilt)
+	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(3, 2, tilt)
+
 func finish():
 	if not allow_animation_functions:
 		return
 		
-	PLAYER.floor_snap_length = 0.0
+	#PLAYER.floor_snap_length = 0.0
 		
 	if ifJumped == false:
 		if !can_stand():
 			transition.emit("CrouchingPlayerState")
 		else:
-			ANIMATION.play("crouch", -1.0, -CROUCH_SPEED, true)
-			await get_tree().create_timer(0.18).timeout
+			if !thing:
+				ANIMATION.play("crouch", -1.0, -CROUCH_SPEED, true)
+				await get_tree().create_timer(0.18).timeout
 			transition.emit("WalkingPlayerState")
 	else:
+		ANIMATION.play("RESET")
 		transition.emit("JumpingPlayerState")
 		ifJumped = false

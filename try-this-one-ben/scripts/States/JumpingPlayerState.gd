@@ -57,6 +57,7 @@ func update(delta) -> void:
 		if PLAYER.can_dash() && !has_dash:
 			PLAYER.start_dash_cooldown()
 			transition.emit("DashPlayerState")
+			Global.has_dashed = true
 	
 	if Input.is_action_just_pressed("jump") and DOUBLE_JUMP == false and not PLAYER.is_on_floor() || fromSlideInAir:
 		PLAYER.velocity.y = 0
