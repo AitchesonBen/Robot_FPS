@@ -60,6 +60,7 @@ func update(delta: float) -> void:
 		if PLAYER.can_dash() && !has_dash:
 			PLAYER.start_dash_cooldown()
 			transition.emit("DashPlayerState")
+			Global.has_dashed = true
 		
 	if PLAYER.is_on_floor():
 		Global.has_dashed = false
