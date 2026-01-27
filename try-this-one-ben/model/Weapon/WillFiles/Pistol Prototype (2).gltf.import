@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://o0jcneb0y6kr"
-path="res://.godot/imported/Pistol Prototype.gltf-70ae863b9ab3bb07b51fbf5175f0f3f2.scn"
+uid="uid://do5vb1c5u8a4i"
+path="res://.godot/imported/Pistol Prototype (2).gltf-42f7dcd5539b7cc6bdc54f2dc1e9c647.scn"
 
 [deps]
 
-source_file="res://model/Weapon/WillFiles/Pistol Prototype.gltf"
-dest_files=["res://.godot/imported/Pistol Prototype.gltf-70ae863b9ab3bb07b51fbf5175f0f3f2.scn"]
+source_file="res://model/Weapon/WillFiles/Pistol Prototype (2).gltf"
+dest_files=["res://.godot/imported/Pistol Prototype (2).gltf-42f7dcd5539b7cc6bdc54f2dc1e9c647.scn"]
 
 [params]
 
@@ -42,22 +42,22 @@ _subresources={
 "material_0": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://model/Weapon/PistolMesh/material_0.tres",
-"use_external/path": "uid://ci6o71tl3i8e1"
+"use_external/path": "uid://ijx6bp02but2"
 },
 "material_1": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://model/Weapon/PistolMesh/material_1.tres",
-"use_external/path": "uid://b35oxwq3kytoi"
+"use_external/path": "uid://p060jcaeuwhu"
 },
 "material_2": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://model/Weapon/PistolMesh/material_2.tres",
-"use_external/path": "uid://c0lg8pp756k68"
+"use_external/path": "uid://bmoecwqfod4k7"
 },
 "material_3": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://model/Weapon/PistolMesh/material_3.tres",
-"use_external/path": "uid://r0nghe4i1p62"
+"use_external/path": "uid://crcvb1nqqe83v"
 }
 },
 "meshes": {
@@ -68,7 +68,7 @@ _subresources={
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://model/Weapon/PistolMesh/blockbench_export_mesh.res",
-"save_to_file/path": "uid://b1ip121ll3ll"
+"save_to_file/path": "uid://cj8syvo5dltue"
 },
 "blockbench_export_mesh10": {
 "generate/lightmap_uv": 0,
@@ -77,7 +77,16 @@ _subresources={
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://model/Weapon/PistolMesh/blockbench_export_mesh10.res",
-"save_to_file/path": "uid://cnx6i4hopr1c6"
+"save_to_file/path": "uid://btudscitwdvnp"
+},
+"blockbench_export_mesh11": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/PistolMesh/blockbench_export_mesh11.res",
+"save_to_file/path": "uid://c88bdlishs73a"
 },
 "blockbench_export_mesh2": {
 "generate/lightmap_uv": 0,
@@ -86,7 +95,7 @@ _subresources={
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://model/Weapon/PistolMesh/blockbench_export_mesh2.res",
-"save_to_file/path": "uid://b1tsro2fwlfpi"
+"save_to_file/path": "uid://bto6atyk0s3pr"
 },
 "blockbench_export_mesh3": {
 "generate/lightmap_uv": 0,
@@ -95,7 +104,7 @@ _subresources={
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://model/Weapon/PistolMesh/blockbench_export_mesh3.res",
-"save_to_file/path": "uid://cxnr1cmpt83ql"
+"save_to_file/path": "uid://daoxttm6t1imi"
 },
 "blockbench_export_mesh4": {
 "generate/lightmap_uv": 0,
@@ -104,7 +113,7 @@ _subresources={
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://model/Weapon/PistolMesh/blockbench_export_mesh4.res",
-"save_to_file/path": "uid://c6pr688fl1i1t"
+"save_to_file/path": "uid://c6osl1owpbpdm"
 },
 "blockbench_export_mesh5": {
 "generate/lightmap_uv": 0,
@@ -113,7 +122,7 @@ _subresources={
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://model/Weapon/PistolMesh/blockbench_export_mesh5.res",
-"save_to_file/path": "uid://cm5hyep3rm32n"
+"save_to_file/path": "uid://dpqbymuw2vqrp"
 },
 "blockbench_export_mesh6": {
 "generate/lightmap_uv": 0,
@@ -122,7 +131,7 @@ _subresources={
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://model/Weapon/PistolMesh/blockbench_export_mesh6.res",
-"save_to_file/path": "uid://bkmfelm5h0bw2"
+"save_to_file/path": "uid://kmxiccajsdau"
 },
 "blockbench_export_mesh7": {
 "generate/lightmap_uv": 0,
@@ -131,7 +140,7 @@ _subresources={
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://model/Weapon/PistolMesh/blockbench_export_mesh7.res",
-"save_to_file/path": "uid://dl5ef77el7rj4"
+"save_to_file/path": "uid://cy0esx8t5i83g"
 },
 "blockbench_export_mesh8": {
 "generate/lightmap_uv": 0,
@@ -140,7 +149,7 @@ _subresources={
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://model/Weapon/PistolMesh/blockbench_export_mesh8.res",
-"save_to_file/path": "uid://d34avpbal2jli"
+"save_to_file/path": "uid://d3kfmlk6ms1tm"
 },
 "blockbench_export_mesh9": {
 "generate/lightmap_uv": 0,
@@ -149,7 +158,7 @@ _subresources={
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://model/Weapon/PistolMesh/blockbench_export_mesh9.res",
-"save_to_file/path": "uid://4ouoc52dnthh"
+"save_to_file/path": "uid://kmwvsxslkotx"
 }
 }
 }

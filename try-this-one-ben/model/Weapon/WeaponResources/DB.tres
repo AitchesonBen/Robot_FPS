@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Weapons" load_steps=3 format=3 uid="uid://d1w2k2w2k0mls"]
+
+[ext_resource type="Script" uid="uid://248vpyxv5gvs" path="res://scripts/weapons.gd" id="1_oytpp"]
+[ext_resource type="PackedScene" uid="uid://cppgm2imgl5wp" path="res://model/Weapon/DB.tscn" id="1_rymub"]
+
+[resource]
+script = ExtResource("1_oytpp")
+name = &"DB"
+position = Vector3(0.069, 0.038, -0.012)
+rotation = Vector3(6.5, -50.2, 1.7)
+scene = ExtResource("1_rymub")
+AmmoCapa = 2
+Ammoo = 2
+metadata/_custom_type_script = "uid://248vpyxv5gvs"

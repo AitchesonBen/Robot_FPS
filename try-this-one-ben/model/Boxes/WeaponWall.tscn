@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://rbu1i7cq750t"]
+
+[ext_resource type="Texture2D" uid="uid://dfpg2k8sit5kt" path="res://ui/Textures/checkboard.png" id="1_8gakw"]
+[ext_resource type="Texture2D" uid="uid://c81sp6dbi6gyc" path="res://ui/boy_got_rizz.png" id="2_r1hcx"]
+[ext_resource type="PackedScene" uid="uid://bv6iq61rpp3g4" path="res://model/interactable/Weapons/PistolInter.tscn" id="3_r1hcx"]
+[ext_resource type="PackedScene" uid="uid://bo0g3hl5wn0hh" path="res://model/interactable/Weapons/DBInter.tscn" id="4_i8pdm"]
+[ext_resource type="PackedScene" uid="uid://cc445grwnke6g" path="res://model/interactable/Weapons/ARInter.tscn" id="5_w3yaa"]
+[ext_resource type="PackedScene" uid="uid://c4gm65t86tw8k" path="res://model/interactable/Weapons/ShotgunInter.tscn" id="6_87iqj"]
+[ext_resource type="PackedScene" uid="uid://cq2wwqnve7p8m" path="res://model/interactable/Weapons/SniperFlashInter.tscn" id="7_g5qgh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8pdm"]
+albedo_color = Color(0.8862745, 0.05490196, 0.20784314, 1)
+albedo_texture = ExtResource("1_8gakw")
+metallic = 0.44
+normal_texture = ExtResource("2_r1hcx")
+bent_normal_texture = ExtResource("2_r1hcx")
+rim = 0.4
+rim_tint = 1.0
+subsurf_scatter_strength = 1.0
+subsurf_scatter_texture = ExtResource("2_r1hcx")
+detail_albedo = ExtResource("2_r1hcx")
+uv1_triplanar = true
+
+[node name="WeaponWall" type="Node3D"]
+
+[node name="BasicWall" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+use_collision = true
+size = Vector3(0.779, 5, 12)
+material = SubResource("StandardMaterial3D_i8pdm")
+
+[node name="Pistol" parent="." instance=ExtResource("3_r1hcx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3, -1.3, 0.5)
+
+[node name="DB" parent="." instance=ExtResource("4_i8pdm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8, 0.7, 0.6)
+
+[node name="AR" parent="." instance=ExtResource("5_w3yaa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1000004, 0.4, 0.5)
+
+[node name="Shotgun" parent="." instance=ExtResource("6_87iqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0.5)
+
+[node name="SniperFlash" parent="." instance=ExtResource("7_g5qgh")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 2, -1, 0.49999994)

@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://cppgm2imgl5wp"]
+
+[ext_resource type="PackedScene" uid="uid://yiujtucee3y3" path="res://model/Weapon/WillFiles/Double Barrel (1).gltf" id="1_bdom8"]
+[ext_resource type="Script" uid="uid://c8x5yu3npmwpn" path="res://scripts/muzzle_flash.gd" id="2_ehm36"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1pxia"]
+angle_min = -91.399994
+angle_max = 91.500015
+direction = Vector3(0, 0, -1)
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_kvmcy"]
+colors = PackedColorArray(0.49803922, 0.93333334, 0.9882353, 1, 0, 0, 0, 0.02745098)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o1did"]
+gradient = SubResource("Gradient_kvmcy")
+fill = 2
+fill_from = Vector2(0.50574714, 0.48850575)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldbi1"]
+transparency = 1
+blend_mode = 1
+albedo_texture = SubResource("GradientTexture2D_o1did")
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 16.0
+emission_texture = SubResource("GradientTexture2D_o1did")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_5m2uj"]
+material = SubResource("StandardMaterial3D_ldbi1")
+size = Vector2(0.2, 0.2)
+
+[node name="DB" instance=ExtResource("1_bdom8")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Decoration - glow" parent="Weapon" index="0"]
+layers = 2
+
+[node name="Underside" parent="Weapon" index="1"]
+layers = 2
+
+[node name="Grip" parent="Weapon" index="2"]
+layers = 2
+
+[node name="Handle" parent="Weapon" index="3"]
+layers = 2
+
+[node name="Muzzle Flash Point" parent="Weapon" index="4" node_paths=PackedStringArray("light", "emitter")]
+script = ExtResource("2_ehm36")
+light = NodePath("OmniLight3D")
+emitter = NodePath("GPUParticles3D")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Weapon/Muzzle Flash Point" index="0"]
+visible = false
+light_color = Color(0.5949351, 1, 0.98583645, 1)
+omni_range = 6.2
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Weapon/Muzzle Flash Point" index="1"]
+emitting = false
+lifetime = 0.01
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.95
+process_material = SubResource("ParticleProcessMaterial_1pxia")
+draw_pass_1 = SubResource("QuadMesh_5m2uj")
+
+[node name="Slide" parent="Weapon/Slide2" index="0"]
+layers = 2
+
+[node name="Base" parent="Weapon/Slide2" index="1"]
+layers = 2
+
+[node name="Magazine - glow" parent="Weapon/Slide2/Magazine" index="0"]
+layers = 2
+
+[node name="Cap" parent="Weapon/Slide2/Magazine" index="1"]
+layers = 2
+
+[node name="Cap2" parent="Weapon/Slide2/Magazine" index="2"]
+layers = 2
+
+[node name="Magazine - glow2" parent="Weapon/Slide2/Magazine" index="3"]
+layers = 2
+
+[node name="Trigger - glow" parent="Weapon/Trigger" index="0"]
+layers = 2
+
+[node name="Barrel" parent="Weapon/Barrel2" index="0"]
+layers = 2
+
+[node name="Vent - glow" parent="Weapon/Barrel2" index="1"]
+layers = 2

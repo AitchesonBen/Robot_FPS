@@ -3,8 +3,8 @@ class_name DashPlayerState extends PlayerMovementState
 @export var DASH_SPEED := 45.0
 #Not being used
 @export var DASH_DECELERATION := 55.0
-@export var DASH_DURATION := 0.18
-@export var DASH_REDUCER := 0.4
+@export var DASH_DURATION := 0.12
+@export var DASH_REDUCER := 0.5
 
 var dash_timer := 0.0
 var dash_dir: Vector3

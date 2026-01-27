@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://0lqdfe5dkd1j"]
+[gd_scene load_steps=34 format=3 uid="uid://0lqdfe5dkd1j"]
 
 [ext_resource type="PackedScene" uid="uid://l66v3s8xrv5c" path="res://model/player.tscn" id="1_82owt"]
 [ext_resource type="Shader" uid="uid://clxf2fyb8eebe" path="res://Maps/UI Scenes/sky.gdshader" id="1_6582d"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c81sp6dbi6gyc" path="res://ui/boy_got_rizz.png" id="6_imwdw"]
 [ext_resource type="PackedScene" uid="uid://dhfsoqpdlmdxa" path="res://model/interactable/Door/Door.tscn" id="6_kf75o"]
 [ext_resource type="PackedScene" uid="uid://26yomfbvqjh" path="res://model/Boxes/WideTarp.tscn" id="7_lt333"]
+[ext_resource type="PackedScene" uid="uid://rbu1i7cq750t" path="res://model/Boxes/WeaponWall.tscn" id="7_n8uhs"]
 [ext_resource type="PackedScene" uid="uid://b63f4vuexx1g8" path="res://model/Boxes/FrameTall.tscn" id="8_i3wmk"]
 [ext_resource type="PackedScene" uid="uid://ds4ebdf4el4p3" path="res://model/Boxes/FrameCrate.tscn" id="9_xuiht"]
 [ext_resource type="PackedScene" uid="uid://b4qwe6m5e66ps" path="res://model/Boxes/SmallTallTarp.tscn" id="10_fdwi1"]
@@ -1711,6 +1712,9 @@ transform = Transform3D(-5.9604645e-08, 3.5527137e-15, 1, -0.5, 0.8660254, -2.98
 use_collision = true
 size = Vector3(35.95984, 1.4140625, 3.781372)
 material = SubResource("StandardMaterial3D_krafm")
+
+[node name="WeaponWall" parent="Walls/WillsWalls&Floors/Walls/BasicWall" instance=ExtResource("7_n8uhs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 2.5, -60.8)
 
 [node name="PleasePutADoorHere" type="Node3D" parent="Walls/WillsWalls&Floors"]
 

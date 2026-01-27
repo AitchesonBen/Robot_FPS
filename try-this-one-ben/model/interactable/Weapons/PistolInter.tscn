@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://bv6iq61rpp3g4"]
+
+[ext_resource type="PackedScene" uid="uid://do5vb1c5u8a4i" path="res://model/Weapon/WillFiles/Pistol Prototype (2).gltf" id="1_088o8"]
+[ext_resource type="Script" uid="uid://c8x5yu3npmwpn" path="res://scripts/muzzle_flash.gd" id="2_1emrb"]
+[ext_resource type="ArrayMesh" uid="uid://d0kvr67tknoi5" path="res://model/interactable/Mesh/CellMesh/blockbench_export_mesh4.res" id="3_1emrb"]
+[ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/interact_component.gd" id="3_gchr5"]
+[ext_resource type="Script" uid="uid://djq1afw0120l1" path="res://scripts/weapon_component.gd" id="5_gchr5"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xacm2"]
+angle_min = -91.399994
+angle_max = 91.500015
+direction = Vector3(0, 0, -1)
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_mqepu"]
+colors = PackedColorArray(0.49803922, 0.93333334, 0.9882353, 1, 0, 0, 0, 0.02745098)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4rodr"]
+gradient = SubResource("Gradient_mqepu")
+fill = 2
+fill_from = Vector2(0.50574714, 0.48850575)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_widod"]
+transparency = 1
+blend_mode = 1
+albedo_texture = SubResource("GradientTexture2D_4rodr")
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 16.0
+emission_texture = SubResource("GradientTexture2D_4rodr")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_bfobr"]
+material = SubResource("StandardMaterial3D_widod")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1emrb"]
+size = Vector3(0.7, 1.3000001, 0.4)
+
+[node name="Pistol" instance=ExtResource("1_088o8")]
+
+[node name="Muzzle Flash Point" parent="Weapon" index="5" node_paths=PackedStringArray("light", "emitter")]
+script = ExtResource("2_1emrb")
+light = NodePath("OmniLight3D")
+emitter = NodePath("GPUParticles3D")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Weapon/Muzzle Flash Point" index="0"]
+visible = false
+light_color = Color(0.5949351, 1, 0.98583645, 1)
+omni_range = 6.2
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Weapon/Muzzle Flash Point" index="1"]
+emitting = false
+lifetime = 0.01
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.95
+process_material = SubResource("ParticleProcessMaterial_xacm2")
+draw_pass_1 = SubResource("QuadMesh_bfobr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Weapon" index="11"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.3, 0.099999994, 0)
+mesh = ExtResource("3_1emrb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Weapon/MeshInstance3D" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Weapon/MeshInstance3D/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05000004, 0.050000004, -1.4901161e-08)
+shape = SubResource("BoxShape3D_1emrb")
+
+[node name="InteractionComponent" type="Node" parent="Weapon/MeshInstance3D/StaticBody3D" index="1" node_paths=PackedStringArray("mesh")]
+script = ExtResource("3_gchr5")
+mesh = NodePath("../..")
+context = "Pick up Pistol"
+metadata/_custom_type_script = "uid://d2x2ex6en6u0n"
+
+[node name="WeaponComponent" type="Node" parent="Weapon/MeshInstance3D/StaticBody3D" index="2"]
+script = ExtResource("5_gchr5")
+WeaponName = "Pistol"

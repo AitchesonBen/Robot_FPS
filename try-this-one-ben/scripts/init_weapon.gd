@@ -57,7 +57,15 @@ func _ready() -> void:
 	weapon_name = "Pistol"
 	Ammo = 10
 	AmmoCompacity = 10
+	MessageBus.weapon_name.connect(weapon_assigned)
 	#MessageBus.set_ammo(weapon_name, Ammo, AmmoCompacity)
+
+func weapon_assigned(name: String) -> void:
+	print("Uh please load")
+	#weapon_instance.queue_free()
+	WEAPON_TYPE = load("res://model/Weapon/WeaponResources/" + name + ".tres")
+	weapon_name = name
+	load_weapon(weapon_name)
 
 func _input(event) -> void:
 	if event.is_action_pressed("weapon1"):
@@ -73,8 +81,12 @@ func _input(event) -> void:
 		weapon_name = "Shotgun"
 		load_weapon(weapon_name)
 	if event.is_action_pressed("weapon4"):
-		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/SniperMuz.tres")
+		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/Sniper.tres")
 		weapon_name = "Sniper"
+		load_weapon(weapon_name)
+	if event.is_action_pressed("weapon5"):
+		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/DB.tres")
+		weapon_name = "Double Barrel"
 		load_weapon(weapon_name)
 	if event.is_action_pressed("reload") and Ammo != AmmoCompacity:
 		reload()

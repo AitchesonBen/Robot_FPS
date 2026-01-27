@@ -9,6 +9,7 @@ signal raycastResult(enemy: Node, limb: Node)
 signal limbDamage(enemy: Node, limb: Node, damage: int, destroyed: bool)
 signal fired
 signal ammo_count(name: String, ammo: int, ammoCap: int)
+signal weapon_name(name: String)
 
 var current_weapon := "Pistol"
 var ammo := 10

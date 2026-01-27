@@ -1,0 +1,184 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://yiujtucee3y3"
+path="res://.godot/imported/Double Barrel (1).gltf-b5f8b656f2ba0d9af79b6e41a4cfe64b.scn"
+
+[deps]
+
+source_file="res://model/Weapon/WillFiles/Double Barrel (1).gltf"
+dest_files=["res://.godot/imported/Double Barrel (1).gltf-b5f8b656f2ba0d9af79b6e41a4cfe64b.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"material_0": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Weapon/DBMesh/material_0.tres",
+"use_external/path": "uid://1tohgbx8ft7w"
+},
+"material_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Weapon/DBMesh/material_1.tres",
+"use_external/path": "uid://c0dnvhcky5lm7"
+},
+"material_2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Weapon/DBMesh/material_2.tres",
+"use_external/path": "uid://kaxtqbk3l0my"
+},
+"material_3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Weapon/DBMesh/material_3.tres",
+"use_external/path": "uid://b808oeipl5qx5"
+}
+},
+"meshes": {
+"blockbench_export_mesh": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/DBMesh/blockbench_export_mesh.res",
+"save_to_file/path": "uid://b4ng75hie8m2t"
+},
+"blockbench_export_mesh10": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/DBMesh/blockbench_export_mesh10.res",
+"save_to_file/path": "uid://bqf54ancxfvb6"
+},
+"blockbench_export_mesh11": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/DBMesh/blockbench_export_mesh11.res",
+"save_to_file/path": "uid://4hi364yplfr2"
+},
+"blockbench_export_mesh12": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/DBMesh/blockbench_export_mesh12.res",
+"save_to_file/path": "uid://b5e1bvnkvsmfv"
+},
+"blockbench_export_mesh13": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/DBMesh/blockbench_export_mesh13.res",
+"save_to_file/path": "uid://hlvh01by0lnv"
+},
+"blockbench_export_mesh2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/DBMesh/blockbench_export_mesh2.res",
+"save_to_file/path": "uid://cxdth68yofxrg"
+},
+"blockbench_export_mesh3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/DBMesh/blockbench_export_mesh3.res",
+"save_to_file/path": "uid://dnio448wg1txk"
+},
+"blockbench_export_mesh4": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/DBMesh/blockbench_export_mesh4.res",
+"save_to_file/path": "uid://dyqnrnp62tbwn"
+},
+"blockbench_export_mesh5": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/DBMesh/blockbench_export_mesh5.res",
+"save_to_file/path": "uid://cbb3xweqpfehq"
+},
+"blockbench_export_mesh6": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/DBMesh/blockbench_export_mesh6.res",
+"save_to_file/path": "uid://5tx510trulw7"
+},
+"blockbench_export_mesh7": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/DBMesh/blockbench_export_mesh7.res",
+"save_to_file/path": "uid://b45dx2vas16le"
+},
+"blockbench_export_mesh8": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/DBMesh/blockbench_export_mesh8.res",
+"save_to_file/path": "uid://dl4t3wujw0kh6"
+},
+"blockbench_export_mesh9": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Weapon/DBMesh/blockbench_export_mesh9.res",
+"save_to_file/path": "uid://cb0y5j0xaecuc"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
