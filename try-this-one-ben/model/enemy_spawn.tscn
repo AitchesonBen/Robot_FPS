@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcdyg73edp6l3"]
+
+[ext_resource type="Script" uid="uid://crn7f7rfh2e3i" path="res://scripts/Enemies/enemy_spawn.gd" id="1_s1kjb"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uyqib"]
+size = Vector2(0.5, 0.5)
+
+[node name="EnemySpawn" type="Node3D"]
+script = ExtResource("1_s1kjb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_uyqib")
+
+[node name="Timer" type="Timer" parent="."]

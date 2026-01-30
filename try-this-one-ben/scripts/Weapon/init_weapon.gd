@@ -47,47 +47,67 @@ var test_raycast = preload("res://raycast.tscn")
 
 var Ammo : int
 var AmmoCompacity : int
+var fullAuto : bool
+var rpm : float
 var weapon_name : String = ""
+var can_fire := true
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		load_weapon(weapon_name)
 	base_position = weapon_pivot.position
 	base_rotation = weapon_pivot.rotation_degrees
-	weapon_name = "Pistol"
+	weapon_name = ""
 	Ammo = 10
 	AmmoCompacity = 10
 	MessageBus.weapon_name.connect(weapon_assigned)
-	#MessageBus.set_ammo(weapon_name, Ammo, AmmoCompacity)
+	MessageBus.weapon_removed.connect(unload_weapon)
 
-func weapon_assigned(name: String) -> void:
-	print("Uh please load")
-	#weapon_instance.queue_free()
-	WEAPON_TYPE = load("res://model/Weapon/WeaponResources/" + name + ".tres")
-	weapon_name = name
+func weapon_assigned(fileName: String, weaponName: String) -> void:
+	WEAPON_TYPE = load("res://model/Weapon/WeaponResources/" + fileName + ".tres")
+	weapon_name = weaponName
+	Global.autoShoot = WEAPON_TYPE.fullAuto
 	load_weapon(weapon_name)
+
+func unload_weapon(_fileName: String) -> void:
+	if WEAPON_TYPE == null:
+		return
+	if Global.weaponInventory.size() == 1:
+		var weapon = Global.weaponInventory[0]
+		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/" + weapon.file + ".tres")
+		weapon_name = weapon.name
+		Global.autoShoot = WEAPON_TYPE.fullAuto
+		load_weapon(weapon_name)
+	else:
+		print("TRYING TO UNLOAD")
+		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/Empty.tres")
+		weapon_name = "Empty"
+		Global.autoShoot = WEAPON_TYPE.fullAuto
+		load_weapon(weapon_name)
+
+func round_per_minute() -> float:
+	var seconds = 60.0
+	rpm = WEAPON_TYPE.rpm
+	var timePerBullet = seconds / rpm
+	return timePerBullet
 
 func _input(event) -> void:
 	if event.is_action_pressed("weapon1"):
-		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/Pistol.tres")
-		weapon_name = "Pistol"
-		load_weapon(weapon_name)
+		if Global.weaponInventory.size() > 0:
+			var first_weapon = Global.weaponInventory[0]
+			Global.current_weapon_i = 0
+			WEAPON_TYPE = load("res://model/Weapon/WeaponResources/" + first_weapon.file + ".tres")
+			weapon_name = first_weapon.name
+			Global.autoShoot = WEAPON_TYPE.fullAuto
+			load_weapon(weapon_name)
 	if event.is_action_pressed("weapon2"):
-		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/AR.tres")
-		weapon_name = "AR"
-		load_weapon(weapon_name)
-	if event.is_action_pressed("weapon3"):
-		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/Shotgun.tres")
-		weapon_name = "Shotgun"
-		load_weapon(weapon_name)
-	if event.is_action_pressed("weapon4"):
-		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/Sniper.tres")
-		weapon_name = "Sniper"
-		load_weapon(weapon_name)
-	if event.is_action_pressed("weapon5"):
-		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/DB.tres")
-		weapon_name = "Double Barrel"
-		load_weapon(weapon_name)
+		if Global.weaponInventory.size() > 1:
+			var second_weapon = Global.weaponInventory[1]
+			Global.current_weapon_i = 1
+			WEAPON_TYPE = load("res://model/Weapon/WeaponResources/" + second_weapon.file + ".tres")
+			weapon_name = second_weapon.name
+			Global.autoShoot = WEAPON_TYPE.fullAuto
+			load_weapon(weapon_name)
 	if event.is_action_pressed("reload") and Ammo != AmmoCompacity:
 		reload()
 	if event.is_action_pressed("inspect"):
@@ -107,6 +127,7 @@ func reload() -> void:
 	Ammo = WEAPON_TYPE.Ammoo
 	Global.ammo = Ammo
 	MessageBus.ammo_count.emit(weapon_name, Ammo, AmmoCompacity)
+	can_fire = true
 
 func load_weapon(_name: String) -> void:
 	if weapon_instance and weapon_instance.is_inside_tree():
@@ -134,15 +155,22 @@ func load_weapon(_name: String) -> void:
 	Ammo = WEAPON_TYPE.Ammoo
 	AmmoCompacity = WEAPON_TYPE.AmmoCapa
 	
-	Global.ammo = Ammo
-	MessageBus.ammo_count.emit(_name, Ammo, AmmoCompacity)
+	print("Load", _name)
+	
+	if _name != "":
+		Global.ammo = Ammo
+		MessageBus.ammo_count.emit(_name, Ammo, AmmoCompacity)
+	else:
+		Global.ammo = 0
+		MessageBus.ammo_count.emit(_name, 0, 0)
 	
 	weapon_instance = inst
 
 func sway_weapon(delta, isIdle: bool, sway_spd: float) -> void:
 	if Engine.is_editor_hint():
 		return
-	
+	if WEAPON_TYPE == null:
+		return
 	mouse_movement = mouse_movement.clamp(WEAPON_TYPE.sway_min, WEAPON_TYPE.sway_max)
 	
 	if isIdle:
@@ -196,6 +224,11 @@ func get_sway_noise(delta) -> float:
 	return noise_location
 
 func _attack() -> void:
+	if WEAPON_TYPE == null:
+		return
+	if not can_fire:
+		return
+	can_fire = false
 	if ANIMATION.is_playing() && ANIMATION.current_animation == "Inspect":
 		ANIMATION.stop()
 	elif ANIMATION.is_playing():
@@ -224,6 +257,13 @@ func _attack() -> void:
 			enemy = enemy.get_parent()
 		if enemy:
 			MessageBus.raycastResult.emit(enemy, limbMesh)
+	
+	var timer = round_per_minute()
+	
+	await get_tree().create_timer(timer).timeout
+	can_fire = true
+		#await get_tree().create_timer(timer).timeout
+		#can_fire = true
 
 func raycast(positionRC: Vector3, normal: Vector3) -> void:
 	var instance = test_raycast.instantiate()

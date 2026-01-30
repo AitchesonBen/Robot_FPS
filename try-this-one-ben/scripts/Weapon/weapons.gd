@@ -21,3 +21,5 @@ class_name Weapons extends Resource
 @export_category("Ammo")
 @export var AmmoCapa : int = 10
 @export var Ammoo : int = AmmoCapa
+@export var rpm : float = 60.0
+@export var fullAuto : bool

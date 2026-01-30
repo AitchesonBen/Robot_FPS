@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Weapons" load_steps=3 format=3 uid="uid://cg332uykm5cxn"]
 
 [ext_resource type="PackedScene" uid="uid://drde27anb6nhq" path="res://model/Weapon/Pistol.tscn" id="1_3a8rb"]
-[ext_resource type="Script" uid="uid://248vpyxv5gvs" path="res://scripts/weapons.gd" id="2_144vj"]
+[ext_resource type="Script" uid="uid://248vpyxv5gvs" path="res://scripts/Weapon/weapons.gd" id="2_144vj"]
 
 [resource]
 script = ExtResource("2_144vj")
@@ -10,4 +10,5 @@ position = Vector3(0.054, 0.064, 0.062)
 rotation = Vector3(3.7, -43.8, -3.3)
 scene = ExtResource("1_3a8rb")
 Ammoo = 10
+rpm = 320.0
 metadata/_custom_type_script = "uid://248vpyxv5gvs"

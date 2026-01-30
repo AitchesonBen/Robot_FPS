@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapons" load_steps=3 format=3 uid="uid://c8t378n6oujdd"]
 
-[ext_resource type="Script" uid="uid://248vpyxv5gvs" path="res://scripts/weapons.gd" id="1_2r7p2"]
+[ext_resource type="Script" uid="uid://248vpyxv5gvs" path="res://scripts/Weapon/weapons.gd" id="1_2r7p2"]
 [ext_resource type="PackedScene" uid="uid://ssj2mjpli64o" path="res://model/Weapon/SniperFlash.tscn" id="1_ao25j"]
 
 [resource]
@@ -11,4 +11,5 @@ rotation = Vector3(5, -54, 3.5)
 scene = ExtResource("1_ao25j")
 AmmoCapa = 6
 Ammoo = 6
+rpm = 90.0
 metadata/_custom_type_script = "uid://248vpyxv5gvs"

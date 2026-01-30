@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapons" load_steps=3 format=3 uid="uid://n83lnrew6bdw"]
 
-[ext_resource type="Script" uid="uid://248vpyxv5gvs" path="res://scripts/weapons.gd" id="1_hu16l"]
+[ext_resource type="Script" uid="uid://248vpyxv5gvs" path="res://scripts/Weapon/weapons.gd" id="1_hu16l"]
 [ext_resource type="PackedScene" uid="uid://chi16d117yrc" path="res://model/Weapon/AR.tscn" id="1_risby"]
 
 [resource]
@@ -11,4 +11,6 @@ rotation = Vector3(8.8, -46.2, 1.2)
 scene = ExtResource("1_risby")
 AmmoCapa = 20
 Ammoo = 20
+rpm = 450.0
+fullAuto = true
 metadata/_custom_type_script = "uid://248vpyxv5gvs"

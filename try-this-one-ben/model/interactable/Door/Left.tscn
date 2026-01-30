@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://caqkscvxtnfnp"]
 
 [ext_resource type="PackedScene" uid="uid://bbxi6cuqxr7m0" path="res://model/interactable/Door/Will/Door_Left.gltf" id="1_8e2x1"]
-[ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/interact_component.gd" id="2_lui0f"]
+[ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/Interaction/interact_component.gd" id="2_lui0f"]
 
 [node name="Left" instance=ExtResource("1_8e2x1")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)

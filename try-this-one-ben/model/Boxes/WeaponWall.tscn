@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://rbu1i7cq750t"]
+[gd_scene load_steps=10 format=3 uid="uid://rbu1i7cq750t"]
 
 [ext_resource type="Texture2D" uid="uid://dfpg2k8sit5kt" path="res://ui/Textures/checkboard.png" id="1_8gakw"]
+[ext_resource type="Script" uid="uid://dkqorhkwpncjn" path="res://scripts/Weapon/weapon_wall.gd" id="1_g5qgh"]
 [ext_resource type="Texture2D" uid="uid://c81sp6dbi6gyc" path="res://ui/boy_got_rizz.png" id="2_r1hcx"]
 [ext_resource type="PackedScene" uid="uid://bv6iq61rpp3g4" path="res://model/interactable/Weapons/PistolInter.tscn" id="3_r1hcx"]
 [ext_resource type="PackedScene" uid="uid://bo0g3hl5wn0hh" path="res://model/interactable/Weapons/DBInter.tscn" id="4_i8pdm"]
@@ -21,7 +22,9 @@ subsurf_scatter_texture = ExtResource("2_r1hcx")
 detail_albedo = ExtResource("2_r1hcx")
 uv1_triplanar = true
 
-[node name="WeaponWall" type="Node3D"]
+[node name="WeaponWall" type="Node3D" node_paths=PackedStringArray("weapons")]
+script = ExtResource("1_g5qgh")
+weapons = [NodePath("Pistol"), NodePath("DB"), NodePath("AR"), NodePath("Shotgun"), NodePath("Sniper")]
 
 [node name="BasicWall" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
@@ -41,5 +44,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1000004, 0.4, 0.5)
 [node name="Shotgun" parent="." instance=ExtResource("6_87iqj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0.5)
 
-[node name="SniperFlash" parent="." instance=ExtResource("7_g5qgh")]
+[node name="Sniper" parent="." instance=ExtResource("7_g5qgh")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 2, -1, 0.49999994)

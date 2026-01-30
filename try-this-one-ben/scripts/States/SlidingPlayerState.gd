@@ -100,10 +100,17 @@ func update(delta):
 	elif PLAYER.velocity.length() > 18 and is_on_slope():
 		PLAYER.velocity /= SLIDE_DECELERATE
 	
-	if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
-		WEAPON._attack()
-	elif Input.is_action_just_pressed("shoot") and Global.ammo == 0:
-		WEAPON.reload()
+	if Global.autoShoot:
+		if Input.is_action_pressed("shoot"):
+			if Global.ammo > 0:
+				WEAPON._attack()
+			else:
+				WEAPON.reload()
+	else:
+		if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
+			WEAPON._attack()
+		elif Input.is_action_just_pressed("shoot") and Global.ammo == 0:
+			WEAPON.reload()
 
 func is_on_slope() -> bool:
 	if not PLAYER.is_on_floor():

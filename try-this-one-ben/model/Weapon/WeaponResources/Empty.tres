@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Weapons" load_steps=2 format=3 uid="uid://c2bvv0xeyi3ct"]
+
+[ext_resource type="Script" uid="uid://248vpyxv5gvs" path="res://scripts/Weapon/weapons.gd" id="1_q6q0m"]
+
+[resource]
+script = ExtResource("1_q6q0m")
+name = &"Empty"
+Ammoo = null
+metadata/_custom_type_script = "uid://248vpyxv5gvs"

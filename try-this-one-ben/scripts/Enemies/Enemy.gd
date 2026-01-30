@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 	elif ENEMY_TYPE == null:
 		pass
 
-func damage_taken(enemy: Node, limb: Node):
+func damage_taken(enemy: Node, _limb: Node):
 	if enemy != self:
 		return
 	HEALTH -= 1
@@ -32,7 +32,7 @@ func damage_taken(enemy: Node, limb: Node):
 	if HEALTH <= 0:
 		self.queue_free()
 
-func limb_damage_taken(enemy: Node, limb: Node, damage: int, destroyed: int):
+func limb_damage_taken(enemy: Node, limb: Node, _damage: int, destroyed: int):
 	if enemy != self:
 		return
 	if destroyed:

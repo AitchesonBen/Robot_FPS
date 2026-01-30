@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://yiujtucee3y3" path="res://model/Weapon/WillFiles/Double Barrel (1).gltf" id="1_1tr4i"]
 [ext_resource type="Script" uid="uid://c8x5yu3npmwpn" path="res://scripts/muzzle_flash.gd" id="2_s37iq"]
 [ext_resource type="ArrayMesh" uid="uid://d0kvr67tknoi5" path="res://model/interactable/Mesh/CellMesh/blockbench_export_mesh4.res" id="3_33i3b"]
-[ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/interact_component.gd" id="4_v48ne"]
-[ext_resource type="Script" uid="uid://djq1afw0120l1" path="res://scripts/weapon_component.gd" id="5_v48ne"]
+[ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/Interaction/interact_component.gd" id="4_v48ne"]
+[ext_resource type="Script" uid="uid://djq1afw0120l1" path="res://scripts/Weapon/weapon_component.gd" id="5_v48ne"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1pxia"]
 angle_min = -91.399994
@@ -44,18 +44,6 @@ size = Vector3(0.7, 1.8000001, 0.4)
 
 [node name="DB" instance=ExtResource("1_1tr4i")]
 
-[node name="Decoration - glow" parent="Weapon" index="0"]
-layers = 2
-
-[node name="Underside" parent="Weapon" index="1"]
-layers = 2
-
-[node name="Grip" parent="Weapon" index="2"]
-layers = 2
-
-[node name="Handle" parent="Weapon" index="3"]
-layers = 2
-
 [node name="Muzzle Flash Point" parent="Weapon" index="4" node_paths=PackedStringArray("light", "emitter")]
 script = ExtResource("2_s37iq")
 light = NodePath("OmniLight3D")
@@ -75,33 +63,6 @@ explosiveness = 0.95
 process_material = SubResource("ParticleProcessMaterial_1pxia")
 draw_pass_1 = SubResource("QuadMesh_5m2uj")
 
-[node name="Slide" parent="Weapon/Slide2" index="0"]
-layers = 2
-
-[node name="Base" parent="Weapon/Slide2" index="1"]
-layers = 2
-
-[node name="Magazine - glow" parent="Weapon/Slide2/Magazine" index="0"]
-layers = 2
-
-[node name="Cap" parent="Weapon/Slide2/Magazine" index="1"]
-layers = 2
-
-[node name="Cap2" parent="Weapon/Slide2/Magazine" index="2"]
-layers = 2
-
-[node name="Magazine - glow2" parent="Weapon/Slide2/Magazine" index="3"]
-layers = 2
-
-[node name="Trigger - glow" parent="Weapon/Trigger" index="0"]
-layers = 2
-
-[node name="Barrel" parent="Weapon/Barrel2" index="0"]
-layers = 2
-
-[node name="Vent - glow" parent="Weapon/Barrel2" index="1"]
-layers = 2
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Weapon" index="8"]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.3, 0.099999994, 0)
 mesh = ExtResource("3_33i3b")
@@ -120,4 +81,5 @@ metadata/_custom_type_script = "uid://d2x2ex6en6u0n"
 
 [node name="WeaponComponent" type="Node" parent="Weapon/MeshInstance3D/StaticBody3D" index="2"]
 script = ExtResource("5_v48ne")
-WeaponName = "DB"
+FileName = "DB"
+WeaponName = "Double Barrel"

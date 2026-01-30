@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://fka10u32kkhm" path="res://model/Weapon/WillFiles/Assault Rifle Prototype (1).gltf" id="1_ewvnp"]
 [ext_resource type="Script" uid="uid://c8x5yu3npmwpn" path="res://scripts/muzzle_flash.gd" id="2_752ag"]
 [ext_resource type="ArrayMesh" uid="uid://d0kvr67tknoi5" path="res://model/interactable/Mesh/CellMesh/blockbench_export_mesh4.res" id="3_ef7ea"]
-[ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/interact_component.gd" id="4_2d4mh"]
-[ext_resource type="Script" uid="uid://djq1afw0120l1" path="res://scripts/weapon_component.gd" id="5_2d4mh"]
+[ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/Interaction/interact_component.gd" id="4_2d4mh"]
+[ext_resource type="Script" uid="uid://djq1afw0120l1" path="res://scripts/Weapon/weapon_component.gd" id="5_2d4mh"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_klpsb"]
 angle_min = -91.399994
@@ -43,27 +43,6 @@ size = Vector2(0.2, 0.2)
 size = Vector3(0.7, 2.9, 0.4)
 
 [node name="AR" instance=ExtResource("1_ewvnp")]
-
-[node name="Stock" parent="Weapon" index="0"]
-layers = 2
-
-[node name="Handle" parent="Weapon" index="1"]
-layers = 2
-
-[node name="Grip" parent="Weapon" index="2"]
-layers = 2
-
-[node name="Body" parent="Weapon" index="3"]
-layers = 2
-
-[node name="Underside" parent="Weapon" index="4"]
-layers = 2
-
-[node name="Vent - glow" parent="Weapon" index="5"]
-layers = 2
-
-[node name="Decoration - glow" parent="Weapon" index="6"]
-layers = 2
 
 [node name="Muzzle Flash Point" parent="Weapon" index="7" node_paths=PackedStringArray("light", "emitter")]
 script = ExtResource("2_752ag")
@@ -106,21 +85,8 @@ explosiveness = 0.95
 process_material = SubResource("ParticleProcessMaterial_klpsb")
 draw_pass_1 = SubResource("QuadMesh_5uig4")
 
-[node name="Drum" parent="Weapon/Drum2" index="0"]
-layers = 2
-
-[node name="Drum - glow" parent="Weapon/Drum2" index="1"]
-layers = 2
-
-[node name="Drum Cover" parent="Weapon/Drum_Cover" index="0"]
-layers = 2
-
-[node name="Band" parent="Weapon/Drum_Cover" index="1"]
-layers = 2
-
 [node name="Trigger - glow" parent="Weapon/Trigger" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -0.055220723, -0.0625, 0.25)
-layers = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Weapon" index="12"]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.3, 0.099999994, 0)
@@ -140,4 +106,5 @@ metadata/_custom_type_script = "uid://d2x2ex6en6u0n"
 
 [node name="WeaponComponent" type="Node" parent="Weapon/MeshInstance3D/StaticBody3D" index="2"]
 script = ExtResource("5_2d4mh")
-WeaponName = "AR"
+FileName = "AR"
+WeaponName = "Assault Rifle"
