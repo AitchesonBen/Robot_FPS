@@ -17,7 +17,7 @@ func _ready() -> void:
 		context.visible = false
 
 func display_ammo(_name: String, ammo: int, ammoCap: int) -> void:
-	if name == "":
+	if _name == "":
 		return
-	var ammoList := name + " " + str(ammo) + "/" + str(ammoCap)
+	var ammoList := _name + " " + str(ammo) + "/" + str(ammoCap)
 	context.text = ammoList

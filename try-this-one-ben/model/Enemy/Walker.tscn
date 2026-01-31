@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://btlese8oo6kxm"]
+[gd_scene load_steps=6 format=3 uid="uid://cqruq481imnf7"]
 
 [ext_resource type="PackedScene" uid="uid://ccs0ngwqu3u1s" path="res://model/Enemy/LIGHT walker.gltf" id="1_rhunh"]
 [ext_resource type="Script" uid="uid://3ljiv0udi0wn" path="res://scripts/Enemies/Enemy.gd" id="2_xs0iq"]
@@ -14,6 +14,12 @@ data = PackedVector3Array(-0.125, 0.375, 0.125, -0.125, -0.25, -0.125, -0.125, 0
 script = ExtResource("2_xs0iq")
 LIMBS = [NodePath("Node/Entity/Body/Torso2/Arms/Left_Arm"), NodePath("Node/Entity/Body/Torso2/Arms/Right_Arm"), NodePath("Node/Entity/Body/Pelvis2/Legs/Left_Leg"), NodePath("Node/Entity/Body/Pelvis2/Legs/Right_Leg")]
 ANIMATIONPLAYER = NodePath("AnimationPlayer")
+
+[node name="Node" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
+
+[node name="NEED TO  RESIZE UV LAYERS" parent="Node" index="0"]
+visible = false
 
 [node name="Left_Arm" parent="Node/Entity/Body/Torso2/Arms" index="0" node_paths=PackedStringArray("HITBOX")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.4375, 0, 0)

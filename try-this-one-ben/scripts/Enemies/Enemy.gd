@@ -7,10 +7,14 @@ enum EnemyType {walker, drone}
 @export var DAMAGE : int = 10
 @export var LIMBS : Array[Node3D]
 @export var ANIMATIONPLAYER : AnimationPlayer
+@export var ANIMATIONPLAYER2 : AnimationPlayer
+@export var ANIMATIONPLAYER3 : AnimationPlayer
+#@export var ANIMATIONTREE : AnimationTree
 
 var Collider
 var availableLimbs : Array[Node3D] = LIMBS.duplicate()
 var destroyedLimbs : Array[Node3D]
+var velocity
 
 func _ready() -> void:
 	MessageBus.raycastResult.connect(damage_taken)
@@ -23,6 +27,13 @@ func _process(_delta: float) -> void:
 		drone_animations()
 	elif ENEMY_TYPE == null:
 		pass
+
+func initialize(_start_position):
+	#var random_speed = randi_range(10, 18)
+	#velocity = Vector3.FORWARD * random_speed
+	#velocity = velocity.rotated(Vector3.UP, rotation.y)
+	#print("Initi")
+	pass
 
 func damage_taken(enemy: Node, _limb: Node):
 	if enemy != self:
@@ -56,4 +67,10 @@ func walker_animations() -> void:
 		ANIMATIONPLAYER.stop()
 
 func drone_animations() -> void:
-	pass
+
+	if not ANIMATIONPLAYER.is_playing():
+		ANIMATIONPLAYER.play("Idle")
+	if not ANIMATIONPLAYER2.is_playing():
+		ANIMATIONPLAYER2.play("Constant_Hover")
+	if not ANIMATIONPLAYER3.is_playing():
+		ANIMATIONPLAYER3.play("Constant_Tendril_Idle")

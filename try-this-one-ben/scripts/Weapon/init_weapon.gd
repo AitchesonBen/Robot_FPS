@@ -64,6 +64,8 @@ func _ready() -> void:
 	MessageBus.weapon_removed.connect(unload_weapon)
 
 func weapon_assigned(fileName: String, weaponName: String) -> void:
+	if WEAPON_TYPE == null:
+		return
 	WEAPON_TYPE = load("res://model/Weapon/WeaponResources/" + fileName + ".tres")
 	weapon_name = weaponName
 	Global.autoShoot = WEAPON_TYPE.fullAuto

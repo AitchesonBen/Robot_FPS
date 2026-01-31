@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://gumyc5hq70hr"]
+
+[ext_resource type="PackedScene" uid="uid://dcib7j577w43y" path="res://model/Enemy/WillFiles/Swarmer Drone.gltf" id="1_4tqbi"]
+[ext_resource type="Script" uid="uid://3ljiv0udi0wn" path="res://scripts/Enemies/Enemy.gd" id="2_jc8tu"]
+
+[node name="SwarmDrone" node_paths=PackedStringArray("ANIMATIONPLAYER") instance=ExtResource("1_4tqbi")]
+script = ExtResource("2_jc8tu")
+ENEMY_TYPE = 1
+ANIMATIONPLAYER = NodePath("AnimationPlayer")
+
+[node name="Left" parent="Entity/Wings" index="0"]
+transform = Transform3D(0.9396926, 0.21984632, -0.26200265, 0, 0.76604444, 0.64278764, 0.34202015, -0.6040228, 0.7198463, -0.23125, -0.015625, -0.015625)
+
+[node name="Right" parent="Entity/Wings" index="1"]
+transform = Transform3D(0.9396926, -0.21984632, 0.26200265, 0, 0.76604444, 0.64278764, -0.34202015, -0.6040228, 0.7198463, 0.23125, -0.015625, -0.015625)
+
+[node name="AnimationPlayer" parent="." index="1" groups=["Enemy"]]

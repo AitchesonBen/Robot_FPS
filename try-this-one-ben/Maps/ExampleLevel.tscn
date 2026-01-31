@@ -1,10 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://0lqdfe5dkd1j"]
+[gd_scene load_steps=36 format=3 uid="uid://0lqdfe5dkd1j"]
 
 [ext_resource type="PackedScene" uid="uid://l66v3s8xrv5c" path="res://model/player.tscn" id="1_82owt"]
 [ext_resource type="Shader" uid="uid://clxf2fyb8eebe" path="res://Maps/UI Scenes/sky.gdshader" id="1_6582d"]
 [ext_resource type="Texture2D" uid="uid://dfpg2k8sit5kt" path="res://ui/Textures/checkboard.png" id="2_cg56m"]
 [ext_resource type="Texture2D" uid="uid://cwwfp4vjwdm5g" path="res://ui/Textures/gradient_pause.tres" id="2_n8uhs"]
-[ext_resource type="PackedScene" uid="uid://btlese8oo6kxm" path="res://model/Enemy/Walker.tscn" id="3_bnlx1"]
 [ext_resource type="PackedScene" uid="uid://mpfi5j5ni4qn" path="res://model/Boxes/LargeTarp.tscn" id="4_cg56m"]
 [ext_resource type="PackedScene" uid="uid://cdb3ovru6mduw" path="res://model/Boxes/LargeBigTarp.tscn" id="5_bnlx1"]
 [ext_resource type="PackedScene" uid="uid://5giwamtjgrmd" path="res://model/interactable/CellCharger.tscn" id="5_kf75o"]
@@ -22,6 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://cifidnybuvi6h" path="res://Maps/UI Scenes/Pause_Menu.tscn" id="18_6wt63"]
 [ext_resource type="PackedScene" uid="uid://bopikp1mplop1" path="res://model/lighting_rect.tscn" id="21_8e2af"]
 [ext_resource type="PackedScene" uid="uid://gy7khll2l63u" path="res://model/Boxes/Explosive.tscn" id="23_6g866"]
+[ext_resource type="PackedScene" uid="uid://biq72gi6itbk2" path="res://model/Enemy/light_walker.tscn" id="23_erjw0"]
+[ext_resource type="PackedScene" uid="uid://dcdyg73edp6l3" path="res://model/enemy_spawn.tscn" id="23_imwdw"]
+[ext_resource type="PackedScene" uid="uid://bvnlxp1dajmc8" path="res://model/Enemy/light_drone.tscn" id="24_errcn"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n8uhs"]
 
@@ -2084,17 +2086,6 @@ use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="Enemy" type="Node3D" parent="."]
-
-[node name="_Walker" parent="Enemy" instance=ExtResource("3_bnlx1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.6676636, 0.06250003, -81.249405)
-
-[node name="_Walker2" parent="Enemy" instance=ExtResource("3_bnlx1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.824298, 0.06250003, -70.480515)
-
-[node name="_Walker3" parent="Enemy" instance=ExtResource("3_bnlx1")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.8819509, 0.06250003, -74.66151)
-
 [node name="Obstacle" type="Node3D" parent="."]
 
 [node name="Boxes" type="Node3D" parent="."]
@@ -2155,6 +2146,24 @@ process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 27, 0)
 
 [node name="EnemySpawnLocations" type="Node3D" parent="."]
+
+[node name="EnemySpawn" parent="EnemySpawnLocations" instance=ExtResource("23_imwdw")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 0.010000013, -70.6)
+enemy = ExtResource("23_erjw0")
+EnemySpawnTime = 2.0
+
+[node name="EnemySpawn2" parent="EnemySpawnLocations" instance=ExtResource("23_imwdw")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 0.010000013, -74.6)
+enemy = ExtResource("23_erjw0")
+EnemySpawnTime = 3.0
+
+[node name="EnemySpawn3" parent="EnemySpawnLocations" instance=ExtResource("23_imwdw")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.6, 0.010000013, -81.2)
+enemy = ExtResource("24_errcn")
+EnemySpawnTime = 2.0
+
+[node name="LightDrone" parent="EnemySpawnLocations" instance=ExtResource("24_errcn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -42)
 
 [editable path="Walls/CSGBox3D5/Door"]
 [editable path="Walls/CSGBox3D5/Door2"]

@@ -5,10 +5,15 @@
 [sub_resource type="PlaneMesh" id="PlaneMesh_uyqib"]
 size = Vector2(0.5, 0.5)
 
-[node name="EnemySpawn" type="Node3D"]
+[node name="EnemySpawn" type="Node3D" node_paths=PackedStringArray("timer")]
 script = ExtResource("1_s1kjb")
+timer = NodePath("Timer")
+EnemySpawnTime = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_uyqib")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
