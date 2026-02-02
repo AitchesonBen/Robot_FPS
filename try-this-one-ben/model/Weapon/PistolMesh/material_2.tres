@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://c0lg8pp756k68"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bmoecwqfod4k7"]
 
 [resource]
 resource_name = "material_2"
@@ -6,4 +6,4 @@ transparency = 2
 alpha_scissor_threshold = 0.05
 alpha_antialiasing_mode = 0
 cull_mode = 2
-albedo_color = Color(0.3372549, 0.3372549, 0.3372549, 1)
+albedo_color = Color(0, 1, 1, 1)

@@ -43,9 +43,6 @@ func update(delta):
 	WEAPON.sway_weapon(delta, false, 2.5)
 	
 	allow_animation_functions = not is_on_slope()
-	
-	#THERE WAS A ISONFLOOR CONDITION IF SOMETHING BROKE CHECK THIS
-	#Reaching top of slope
 		
 	# This here is the hold to slide
 	#if Input.is_action_just_released("crouch"):
@@ -79,6 +76,8 @@ func update(delta):
 		ANIMATION.stop()
 		finish()
 	
+	#THERE WAS A ISONFLOOR CONDITION IF SOMETHING BROKE CHECK THIS (THAT BREAKS JUMPING FROM SLIDE SOMETIMES
+	#Reaching top of slope
 	if was_on_sloop and not is_on_slope():
 		allow_animation_functions = true
 		if ANIMATION.is_playing():
@@ -101,14 +100,17 @@ func update(delta):
 	elif PLAYER.velocity.length() > 18 and is_on_slope():
 		PLAYER.velocity /= SLIDE_DECELERATE
 	
-	if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
-		WEAPON._attack()
-	elif Input.is_action_just_pressed("shoot") and Global.ammo == 0:
-		WEAPON.reload()
-	
-	#if PLAYER.velocity.length() <= 0.5 and !is_on_slope() and PLAYER.is_on_floor():
-		#ANIMATION.stop()
-		#finish()
+	if Global.autoShoot:
+		if Input.is_action_pressed("shoot"):
+			if Global.ammo > 0:
+				WEAPON._attack()
+			else:
+				WEAPON.reload()
+	else:
+		if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
+			WEAPON._attack()
+		elif Input.is_action_just_pressed("shoot") and Global.ammo == 0:
+			WEAPON.reload()
 
 func is_on_slope() -> bool:
 	if not PLAYER.is_on_floor():
@@ -133,8 +135,6 @@ func update_slope(delta) -> void:
 			allow_animation_functions = true
 			thing = true
 			ANIMATION.play("RESET")
-			#ANIMATION.play("crouch", -1.0, -CROUCH_SPEED, true)
-			#await get_tree().create_timer(0.18).timeout
 			ANIMATION.stop()
 			finish()
 	else:
@@ -157,8 +157,6 @@ func set_tilt(player_rotation) -> void:
 func finish():
 	if not allow_animation_functions:
 		return
-		
-	#PLAYER.floor_snap_length = 0.0
 		
 	if ifJumped == false:
 		if !can_stand():

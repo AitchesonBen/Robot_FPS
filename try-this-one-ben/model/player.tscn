@@ -1,13 +1,14 @@
-[gd_scene load_steps=39 format=3 uid="uid://l66v3s8xrv5c"]
+[gd_scene load_steps=41 format=3 uid="uid://l66v3s8xrv5c"]
 
 [ext_resource type="Script" uid="uid://dnguk1ygniers" path="res://scripts/player.gd" id="1_gbl1t"]
-[ext_resource type="Script" uid="uid://hqy25httlnxt" path="res://scripts/weapon_recoil.gd" id="2_1m16y"]
+[ext_resource type="Script" uid="uid://hqy25httlnxt" path="res://scripts/Weapon/weapon_recoil.gd" id="2_1m16y"]
 [ext_resource type="PackedScene" uid="uid://c5blk6vftnf5q" path="res://model/Weapon/weapon.tscn" id="2_gbmfk"]
 [ext_resource type="Script" uid="uid://brt888aumwlad" path="res://scripts/reticle.gd" id="2_ynuub"]
 [ext_resource type="Theme" uid="uid://d3nq0ldiofmv1" path="res://ui/debug.tres" id="3_x5mhj"]
 [ext_resource type="Script" uid="uid://dgk4gl3qcdl7q" path="res://scripts/debug.gd" id="4_4s6qj"]
 [ext_resource type="Script" uid="uid://dibr3v5r85kbs" path="res://scripts/state_machine.gd" id="5_p0pvw"]
-[ext_resource type="Script" uid="uid://duvim8t6g5ido" path="res://scripts/interaction_raycast.gd" id="5_xa3qw"]
+[ext_resource type="Script" uid="uid://duvim8t6g5ido" path="res://scripts/Interaction/interaction_raycast.gd" id="5_xa3qw"]
+[ext_resource type="PackedScene" uid="uid://c8lfo6pcn1tgk" path="res://ui/Dash/HUD.tscn" id="5_y8rvq"]
 [ext_resource type="Script" uid="uid://cp4bq5jel0dfi" path="res://scripts/States/IdlePlayerState.gd" id="6_udyl3"]
 [ext_resource type="Script" uid="uid://cmexjsnw6uj1o" path="res://scripts/States/WalkingPlayerState.gd" id="7_helrf"]
 [ext_resource type="Script" uid="uid://da3he76kn73vu" path="res://scripts/context_containter.gd" id="8_g5mw0"]
@@ -17,15 +18,16 @@
 [ext_resource type="Script" uid="uid://blwsr5vbeyc2p" path="res://scripts/States/JumpingPlayerState.gd" id="10_lyj86"]
 [ext_resource type="Texture2D" uid="uid://dyl32xc8ujlma" path="res://ui/Dash.png" id="11_j64lu"]
 [ext_resource type="Texture2D" uid="uid://bdjyr10vw3gsv" path="res://ui/DashRed.png" id="12_5d00c"]
-[ext_resource type="Script" uid="uid://d0iy8sugx6phy" path="res://scripts/animation_component.gd" id="13_ngsdc"]
 [ext_resource type="Script" uid="uid://8hndqsnb5cb3" path="res://scripts/States/FallingPlayerState.gd" id="13_urp6f"]
-[ext_resource type="Script" uid="uid://cnxh3y4hr2ixw" path="res://scripts/WeaponViewport.gd" id="14_bwjto"]
-[ext_resource type="Script" uid="uid://baub5jgf125s8" path="res://scripts/WeaponCamera.gd" id="15_606se"]
+[ext_resource type="Script" uid="uid://cnxh3y4hr2ixw" path="res://scripts/Weapon/WeaponViewport.gd" id="14_bwjto"]
+[ext_resource type="Script" uid="uid://baub5jgf125s8" path="res://scripts/Weapon/WeaponCamera.gd" id="15_606se"]
 [ext_resource type="PackedScene" uid="uid://bg4icuyadata5" path="res://model/interactable/PowerCell.tscn" id="17_ngsdc"]
 [ext_resource type="PackedScene" uid="uid://cl8ebuxppfcsa" path="res://model/interactable/PowerCellPlayer.tscn" id="17_w3hl1"]
 [ext_resource type="Script" uid="uid://cqqrms3uwmvp7" path="res://scripts/States/WallRunPlayerState.gd" id="18_ejh3u"]
 [ext_resource type="Script" uid="uid://cfs4ttivjis1n" path="res://scripts/States/DashPlayerState.gd" id="19_hbtid"]
 [ext_resource type="Script" uid="uid://bb6gd2yi0ttom" path="res://scripts/UI Scripts/ammo_container.gd" id="22_5d00c"]
+[ext_resource type="Texture2D" uid="uid://5txoj1p808ln" path="res://ui/Dash Ready.png" id="27_fkbr2"]
+[ext_resource type="Script" uid="uid://dr16xhmh58jgj" path="res://scripts/Weapon/weapon_inventory.gd" id="27_w3hl1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrm1h"]
 
@@ -489,7 +491,7 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_j68t0"]
 radius = 0.6
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WALL_SHAPECAST", "WEAPON_CONTROLLER", "DASH_ANIMATION_IMAGE", "DASH_IMAGE", "Cell")]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WALL_SHAPECAST", "WEAPON_CONTROLLER", "DASH_ANIMATION_IMAGE", "HUD", "DASH_IMAGE", "Cell")]
 script = ExtResource("1_gbl1t")
 CAMERA_CONTROLLER = NodePath("Camera/Recoil/Camera3D")
 ANIMATIONPLAYER = NodePath("AnimationPlayer")
@@ -497,6 +499,7 @@ CROUCH_SHAPECAST = NodePath("CrouchShapeCast3D")
 WALL_SHAPECAST = NodePath("WallShapeCast3D2")
 WEAPON_CONTROLLER = NodePath("Camera/Recoil/Camera3D/WeaponRig/Weapon")
 DASH_ANIMATION_IMAGE = NodePath("UI/DashRed/AnimationComponent")
+HUD = NodePath("Camera/Recoil/Camera3D/HUD")
 DASH_IMAGE = NodePath("UI/DashRed")
 Cell = NodePath("WeaponViewport/SubViewport/Camera3DWeap/PowerCell2")
 DASH_COOLDOWN = 1.5
@@ -540,6 +543,9 @@ size = Vector3(0.14013672, 0.14147949, 0.58551025)
 transform = Transform3D(1, 0, 0, 0, 0.9429615, -0.33290184, 0, 0.33290184, 0.9429615, 0, 0, 0)
 target_position = Vector3(0, -1, -3)
 script = ExtResource("5_xa3qw")
+
+[node name="HUD" parent="Camera/Recoil/Camera3D" instance=ExtResource("5_y8rvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.848, -3.96)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -726,6 +732,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 
 [node name="Dash" type="TextureRect" parent="UI"]
+visible = false
 layout_mode = 0
 offset_left = 920.0
 offset_top = 966.0
@@ -735,6 +742,7 @@ scale = Vector2(0.27999997, 0.27999997)
 texture = ExtResource("11_j64lu")
 
 [node name="DashRed" type="TextureRect" parent="UI"]
+visible = false
 layout_mode = 0
 offset_left = 920.0
 offset_top = 966.00006
@@ -744,6 +752,19 @@ scale = Vector2(0.27999997, 0.27999997)
 texture = ExtResource("12_5d00c")
 
 [node name="AnimationComponent" type="Node" parent="UI/DashRed"]
-script = ExtResource("13_ngsdc")
+
+[node name="DashReady" type="TextureRect" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 6.1035156e-05
+offset_right = 6850.0
+offset_bottom = 3857.143
+scale = Vector2(0.27999997, 0.27999997)
+texture = ExtResource("27_fkbr2")
+
+[node name="AnimationComponent" type="Node" parent="UI/DashReady"]
+
+[node name="WeaponInventory" type="Node" parent="."]
+script = ExtResource("27_w3hl1")
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]

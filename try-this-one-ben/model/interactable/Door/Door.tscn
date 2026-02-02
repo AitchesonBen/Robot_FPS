@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dhfsoqpdlmdxa"]
 
 [ext_resource type="PackedScene" uid="uid://caqkscvxtnfnp" path="res://model/interactable/Door/Left.tscn" id="1_k8lbh"]
-[ext_resource type="Script" uid="uid://buvtiknajn4tb" path="res://scripts/door_component.gd" id="2_8ysxn"]
+[ext_resource type="Script" uid="uid://buvtiknajn4tb" path="res://scripts/Interaction/door_component.gd" id="2_8ysxn"]
 [ext_resource type="PackedScene" uid="uid://iwarcvq2055y" path="res://model/interactable/Door/Frame.tscn" id="2_mhxe1"]
 [ext_resource type="PackedScene" uid="uid://dmdjpqaiv106r" path="res://model/interactable/Door/Right.tscn" id="3_8ysxn"]
 

@@ -1,24 +1,32 @@
 class_name Limbs extends Node
 
-@export var LIMBS : Array[Node3D]
+@export var HITBOX : CollisionShape3D
 @export var HEALTH : int
 
+var health
+
 func _ready() -> void:
-	MessageBus.limbDamage.connect(take_damage)
+	MessageBus.raycastResult.connect(take_damage)
+	health = HEALTH
+#
+#func _process(delta: float) -> void:
+	#pass
 
-func _process(_delta: float) -> void:
-	#limb_lost()
-	pass
+func find_limb(limb: Node) -> Node:
+	while limb and limb != self:
+		limb = limb.get_parent()
+	return limb
 
-func limb_lost() -> void:
-	if HEALTH <= 0:
-		pass
-
-func take_damage(limb: Node, damage: int):
-	if limb != self:
+func take_damage(enemy: Node, limb: Node):
+	var targetLimb = find_limb(limb)
+	if targetLimb != self:
 		return
-	HEALTH -= damage
-	print(limb, "Limb Health: ", HEALTH)
-	#for LIMBS:
-		#if HEALTH <= 0:
-			#LIMBS.visible = false
+	health -= 1
+	if health <= 0:
+		print("DESTROYED ", targetLimb)
+		MessageBus.limbDamage.emit(enemy, targetLimb, 1, true)
+		self.visible = false
+		if HITBOX:
+			HITBOX.disabled = true
+	else:
+		MessageBus.limbDamage.emit(enemy, targetLimb, 1, false)

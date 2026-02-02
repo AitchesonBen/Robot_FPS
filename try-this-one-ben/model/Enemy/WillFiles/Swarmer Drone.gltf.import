@@ -1,0 +1,207 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dcib7j577w43y"
+path="res://.godot/imported/Swarmer Drone.gltf-3fb8e6ecde7ce6024fac5432149b64d8.scn"
+
+[deps]
+
+source_file="res://model/Enemy/WillFiles/Swarmer Drone.gltf"
+dest_files=["res://.godot/imported/Swarmer Drone.gltf-3fb8e6ecde7ce6024fac5432149b64d8.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"material_0": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/material_0.tres",
+"use_external/path": "uid://bdm2etjfi2bp6"
+},
+"material_1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/material_1.tres",
+"use_external/path": "uid://c4c0f4d3q7n1t"
+},
+"material_2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/material_2.tres",
+"use_external/path": "uid://c3ypbsp1w0sg1"
+},
+"material_3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/material_3.tres",
+"use_external/path": "uid://c8q5nmdiky8vo"
+},
+"material_4": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/material_4.tres",
+"use_external/path": "uid://ddjg3wg6yt6l"
+}
+},
+"meshes": {
+"blockbench_export_mesh": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh.res",
+"save_to_file/path": "uid://c7yxe3a63j0ah"
+},
+"blockbench_export_mesh10": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh10.res",
+"save_to_file/path": "uid://7hi3jsq0a37e"
+},
+"blockbench_export_mesh11": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh11.res",
+"save_to_file/path": "uid://cu0gyp7v8ln5o"
+},
+"blockbench_export_mesh12": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh12.res",
+"save_to_file/path": "uid://j5kyr2sw0hcf"
+},
+"blockbench_export_mesh13": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh13.res",
+"save_to_file/path": "uid://dq8ltlusfg108"
+},
+"blockbench_export_mesh14": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh14.res",
+"save_to_file/path": "uid://bkolf2rpncixn"
+},
+"blockbench_export_mesh15": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh15.res",
+"save_to_file/path": "uid://diia4j2ocw4s1"
+},
+"blockbench_export_mesh2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh2.res",
+"save_to_file/path": "uid://ckbxuprlj0e0o"
+},
+"blockbench_export_mesh3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh3.res",
+"save_to_file/path": "uid://c4dujkgrydqrn"
+},
+"blockbench_export_mesh4": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh4.res",
+"save_to_file/path": "uid://bjr4in6uamnfs"
+},
+"blockbench_export_mesh5": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh5.res",
+"save_to_file/path": "uid://c8kvv6otunlkk"
+},
+"blockbench_export_mesh6": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh6.res",
+"save_to_file/path": "uid://c5ngujqd8ja0k"
+},
+"blockbench_export_mesh7": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh7.res",
+"save_to_file/path": "uid://cv7fdiumr7qc"
+},
+"blockbench_export_mesh8": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh8.res",
+"save_to_file/path": "uid://bgwp4encqq1a8"
+},
+"blockbench_export_mesh9": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://model/Enemy/EnemyMesh/SwarmerDroneMesh/blockbench_export_mesh9.res",
+"save_to_file/path": "uid://da70y803rsf6m"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
