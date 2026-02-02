@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapons" load_steps=3 format=3 uid="uid://dkqa540jbjs3p"]
 
-[ext_resource type="Script" uid="uid://248vpyxv5gvs" path="res://scripts/weapons.gd" id="1_q4gy1"]
+[ext_resource type="Script" uid="uid://248vpyxv5gvs" path="res://scripts/Weapon/weapons.gd" id="1_q4gy1"]
 [ext_resource type="PackedScene" uid="uid://oeiy0k8c25nm" path="res://model/Weapon/Shotgun.tscn" id="1_q6ilu"]
 
 [resource]
@@ -11,4 +11,5 @@ rotation = Vector3(6.5, -50.2, 1.7)
 scene = ExtResource("1_q6ilu")
 AmmoCapa = 5
 Ammoo = 5
+rpm = 72.0
 metadata/_custom_type_script = "uid://248vpyxv5gvs"

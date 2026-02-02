@@ -29,6 +29,7 @@ func restart():
 	get_tree().reload_current_scene()
 	ControlEnable.visible = false
 	Global.has_dashed = false
+	Global.weaponInventory.clear()
 
 func enter_exit():
 	if Input.is_action_just_pressed("exit") and !get_tree().paused:

@@ -33,10 +33,17 @@ func update(delta: float) -> void:
 	WEAPON.sway_weapon(delta, false, 1)
 	WEAPON._weapon_bob(delta, WEAPON_BOB_SPD, WEAPON_BOB_H, WEAPON_BOB_V)
 	
-	if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
-		WEAPON._attack()
-	elif Input.is_action_just_pressed("shoot") and Global.ammo == 0:
-		WEAPON.reload()
+	if Global.autoShoot:
+		if Input.is_action_pressed("shoot"):
+			if Global.ammo > 0:
+				WEAPON._attack()
+			else:
+				WEAPON.reload()
+	else:
+		if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
+			WEAPON._attack()
+		elif Input.is_action_just_pressed("shoot") and Global.ammo == 0:
+			WEAPON.reload()
 	
 	if Input.is_action_just_released("crouch"):
 		uncrouch()

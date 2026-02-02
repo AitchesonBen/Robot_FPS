@@ -48,10 +48,17 @@ func update(delta) -> void:
 	if cooldown > 0:
 		cooldown -= delta
 	
-	if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
-		WEAPON._attack()
-	elif Input.is_action_just_pressed("shoot") and Global.ammo == 0:
-		WEAPON.reload()
+	if Global.autoShoot:
+		if Input.is_action_pressed("shoot"):
+			if Global.ammo > 0:
+				WEAPON._attack()
+			else:
+				WEAPON.reload()
+	else:
+		if Input.is_action_just_pressed("shoot") and Global.ammo > 0:
+			WEAPON._attack()
+		elif Input.is_action_just_pressed("shoot") and Global.ammo == 0:
+			WEAPON.reload()
 	
 	if Input.is_action_just_pressed("dash"):
 		if PLAYER.can_dash() && !has_dash:

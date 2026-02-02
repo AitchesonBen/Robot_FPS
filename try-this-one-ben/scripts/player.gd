@@ -15,6 +15,7 @@ class_name Player extends CharacterBody3D
 @export var WEAPON_CONTROLLER : WeaponController
 @export var WALL_SPEED_BOOST : float = 1.25
 @export var DASH_ANIMATION_IMAGE : Node
+@export var HUD : Node
 @export var DASH_IMAGE : Control
 
 @export var Cell : Node3D
@@ -75,7 +76,10 @@ func _physics_process(delta: float) -> void:
 	Global.debug.add_property("Velocity Y", "%.2f" % velocity.y, 2)
 	Global.debug.add_property("Velocity Z", "%.2f" % velocity.z, 2)
 	
-	DASH_ANIMATION_IMAGE.enable_cooldown()
+	#DASH_ANIMATION_IMAGE.enable_cooldown()
+	var DASHUI = HUD.get_node("Dash_Fade")
+	var DASHANIMATION = DASHUI.get_node("AnimationComponent")
+	DASHANIMATION.enable_cooldown()
 	
 	if !movement_lock:
 		_update_camera(delta)

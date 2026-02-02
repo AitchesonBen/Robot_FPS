@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7d5cd7bpe48f"]
+
+[ext_resource type="PackedScene" uid="uid://cmepoewup7ce1" path="res://ui/Dash/Dash UI (4).gltf" id="1_iujuh"]
+[ext_resource type="Script" uid="uid://d0iy8sugx6phy" path="res://scripts/UI Scripts/animation_component.gd" id="2_aewv5"]
+
+[node name="Dash_Fade" instance=ExtResource("1_iujuh")]
+
+[node name="Dash" parent="." index="0"]
+layers = 2
+
+[node name="AnimationComponent" type="Node" parent="." index="1" node_paths=PackedStringArray("mesh")]
+script = ExtResource("2_aewv5")
+mesh = NodePath("../Dash")
