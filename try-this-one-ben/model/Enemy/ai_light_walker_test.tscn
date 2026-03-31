@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://fdokv71ucpqf"]
+
+[ext_resource type="Script" uid="uid://4jmpwdxxx0t7" path="res://scripts/Enemies/ai_walker.gd" id="1_j18fv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kqy6w"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ad4bv"]
+height = 3.0
+
+[node name="AILightWalker" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_j18fv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9784946, 0, 0, 0, 1.2508867, 0, 0, 0, 0.9784946, 0, 1.2491028, 0)
+mesh = SubResource("CapsuleMesh_kqy6w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4856703, 0)
+shape = SubResource("CapsuleShape3D_ad4bv")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.2
+height = 3.0

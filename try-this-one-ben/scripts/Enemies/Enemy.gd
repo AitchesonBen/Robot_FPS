@@ -1,4 +1,4 @@
-class_name Enemy extends Node
+class_name Enemy extends Node3D
 
 enum EnemyType {walker, drone}
 
@@ -9,20 +9,26 @@ enum EnemyType {walker, drone}
 @export var ANIMATIONPLAYER : AnimationPlayer
 @export var ANIMATIONPLAYER2 : AnimationPlayer
 @export var ANIMATIONPLAYER3 : AnimationPlayer
-#@export var ANIMATIONTREE : AnimationTree
 
+var player = null
 var Collider
 var availableLimbs : Array[Node3D] = LIMBS.duplicate()
 var destroyedLimbs : Array[Node3D]
-var velocity
 
 func _ready() -> void:
+	#player = get_node(player_path)
 	MessageBus.raycastResult.connect(damage_taken)
 	MessageBus.limbDamage.connect(limb_damage_taken)
 	
 func _process(_delta: float) -> void:
 	if ENEMY_TYPE == EnemyType.walker:
 		walker_animations()
+		#velocity = Vector3.ZERO
+		#nav_agent.set_target_position(player.global_transform.origin)
+		#var next_point = nav_agent.get_next_path_position()
+		#var direction = (next_point - global_transform.origin).normalized()
+		#velocity = direction * 4.0
+		#move_and_slide()
 	elif ENEMY_TYPE == EnemyType.drone:
 		drone_animations()
 	elif ENEMY_TYPE == null:
@@ -35,10 +41,10 @@ func initialize(_start_position):
 	#print("Initi")
 	pass
 
-func damage_taken(enemy: Node, _limb: Node):
+func damage_taken(enemy: Node, _limb: Node, damage: int):
 	if enemy != self:
 		return
-	HEALTH -= 1
+	HEALTH -= damage
 	print(self, "Health: ", HEALTH)
 	if HEALTH <= 0:
 		self.queue_free()

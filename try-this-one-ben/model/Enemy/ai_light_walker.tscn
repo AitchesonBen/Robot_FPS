@@ -1,0 +1,462 @@
+[gd_scene load_steps=58 format=3 uid="uid://6on5l8rxks2a"]
+
+[ext_resource type="Script" uid="uid://4jmpwdxxx0t7" path="res://scripts/Enemies/ai_walker.gd" id="1_ad4bv"]
+[ext_resource type="Script" uid="uid://3ljiv0udi0wn" path="res://scripts/Enemies/Enemy.gd" id="3_a57yv"]
+[ext_resource type="ArrayMesh" uid="uid://lnwwbxakr3c7" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh.res" id="4_ttbec"]
+[ext_resource type="ArrayMesh" uid="uid://bwu3fvsm00gw6" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh2.res" id="5_bxh0a"]
+[ext_resource type="ArrayMesh" uid="uid://c2wcsaok77hmu" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh3.res" id="6_kxidh"]
+[ext_resource type="ArrayMesh" uid="uid://b3bxehbtvvk2p" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh4.res" id="7_i0ocr"]
+[ext_resource type="ArrayMesh" uid="uid://berp2dedjl4re" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh5.res" id="8_0axun"]
+[ext_resource type="ArrayMesh" uid="uid://bfs18fdrblr0n" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh6.res" id="9_g4xlv"]
+[ext_resource type="ArrayMesh" uid="uid://bqthqq1g532ky" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh7.res" id="10_m600u"]
+[ext_resource type="Script" uid="uid://cf8h8swfqok48" path="res://scripts/Enemies/Limbs.gd" id="11_vy0hn"]
+[ext_resource type="ArrayMesh" uid="uid://bxi4jvt4dt4bn" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh8.res" id="12_wt8g5"]
+[ext_resource type="ArrayMesh" uid="uid://0ugjboitwfoq" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh9.res" id="13_m8rqg"]
+[ext_resource type="ArrayMesh" uid="uid://cb0ll04dxnalb" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh10.res" id="14_w7dq1"]
+[ext_resource type="ArrayMesh" uid="uid://bdffwq50bjsic" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh11.res" id="15_8vbld"]
+[ext_resource type="ArrayMesh" uid="uid://d33jxdq1y378w" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh12.res" id="16_mws4b"]
+[ext_resource type="ArrayMesh" uid="uid://2vjd6fvdl6fh" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh13.res" id="17_4jiiv"]
+[ext_resource type="ArrayMesh" uid="uid://dwv68f0uud6ee" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh14.res" id="18_dxtwa"]
+[ext_resource type="ArrayMesh" uid="uid://des8724baamls" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh15.res" id="19_b450a"]
+[ext_resource type="ArrayMesh" uid="uid://bajuw8gn76yv4" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh16.res" id="20_kgm7o"]
+[ext_resource type="ArrayMesh" uid="uid://co4aro8j474pi" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh17.res" id="21_gsdj8"]
+[ext_resource type="ArrayMesh" uid="uid://igdbswkdcbi7" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh18.res" id="22_iokpi"]
+[ext_resource type="ArrayMesh" uid="uid://2lwp3gocs47r" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh19.res" id="23_5njjo"]
+[ext_resource type="ArrayMesh" uid="uid://cthpfcdtjqja0" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh20.res" id="24_6t7bj"]
+[ext_resource type="ArrayMesh" uid="uid://bp8sjx18226s0" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh21.res" id="25_ydbja"]
+[ext_resource type="ArrayMesh" uid="uid://xrndml7m7ewk" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh22.res" id="26_8l0px"]
+[ext_resource type="ArrayMesh" uid="uid://d1peg0msern1k" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh23.res" id="27_yessq"]
+[ext_resource type="ArrayMesh" uid="uid://b8n7xsuyi3raj" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh24.res" id="28_mr573"]
+[ext_resource type="ArrayMesh" uid="uid://ccumtucwfukpf" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh25.res" id="29_e3gc4"]
+[ext_resource type="ArrayMesh" uid="uid://coaa61tuj2ie7" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh26.res" id="30_8ov5j"]
+[ext_resource type="ArrayMesh" uid="uid://cx4wx23acc15j" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh27.res" id="31_geylb"]
+[ext_resource type="ArrayMesh" uid="uid://c0p4sq1r7g4ay" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh28.res" id="32_65pgf"]
+[ext_resource type="ArrayMesh" uid="uid://dhel5vlcwfd2y" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh29.res" id="33_i3s5y"]
+[ext_resource type="ArrayMesh" uid="uid://qr7rhgjgmweg" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh30.res" id="34_0cqpd"]
+[ext_resource type="ArrayMesh" uid="uid://8asj7fhx8rn1" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh31.res" id="35_q0hp8"]
+[ext_resource type="ArrayMesh" uid="uid://dff2cgybtda6l" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh32.res" id="36_s3xmi"]
+[ext_resource type="ArrayMesh" uid="uid://bg4mqdtg7ivay" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh33.res" id="37_d1hwr"]
+[ext_resource type="ArrayMesh" uid="uid://myj8wsd1i1lb" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh34.res" id="38_nrxqr"]
+[ext_resource type="ArrayMesh" uid="uid://dfwvrcgiigbqf" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh35.res" id="39_op1a6"]
+[ext_resource type="ArrayMesh" uid="uid://c1wmn4jy2qwf7" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh36.res" id="40_aw6yo"]
+[ext_resource type="ArrayMesh" uid="uid://cojjrcy5sq6j2" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh37.res" id="41_e26dj"]
+[ext_resource type="ArrayMesh" uid="uid://hcf2mn14bm4g" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh38.res" id="42_4rigq"]
+[ext_resource type="ArrayMesh" uid="uid://driaulfh45vcg" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh39.res" id="43_vu1hd"]
+[ext_resource type="ArrayMesh" uid="uid://byikuda6dy05g" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh40.res" id="44_gktet"]
+[ext_resource type="ArrayMesh" uid="uid://cr58oc5qo2oiu" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh41.res" id="45_a4ivh"]
+[ext_resource type="ArrayMesh" uid="uid://bw1ahskdotkhx" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh42.res" id="46_x3lpf"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yf54k"]
+data = PackedVector3Array(0.328125, -0.21875, -0.390625, 0.328125, 0.34375, 0.265625, 0.328125, 0.34375, -0.390625, 0.328125, -0.21875, -0.390625, 0.328125, -0.21875, 0.265625, 0.328125, 0.34375, 0.265625, -0.328125, -0.21875, 0.265625, -0.328125, 0.34375, -0.390625, -0.328125, 0.34375, 0.265625, -0.328125, -0.21875, 0.265625, -0.328125, -0.21875, -0.390625, -0.328125, 0.34375, -0.390625, 0.328125, 0.34375, 0.265625, -0.328125, 0.34375, -0.390625, 0.328125, 0.34375, -0.390625, 0.328125, 0.34375, 0.265625, -0.328125, 0.34375, 0.265625, -0.328125, 0.34375, -0.390625, 0.328125, -0.21875, -0.390625, -0.328125, -0.21875, 0.265625, 0.328125, -0.21875, 0.265625, 0.328125, -0.21875, -0.390625, -0.328125, -0.21875, -0.390625, -0.328125, -0.21875, 0.265625, 0.328125, -0.21875, 0.265625, -0.328125, 0.34375, 0.265625, 0.328125, 0.34375, 0.265625, 0.328125, -0.21875, 0.265625, -0.328125, -0.21875, 0.265625, -0.328125, 0.34375, 0.265625, -0.328125, -0.21875, -0.390625, 0.328125, 0.34375, -0.390625, -0.328125, 0.34375, -0.390625, -0.328125, -0.21875, -0.390625, 0.328125, -0.21875, -0.390625, 0.328125, 0.34375, -0.390625)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xe1b8"]
+data = PackedVector3Array(0.375, -0.375, -0.28125, 0.375, 0.5, 0.28125, 0.375, 0.5, -0.28125, 0.375, -0.375, -0.28125, 0.375, -0.375, 0.28125, 0.375, 0.5, 0.28125, -0.375, -0.375, 0.28125, -0.375, 0.5, -0.28125, -0.375, 0.5, 0.28125, -0.375, -0.375, 0.28125, -0.375, -0.375, -0.28125, -0.375, 0.5, -0.28125, 0.375, 0.5, 0.28125, -0.375, 0.5, -0.28125, 0.375, 0.5, -0.28125, 0.375, 0.5, 0.28125, -0.375, 0.5, 0.28125, -0.375, 0.5, -0.28125, 0.375, -0.375, -0.28125, -0.375, -0.375, 0.28125, 0.375, -0.375, 0.28125, 0.375, -0.375, -0.28125, -0.375, -0.375, -0.28125, -0.375, -0.375, 0.28125, 0.375, -0.375, 0.28125, -0.375, 0.5, 0.28125, 0.375, 0.5, 0.28125, 0.375, -0.375, 0.28125, -0.375, -0.375, 0.28125, -0.375, 0.5, 0.28125, -0.375, -0.375, -0.28125, 0.375, 0.5, -0.28125, -0.375, 0.5, -0.28125, -0.375, -0.375, -0.28125, 0.375, -0.375, -0.28125, 0.375, 0.5, -0.28125)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_33i83"]
+data = PackedVector3Array(0.125, -0.25, -0.125, 0.125, 0.375, 0.125, 0.125, 0.375, -0.125, 0.125, -0.25, -0.125, 0.125, -0.25, 0.125, 0.125, 0.375, 0.125, -0.125, -0.25, 0.125, -0.125, 0.375, -0.125, -0.125, 0.375, 0.125, -0.125, -0.25, 0.125, -0.125, -0.25, -0.125, -0.125, 0.375, -0.125, 0.125, 0.375, 0.125, -0.125, 0.375, -0.125, 0.125, 0.375, -0.125, 0.125, 0.375, 0.125, -0.125, 0.375, 0.125, -0.125, 0.375, -0.125, 0.125, -0.25, -0.125, -0.125, -0.25, 0.125, 0.125, -0.25, 0.125, 0.125, -0.25, -0.125, -0.125, -0.25, -0.125, -0.125, -0.25, 0.125, 0.125, -0.25, 0.125, -0.125, 0.375, 0.125, 0.125, 0.375, 0.125, 0.125, -0.25, 0.125, -0.125, -0.25, 0.125, -0.125, 0.375, 0.125, -0.125, -0.25, -0.125, 0.125, 0.375, -0.125, -0.125, 0.375, -0.125, -0.125, -0.25, -0.125, 0.125, -0.25, -0.125, 0.125, 0.375, -0.125)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_w4rcc"]
+data = PackedVector3Array(0.09375, -0.25, -0.09375, 0.09375, 0.375, 0.09375, 0.09375, 0.375, -0.09375, 0.09375, -0.25, -0.09375, 0.09375, -0.25, 0.09375, 0.09375, 0.375, 0.09375, -0.09375, -0.25, 0.09375, -0.09375, 0.375, -0.09375, -0.09375, 0.375, 0.09375, -0.09375, -0.25, 0.09375, -0.09375, -0.25, -0.09375, -0.09375, 0.375, -0.09375, 0.09375, 0.375, 0.09375, -0.09375, 0.375, -0.09375, 0.09375, 0.375, -0.09375, 0.09375, 0.375, 0.09375, -0.09375, 0.375, 0.09375, -0.09375, 0.375, -0.09375, 0.09375, -0.25, -0.09375, -0.09375, -0.25, 0.09375, 0.09375, -0.25, 0.09375, 0.09375, -0.25, -0.09375, -0.09375, -0.25, -0.09375, -0.09375, -0.25, 0.09375, 0.09375, -0.25, 0.09375, -0.09375, 0.375, 0.09375, 0.09375, 0.375, 0.09375, 0.09375, -0.25, 0.09375, -0.09375, -0.25, 0.09375, -0.09375, 0.375, 0.09375, -0.09375, -0.25, -0.09375, 0.09375, 0.375, -0.09375, -0.09375, 0.375, -0.09375, -0.09375, -0.25, -0.09375, 0.09375, -0.25, -0.09375, 0.09375, 0.375, -0.09375)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gea6d"]
+data = PackedVector3Array(-0.125, 0.375, 0.125, -0.125, -0.25, -0.125, -0.125, 0.375, -0.125, -0.125, 0.375, 0.125, -0.125, -0.25, 0.125, -0.125, -0.25, -0.125, 0.125, 0.375, -0.125, 0.125, -0.25, 0.125, 0.125, 0.375, 0.125, 0.125, 0.375, -0.125, 0.125, -0.25, -0.125, 0.125, -0.25, 0.125, 0.125, 0.375, -0.125, -0.125, 0.375, 0.125, -0.125, 0.375, -0.125, 0.125, 0.375, -0.125, 0.125, 0.375, 0.125, -0.125, 0.375, 0.125, 0.125, -0.25, 0.125, -0.125, -0.25, -0.125, -0.125, -0.25, 0.125, 0.125, -0.25, 0.125, 0.125, -0.25, -0.125, -0.125, -0.25, -0.125, 0.125, 0.375, 0.125, -0.125, -0.25, 0.125, -0.125, 0.375, 0.125, 0.125, 0.375, 0.125, 0.125, -0.25, 0.125, -0.125, -0.25, 0.125, -0.125, 0.375, -0.125, 0.125, -0.25, -0.125, 0.125, 0.375, -0.125, -0.125, 0.375, -0.125, -0.125, -0.25, -0.125, 0.125, -0.25, -0.125)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rc4na"]
+data = PackedVector3Array(-0.09375, 0.375, 0.09375, -0.09375, -0.25, -0.09375, -0.09375, 0.375, -0.09375, -0.09375, 0.375, 0.09375, -0.09375, -0.25, 0.09375, -0.09375, -0.25, -0.09375, 0.09375, 0.375, -0.09375, 0.09375, -0.25, 0.09375, 0.09375, 0.375, 0.09375, 0.09375, 0.375, -0.09375, 0.09375, -0.25, -0.09375, 0.09375, -0.25, 0.09375, 0.09375, 0.375, -0.09375, -0.09375, 0.375, 0.09375, -0.09375, 0.375, -0.09375, 0.09375, 0.375, -0.09375, 0.09375, 0.375, 0.09375, -0.09375, 0.375, 0.09375, 0.09375, -0.25, 0.09375, -0.09375, -0.25, -0.09375, -0.09375, -0.25, 0.09375, 0.09375, -0.25, 0.09375, 0.09375, -0.25, -0.09375, -0.09375, -0.25, -0.09375, 0.09375, 0.375, 0.09375, -0.09375, -0.25, 0.09375, -0.09375, 0.375, 0.09375, 0.09375, 0.375, 0.09375, 0.09375, -0.25, 0.09375, -0.09375, -0.25, 0.09375, -0.09375, 0.375, -0.09375, 0.09375, -0.25, -0.09375, 0.09375, 0.375, -0.09375, -0.09375, 0.375, -0.09375, -0.09375, -0.25, -0.09375, 0.09375, -0.25, -0.09375)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gpvbe"]
+data = PackedVector3Array(0.1875, -0.0625, -0.15625, 0.1875, 0.1875, 0.15625, 0.1875, 0.1875, -0.15625, 0.1875, -0.0625, -0.15625, 0.1875, -0.0625, 0.15625, 0.1875, 0.1875, 0.15625, 0.1875, 0.1875, 0.15625, -0.1875, 0.1875, -0.15625, 0.1875, 0.1875, -0.15625, 0.1875, 0.1875, 0.15625, -0.1875, 0.1875, 0.15625, -0.1875, 0.1875, -0.15625, 0.1875, -0.0625, -0.15625, -0.1875, -0.0625, 0.15625, 0.1875, -0.0625, 0.15625, 0.1875, -0.0625, -0.15625, -0.1875, -0.0625, -0.15625, -0.1875, -0.0625, 0.15625, 0.1875, -0.0625, 0.15625, -0.1875, 0.1875, 0.15625, 0.1875, 0.1875, 0.15625, 0.1875, -0.0625, 0.15625, -0.1875, -0.0625, 0.15625, -0.1875, 0.1875, 0.15625, -0.1875, -0.0625, -0.15625, 0.1875, 0.1875, -0.15625, -0.1875, 0.1875, -0.15625, -0.1875, -0.0625, -0.15625, 0.1875, -0.0625, -0.15625, 0.1875, 0.1875, -0.15625, -0.1875, 0.1875, 0.15625, -0.1875, -0.0625, -0.15625, -0.1875, 0.1875, -0.15625, -0.1875, 0.1875, 0.15625, -0.1875, -0.0625, 0.15625, -0.1875, -0.0625, -0.15625)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_x1vkl"]
+data = PackedVector3Array(0.109375, -0.25, -0.125, 0.109375, 0.375, 0.125, 0.109375, 0.375, -0.125, 0.109375, -0.25, -0.125, 0.109375, -0.25, 0.125, 0.109375, 0.375, 0.125, -0.109375, -0.25, 0.125, -0.109375, 0.375, -0.125, -0.109375, 0.375, 0.125, -0.109375, -0.25, 0.125, -0.109375, -0.25, -0.125, -0.109375, 0.375, -0.125, 0.109375, 0.375, 0.125, -0.109375, 0.375, -0.125, 0.109375, 0.375, -0.125, 0.109375, 0.375, 0.125, -0.109375, 0.375, 0.125, -0.109375, 0.375, -0.125, 0.109375, -0.25, -0.125, -0.109375, -0.25, 0.125, 0.109375, -0.25, 0.125, 0.109375, -0.25, -0.125, -0.109375, -0.25, -0.125, -0.109375, -0.25, 0.125, 0.109375, -0.25, 0.125, -0.109375, 0.375, 0.125, 0.109375, 0.375, 0.125, 0.109375, -0.25, 0.125, -0.109375, -0.25, 0.125, -0.109375, 0.375, 0.125, -0.109375, -0.25, -0.125, 0.109375, 0.375, -0.125, -0.109375, 0.375, -0.125, -0.109375, -0.25, -0.125, 0.109375, -0.25, -0.125, 0.109375, 0.375, -0.125)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_x6o00"]
+data = PackedVector3Array(0.09375, -0.25, -0.109375, 0.09375, 0.375, 0.109375, 0.09375, 0.375, -0.109375, 0.09375, -0.25, -0.109375, 0.09375, -0.25, 0.109375, 0.09375, 0.375, 0.109375, -0.09375, -0.25, 0.109375, -0.09375, 0.375, -0.109375, -0.09375, 0.375, 0.109375, -0.09375, -0.25, 0.109375, -0.09375, -0.25, -0.109375, -0.09375, 0.375, -0.109375, 0.09375, 0.375, 0.109375, -0.09375, 0.375, -0.109375, 0.09375, 0.375, -0.109375, 0.09375, 0.375, 0.109375, -0.09375, 0.375, 0.109375, -0.09375, 0.375, -0.109375, 0.09375, -0.25, -0.109375, -0.09375, -0.25, 0.109375, 0.09375, -0.25, 0.109375, 0.09375, -0.25, -0.109375, -0.09375, -0.25, -0.109375, -0.09375, -0.25, 0.109375, 0.09375, -0.25, 0.109375, -0.09375, 0.375, 0.109375, 0.09375, 0.375, 0.109375, 0.09375, -0.25, 0.109375, -0.09375, -0.25, 0.109375, -0.09375, 0.375, 0.109375, -0.09375, -0.25, -0.109375, 0.09375, 0.375, -0.109375, -0.09375, 0.375, -0.109375, -0.09375, -0.25, -0.109375, 0.09375, -0.25, -0.109375, 0.09375, 0.375, -0.109375)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mtip3"]
+data = PackedVector3Array(-0.109375, 0.375, 0.125, -0.109375, -0.25, -0.125, -0.109375, 0.375, -0.125, -0.109375, 0.375, 0.125, -0.109375, -0.25, 0.125, -0.109375, -0.25, -0.125, 0.109375, 0.375, -0.125, 0.109375, -0.25, 0.125, 0.109375, 0.375, 0.125, 0.109375, 0.375, -0.125, 0.109375, -0.25, -0.125, 0.109375, -0.25, 0.125, 0.109375, 0.375, -0.125, -0.109375, 0.375, 0.125, -0.109375, 0.375, -0.125, 0.109375, 0.375, -0.125, 0.109375, 0.375, 0.125, -0.109375, 0.375, 0.125, 0.109375, -0.25, 0.125, -0.109375, -0.25, -0.125, -0.109375, -0.25, 0.125, 0.109375, -0.25, 0.125, 0.109375, -0.25, -0.125, -0.109375, -0.25, -0.125, 0.109375, 0.375, 0.125, -0.109375, -0.25, 0.125, -0.109375, 0.375, 0.125, 0.109375, 0.375, 0.125, 0.109375, -0.25, 0.125, -0.109375, -0.25, 0.125, -0.109375, 0.375, -0.125, 0.109375, -0.25, -0.125, 0.109375, 0.375, -0.125, -0.109375, 0.375, -0.125, -0.109375, -0.25, -0.125, 0.109375, -0.25, -0.125)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gcjpy"]
+data = PackedVector3Array(-0.09375, 0.375, 0.109375, -0.09375, -0.25, -0.109375, -0.09375, 0.375, -0.109375, -0.09375, 0.375, 0.109375, -0.09375, -0.25, 0.109375, -0.09375, -0.25, -0.109375, 0.09375, 0.375, -0.109375, 0.09375, -0.25, 0.109375, 0.09375, 0.375, 0.109375, 0.09375, 0.375, -0.109375, 0.09375, -0.25, -0.109375, 0.09375, -0.25, 0.109375, 0.09375, 0.375, -0.109375, -0.09375, 0.375, 0.109375, -0.09375, 0.375, -0.109375, 0.09375, 0.375, -0.109375, 0.09375, 0.375, 0.109375, -0.09375, 0.375, 0.109375, 0.09375, -0.25, 0.109375, -0.09375, -0.25, -0.109375, -0.09375, -0.25, 0.109375, 0.09375, -0.25, 0.109375, 0.09375, -0.25, -0.109375, -0.09375, -0.25, -0.109375, 0.09375, 0.375, 0.109375, -0.09375, -0.25, 0.109375, -0.09375, 0.375, 0.109375, 0.09375, 0.375, 0.109375, 0.09375, -0.25, 0.109375, -0.09375, -0.25, 0.109375, -0.09375, 0.375, -0.109375, 0.09375, -0.25, -0.109375, 0.09375, 0.375, -0.109375, -0.09375, 0.375, -0.109375, -0.09375, -0.25, -0.109375, 0.09375, -0.25, -0.109375)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ad4bv"]
+height = 3.0
+
+[node name="AILightWalker" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_ad4bv")
+
+[node name="Walker" type="Node3D" parent="." node_paths=PackedStringArray("LIMBS") groups=["Enemy"]]
+script = ExtResource("3_a57yv")
+LIMBS = [NodePath("Entity/Body/Torso2/Arms/Left_Arm"), NodePath("Entity/Body/Torso2/Arms/Right_Arm"), NodePath("Entity/Body/Pelvis2/Legs/Left_Leg"), NodePath("Entity/Body/Pelvis2/Legs/Right_Leg")]
+
+[node name="Entity" type="Node3D" parent="Walker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03125, 0)
+
+[node name="Head" type="Node3D" parent="Walker/Entity"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1875, 0)
+
+[node name="Skull" type="MeshInstance3D" parent="Walker/Entity/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171875, 0)
+mesh = ExtResource("4_ttbec")
+skeleton = NodePath("")
+
+[node name="Eye" type="MeshInstance3D" parent="Walker/Entity/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171875, 0.015625)
+mesh = ExtResource("5_bxh0a")
+skeleton = NodePath("")
+
+[node name="Hitbox _Head" type="MeshInstance3D" parent="Walker/Entity/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265625, 0.0625)
+mesh = ExtResource("6_kxidh")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walker/Entity/Head/Hitbox _Head"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walker/Entity/Head/Hitbox _Head/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_yf54k")
+
+[node name="Body" type="Node3D" parent="Walker/Entity"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03125, 0)
+
+[node name="Torso2" type="Node3D" parent="Walker/Entity/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.328125, 0)
+
+[node name="Torso" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53125, 0)
+mesh = ExtResource("7_i0ocr")
+skeleton = NodePath("")
+
+[node name="Upper Body Joints" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53125, 0)
+mesh = ExtResource("8_0axun")
+skeleton = NodePath("")
+
+[node name="Torso Connector" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78125, 0)
+mesh = ExtResource("9_g4xlv")
+skeleton = NodePath("")
+
+[node name="Hitbox_Main" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.359375, 0)
+mesh = ExtResource("10_m600u")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walker/Entity/Body/Torso2/Hitbox_Main"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walker/Entity/Body/Torso2/Hitbox_Main/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_xe1b8")
+
+[node name="Arms" type="Node3D" parent="Walker/Entity/Body/Torso2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640625, 0)
+
+[node name="Left_Arm" type="Node3D" parent="Walker/Entity/Body/Torso2/Arms" node_paths=PackedStringArray("HITBOX")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4375, 0, 0)
+script = ExtResource("11_vy0hn")
+HITBOX = NodePath("Hitbox_Arm_Left/StaticBody3D/CollisionShape3D")
+HEALTH = 3
+
+[node name="Upper Arm" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.1875, 0)
+mesh = ExtResource("12_wt8g5")
+skeleton = NodePath("")
+
+[node name="Hitbox_Arm_Left" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.15625, 0)
+mesh = ExtResource("13_m8rqg")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Hitbox_Arm_Left"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Hitbox_Arm_Left/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_33i83")
+
+[node name="Lower_Arm_L" type="Node3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1125, -0.484375, 0.05625)
+
+[node name="Elbow" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003125, 0.0625, -0.125)
+mesh = ExtResource("14_w7dq1")
+skeleton = NodePath("")
+
+[node name="Lower Arm" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003125, -0.1875, -0.078125)
+mesh = ExtResource("15_8vbld")
+skeleton = NodePath("")
+
+[node name="Hitbox_Arm_Left_Extension" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0125, -0.296875, -0.05625)
+mesh = ExtResource("16_mws4b")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hitbox_Arm_Left_Extension"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hitbox_Arm_Left_Extension/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_w4rcc")
+
+[node name="Hand_L" type="Node3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003125, -0.4375, -0.075)
+
+[node name="Hand" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+mesh = ExtResource("17_4jiiv")
+skeleton = NodePath("")
+
+[node name="Finger_Back_L" type="Node3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09375, 0.034375)
+
+[node name="Back Finger" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L/Finger_Back_L"]
+transform = Transform3D(-1, 1.2246469e-16, 0, 0, 0, 1, 1.2246469e-16, 1, 0, 0.03125, 0.03125, 0.00625)
+mesh = ExtResource("18_dxtwa")
+skeleton = NodePath("")
+
+[node name="Finger_In_L" type="Node3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L"]
+transform = Transform3D(0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, 0.7071067, 0.034375, -0.09375, -0.034375)
+
+[node name="Front FInger In" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L/Finger_In_L"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0.015625, 0)
+mesh = ExtResource("19_b450a")
+skeleton = NodePath("")
+
+[node name="Finger_Out_L" type="Node3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L"]
+transform = Transform3D(0.7071067, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.7071067, -0.034375, -0.09375, -0.034375)
+
+[node name="Front Finger Out" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L/Finger_Out_L"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0.015625, 0)
+mesh = ExtResource("20_kgm7o")
+skeleton = NodePath("")
+
+[node name="Right_Arm" type="Node3D" parent="Walker/Entity/Body/Torso2/Arms" node_paths=PackedStringArray("HITBOX")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4375, 0, 0)
+script = ExtResource("11_vy0hn")
+HITBOX = NodePath("Hitbox_Arm_Right/StaticBody3D/CollisionShape3D")
+HEALTH = 3
+
+[node name="Upper Arm2" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Right_Arm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -0.1875, 0)
+mesh = ExtResource("21_gsdj8")
+skeleton = NodePath("")
+
+[node name="Hitbox_Arm_Right" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Right_Arm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -0.15625, 0)
+mesh = ExtResource("22_iokpi")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walker/Entity/Body/Torso2/Arms/Right_Arm/Hitbox_Arm_Right"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walker/Entity/Body/Torso2/Arms/Right_Arm/Hitbox_Arm_Right/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gea6d")
+
+[node name="Lower_Arm_R" type="Node3D" parent="Walker/Entity/Body/Torso2/Arms/Right_Arm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1125, -0.484375, 0.05625)
+
+[node name="Elbow2" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Right_Arm/Lower_Arm_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003125, 0.0625, -0.125)
+mesh = ExtResource("23_5njjo")
+skeleton = NodePath("")
+
+[node name="Lower Arm2" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Right_Arm/Lower_Arm_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003125, -0.1875, -0.078125)
+mesh = ExtResource("24_6t7bj")
+skeleton = NodePath("")
+
+[node name="Hitbox_Arm_Right_Extension" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Right_Arm/Lower_Arm_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0125, -0.296875, -0.05625)
+mesh = ExtResource("25_ydbja")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walker/Entity/Body/Torso2/Arms/Right_Arm/Lower_Arm_R/Hitbox_Arm_Right_Extension"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walker/Entity/Body/Torso2/Arms/Right_Arm/Lower_Arm_R/Hitbox_Arm_Right_Extension/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_rc4na")
+
+[node name="Hand_R" type="Node3D" parent="Walker/Entity/Body/Torso2/Arms/Right_Arm/Lower_Arm_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003125, -0.4375, -0.075)
+
+[node name="Hand2" type="MeshInstance3D" parent="Walker/Entity/Body/Torso2/Arms/Right_Arm/Lower_Arm_R/Hand_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+mesh = ExtResource("26_8l0px")
+skeleton = NodePath("")
+
+[node name="Blaster" type="Node3D" parent="Walker/Entity/Body/Torso2/Arms/Right_Arm/Lower_Arm_R/Hand_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.046875, 0.05625)
+
+[node name="Pelvis2" type="Node3D" parent="Walker/Entity/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.328125, 0)
+
+[node name="Pelvis" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28125, 0)
+mesh = ExtResource("27_yessq")
+skeleton = NodePath("")
+
+[node name="Hitbox_Main_Extension" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.203125, 0)
+mesh = ExtResource("28_mr573")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walker/Entity/Body/Pelvis2/Hitbox_Main_Extension"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walker/Entity/Body/Pelvis2/Hitbox_Main_Extension/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gpvbe")
+
+[node name="Legs" type="Node3D" parent="Walker/Entity/Body/Pelvis2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.171875, 0)
+
+[node name="Left_Leg" type="Node3D" parent="Walker/Entity/Body/Pelvis2/Legs" node_paths=PackedStringArray("HITBOX")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, -0.1875, 0, 0)
+script = ExtResource("11_vy0hn")
+HITBOX = NodePath("Hitbox_Leg_Left/StaticBody3D/CollisionShape3D")
+HEALTH = 3
+
+[node name="Upper Leg" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09375, -0.46875, 0)
+mesh = ExtResource("29_e3gc4")
+skeleton = NodePath("")
+
+[node name="Hitbox_Leg_Left" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09375, -0.28125, 0)
+mesh = ExtResource("30_8ov5j")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Hitbox_Leg_Left"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Hitbox_Leg_Left/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_x1vkl")
+
+[node name="Lower_L" type="Node3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg"]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.4226183, 0, -0.4226183, 0.90630776, -0.03125, -0.59375, -0.0625)
+
+[node name="Lower Leg" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05625, -0.478125, 0.171875)
+mesh = ExtResource("31_geylb")
+skeleton = NodePath("")
+
+[node name="Knee" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L"]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071068, 0, -0.7071068, 0.7071067, -0.05625, -0.109375, 0.28125)
+mesh = ExtResource("32_65pgf")
+skeleton = NodePath("")
+
+[node name="Hitbox_Leg_Left_Extension" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0625, -0.3125, 0.140625)
+mesh = ExtResource("33_i3s5y")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L/Hitbox_Leg_Left_Extension"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L/Hitbox_Leg_Left_Extension/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_x6o00")
+
+[node name="Foot_L" type="Node3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L"]
+transform = Transform3D(1, 0, 0, 0, 0.9848077, -0.1736482, 0, 0.1736482, 0.9848077, -0.015625, -0.50625, 0.109375)
+
+[node name="Foot" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L/Foot_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015625, -0.259375, -0.015625)
+mesh = ExtResource("34_0cqpd")
+skeleton = NodePath("")
+
+[node name="Toe_Back_L" type="Node3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L/Foot_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.065625, -0.05625, 0.15625)
+
+[node name="Back Toe" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L/Foot_L/Toe_Back_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.265625, 0, -0.109375)
+mesh = ExtResource("35_q0hp8")
+skeleton = NodePath("")
+
+[node name="Toe_Front_In_L" type="Node3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L/Foot_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03125, -0.05625, -0.078125)
+
+[node name="Front Toe In" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L/Foot_L/Toe_Front_In_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.234375, 0, 0.125)
+mesh = ExtResource("36_s3xmi")
+skeleton = NodePath("")
+
+[node name="Toe_Front_Out_L" type="Node3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L/Foot_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046875, -0.05625, -0.078125)
+
+[node name="Front Toe Out" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L/Foot_L/Toe_Front_Out_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28125, 0, 0.125)
+mesh = ExtResource("37_d1hwr")
+skeleton = NodePath("")
+
+[node name="Right_Leg" type="Node3D" parent="Walker/Entity/Body/Pelvis2/Legs" node_paths=PackedStringArray("HITBOX")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0.1875, 0, 0)
+script = ExtResource("11_vy0hn")
+HITBOX = NodePath("Hitbox_Leg_Right/StaticBody3D/CollisionShape3D")
+HEALTH = 3
+
+[node name="Upper Leg2" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09375, -0.46875, 0)
+mesh = ExtResource("38_nrxqr")
+skeleton = NodePath("")
+
+[node name="Hitbox_Leg_Right" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09375, -0.28125, 0)
+mesh = ExtResource("39_op1a6")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Hitbox_Leg_Right"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Hitbox_Leg_Right/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_mtip3")
+
+[node name="Lower_R" type="Node3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg"]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.4226183, 0, -0.4226183, 0.90630776, 0.03125, -0.59375, -0.0625)
+
+[node name="Lower Leg2" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05625, -0.478125, 0.171875)
+mesh = ExtResource("40_aw6yo")
+skeleton = NodePath("")
+
+[node name="Knee2" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R"]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071068, 0, -0.7071068, 0.7071067, 0.05625, -0.109375, 0.28125)
+mesh = ExtResource("41_e26dj")
+skeleton = NodePath("")
+
+[node name="Hitbox_Leg_Right_Extension" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625, -0.3125, 0.140625)
+mesh = ExtResource("42_4rigq")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Hitbox_Leg_Right_Extension"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Hitbox_Leg_Right_Extension/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gcjpy")
+
+[node name="Foot_R" type="Node3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R"]
+transform = Transform3D(1, 0, 0, 0, 0.9848077, -0.1736482, 0, 0.1736482, 0.9848077, 0.015625, -0.50625, 0.109375)
+
+[node name="Foot2" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Foot_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015625, -0.259375, -0.015625)
+mesh = ExtResource("43_vu1hd")
+skeleton = NodePath("")
+
+[node name="Toe_Back_R" type="Node3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Foot_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.065625, -0.05625, 0.15625)
+
+[node name="Back Toe2" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Foot_R/Toe_Back_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.265625, 0, -0.109375)
+mesh = ExtResource("44_gktet")
+skeleton = NodePath("")
+
+[node name="Toe_Front_In_R" type="Node3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Foot_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03125, -0.05625, -0.078125)
+
+[node name="Front Toe In2" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Foot_R/Toe_Front_In_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.234375, 0, 0.125)
+mesh = ExtResource("45_a4ivh")
+skeleton = NodePath("")
+
+[node name="Toe_Front_Out_R" type="Node3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Foot_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.046875, -0.05625, -0.078125)
+
+[node name="Front Toe Out2" type="MeshInstance3D" parent="Walker/Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Foot_R/Toe_Front_Out_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28125, 0, 0.125)
+mesh = ExtResource("46_x3lpf")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4856703, 0)
+shape = SubResource("CapsuleShape3D_ad4bv")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.2
+height = 3.0

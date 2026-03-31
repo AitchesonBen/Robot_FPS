@@ -36,14 +36,28 @@ HEALTH = 3
 shape = SubResource("ConcavePolygonShape3D_dera3")
 
 [node name="Left_Leg" parent="Entity/Body/Pelvis2/Legs" index="0" node_paths=PackedStringArray("HITBOX")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, -0.1875, 0, 0)
 script = ExtResource("3_dera3")
 HITBOX = NodePath("Hitbox_Leg_Left/StaticBody3D/CollisionShape3D")
 HEALTH = 3
 
+[node name="Lower_L" parent="Entity/Body/Pelvis2/Legs/Left_Leg" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.4226183, 0, -0.4226183, 0.90630776, -0.03125, -0.59375, -0.0625)
+
+[node name="Foot_L" parent="Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.9848077, -0.1736482, 0, 0.1736482, 0.9848077, -0.015625, -0.50625, 0.109375)
+
 [node name="Right_Leg" parent="Entity/Body/Pelvis2/Legs" index="1" node_paths=PackedStringArray("HITBOX")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0.1875, 0, 0)
 script = ExtResource("3_dera3")
 HITBOX = NodePath("Hitbox_Leg_Right/StaticBody3D/CollisionShape3D")
 HEALTH = 3
+
+[node name="Lower_R" parent="Entity/Body/Pelvis2/Legs/Right_Leg" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.4226183, 0, -0.4226183, 0.90630776, 0.03125, -0.59375, -0.0625)
+
+[node name="Foot_R" parent="Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.9848077, -0.1736482, 0, 0.1736482, 0.9848077, 0.015625, -0.50625, 0.109375)
 
 [node name="NEED TO  RESIZE UV LAYERS" parent="." index="1"]
 visible = false
