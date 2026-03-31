@@ -5,7 +5,8 @@ signal interaction_unfocused
 signal cell_recieved
 signal unlock_door(door: Array[DoorComponent])
 signal no_lock(door: Array[DoorComponent])
-signal raycastResult(enemy: Node, limb: Node)
+signal raycastResult(enemy: Node, limb: Node, damage: int)
+signal raycastResultObject(object: Node, damage: int)
 signal limbDamage(enemy: Node, limb: Node, damage: int, destroyed: bool)
 signal fired
 signal ammo_count(name: String, ammo: int, ammoCap: int)

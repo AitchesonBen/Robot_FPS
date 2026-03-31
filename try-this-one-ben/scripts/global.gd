@@ -19,6 +19,8 @@ var weaponInventory: Array = []
 var defaultWeaponInventory: Array = []
 var current_weapon_i : int  = 0
 
+var player_nav
+
 func add_item(fileName: String, weaponName: String) -> void:
 	weaponInventory.append({
 		"file": fileName,

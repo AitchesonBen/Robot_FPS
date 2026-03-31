@@ -1,0 +1,86 @@
+[gd_scene load_steps=15 format=3 uid="uid://cegrawvm61mmu"]
+
+[ext_resource type="Shader" uid="uid://clxf2fyb8eebe" path="res://Maps/UI Scenes/sky.gdshader" id="1_mhvm8"]
+[ext_resource type="Texture2D" uid="uid://cwwfp4vjwdm5g" path="res://ui/Textures/gradient_pause.tres" id="2_77mdr"]
+[ext_resource type="Texture2D" uid="uid://dfpg2k8sit5kt" path="res://ui/Textures/checkboard.png" id="3_77mdr"]
+[ext_resource type="PackedScene" uid="uid://dcdyg73edp6l3" path="res://model/enemy_spawn.tscn" id="4_p21he"]
+[ext_resource type="PackedScene" uid="uid://mpfi5j5ni4qn" path="res://model/Boxes/LargeTarp.tscn" id="4_r2o4l"]
+[ext_resource type="PackedScene" uid="uid://l66v3s8xrv5c" path="res://model/player.tscn" id="4_uxsl3"]
+[ext_resource type="PackedScene" uid="uid://6on5l8rxks2a" path="res://model/Enemy/ai_light_walker.tscn" id="5_r2o4l"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n8uhs"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6g866"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uxsl3"]
+shader = ExtResource("1_mhvm8")
+shader_parameter/sky_background = SubResource("CompressedTexture2D_6g866")
+shader_parameter/clouds = SubResource("CompressedTexture2D_n8uhs")
+shader_parameter/cloud_color = ExtResource("2_77mdr")
+shader_parameter/exposure = 0.0
+
+[sub_resource type="Sky" id="Sky_8e2af"]
+sky_material = SubResource("ShaderMaterial_uxsl3")
+
+[sub_resource type="Environment" id="Environment_3v7w7"]
+background_mode = 1
+background_color = Color(0.7708395, 0.77083945, 0.77083945, 1)
+sky = SubResource("Sky_8e2af")
+fog_enabled = true
+fog_light_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
+fog_height_density = 0.3
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_p21he"]
+vertices = PackedVector3Array(-27.44513, 1.5, -14.5, -27.44513, 1.5, 14.5, 27.55487, 1.5, 14.5, 27.55487, 1.5, -14.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_collision_mask = 4294967041
+agent_height = 3.0
+agent_max_slope = 60.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxsl3"]
+albedo_color = Color(0.25490198, 0.31764707, 0.79607844, 1)
+albedo_texture = ExtResource("3_77mdr")
+uv1_triplanar = true
+
+[node name="Navigation_Test" type="Node3D"]
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(0.9659259, 0.22414385, -0.12940955, -0.06698726, 0.69946927, 0.7115163, 0.25000003, -0.67860323, 0.6906502, 0, 6, 4)
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 6, 4)
+layers = 2
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Map"]
+environment = SubResource("Environment_3v7w7")
+
+[node name="Walls" type="Node3D" parent="Map"]
+
+[node name="LargeTarp" parent="Map" instance=ExtResource("4_r2o4l")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 17.042107, 1, -5.115117)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Map"]
+navigation_mesh = SubResource("NavigationMesh_p21he")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Map/NavigationRegion3D"]
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/NavigationRegion3D/CSGCombiner3D"]
+use_collision = true
+size = Vector3(55.89026, 2, 30)
+material = SubResource("StandardMaterial3D_uxsl3")
+
+[node name="Floors" type="Node3D" parent="Map/NavigationRegion3D"]
+
+[node name="EnemySpawn" parent="Map/NavigationRegion3D" node_paths=PackedStringArray("player_nav") instance=ExtResource("4_p21he")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 1.01, 0.735)
+enemy = ExtResource("5_r2o4l")
+EnemySpawnTime = 2.0
+player_nav = NodePath("../../../CharacterBody3D")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("4_uxsl3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.294256, 2.3, 0)
