@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://gy7khll2l63u"]
+[gd_scene load_steps=6 format=4 uid="uid://gy7khll2l63u"]
 
 [ext_resource type="PackedScene" uid="uid://djmika8an4spa" path="res://model/Boxes/WillStuff/Crate Explosive Industrial.gltf" id="1_mvqxq"]
 [ext_resource type="Material" uid="uid://3ac4o3d7qisw" path="res://ui/Textures/interactable_highlight.tres" id="2_jq52h"]
+[ext_resource type="Script" uid="uid://dhtjhfog5wfjq" path="res://scripts/Interaction/Destructable_Component.gd" id="2_ri8dp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jq52h"]
 blend_mode = 4
@@ -25,7 +26,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[node name="Explosive" instance=ExtResource("1_mvqxq")]
+[node name="Explosive" groups=["DestructableObject"] instance=ExtResource("1_mvqxq")]
+script = ExtResource("2_ri8dp")
+HEALTH = 10
 
 [node name="Frame" parent="Object/Body" index="0"]
 material_overlay = ExtResource("2_jq52h")

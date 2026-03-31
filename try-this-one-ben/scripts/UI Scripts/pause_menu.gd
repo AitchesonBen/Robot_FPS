@@ -2,6 +2,9 @@ extends Node2D
 
 @export var ControlEnable : Node2D
 
+@export var weapon1Name : Label
+@export var weapon2Name : Label
+
 func _ready() -> void:
 	hide()
 	get_tree().paused = false
@@ -19,6 +22,14 @@ func pause():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	show()
 	get_tree().paused = true
+	if Global.weaponInventory.size() > 0:
+		weapon1Name.text = Global.weaponInventory[0].name
+		if Global.weaponInventory.size() > 1:
+			weapon2Name.text = Global.weaponInventory[1].name
+		else:
+			weapon2Name.text = ""
+	else:
+		weapon1Name.text = ""
 	$AnimationPlayer.play("blur")
 	
 func restart():

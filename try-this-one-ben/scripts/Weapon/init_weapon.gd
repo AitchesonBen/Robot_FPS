@@ -51,6 +51,7 @@ var fullAuto : bool
 var rpm : float
 var weapon_name : String = ""
 var can_fire := true
+var damage : int
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
@@ -102,6 +103,7 @@ func _input(event) -> void:
 			weapon_name = first_weapon.name
 			Global.autoShoot = WEAPON_TYPE.fullAuto
 			load_weapon(weapon_name)
+			print(Global.weaponInventory)
 	if event.is_action_pressed("weapon2"):
 		if Global.weaponInventory.size() > 1:
 			var second_weapon = Global.weaponInventory[1]
@@ -110,6 +112,7 @@ func _input(event) -> void:
 			weapon_name = second_weapon.name
 			Global.autoShoot = WEAPON_TYPE.fullAuto
 			load_weapon(weapon_name)
+			print(Global.weaponInventory)
 	if event.is_action_pressed("reload") and Ammo != AmmoCompacity:
 		reload()
 	if event.is_action_pressed("inspect"):
@@ -156,6 +159,7 @@ func load_weapon(_name: String) -> void:
 	
 	Ammo = WEAPON_TYPE.Ammoo
 	AmmoCompacity = WEAPON_TYPE.AmmoCapa
+	damage = WEAPON_TYPE.damage
 	
 	print("Load", _name)
 	
@@ -228,6 +232,8 @@ func get_sway_noise(delta) -> float:
 func _attack() -> void:
 	if WEAPON_TYPE == null:
 		return
+	if WEAPON_TYPE.name == "Empty":
+		return
 	if not can_fire:
 		return
 	can_fire = false
@@ -253,15 +259,26 @@ func _attack() -> void:
 		raycast(result.get("position"), result.get("normal"))
 		var node = result.get("collider")
 		var enemy = node.get_parent()
+		var object = node.get_parent()
 		var limbMesh = enemy.get_parent()
 		#var limb = limbMesh.get_parent()
 		while enemy and not enemy.is_in_group("Enemy"):
 			enemy = enemy.get_parent()
+		while object and not object.is_in_group("DestructableObject"):
+			object = object.get_parent()
 		if enemy:
-			MessageBus.raycastResult.emit(enemy, limbMesh)
+			MessageBus.raycastResult.emit(enemy, limbMesh, damage)
+		elif object:
+			MessageBus.raycastResultObject.emit(object, damage)
 	
 	var timer = round_per_minute()
-	
+	var shootAnimation = ANIMATION.get_animation("Shoot")
+	if shootAnimation:
+		var length = shootAnimation.length
+		var speed_scale = length / timer
+		ANIMATION.speed_scale = speed_scale
+		ANIMATION.stop()
+		ANIMATION.play("Shoot")
 	await get_tree().create_timer(timer).timeout
 	can_fire = true
 		#await get_tree().create_timer(timer).timeout

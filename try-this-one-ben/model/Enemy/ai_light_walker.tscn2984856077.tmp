@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://6on5l8rxks2a"]
+
+[ext_resource type="PackedScene" uid="uid://biq72gi6itbk2" path="res://model/Enemy/light_walker.tscn" id="1_0qvdk"]
+[ext_resource type="Script" uid="uid://4jmpwdxxx0t7" path="res://scripts/Enemies/ai_walker.gd" id="1_ad4bv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ad4bv"]
+height = 3.0
+
+[node name="AILightWalker" type="CharacterBody3D"]
+script = ExtResource("1_ad4bv")
+
+[node name="LightWalker" parent="." instance=ExtResource("1_0qvdk")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4856703, 0)
+shape = SubResource("CapsuleShape3D_ad4bv")

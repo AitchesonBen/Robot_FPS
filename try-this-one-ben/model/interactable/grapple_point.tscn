@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://deu500ebju8lu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c8jv1"]
+size = Vector3(0.5, 0.1, 0.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_c8jv1"]
+radius = 0.15
+height = 0.15
+is_hemisphere = true
+
+[node name="GrapplePoint" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06335002, 0)
+mesh = SubResource("BoxMesh_c8jv1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12159611, 0)
+mesh = SubResource("SphereMesh_c8jv1")
+skeleton = NodePath("../..")
