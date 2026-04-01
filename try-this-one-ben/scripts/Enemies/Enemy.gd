@@ -16,19 +16,12 @@ var availableLimbs : Array[Node3D] = LIMBS.duplicate()
 var destroyedLimbs : Array[Node3D]
 
 func _ready() -> void:
-	#player = get_node(player_path)
 	MessageBus.raycastResult.connect(damage_taken)
 	MessageBus.limbDamage.connect(limb_damage_taken)
 	
 func _process(_delta: float) -> void:
 	if ENEMY_TYPE == EnemyType.walker:
 		walker_animations()
-		#velocity = Vector3.ZERO
-		#nav_agent.set_target_position(player.global_transform.origin)
-		#var next_point = nav_agent.get_next_path_position()
-		#var direction = (next_point - global_transform.origin).normalized()
-		#velocity = direction * 4.0
-		#move_and_slide()
 	elif ENEMY_TYPE == EnemyType.drone:
 		drone_animations()
 	elif ENEMY_TYPE == null:

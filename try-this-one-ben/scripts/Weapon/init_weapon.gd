@@ -81,6 +81,13 @@ func unload_weapon(_fileName: String) -> void:
 		weapon_name = weapon.name
 		Global.autoShoot = WEAPON_TYPE.fullAuto
 		load_weapon(weapon_name)
+	elif Global.weaponInventory.size() == 2:
+		print("TRYING TO UNLOAD")
+		var weapon = Global.weaponInventory[1]
+		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/" + weapon.file + ".tres")
+		weapon_name = weapon.name
+		Global.autoShoot = WEAPON_TYPE.fullAuto
+		load_weapon(weapon_name)
 	else:
 		print("TRYING TO UNLOAD")
 		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/Empty.tres")
@@ -230,6 +237,7 @@ func get_sway_noise(delta) -> float:
 	return noise_location
 
 func _attack() -> void:
+	print(can_fire)
 	if WEAPON_TYPE == null:
 		return
 	if WEAPON_TYPE.name == "Empty":

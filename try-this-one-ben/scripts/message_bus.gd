@@ -11,7 +11,6 @@ signal limbDamage(enemy: Node, limb: Node, damage: int, destroyed: bool)
 signal fired
 signal ammo_count(name: String, ammo: int, ammoCap: int)
 signal weapon_name(fileName: String, weaponName: String)
-signal full_inventory(full: bool)
 signal weapon_removed(fileName: String)
 
 var current_weapon := ""

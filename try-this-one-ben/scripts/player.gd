@@ -70,11 +70,13 @@ func _ready():
 	WALL_SHAPECAST.add_exception($".")
 
 func _physics_process(delta: float) -> void:
+	var stuff = Global.ammo
 	Global.debug.add_property("MovementSpeed", _speed, 1)
 	Global.debug.add_property("Velocity", "%.2f" % velocity.length(), 2)
 	Global.debug.add_property("Velocity X", "%.2f" % velocity.x, 2)
 	Global.debug.add_property("Velocity Y", "%.2f" % velocity.y, 2)
 	Global.debug.add_property("Velocity Z", "%.2f" % velocity.z, 2)
+	Global.debug.add_property("FIre?", stuff, 2)
 	
 	#DASH_ANIMATION_IMAGE.enable_cooldown()
 	var DASHUI = HUD.get_node("Dash_Fade")

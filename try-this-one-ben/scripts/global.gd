@@ -29,9 +29,9 @@ func add_item(fileName: String, weaponName: String) -> void:
 
 func replace_item(index: int, fileName: String, weaponName: String) -> void:
 	var oldFile = weaponInventory[index].file
-	MessageBus.weapon_removed.emit(oldFile)
 	weaponInventory[index].file = fileName
 	weaponInventory[index].name = weaponName
+	MessageBus.weapon_removed.emit(oldFile)
 
 func remove_item(fileName: String) -> void:
 	for i in weaponInventory.size():

@@ -11,9 +11,6 @@ func _ready() -> void:
 	timer.wait_time = EnemySpawnTime
 	timer.start()
 
-#func _process(_delta: float) -> void:
-	#Global.player_nav = player.global_transform.origin
-
 func _on_timer_timeout() -> void:
 	currentEnemy = enemy.instantiate()
 	currentEnemy.initialize(get_parent().position)

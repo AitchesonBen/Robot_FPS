@@ -1,16 +1,13 @@
 class_name DashPlayerState extends PlayerMovementState
 
 @export var DASH_SPEED := 45.0
-#Not being used
 @export var DASH_DECELERATION := 55.0
 @export var DASH_DURATION := 0.12
 @export var DASH_REDUCER := 0.5
 
 var dash_timer := 0.0
 var dash_dir: Vector3
-var dash_velocity: Vector3
-#Not being used
-var dash_dec
+var dash_velocity: Vector3 
 
 func enter(_previous_state) -> void:
 	dash_timer = DASH_DURATION

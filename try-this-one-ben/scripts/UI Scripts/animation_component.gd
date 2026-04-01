@@ -2,7 +2,6 @@ class_name AnimationComponent extends Node
 
 @export var mesh : MeshInstance3D
 
-#var target : Control
 var dashed : bool = false
 var dash_cooldown : float = 0.0
 var dash_ready_color: Color = Color("#00ffffaf")
@@ -10,10 +9,6 @@ var dash_cooldown_color: Color = Color("#b2b2b264")
 var white: Color = Color('#ff0fff')
 
 func _ready() -> void:
-	#target = get_parent()
-	pass
-
-func _process(_delta: float) -> void:
 	pass
 
 func enable_cooldown() -> void:
