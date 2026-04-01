@@ -14,32 +14,21 @@ var oldWeapon
 func _ready() -> void:
 	parent = get_parent()
 	parent.ready.connect(connect_parent)
-	MessageBus.full_inventory.connect(isFull)
 	MessageBus.weapon_removed.connect(weapon_removal_color)
-
-func isFull(full) -> bool:
-	stop = true
-	return full
 	
 func connect_parent() -> void:
 	parent.connect("changed", Callable(self, "got_gun"))
 
 func got_gun(state: bool) -> void:
-	if state and !stop:
+	stop = !stop
+	if stop:
 		MessageBus.weapon_name.emit(FileName, WeaponName)
 		recolor_weapon(Color("00ffff30"))
 	elif !stop:
 		MessageBus.weapon_name.emit(FileName, WeaponName)
-		#recolor_weapon(Color("00ffff30"))
 		undo_recolor()
 	else:
 		print("Full iventory, cant pick up")
-
-func get_scene_root(node: Node) -> Node:
-	var current = node
-	while current.get_parent() != null:
-		current = current.get_parent()
-	return current
 
 func recolor_all_meshes(root: Node, color: Color) -> void:
 	for child in root.get_children():

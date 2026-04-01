@@ -63,7 +63,7 @@ func update(delta):
 	
 	was_on_sloop = is_on_slope()
 	
-	print(PLAYER.is_on_floor())
+	#print(PLAYER.is_on_floor())
 
 	#Jumping allowed unless under a block
 	if Input.is_action_just_pressed("jump") and !CROUCH_SHAPECAST.is_colliding():

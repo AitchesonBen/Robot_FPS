@@ -17,18 +17,18 @@ func add_weapon(fileName: String, weaponName: String) -> void:
 	elif items.size() < inventory_size:
 		items.append(fileName)
 		Global.add_item(fileName, weaponName)
+		Global.current_weapon_i = 1
 		weapon_two(fileName)
 	else:
 		var slot = Global.current_weapon_i
 		items[slot] = fileName
 		Global.replace_item(slot, fileName, weaponName)
-		print("Full inventory")
+		print("Full inventory", items)
 
 func weapon_one(fileName) -> void:
 	print("Weapon 1: " + fileName)
 
 func weapon_two(fileName) -> void:
-	#MessageBus.full_inventory.emit(true)
 	print("Weapon 2: " + fileName)
 
 func remove_weapon(fileName: String) -> void:

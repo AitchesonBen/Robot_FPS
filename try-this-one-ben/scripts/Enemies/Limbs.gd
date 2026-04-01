@@ -8,9 +8,6 @@ var health
 func _ready() -> void:
 	MessageBus.raycastResult.connect(take_damage)
 	health = HEALTH
-#
-#func _process(delta: float) -> void:
-	#pass
 
 func find_limb(limb: Node) -> Node:
 	while limb and limb != self:
