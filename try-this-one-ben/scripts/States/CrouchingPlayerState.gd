@@ -14,7 +14,6 @@ var RELEASED : bool = false
 var is_uncrouching = false
 
 func enter(previous_state) -> void:
-	#PLAYER.floor_snap_length = 0.8
 	ANIMATION.speed_scale = 1.0
 	if previous_state.name != "SlidingPlayerState":
 		ANIMATION.play("crouch", -1.0, CROUCH_SPEED)
