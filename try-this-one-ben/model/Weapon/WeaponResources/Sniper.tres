@@ -11,5 +11,6 @@ rotation = Vector3(5, -54, 3.5)
 scene = ExtResource("1_ao25j")
 AmmoCapa = 6
 Ammoo = 6
+Prev_Ammo = 6
 rpm = 90.0
 metadata/_custom_type_script = "uid://248vpyxv5gvs"

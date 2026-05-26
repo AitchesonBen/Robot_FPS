@@ -11,5 +11,6 @@ rotation = Vector3(6.5, -50.2, 1.7)
 scene = ExtResource("1_rymub")
 AmmoCapa = 2
 Ammoo = 2
+Prev_Ammo = 2
 rpm = 360.0
 metadata/_custom_type_script = "uid://248vpyxv5gvs"

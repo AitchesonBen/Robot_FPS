@@ -29,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 	
 	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP)
 	
-	print(player.global_position)
+	#print(player.global_position)
 
 	move_and_slide()
 
