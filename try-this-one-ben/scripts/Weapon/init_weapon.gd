@@ -8,13 +8,13 @@ signal weapon_fired
 
 enum BulletType {Bullet, Cooldown}
 
-var weapon_instance : Node3D
+var weapon_scene : Node3D
+
+var prev_ammo_count : int
 
 @onready var weapon_pivot : Node3D = $"Recoil Position/weapon_pivot"
 
 @export var bullet_type : BulletType
-#@export var AmmoCompacity : int
-#@export var Ammo : int = AmmoCompacity
 
 @export var sway_noise : NoiseTexture2D
 @export var sway_speed : float = 1.2
@@ -53,6 +53,8 @@ var weapon_name : String = ""
 var can_fire := true
 var damage : int
 
+var weapon_instance : WeaponInstance
+
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		load_weapon(weapon_name)
@@ -64,63 +66,75 @@ func _ready() -> void:
 	MessageBus.weapon_name.connect(weapon_assigned)
 	MessageBus.weapon_removed.connect(unload_weapon)
 
-func weapon_assigned(fileName: String, weaponName: String) -> void:
-	if WEAPON_TYPE == null:
-		return
-	WEAPON_TYPE = load("res://model/Weapon/WeaponResources/" + fileName + ".tres")
-	weapon_name = weaponName
+func create_instance_from_inventory(entry) -> WeaponInstance:
+	var data = load("res://model/Weapon/WeaponResources/" + entry.file + ".tres")
+	return WeaponInstance.new(data)
+
+func equip_weapon_from_inventory(entry) -> void:
+	var data = load("res://model/Weapon/WeaponResources/" + entry.file + ".tres")
+
+	if Global.weapon_instances.has(entry.file):
+		weapon_instance = Global.weapon_instances[entry.file]
+	else:
+		weapon_instance = WeaponInstance.new(data)
+		Global.weapon_instances[entry.file] = weapon_instance
+
+	WEAPON_TYPE = data
+	weapon_name = data.name
+	
 	Global.autoShoot = WEAPON_TYPE.fullAuto
+	
+	load_weapon(weapon_name)
+
+func weapon_assigned(fileName: String, weaponName: String) -> void:
+	var data = load("res://model/Weapon/WeaponResources/" + fileName + ".tres")
+	if data == null:
+		push_error("Weapon data not found: " + fileName)
+		return
+
+	# reuse instance system
+	if Global.weapon_instances.has(fileName):
+		weapon_instance = Global.weapon_instances[fileName]
+	else:
+		weapon_instance = WeaponInstance.new(data)
+		Global.weapon_instances[fileName] = weapon_instance
+
+	WEAPON_TYPE = data
+	weapon_name = weaponName
+
+	Global.autoShoot = WEAPON_TYPE.fullAuto
+
 	load_weapon(weapon_name)
 
 func unload_weapon(_fileName: String) -> void:
 	if WEAPON_TYPE == null:
 		return
-	if Global.weaponInventory.size() == 1:
-		var weapon = Global.weaponInventory[0]
-		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/" + weapon.file + ".tres")
-		weapon_name = weapon.name
-		Global.autoShoot = WEAPON_TYPE.fullAuto
-		load_weapon(weapon_name)
-	elif Global.weaponInventory.size() == 2:
-		print("TRYING TO UNLOAD")
-		var weapon = Global.weaponInventory[1]
-		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/" + weapon.file + ".tres")
-		weapon_name = weapon.name
-		Global.autoShoot = WEAPON_TYPE.fullAuto
-		load_weapon(weapon_name)
-	else:
-		print("TRYING TO UNLOAD")
+	if Global.weaponInventory.size() == 0:
 		WEAPON_TYPE = load("res://model/Weapon/WeaponResources/Empty.tres")
 		weapon_name = "Empty"
 		Global.autoShoot = WEAPON_TYPE.fullAuto
 		load_weapon(weapon_name)
-
-func round_per_minute() -> float:
-	var seconds = 60.0
-	rpm = WEAPON_TYPE.rpm
-	var timePerBullet = seconds / rpm
-	return timePerBullet
+	else:
+		equip_weapon_from_inventory(Global.weaponInventory[0])
 
 func _input(event) -> void:
 	if event.is_action_pressed("weapon1"):
 		if Global.weaponInventory.size() > 0:
+			#if ANIMATION.is_playing():
+				#await ANIMATION.animation_finished
 			var first_weapon = Global.weaponInventory[0]
+			equip_weapon_from_inventory(first_weapon)
 			Global.current_weapon_i = 0
-			WEAPON_TYPE = load("res://model/Weapon/WeaponResources/" + first_weapon.file + ".tres")
-			weapon_name = first_weapon.name
-			Global.autoShoot = WEAPON_TYPE.fullAuto
-			load_weapon(weapon_name)
 			print(Global.weaponInventory)
 	if event.is_action_pressed("weapon2"):
 		if Global.weaponInventory.size() > 1:
+			#if ANIMATION.is_playing():
+				#await ANIMATION.animation_finished
 			var second_weapon = Global.weaponInventory[1]
+			equip_weapon_from_inventory(second_weapon)
 			Global.current_weapon_i = 1
-			WEAPON_TYPE = load("res://model/Weapon/WeaponResources/" + second_weapon.file + ".tres")
-			weapon_name = second_weapon.name
-			Global.autoShoot = WEAPON_TYPE.fullAuto
-			load_weapon(weapon_name)
 			print(Global.weaponInventory)
-	if event.is_action_pressed("reload") and Ammo != AmmoCompacity:
+	if event.is_action_pressed("reload") and weapon_instance.current_ammo != weapon_instance.data.AmmoCapa:
 		reload()
 	if event.is_action_pressed("inspect"):
 		inspect()
@@ -136,16 +150,16 @@ func reload() -> void:
 		ANIMATION.play("Reload")
 	if ANIMATION.is_playing():
 		await ANIMATION.animation_finished
-	Ammo = WEAPON_TYPE.Ammoo
-	Global.ammo = Ammo
-	MessageBus.ammo_count.emit(weapon_name, Ammo, AmmoCompacity)
+	weapon_instance.current_ammo = weapon_instance.data.AmmoCapa
+	Global.ammo = weapon_instance.current_ammo
+	MessageBus.ammo_count.emit(weapon_instance.data.name, weapon_instance.current_ammo, weapon_instance.data.AmmoCapa)
 	can_fire = true
 
 func load_weapon(_name: String) -> void:
-	if weapon_instance and weapon_instance.is_inside_tree():
-		weapon_instance.queue_free()
-		weapon_instance = null
-		
+	if weapon_scene and weapon_scene.is_inside_tree():
+		weapon_scene.queue_free()
+		weapon_scene = null
+	
 	if WEAPON_TYPE == null or WEAPON_TYPE.scene == null:
 		return
 
@@ -162,22 +176,98 @@ func load_weapon(_name: String) -> void:
 	
 	idle_sway_adjustment = WEAPON_TYPE.idle_sway_adjustment
 	idle_sway_rotation_strength = WEAPON_TYPE.idle_sway_rotation_strength
-	random_sway_amount = WEAPON_TYPE.random_sway_amount
+	random_sway_amount = WEAPON_TYPE.random_sway_amount 
 	
-	Ammo = WEAPON_TYPE.Ammoo
-	AmmoCompacity = WEAPON_TYPE.AmmoCapa
-	damage = WEAPON_TYPE.damage
+	AmmoCompacity = weapon_instance.data.AmmoCapa
+	damage = weapon_instance.data.damage
 	
 	print("Load", _name)
 	
 	if _name != "":
-		Global.ammo = Ammo
-		MessageBus.ammo_count.emit(_name, Ammo, AmmoCompacity)
+		#Global.ammo = Ammo
+		MessageBus.ammo_count.emit(_name, weapon_instance.current_ammo, weapon_instance.data.AmmoCapa)
 	else:
-		Global.ammo = 0
+		#Global.ammo = 0
 		MessageBus.ammo_count.emit(_name, 0, 0)
 	
-	weapon_instance = inst
+	weapon_scene = inst
+
+func _attack() -> void:
+	if WEAPON_TYPE == null:
+		return
+	if WEAPON_TYPE.name == "Empty":
+		return
+	if not can_fire:
+		return
+	can_fire = false
+	if ANIMATION.is_playing() && ANIMATION.current_animation == "Inspect":
+		ANIMATION.stop()
+	elif ANIMATION.is_playing():
+		return
+	MessageBus.fired.emit()
+	weapon_fired.emit()
+	var camera = Global.player.CAMERA_CONTROLLER
+	var space_state = camera.get_world_3d().direct_space_state
+	var screen_center = get_viewport().size / 2
+	var origin = camera.project_ray_origin(screen_center)
+	var end = origin + camera.project_ray_normal(screen_center) * 1000
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.collide_with_bodies = true
+	var result = space_state.intersect_ray(query)
+	
+	weapon_instance.current_ammo -= 1
+	Global.ammo = weapon_instance.current_ammo
+	
+	MessageBus.ammo_count.emit(weapon_name, weapon_instance.current_ammo, weapon_instance.data.AmmoCapa)
+	
+	if result:
+		raycast(result.get("position"), result.get("normal"))
+		var node = result.get("collider")
+		var enemy = node.get_parent()
+		var object = node.get_parent()
+		var limbMesh = enemy.get_parent()
+		#var limb = limbMesh.get_parent()
+		while enemy and not enemy.is_in_group("Enemy"):
+			enemy = enemy.get_parent()
+		while object and not object.is_in_group("DestructableObject"):
+			object = object.get_parent()
+		if enemy:
+			MessageBus.raycastResult.emit(enemy, limbMesh, damage)
+		elif object:
+			MessageBus.raycastResultObject.emit(object, damage)
+	
+	var timer = round_per_minute()
+	if ANIMATION.has_animation("Shoot"):
+		var shootAnimation = ANIMATION.get_animation("Shoot")
+		if shootAnimation:
+			var length = shootAnimation.length
+			var speed_scale = length / timer
+			ANIMATION.speed_scale = speed_scale
+			ANIMATION.stop()
+			ANIMATION.play("Shoot")
+	await get_tree().create_timer(timer).timeout
+	can_fire = true
+		#await get_tree().create_timer(timer).timeout
+		#can_fire = true
+
+func round_per_minute() -> float:
+	var seconds = 60.0
+	rpm = WEAPON_TYPE.rpm
+	var timePerBullet = seconds / rpm
+	return timePerBullet
+
+func raycast(positionRC: Vector3, normal: Vector3) -> void:
+	var instance = test_raycast.instantiate()
+	get_tree().root.add_child(instance)
+	instance.global_position = positionRC
+	instance.look_at(instance.global_transform.origin + normal, Vector3.UP)
+	instance.rotate_object_local(Vector3(1, 0, 0), 90)
+	#instance.scale *= 2  <-- To increase size of decal based on damage later
+	await get_tree().create_timer(10).timeout
+	var fade = get_tree().create_tween()
+	fade.tween_property(instance, "modulate:a", 0, 5)
+	await get_tree().create_timer(5).timeout
+	instance.queue_free()
 
 func sway_weapon(delta, isIdle: bool, sway_spd: float) -> void:
 	if Engine.is_editor_hint():
@@ -235,72 +325,3 @@ func get_sway_noise(delta) -> float:
 		
 	var noise_location : float = sway_noise.noise.get_noise_2d(player_position.x, player_position.y+(delta*100))
 	return noise_location
-
-func _attack() -> void:
-	print(can_fire)
-	if WEAPON_TYPE == null:
-		return
-	if WEAPON_TYPE.name == "Empty":
-		return
-	if not can_fire:
-		return
-	can_fire = false
-	if ANIMATION.is_playing() && ANIMATION.current_animation == "Inspect":
-		ANIMATION.stop()
-	elif ANIMATION.is_playing():
-		return
-	MessageBus.fired.emit()
-	weapon_fired.emit()
-	var camera = Global.player.CAMERA_CONTROLLER
-	var space_state = camera.get_world_3d().direct_space_state
-	var screen_center = get_viewport().size / 2
-	var origin = camera.project_ray_origin(screen_center)
-	var end = origin + camera.project_ray_normal(screen_center) * 1000
-	var query = PhysicsRayQueryParameters3D.create(origin, end)
-	query.collide_with_bodies = true
-	var result = space_state.intersect_ray(query)
-	Ammo -= 1
-	Global.ammo = Ammo
-	MessageBus.ammo_count.emit(weapon_name, Ammo, AmmoCompacity)
-	
-	if result:
-		raycast(result.get("position"), result.get("normal"))
-		var node = result.get("collider")
-		var enemy = node.get_parent()
-		var object = node.get_parent()
-		var limbMesh = enemy.get_parent()
-		#var limb = limbMesh.get_parent()
-		while enemy and not enemy.is_in_group("Enemy"):
-			enemy = enemy.get_parent()
-		while object and not object.is_in_group("DestructableObject"):
-			object = object.get_parent()
-		if enemy:
-			MessageBus.raycastResult.emit(enemy, limbMesh, damage)
-		elif object:
-			MessageBus.raycastResultObject.emit(object, damage)
-	
-	var timer = round_per_minute()
-	var shootAnimation = ANIMATION.get_animation("Shoot")
-	if shootAnimation:
-		var length = shootAnimation.length
-		var speed_scale = length / timer
-		ANIMATION.speed_scale = speed_scale
-		ANIMATION.stop()
-		ANIMATION.play("Shoot")
-	await get_tree().create_timer(timer).timeout
-	can_fire = true
-		#await get_tree().create_timer(timer).timeout
-		#can_fire = true
-
-func raycast(positionRC: Vector3, normal: Vector3) -> void:
-	var instance = test_raycast.instantiate()
-	get_tree().root.add_child(instance)
-	instance.global_position = positionRC
-	instance.look_at(instance.global_transform.origin + normal, Vector3.UP)
-	instance.rotate_object_local(Vector3(1, 0, 0), 90)
-	#instance.scale *= 2  <-- To increase size of decal based on damage later
-	await get_tree().create_timer(10).timeout
-	var fade = get_tree().create_tween()
-	fade.tween_property(instance, "modulate:a", 0, 5)
-	await get_tree().create_timer(5).timeout
-	instance.queue_free()

@@ -19,8 +19,9 @@ class_name Weapons extends Resource
 @export var mesh : Mesh
 @export var shadow : bool
 @export_category("Ammo")
-@export var AmmoCapa : int = 10
+@export var AmmoCapa : int
 @export var Ammoo : int = AmmoCapa
+@export var Prev_Ammo : int
 @export var rpm : float = 60.0
 @export var fullAuto : bool
 @export var damage : int = 1
