@@ -18,6 +18,7 @@ var defaultCooldown : float = 0.0
 var weaponInventory: Array = []
 var defaultWeaponInventory: Array = []
 var current_weapon_i : int  = 0
+var weapon_instances = {}
 
 var player_nav
 
