@@ -491,7 +491,7 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_j68t0"]
 radius = 0.6
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WALL_SHAPECAST", "WEAPON_CONTROLLER", "DASH_ANIMATION_IMAGE", "HUD", "DASH_IMAGE", "Cell")]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WALL_SHAPECAST", "WEAPON_CONTROLLER", "DASH_ANIMATION_IMAGE", "HUD", "DASH_IMAGE", "Cell") groups=["Player"]]
 script = ExtResource("1_gbl1t")
 CAMERA_CONTROLLER = NodePath("Camera/Recoil/Camera3D")
 ANIMATIONPLAYER = NodePath("AnimationPlayer")
@@ -504,7 +504,7 @@ DASH_IMAGE = NodePath("UI/DashRed")
 Cell = NodePath("WeaponViewport/SubViewport/Camera3DWeap/PowerCell2")
 DASH_COOLDOWN = 1.5
 
-[node name="Collision" type="CollisionShape3D" parent="."]
+[node name="Collision" type="CollisionShape3D" parent="." groups=["Player"]]
 shape = SubResource("CapsuleShape3D_lrm1h")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Collision"]
@@ -542,6 +542,7 @@ size = Vector3(0.14013672, 0.14147949, 0.58551025)
 [node name="InteractionRaycast" type="RayCast3D" parent="Camera/Recoil/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.9429615, -0.33290184, 0, 0.33290184, 0.9429615, 0, 0, 0)
 target_position = Vector3(0, -1, -3)
+collision_mask = 3
 script = ExtResource("5_xa3qw")
 
 [node name="HUD" parent="Camera/Recoil/Camera3D" instance=ExtResource("5_y8rvq")]

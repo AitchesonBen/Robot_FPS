@@ -184,10 +184,8 @@ func load_weapon(_name: String) -> void:
 	print("Load", _name)
 	
 	if _name != "":
-		#Global.ammo = Ammo
 		MessageBus.ammo_count.emit(_name, weapon_instance.current_ammo, weapon_instance.data.AmmoCapa)
 	else:
-		#Global.ammo = 0
 		MessageBus.ammo_count.emit(_name, 0, 0)
 	
 	weapon_scene = inst
@@ -213,6 +211,7 @@ func _attack() -> void:
 	var end = origin + camera.project_ray_normal(screen_center) * 1000
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.collide_with_bodies = true
+	query.collide_with_areas = true
 	var result = space_state.intersect_ray(query)
 	
 	weapon_instance.current_ammo -= 1
@@ -223,10 +222,16 @@ func _attack() -> void:
 	if result:
 		raycast(result.get("position"), result.get("normal"))
 		var node = result.get("collider")
+		
 		var enemy = node.get_parent()
+		var limb: Node = null
 		var object = node.get_parent()
 		var limbMesh = enemy.get_parent()
-		#var limb = limbMesh.get_parent()
+		
+		#It hit a limb
+		if node is Area3D and node.has_meta("limb_owner"):
+			limb = node.get_meta("limb_owner")
+			limbMesh = limb
 		while enemy and not enemy.is_in_group("Enemy"):
 			enemy = enemy.get_parent()
 		while object and not object.is_in_group("DestructableObject"):
@@ -235,6 +240,10 @@ func _attack() -> void:
 			MessageBus.raycastResult.emit(enemy, limbMesh, damage)
 		elif object:
 			MessageBus.raycastResultObject.emit(object, damage)
+		elif node is CharacterBody3D:
+			for child in node.get_children():
+				if child.is_in_group("Enemy"):
+					MessageBus.raycastResult.emit(child, null, damage)
 	
 	var timer = round_per_minute()
 	if ANIMATION.has_animation("Shoot"):
@@ -247,8 +256,6 @@ func _attack() -> void:
 			ANIMATION.play("Shoot")
 	await get_tree().create_timer(timer).timeout
 	can_fire = true
-		#await get_tree().create_timer(timer).timeout
-		#can_fire = true
 
 func round_per_minute() -> float:
 	var seconds = 60.0

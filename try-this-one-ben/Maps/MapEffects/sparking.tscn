@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckpey5stv8y64"]
+
+[ext_resource type="Script" uid="uid://dmtafo2mj3r1f" path="res://scripts/Interaction/sparking.gd" id="1_m7q5v"]
+
+[sub_resource type="Gradient" id="Gradient_ril7p"]
+offsets = PackedFloat32Array(0, 0.12307692, 1)
+colors = PackedColorArray(0.14901961, 0.28627452, 0.7647059, 1, 0.15435898, 0.6101961, 0.8714932, 1, 0.16078432, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m7q5v"]
+gradient = SubResource("Gradient_ril7p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3hm1c"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 6.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, -4, 0)
+scale_min = 0.19999999
+scale_max = 0.39999998
+color = Color(0.14901961, 0.8235294, 0.7647059, 1)
+color_ramp = SubResource("GradientTexture1D_m7q5v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4u28"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.4862745, 1, 1, 0.29803923)
+emission_enabled = true
+emission = Color(0.62352943, 1, 1, 1)
+emission_energy_multiplier = 1.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3hm1c"]
+material = SubResource("StandardMaterial3D_q4u28")
+top_radius = 0.05
+bottom_radius = 0.0
+height = 0.3
+
+[node name="Sparking" type="Node3D"]
+script = ExtResource("1_m7q5v")
+
+[node name="Debris" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+emitting = false
+amount = 15
+lifetime = 0.5
+explosiveness = 0.8
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_3hm1c")
+draw_pass_1 = SubResource("CylinderMesh_3hm1c")

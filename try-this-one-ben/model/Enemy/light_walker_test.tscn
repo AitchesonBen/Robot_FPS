@@ -1,0 +1,152 @@
+[gd_scene load_steps=17 format=3 uid="uid://ee7xqa2x56kh"]
+
+[ext_resource type="PackedScene" uid="uid://dby15xrlycfdl" path="res://model/Enemy/Light Walker (1).gltf" id="1_1iqm2"]
+[ext_resource type="Script" uid="uid://3ljiv0udi0wn" path="res://scripts/Enemies/Enemy.gd" id="2_cwgcp"]
+[ext_resource type="Script" uid="uid://cf8h8swfqok48" path="res://scripts/Enemies/Limbs.gd" id="3_u8j2a"]
+[ext_resource type="PackedScene" uid="uid://bxpe1t35jxynm" path="res://Maps/MapEffects/explosion.tscn" id="4_jyxbf"]
+[ext_resource type="PackedScene" uid="uid://ckpey5stv8y64" path="res://Maps/MapEffects/sparking.tscn" id="5_g5jf4"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cwgcp"]
+data = PackedVector3Array(0.3281, -0.2188, -0.3906, 0.3281, 0.34379998, 0.2656, 0.3281, 0.34379998, -0.3906, 0.3281, -0.2188, -0.3906, 0.3281, -0.2188, 0.2656, 0.3281, 0.34379998, 0.2656, -0.3281, -0.2188, 0.2656, -0.3281, 0.34379998, -0.3906, -0.3281, 0.34379998, 0.2656, -0.3281, -0.2188, 0.2656, -0.3281, -0.2188, -0.3906, -0.3281, 0.34379998, -0.3906, 0.3281, 0.34379998, 0.2656, -0.3281, 0.34379998, -0.3906, 0.3281, 0.34379998, -0.3906, 0.3281, 0.34379998, 0.2656, -0.3281, 0.34379998, 0.2656, -0.3281, 0.34379998, -0.3906, 0.3281, -0.2188, -0.3906, -0.3281, -0.2188, 0.2656, 0.3281, -0.2188, 0.2656, 0.3281, -0.2188, -0.3906, -0.3281, -0.2188, -0.3906, -0.3281, -0.2188, 0.2656, 0.3281, -0.2188, 0.2656, -0.3281, 0.34379998, 0.2656, 0.3281, 0.34379998, 0.2656, 0.3281, -0.2188, 0.2656, -0.3281, -0.2188, 0.2656, -0.3281, 0.34379998, 0.2656, -0.3281, -0.2188, -0.3906, 0.3281, 0.34379998, -0.3906, -0.3281, 0.34379998, -0.3906, -0.3281, -0.2188, -0.3906, 0.3281, -0.2188, -0.3906, 0.3281, 0.34379998, -0.3906)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u8j2a"]
+data = PackedVector3Array(0.0938, -0.25, -0.0938, 0.0938, 0.375, 0.0938, 0.0938, 0.375, -0.0938, 0.0938, -0.25, -0.0938, 0.0938, -0.25, 0.0938, 0.0938, 0.375, 0.0938, -0.0938, -0.25, 0.0938, -0.0938, 0.375, -0.0938, -0.0938, 0.375, 0.0938, -0.0938, -0.25, 0.0938, -0.0938, -0.25, -0.0938, -0.0938, 0.375, -0.0938, 0.0938, 0.375, 0.0938, -0.0938, 0.375, -0.0938, 0.0938, 0.375, -0.0938, 0.0938, 0.375, 0.0938, -0.0938, 0.375, 0.0938, -0.0938, 0.375, -0.0938, 0.0938, -0.25, -0.0938, -0.0938, -0.25, 0.0938, 0.0938, -0.25, 0.0938, 0.0938, -0.25, -0.0938, -0.0938, -0.25, -0.0938, -0.0938, -0.25, 0.0938, 0.0938, -0.25, 0.0938, -0.0938, 0.375, 0.0938, 0.0938, 0.375, 0.0938, 0.0938, -0.25, 0.0938, -0.0938, -0.25, 0.0938, -0.0938, 0.375, 0.0938, -0.0938, -0.25, -0.0938, 0.0938, 0.375, -0.0938, -0.0938, 0.375, -0.0938, -0.0938, -0.25, -0.0938, 0.0938, -0.25, -0.0938, 0.0938, 0.375, -0.0938)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jyxbf"]
+data = PackedVector3Array(0.125, -0.25, -0.125, 0.125, 0.375, 0.125, 0.125, 0.375, -0.125, 0.125, -0.25, -0.125, 0.125, -0.25, 0.125, 0.125, 0.375, 0.125, -0.125, -0.25, 0.125, -0.125, 0.375, -0.125, -0.125, 0.375, 0.125, -0.125, -0.25, 0.125, -0.125, -0.25, -0.125, -0.125, 0.375, -0.125, 0.125, 0.375, 0.125, -0.125, 0.375, -0.125, 0.125, 0.375, -0.125, 0.125, 0.375, 0.125, -0.125, 0.375, 0.125, -0.125, 0.375, -0.125, 0.125, -0.25, -0.125, -0.125, -0.25, 0.125, 0.125, -0.25, 0.125, 0.125, -0.25, -0.125, -0.125, -0.25, -0.125, -0.125, -0.25, 0.125, 0.125, -0.25, 0.125, -0.125, 0.375, 0.125, 0.125, 0.375, 0.125, 0.125, -0.25, 0.125, -0.125, -0.25, 0.125, -0.125, 0.375, 0.125, -0.125, -0.25, -0.125, 0.125, 0.375, -0.125, -0.125, 0.375, -0.125, -0.125, -0.25, -0.125, 0.125, -0.25, -0.125, 0.125, 0.375, -0.125)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_g5jf4"]
+data = PackedVector3Array(-0.0938, 0.375, 0.0938, -0.0938, -0.25, -0.0938, -0.0938, 0.375, -0.0938, -0.0938, 0.375, 0.0938, -0.0938, -0.25, 0.0938, -0.0938, -0.25, -0.0938, 0.0938, 0.375, -0.0938, 0.0938, -0.25, 0.0938, 0.0938, 0.375, 0.0938, 0.0938, 0.375, -0.0938, 0.0938, -0.25, -0.0938, 0.0938, -0.25, 0.0938, 0.0938, 0.375, -0.0938, -0.0938, 0.375, 0.0938, -0.0938, 0.375, -0.0938, 0.0938, 0.375, -0.0938, 0.0938, 0.375, 0.0938, -0.0938, 0.375, 0.0938, 0.0938, -0.25, 0.0938, -0.0938, -0.25, -0.0938, -0.0938, -0.25, 0.0938, 0.0938, -0.25, 0.0938, 0.0938, -0.25, -0.0938, -0.0938, -0.25, -0.0938, 0.0938, 0.375, 0.0938, -0.0938, -0.25, 0.0938, -0.0938, 0.375, 0.0938, 0.0938, 0.375, 0.0938, 0.0938, -0.25, 0.0938, -0.0938, -0.25, 0.0938, -0.0938, 0.375, -0.0938, 0.0938, -0.25, -0.0938, 0.0938, 0.375, -0.0938, -0.0938, 0.375, -0.0938, -0.0938, -0.25, -0.0938, 0.0938, -0.25, -0.0938)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jxfjt"]
+data = PackedVector3Array(-0.125, 0.375, 0.125, -0.125, -0.25, -0.125, -0.125, 0.375, -0.125, -0.125, 0.375, 0.125, -0.125, -0.25, 0.125, -0.125, -0.25, -0.125, 0.125, 0.375, -0.125, 0.125, -0.25, 0.125, 0.125, 0.375, 0.125, 0.125, 0.375, -0.125, 0.125, -0.25, -0.125, 0.125, -0.25, 0.125, 0.125, 0.375, -0.125, -0.125, 0.375, 0.125, -0.125, 0.375, -0.125, 0.125, 0.375, -0.125, 0.125, 0.375, 0.125, -0.125, 0.375, 0.125, 0.125, -0.25, 0.125, -0.125, -0.25, -0.125, -0.125, -0.25, 0.125, 0.125, -0.25, 0.125, 0.125, -0.25, -0.125, -0.125, -0.25, -0.125, 0.125, 0.375, 0.125, -0.125, -0.25, 0.125, -0.125, 0.375, 0.125, 0.125, 0.375, 0.125, 0.125, -0.25, 0.125, -0.125, -0.25, 0.125, -0.125, 0.375, -0.125, 0.125, -0.25, -0.125, 0.125, 0.375, -0.125, -0.125, 0.375, -0.125, -0.125, -0.25, -0.125, 0.125, -0.25, -0.125)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wh7tt"]
+data = PackedVector3Array(0.375, -0.375, -0.28129998, 0.375, 0.5, 0.28129998, 0.375, 0.5, -0.28129998, 0.375, -0.375, -0.28129998, 0.375, -0.375, 0.28129998, 0.375, 0.5, 0.28129998, -0.375, -0.375, 0.28129998, -0.375, 0.5, -0.28129998, -0.375, 0.5, 0.28129998, -0.375, -0.375, 0.28129998, -0.375, -0.375, -0.28129998, -0.375, 0.5, -0.28129998, 0.375, 0.5, 0.28129998, -0.375, 0.5, -0.28129998, 0.375, 0.5, -0.28129998, 0.375, 0.5, 0.28129998, -0.375, 0.5, 0.28129998, -0.375, 0.5, -0.28129998, 0.375, -0.375, -0.28129998, -0.375, -0.375, 0.28129998, 0.375, -0.375, 0.28129998, 0.375, -0.375, -0.28129998, -0.375, -0.375, -0.28129998, -0.375, -0.375, 0.28129998, 0.375, -0.375, 0.28129998, -0.375, 0.5, 0.28129998, 0.375, 0.5, 0.28129998, 0.375, -0.375, 0.28129998, -0.375, -0.375, 0.28129998, -0.375, 0.5, 0.28129998, -0.375, -0.375, -0.28129998, 0.375, 0.5, -0.28129998, -0.375, 0.5, -0.28129998, -0.375, -0.375, -0.28129998, 0.375, -0.375, -0.28129998, 0.375, 0.5, -0.28129998)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ptgs2"]
+data = PackedVector3Array(0.0938, -0.25, -0.1094, 0.0938, 0.375, 0.1094, 0.0938, 0.375, -0.1094, 0.0938, -0.25, -0.1094, 0.0938, -0.25, 0.1094, 0.0938, 0.375, 0.1094, -0.0938, -0.25, 0.1094, -0.0938, 0.375, -0.1094, -0.0938, 0.375, 0.1094, -0.0938, -0.25, 0.1094, -0.0938, -0.25, -0.1094, -0.0938, 0.375, -0.1094, 0.0938, 0.375, 0.1094, -0.0938, 0.375, -0.1094, 0.0938, 0.375, -0.1094, 0.0938, 0.375, 0.1094, -0.0938, 0.375, 0.1094, -0.0938, 0.375, -0.1094, 0.0938, -0.25, -0.1094, -0.0938, -0.25, 0.1094, 0.0938, -0.25, 0.1094, 0.0938, -0.25, -0.1094, -0.0938, -0.25, -0.1094, -0.0938, -0.25, 0.1094, 0.0938, -0.25, 0.1094, -0.0938, 0.375, 0.1094, 0.0938, 0.375, 0.1094, 0.0938, -0.25, 0.1094, -0.0938, -0.25, 0.1094, -0.0938, 0.375, 0.1094, -0.0938, -0.25, -0.1094, 0.0938, 0.375, -0.1094, -0.0938, 0.375, -0.1094, -0.0938, -0.25, -0.1094, 0.0938, -0.25, -0.1094, 0.0938, 0.375, -0.1094)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xdfaj"]
+data = PackedVector3Array(0.1094, -0.25, -0.125, 0.1094, 0.375, 0.125, 0.1094, 0.375, -0.125, 0.1094, -0.25, -0.125, 0.1094, -0.25, 0.125, 0.1094, 0.375, 0.125, -0.1094, -0.25, 0.125, -0.1094, 0.375, -0.125, -0.1094, 0.375, 0.125, -0.1094, -0.25, 0.125, -0.1094, -0.25, -0.125, -0.1094, 0.375, -0.125, 0.1094, 0.375, 0.125, -0.1094, 0.375, -0.125, 0.1094, 0.375, -0.125, 0.1094, 0.375, 0.125, -0.1094, 0.375, 0.125, -0.1094, 0.375, -0.125, 0.1094, -0.25, -0.125, -0.1094, -0.25, 0.125, 0.1094, -0.25, 0.125, 0.1094, -0.25, -0.125, -0.1094, -0.25, -0.125, -0.1094, -0.25, 0.125, 0.1094, -0.25, 0.125, -0.1094, 0.375, 0.125, 0.1094, 0.375, 0.125, 0.1094, -0.25, 0.125, -0.1094, -0.25, 0.125, -0.1094, 0.375, 0.125, -0.1094, -0.25, -0.125, 0.1094, 0.375, -0.125, -0.1094, 0.375, -0.125, -0.1094, -0.25, -0.125, 0.1094, -0.25, -0.125, 0.1094, 0.375, -0.125)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yjdyh"]
+data = PackedVector3Array(-0.0938, 0.375, 0.1094, -0.0938, -0.25, -0.1094, -0.0938, 0.375, -0.1094, -0.0938, 0.375, 0.1094, -0.0938, -0.25, 0.1094, -0.0938, -0.25, -0.1094, 0.0938, 0.375, -0.1094, 0.0938, -0.25, 0.1094, 0.0938, 0.375, 0.1094, 0.0938, 0.375, -0.1094, 0.0938, -0.25, -0.1094, 0.0938, -0.25, 0.1094, 0.0938, 0.375, -0.1094, -0.0938, 0.375, 0.1094, -0.0938, 0.375, -0.1094, 0.0938, 0.375, -0.1094, 0.0938, 0.375, 0.1094, -0.0938, 0.375, 0.1094, 0.0938, -0.25, 0.1094, -0.0938, -0.25, -0.1094, -0.0938, -0.25, 0.1094, 0.0938, -0.25, 0.1094, 0.0938, -0.25, -0.1094, -0.0938, -0.25, -0.1094, 0.0938, 0.375, 0.1094, -0.0938, -0.25, 0.1094, -0.0938, 0.375, 0.1094, 0.0938, 0.375, 0.1094, 0.0938, -0.25, 0.1094, -0.0938, -0.25, 0.1094, -0.0938, 0.375, -0.1094, 0.0938, -0.25, -0.1094, 0.0938, 0.375, -0.1094, -0.0938, 0.375, -0.1094, -0.0938, -0.25, -0.1094, 0.0938, -0.25, -0.1094)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bx0vc"]
+data = PackedVector3Array(-0.1094, 0.375, 0.125, -0.1094, -0.25, -0.125, -0.1094, 0.375, -0.125, -0.1094, 0.375, 0.125, -0.1094, -0.25, 0.125, -0.1094, -0.25, -0.125, 0.1094, 0.375, -0.125, 0.1094, -0.25, 0.125, 0.1094, 0.375, 0.125, 0.1094, 0.375, -0.125, 0.1094, -0.25, -0.125, 0.1094, -0.25, 0.125, 0.1094, 0.375, -0.125, -0.1094, 0.375, 0.125, -0.1094, 0.375, -0.125, 0.1094, 0.375, -0.125, 0.1094, 0.375, 0.125, -0.1094, 0.375, 0.125, 0.1094, -0.25, 0.125, -0.1094, -0.25, -0.125, -0.1094, -0.25, 0.125, 0.1094, -0.25, 0.125, 0.1094, -0.25, -0.125, -0.1094, -0.25, -0.125, 0.1094, 0.375, 0.125, -0.1094, -0.25, 0.125, -0.1094, 0.375, 0.125, 0.1094, 0.375, 0.125, 0.1094, -0.25, 0.125, -0.1094, -0.25, 0.125, -0.1094, 0.375, -0.125, 0.1094, -0.25, -0.125, 0.1094, 0.375, -0.125, -0.1094, 0.375, -0.125, -0.1094, -0.25, -0.125, 0.1094, -0.25, -0.125)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jn4ef"]
+data = PackedVector3Array(0.1875, -0.0625, -0.1563, 0.1875, 0.1875, 0.1563, 0.1875, 0.1875, -0.1563, 0.1875, -0.0625, -0.1563, 0.1875, -0.0625, 0.1563, 0.1875, 0.1875, 0.1563, 0.1875, 0.1875, 0.1563, -0.1875, 0.1875, -0.1563, 0.1875, 0.1875, -0.1563, 0.1875, 0.1875, 0.1563, -0.1875, 0.1875, 0.1563, -0.1875, 0.1875, -0.1563, 0.1875, -0.0625, -0.1563, -0.1875, -0.0625, 0.1563, 0.1875, -0.0625, 0.1563, 0.1875, -0.0625, -0.1563, -0.1875, -0.0625, -0.1563, -0.1875, -0.0625, 0.1563, 0.1875, -0.0625, 0.1563, -0.1875, 0.1875, 0.1563, 0.1875, 0.1875, 0.1563, 0.1875, -0.0625, 0.1563, -0.1875, -0.0625, 0.1563, -0.1875, 0.1875, 0.1563, -0.1875, -0.0625, -0.1563, 0.1875, 0.1875, -0.1563, -0.1875, 0.1875, -0.1563, -0.1875, -0.0625, -0.1563, 0.1875, -0.0625, -0.1563, 0.1875, 0.1875, -0.1563, -0.1875, 0.1875, 0.1563, -0.1875, -0.0625, -0.1563, -0.1875, 0.1875, -0.1563, -0.1875, 0.1875, 0.1563, -0.1875, -0.0625, 0.1563, -0.1875, -0.0625, -0.1563)
+
+[node name="LightWalkerTest" node_paths=PackedStringArray("LIMBS", "Model") groups=["Enemy"] instance=ExtResource("1_1iqm2")]
+script = ExtResource("2_cwgcp")
+LIMBS = [NodePath("Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L/Finger_In_L"), NodePath("Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Foot_R/Toe_Front_Out_R"), NodePath("Entity/Body/Pelvis2"), null]
+Model = NodePath("Entity")
+
+[node name="Area3D" type="Area3D" parent="Entity/Head/Hitbox _Head-nocollider" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entity/Head/Hitbox _Head-nocollider/Area3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_cwgcp")
+
+[node name="Left_Arm" parent="Entity/Body/Torso2/Arms" index="0" node_paths=PackedStringArray("HITBOX")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, -0.4375, 0, 0)
+script = ExtResource("3_u8j2a")
+HITBOX = NodePath("Hitbox_Arm_Left-nocollider/Area3D/CollisionShape3D")
+HEALTH = 3
+
+[node name="Lower_Arm_L" parent="Entity/Body/Torso2/Arms/Left_Arm" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.1125, -0.484375, 0.05625)
+
+[node name="Finger_In_L" parent="Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L" index="1"]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.034375, -0.09375, -0.034375)
+
+[node name="Finger_Out_L" parent="Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L" index="2"]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.034375, -0.09375, -0.034375)
+
+[node name="Area3D" type="Area3D" parent="Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hitbox_Arm_Left_Extension-nocollider" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hitbox_Arm_Left_Extension-nocollider/Area3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_u8j2a")
+
+[node name="Hitbox_Arm_Left-nocollider" parent="Entity/Body/Torso2/Arms/Left_Arm" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009627491, -0.07400644, 0.08224356)
+
+[node name="Area3D" type="Area3D" parent="Entity/Body/Torso2/Arms/Left_Arm/Hitbox_Arm_Left-nocollider" index="0"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entity/Body/Torso2/Arms/Left_Arm/Hitbox_Arm_Left-nocollider/Area3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_jyxbf")
+
+[node name="Sparking" parent="Entity/Body/Torso2/Arms/Left_Arm" index="3" instance=ExtResource("5_g5jf4")]
+transform = Transform3D(1, 0, 0, 0, 0.7071068, -0.7071068, 0, 0.7071068, 0.7071068, -0.14049089, 0.056979418, 0.056979418)
+
+[node name="Right_Arm" parent="Entity/Body/Torso2/Arms" index="1" node_paths=PackedStringArray("HITBOX")]
+script = ExtResource("3_u8j2a")
+HITBOX = NodePath("Hitbox_Arm_Right-nocollider/Area3D/CollisionShape3D")
+HEALTH = 3
+
+[node name="Sparking" parent="Entity/Body/Torso2/Arms/Right_Arm" index="0" instance=ExtResource("5_g5jf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.039671183, 0.08058095, 0)
+
+[node name="Area3D" type="Area3D" parent="Entity/Body/Torso2/Arms/Right_Arm/Lower_Arm_R/Hitbox_Arm_Right_Extension-nocollider" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entity/Body/Torso2/Arms/Right_Arm/Lower_Arm_R/Hitbox_Arm_Right_Extension-nocollider/Area3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_g5jf4")
+
+[node name="Area3D" type="Area3D" parent="Entity/Body/Torso2/Arms/Right_Arm/Hitbox_Arm_Right-nocollider" index="0"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entity/Body/Torso2/Arms/Right_Arm/Hitbox_Arm_Right-nocollider/Area3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_jxfjt")
+
+[node name="Area3D" type="Area3D" parent="Entity/Body/Torso2/Hitbox_Main-nocollider" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entity/Body/Torso2/Hitbox_Main-nocollider/Area3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_wh7tt")
+
+[node name="Left_Leg" parent="Entity/Body/Pelvis2/Legs" index="0" node_paths=PackedStringArray("HITBOX")]
+script = ExtResource("3_u8j2a")
+HITBOX = NodePath("Hitbox_Leg_Left-nocollider/Area3D/CollisionShape3D")
+HEALTH = 3
+
+[node name="Area3D" type="Area3D" parent="Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L/Hitbox_Leg_Left_Extension-nocollider" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entity/Body/Pelvis2/Legs/Left_Leg/Lower_L/Hitbox_Leg_Left_Extension-nocollider/Area3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_ptgs2")
+
+[node name="Area3D" type="Area3D" parent="Entity/Body/Pelvis2/Legs/Left_Leg/Hitbox_Leg_Left-nocollider" index="0"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entity/Body/Pelvis2/Legs/Left_Leg/Hitbox_Leg_Left-nocollider/Area3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_xdfaj")
+
+[node name="Sparking" parent="Entity/Body/Pelvis2/Legs/Left_Leg" index="3" instance=ExtResource("5_g5jf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027603805, 0.04078126, 0)
+
+[node name="Right_Leg" parent="Entity/Body/Pelvis2/Legs" index="1" node_paths=PackedStringArray("HITBOX")]
+script = ExtResource("3_u8j2a")
+HITBOX = NodePath("Hitbox_Leg_Right-nocollider/Area3D/CollisionShape3D")
+HEALTH = 3
+
+[node name="Area3D" type="Area3D" parent="Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Hitbox_Leg_Right_Extension-nocollider" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Hitbox_Leg_Right_Extension-nocollider/Area3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_yjdyh")
+
+[node name="Area3D" type="Area3D" parent="Entity/Body/Pelvis2/Legs/Right_Leg/Hitbox_Leg_Right-nocollider" index="0"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entity/Body/Pelvis2/Legs/Right_Leg/Hitbox_Leg_Right-nocollider/Area3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_bx0vc")
+
+[node name="Sparking" parent="Entity/Body/Pelvis2/Legs/Right_Leg" index="3" instance=ExtResource("5_g5jf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0014954805, 0.045539737, 0)
+
+[node name="Area3D" type="Area3D" parent="Entity/Body/Pelvis2/Hitbox_Main_Extension-nocollider" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entity/Body/Pelvis2/Hitbox_Main_Extension-nocollider/Area3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_jn4ef")
+
+[node name="Explosion" parent="." index="3" instance=ExtResource("4_jyxbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5140468, 0)

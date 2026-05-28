@@ -10,7 +10,10 @@ enum EnemyType {walker, drone}
 @export var ANIMATIONPLAYER2 : AnimationPlayer
 @export var ANIMATIONPLAYER3 : AnimationPlayer
 
-var player = null
+@onready var explosion = $Explosion
+@export var Model : Node3D
+
+var player : CharacterBody3D
 var Collider
 var availableLimbs : Array[Node3D] = LIMBS.duplicate()
 var destroyedLimbs : Array[Node3D]
@@ -28,10 +31,6 @@ func _process(_delta: float) -> void:
 		pass
 
 func initialize(_start_position):
-	#var random_speed = randi_range(10, 18)
-	#velocity = Vector3.FORWARD * random_speed
-	#velocity = velocity.rotated(Vector3.UP, rotation.y)
-	#print("Initi")
 	pass
 
 func damage_taken(enemy: Node, _limb: Node, damage: int):
@@ -40,7 +39,18 @@ func damage_taken(enemy: Node, _limb: Node, damage: int):
 	HEALTH -= damage
 	print(self, "Health: ", HEALTH)
 	if HEALTH <= 0:
-		self.queue_free()
+		if _limb == null:
+			if explosion != null:
+				Model.visible = false
+				explosion.explode()
+				await get_tree().create_timer(2.0).timeout
+			get_parent().queue_free()
+		else:
+			if explosion != null:
+				Model.visible = false
+				explosion.explode()
+				await get_tree().create_timer(2.0).timeout
+			queue_free()
 
 func limb_damage_taken(enemy: Node, limb: Node, _damage: int, destroyed: int):
 	if enemy != self:

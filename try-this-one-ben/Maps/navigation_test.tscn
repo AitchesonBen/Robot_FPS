@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cegrawvm61mmu"]
+[gd_scene load_steps=17 format=3 uid="uid://cegrawvm61mmu"]
 
 [ext_resource type="Shader" uid="uid://clxf2fyb8eebe" path="res://Maps/UI Scenes/sky.gdshader" id="1_mhvm8"]
 [ext_resource type="Texture2D" uid="uid://cwwfp4vjwdm5g" path="res://ui/Textures/gradient_pause.tres" id="2_77mdr"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dcdyg73edp6l3" path="res://model/enemy_spawn.tscn" id="4_p21he"]
 [ext_resource type="PackedScene" uid="uid://mpfi5j5ni4qn" path="res://model/Boxes/LargeTarp.tscn" id="4_r2o4l"]
 [ext_resource type="PackedScene" uid="uid://l66v3s8xrv5c" path="res://model/player.tscn" id="4_uxsl3"]
-[ext_resource type="PackedScene" uid="uid://6on5l8rxks2a" path="res://model/Enemy/ai_light_walker.tscn" id="5_r2o4l"]
+[ext_resource type="PackedScene" uid="uid://fdokv71ucpqf" path="res://model/Enemy/ai_light_walker_test.tscn" id="6_r2o4l"]
+[ext_resource type="PackedScene" uid="uid://rbu1i7cq750t" path="res://model/Boxes/WeaponWall.tscn" id="7_edoru"]
+[ext_resource type="PackedScene" uid="uid://biq72gi6itbk2" path="res://model/Enemy/light_walker.tscn" id="9_jrnjv"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n8uhs"]
 
@@ -31,8 +33,8 @@ fog_light_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
 fog_height_density = 0.3
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_p21he"]
-vertices = PackedVector3Array(-27.44513, 1.5, -14.5, -27.44513, 1.5, 14.5, 27.55487, 1.5, 14.5, 27.55487, 1.5, -14.5)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+vertices = PackedVector3Array(-20.19513, 1.5, -11, -20.44513, 1.5, -11.5, -23.19513, 1.5, -11.5, -27.44513, 1.5, 14.5, -11.945129, 1.5, -11, -17.94513, 1.5, -11.5, -18.19513, 1.5, -11, -11.945129, 1.5, 14.5, -23.44513, 1.5, -13.25, -11.945129, 1.5, -13.5, -11.695129, 1.5, -14.5, -27.44513, 1.5, -14.5, -10.195129, 1.5, -13.25, 27.55487, 1.5, -14.5, -10.195129, 1.5, -11.75, 27.55487, 1.5, 14.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(6, 7, 0), PackedInt32Array(0, 7, 3), PackedInt32Array(8, 2, 11), PackedInt32Array(11, 2, 3), PackedInt32Array(9, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(4, 14, 7), PackedInt32Array(7, 14, 15), PackedInt32Array(15, 14, 13), PackedInt32Array(14, 12, 13)]
 geometry_collision_mask = 4294967041
 agent_height = 3.0
 agent_max_slope = 60.0
@@ -77,10 +79,16 @@ material = SubResource("StandardMaterial3D_uxsl3")
 [node name="Floors" type="Node3D" parent="Map/NavigationRegion3D"]
 
 [node name="EnemySpawn" parent="Map/NavigationRegion3D" node_paths=PackedStringArray("player_nav") instance=ExtResource("4_p21he")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 1.01, 0.735)
-enemy = ExtResource("5_r2o4l")
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.0859528, 1.01, 0.735)
+enemy = ExtResource("6_r2o4l")
 EnemySpawnTime = 2.0
 player_nav = NodePath("../../../CharacterBody3D")
 
+[node name="WeaponWall" parent="Map/NavigationRegion3D" instance=ExtResource("7_edoru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.94454, 3.4875708, -12.562014)
+
 [node name="CharacterBody3D" parent="." instance=ExtResource("4_uxsl3")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.294256, 2.3, 0)
+
+[node name="LightWalker" parent="." instance=ExtResource("9_jrnjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.646515, 1.0312505, -9.487253)

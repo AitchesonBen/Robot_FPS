@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://6on5l8rxks2a"]
+[gd_scene load_steps=63 format=3 uid="uid://6on5l8rxks2a"]
 
 [ext_resource type="Script" uid="uid://4jmpwdxxx0t7" path="res://scripts/Enemies/ai_walker.gd" id="1_ad4bv"]
 [ext_resource type="Script" uid="uid://3ljiv0udi0wn" path="res://scripts/Enemies/Enemy.gd" id="3_a57yv"]
@@ -44,7 +44,11 @@
 [ext_resource type="ArrayMesh" uid="uid://driaulfh45vcg" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh39.res" id="43_vu1hd"]
 [ext_resource type="ArrayMesh" uid="uid://byikuda6dy05g" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh40.res" id="44_gktet"]
 [ext_resource type="ArrayMesh" uid="uid://cr58oc5qo2oiu" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh41.res" id="45_a4ivh"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="46_kxidh"]
 [ext_resource type="ArrayMesh" uid="uid://bw1ahskdotkhx" path="res://model/Enemy/EnemyMesh/LightWalkerMesh/blockbench_export_mesh42.res" id="46_x3lpf"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="47_i0ocr"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="48_0axun"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="49_g4xlv"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yf54k"]
 data = PackedVector3Array(0.328125, -0.21875, -0.390625, 0.328125, 0.34375, 0.265625, 0.328125, 0.34375, -0.390625, 0.328125, -0.21875, -0.390625, 0.328125, -0.21875, 0.265625, 0.328125, 0.34375, 0.265625, -0.328125, -0.21875, 0.265625, -0.328125, 0.34375, -0.390625, -0.328125, 0.34375, 0.265625, -0.328125, -0.21875, 0.265625, -0.328125, -0.21875, -0.390625, -0.328125, 0.34375, -0.390625, 0.328125, 0.34375, 0.265625, -0.328125, 0.34375, -0.390625, 0.328125, 0.34375, -0.390625, 0.328125, 0.34375, 0.265625, -0.328125, 0.34375, 0.265625, -0.328125, 0.34375, -0.390625, 0.328125, -0.21875, -0.390625, -0.328125, -0.21875, 0.265625, 0.328125, -0.21875, 0.265625, 0.328125, -0.21875, -0.390625, -0.328125, -0.21875, -0.390625, -0.328125, -0.21875, 0.265625, 0.328125, -0.21875, 0.265625, -0.328125, 0.34375, 0.265625, 0.328125, 0.34375, 0.265625, 0.328125, -0.21875, 0.265625, -0.328125, -0.21875, 0.265625, -0.328125, 0.34375, 0.265625, -0.328125, -0.21875, -0.390625, 0.328125, 0.34375, -0.390625, -0.328125, 0.34375, -0.390625, -0.328125, -0.21875, -0.390625, 0.328125, -0.21875, -0.390625, 0.328125, 0.34375, -0.390625)
@@ -81,6 +85,9 @@ data = PackedVector3Array(-0.09375, 0.375, 0.109375, -0.09375, -0.25, -0.109375,
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ad4bv"]
 height = 3.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kxidh"]
+radius = 7.0
 
 [node name="AILightWalker" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_ad4bv")
@@ -459,4 +466,40 @@ shape = SubResource("CapsuleShape3D_ad4bv")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.2
+avoidance_enabled = true
 height = 3.0
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("46_kxidh")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("47_i0ocr")
+initial_state = NodePath("IdleState")
+metadata/_custom_type_script = "uid://jk2jm1g6q853"
+
+[node name="IdleState" type="Node" parent="StateChart/Root"]
+script = ExtResource("48_0axun")
+metadata/_custom_type_script = "uid://cytafq8i1y8qm"
+
+[node name="FollowState" type="Node" parent="StateChart/Root"]
+script = ExtResource("48_0axun")
+metadata/_custom_type_script = "uid://cytafq8i1y8qm"
+
+[node name="ToIdle" type="Node" parent="StateChart/Root"]
+script = ExtResource("49_g4xlv")
+to = NodePath("../IdleState")
+event = &"toIdle"
+delay_in_seconds = "0.0"
+
+[node name="ToFollow" type="Node" parent="StateChart/Root"]
+script = ExtResource("49_g4xlv")
+to = NodePath("../FollowState")
+event = &"toFollow"
+delay_in_seconds = "0.0"
+
+[node name="DetectionZone" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionZone"]
+shape = SubResource("SphereShape3D_kxidh")

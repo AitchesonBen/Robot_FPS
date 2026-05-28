@@ -1,23 +1,82 @@
-[gd_scene load_steps=4 format=3 uid="uid://fdokv71ucpqf"]
+[gd_scene load_steps=11 format=3 uid="uid://fdokv71ucpqf"]
 
 [ext_resource type="Script" uid="uid://4jmpwdxxx0t7" path="res://scripts/Enemies/ai_walker.gd" id="1_j18fv"]
+[ext_resource type="PackedScene" uid="uid://ee7xqa2x56kh" path="res://model/Enemy/light_walker_test.tscn" id="2_k84ew"]
+[ext_resource type="Script" uid="uid://3ljiv0udi0wn" path="res://scripts/Enemies/Enemy.gd" id="2_vo6oy"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_cj5qj"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_lvwoe"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_k84ew"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="6_lvwoe"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kqy6w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ad4bv"]
 height = 3.0
 
-[node name="AILightWalker" type="CharacterBody3D" groups=["Enemy"]]
-script = ExtResource("1_j18fv")
+[sub_resource type="SphereShape3D" id="SphereShape3D_vo6oy"]
+radius = 7.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="AILightWalker" type="CharacterBody3D" node_paths=PackedStringArray("animation_player") groups=["Enemy"]]
+script = ExtResource("1_j18fv")
+animation_player = NodePath("LightWalkerTest/AnimationPlayer")
+
+[node name="LightWalkerTest" parent="." node_paths=PackedStringArray("LIMBS") instance=ExtResource("2_k84ew")]
+LIMBS = [NodePath("Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L/Finger_In_L"), NodePath("Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Foot_R/Toe_Front_Out_R"), NodePath("Entity/Body/Pelvis2"), null]
+
+[node name="Node3D" type="Node3D" parent="." groups=["Enemy"]]
+visible = false
+script = ExtResource("2_vo6oy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(0.9784946, 0, 0, 0, 1.2508867, 0, 0, 0, 0.9784946, 0, 1.2491028, 0)
 mesh = SubResource("CapsuleMesh_kqy6w")
+skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4856703, 0)
 shape = SubResource("CapsuleShape3D_ad4bv")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_desired_distance = 0.2
+target_desired_distance = 1.1
+avoidance_enabled = true
 height = 3.0
+
+[node name="DetectionZone" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionZone"]
+shape = SubResource("SphereShape3D_vo6oy")
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("3_cj5qj")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("4_lvwoe")
+initial_state = NodePath("IdleState")
+metadata/_custom_type_script = "uid://jk2jm1g6q853"
+
+[node name="IdleState" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_k84ew")
+metadata/_custom_type_script = "uid://cytafq8i1y8qm"
+
+[node name="FollowState" type="Node" parent="StateChart/Root"]
+script = ExtResource("5_k84ew")
+metadata/_custom_type_script = "uid://cytafq8i1y8qm"
+
+[node name="ToIdle" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_lvwoe")
+to = NodePath("../IdleState")
+event = &"toIdle"
+delay_in_seconds = "0.0"
+
+[node name="ToFollow" type="Node" parent="StateChart/Root"]
+script = ExtResource("6_lvwoe")
+to = NodePath("../FollowState")
+event = &"toFollow"
+delay_in_seconds = "0.0"
+
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
+[connection signal="state_physics_processing" from="StateChart/Root/FollowState" to="." method="_on_follow_state_physics_processing"]
+
+[editable path="LightWalkerTest"]

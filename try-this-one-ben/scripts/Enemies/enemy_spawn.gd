@@ -15,6 +15,7 @@ func _on_timer_timeout() -> void:
 	currentEnemy = enemy.instantiate()
 	currentEnemy.initialize(get_parent().position)
 	currentEnemy.player = player_nav
+	#currentEnemy.player = get_tree().get_first_node_in_group("Player")
 	add_child(currentEnemy)
 	currentEnemy.tree_exited.connect(_on_enemy_removed)
 	timer.stop()
