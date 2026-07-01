@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://0lqdfe5dkd1j"]
+[gd_scene format=3 uid="uid://0lqdfe5dkd1j"]
 
 [ext_resource type="PackedScene" uid="uid://l66v3s8xrv5c" path="res://model/player.tscn" id="1_82owt"]
 [ext_resource type="Shader" uid="uid://clxf2fyb8eebe" path="res://Maps/UI Scenes/sky.gdshader" id="1_6582d"]
@@ -86,498 +86,498 @@ fog_enabled = true
 fog_light_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
 fog_height_density = 0.3
 
-[node name="Level-Example" type="Node3D"]
+[node name="Level-Example" type="Node3D" unique_id=938560625]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=931439205]
 navigation_mesh = SubResource("NavigationMesh_imwdw")
 
-[node name="Walls" type="Node3D" parent="NavigationRegion3D"]
+[node name="Walls" type="Node3D" parent="NavigationRegion3D" unique_id=2055195939]
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/Walls"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/Walls" unique_id=1991693059]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.990952, 7.6428833, -44.686855)
 use_collision = true
 size = Vector3(1, 43.77942, 117.47801)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/Walls/CSGBox3D5"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/Walls/CSGBox3D5" unique_id=250996482]
 transform = Transform3D(-4.4148504e-08, 0, -1.01, 0, 1.01, 0, 1.01, 0, -4.4148504e-08, 0, -4.5994997, 5.9645004)
 operation = 2
 size = Vector3(5.8, 6, 1)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/Walls/CSGBox3D5"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/Walls/CSGBox3D5" unique_id=1905118070]
 transform = Transform3D(-4.4148504e-08, 0, -1.01, 0, 1.01, 0, 1.01, 0, -4.4148504e-08, 0, -4.5994997, 48.9645)
 operation = 2
 size = Vector3(5.8, 6, 1)
 
-[node name="Door" parent="NavigationRegion3D/Walls/CSGBox3D5" instance=ExtResource("6_kf75o")]
+[node name="Door" parent="NavigationRegion3D/Walls/CSGBox3D5" unique_id=763067460 instance=ExtResource("6_kf75o")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -7.7, 5.9000015)
 
-[node name="CellCharger2" parent="NavigationRegion3D/Walls/CSGBox3D5/Door" node_paths=PackedStringArray("Doors") instance=ExtResource("5_kf75o")]
+[node name="CellCharger2" parent="NavigationRegion3D/Walls/CSGBox3D5/Door" unique_id=1709619428 node_paths=PackedStringArray("Doors") instance=ExtResource("5_kf75o")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -4.550003, 2.4, 0.5)
 Doors = [NodePath("../Left/DoorComponent"), NodePath("../Right/DoorComponent")]
 
-[node name="Door2" parent="NavigationRegion3D/Walls/CSGBox3D5" instance=ExtResource("6_kf75o")]
+[node name="Door2" parent="NavigationRegion3D/Walls/CSGBox3D5" unique_id=1460270105 instance=ExtResource("6_kf75o")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -7.6, 48.9)
 
 [node name="Frame" parent="NavigationRegion3D/Walls/CSGBox3D5/Door2" index="1"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.1, 0)
 
-[node name="CellCharger2" parent="NavigationRegion3D/Walls/CSGBox3D5/Door2" node_paths=PackedStringArray("Doors") instance=ExtResource("5_kf75o")]
+[node name="CellCharger2" parent="NavigationRegion3D/Walls/CSGBox3D5/Door2" unique_id=1427041821 node_paths=PackedStringArray("Doors") instance=ExtResource("5_kf75o")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -4.550003, 2.9, 0.5)
 visible = false
 Doors = [NodePath("../Left/DoorComponent"), NodePath("../Right/DoorComponent")]
 NoLock = true
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="NavigationRegion3D/Walls"]
+[node name="CSGBox3D7" type="CSGBox3D" parent="NavigationRegion3D/Walls" unique_id=2014124466]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 5.5, -77.05)
 use_collision = true
 size = Vector3(1, 11, 29.9)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="NavigationRegion3D/Walls"]
+[node name="CSGBox3D8" type="CSGBox3D" parent="NavigationRegion3D/Walls" unique_id=844366508]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 5.5, -77.05)
 use_collision = true
 size = Vector3(1, 11, 29.9)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="NavigationRegion3D/Walls"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="NavigationRegion3D/Walls" unique_id=1678882593]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5, 5.5, -61.55)
 use_collision = true
 size = Vector3(1, 11, 28.1)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Walls/CSGBox3D6"]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Walls/CSGBox3D6" unique_id=1714113428]
 transform = Transform3D(-4.4148504e-08, 0, -1.01, 0, 1.01, 0, 1.01, 0, -4.4148504e-08, 0, -2.7619998, -0.20000005)
 operation = 2
 size = Vector3(6.9, 3.5, 1)
 material = SubResource("StandardMaterial3D_erjw0")
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="NavigationRegion3D/Walls"]
+[node name="CSGBox3D10" type="CSGBox3D" parent="NavigationRegion3D/Walls" unique_id=1139168913]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 77.45, 11.485931, -61.55)
 use_collision = true
 size = Vector3(1, 36, 128)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="NavigationRegion3D/Walls"]
+[node name="CSGBox3D9" type="CSGBox3D" parent="NavigationRegion3D/Walls" unique_id=1492471590]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.4499998, 5.5, -91.55)
 use_collision = true
 size = Vector3(1, 11, 16)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="WillsWalls&Floors" type="Node3D" parent="NavigationRegion3D/Walls"]
+[node name="WillsWalls&Floors" type="Node3D" parent="NavigationRegion3D/Walls" unique_id=605450246]
 
-[node name="Floors" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors"]
+[node name="Floors" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors" unique_id=1239497939]
 
-[node name="EvilFloor" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="EvilFloor" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1129269501]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.325066, -6.7293377, -23.967567)
 use_collision = true
 size = Vector3(180, 0.96154785, 75.66696)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicFloor" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1554488096]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.55266, -1, -25.981205)
 use_collision = true
 size = Vector3(9.380005, 2, 12.053192)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=725702643]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4516602, 10.433812, -77.193726)
 use_collision = true
 size = Vector3(18.262695, 2, 29.849365)
 material = SubResource("StandardMaterial3D_65204")
 
-[node name="BasicFloor3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=728597777]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.439753, -0.36230373, -24.126724)
 use_collision = true
 size = Vector3(8.290237, 0.7246094, 75.740234)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=810342233]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.024157, -0.99999905, -38.97435)
 use_collision = true
 size = Vector3(14.928852, 2, 9.027649)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=356782964]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.125362, 4.4368706, -38.982742)
 use_collision = true
 size = Vector3(13.579827, 2, 9.0177)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=306145567]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.941013, 5.0897636, -24.577736)
 use_collision = true
 size = Vector3(2.0215437, 0.69421387, 19.84047)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor7" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor7" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1709097973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.725594, 2.313526, 10.863488)
 use_collision = true
 size = Vector3(5.029419, 0.8520508, 5.029785)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor9" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor9" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1003877635]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.497345, 14.722042, -26.104015)
 use_collision = true
 size = Vector3(18.868225, 0.69421387, 7.4022217)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor10" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor10" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1208694178]
 transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, 26.894823, -3.46526, 10.321403)
 use_collision = true
 size = Vector3(12.671486, 0.7246094, 6.0302124)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor8" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor8" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=621596184]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.725594, 7.313526, 10.863488)
 use_collision = true
 size = Vector3(5.029419, 0.8520508, 5.029785)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1316910108]
 transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, -27.582066, -3.46526, -21.536926)
 use_collision = true
 size = Vector3(12.671486, 0.7246094, 6.0302124)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=464609786]
 transform = Transform3D(0.5000001, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.5000001, 73.831474, 18.144758, 13.514393)
 use_collision = true
 size = Vector3(11, 0.762146, 19)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor13" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor13" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=2107281177]
 transform = Transform3D(-0.9288677, 0, 0.37041166, 0, 1, 0, -0.37041166, 0, -0.9288677, 46.485035, 13.089764, -5.094299)
 use_collision = true
 size = Vector3(2.0215437, 0.69421387, 19)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor14" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor14" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1183504556]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.87504, 5.0897636, -2.7527618)
 use_collision = true
 size = Vector3(19, 0.69421387, 19.84047)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor15" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor15" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1050742877]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.940418, 19.127748, -50.009457)
 use_collision = true
 size = Vector3(7.245182, 0.69421387, 22.453663)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor16" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor16" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=2061926984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.807346, 19.127748, -56.23629)
 use_collision = true
 size = Vector3(9.022961, 0.69421387, 10)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor17" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor17" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=661214315]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.110746, 19.127748, 8.091022)
 use_collision = true
 size = Vector3(11.629761, 0.69421387, 10)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor18" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor18" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1221093864]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 55.62981, 23.722042, -29.398272)
 use_collision = true
 size = Vector3(14.032227, 0.69421387, 7.411133)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor19" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor19" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1436489928]
 transform = Transform3D(-4.371139e-08, 0.5, -0.8660254, 0, 0.8660254, 0.5, 1, 2.1855694e-08, -3.7855173e-08, 69.59261, 14.778894, -20.541094)
 use_collision = true
 size = Vector3(3.7836914, 0.69421387, 36)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor20" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor20" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=160135647]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 53.035572, 23.722042, -20.509378)
 use_collision = true
 size = Vector3(3.7475586, 0.69421387, 2.2226563)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor21" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor21" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=243606065]
 transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, 26.894823, -3.46526, -58.143154)
 use_collision = true
 size = Vector3(12.671486, 0.7246094, 6.0302124)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor22" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor22" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1230016936]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.725594, 1.3135259, -20.136513)
 use_collision = true
 size = Vector3(5.029419, 0.8520508, 5.029785)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor23" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor23" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=277166024]
 transform = Transform3D(-1, -4.371139e-08, 7.5710346e-08, -4.371139e-08, 1, 0, -7.5710346e-08, 0, -1, 69.48234, 9.259033, -65.086075)
 use_collision = true
 size = Vector3(3.7836914, 0.69421387, 36)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor24" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor24" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1117307834]
 transform = Transform3D(-1, -4.371139e-08, 7.5710346e-08, -4.371139e-08, 1, 0, -7.5710346e-08, 0, -1, 80.48234, 15.259033, -65.086075)
 use_collision = true
 size = Vector3(3.7836914, 0.69421387, 36)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor25" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor25" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1764978560]
 transform = Transform3D(-1, -4.371139e-08, 7.5710346e-08, -4.371139e-08, 1, 0, -7.5710346e-08, 0, -1, 69.48234, 21.259033, -65.086075)
 use_collision = true
 size = Vector3(3.7836914, 0.69421387, 36)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor26" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor26" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=805927493]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.46054, 13.762424, -56.732132)
 use_collision = true
 size = Vector3(20, 0.69421387, 9)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor27" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor27" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1888783536]
 transform = Transform3D(-1, -4.371139e-08, 7.5710346e-08, -4.371139e-08, 1, 0, -7.5710346e-08, 0, -1, 80.48234, 2.2590332, -65.086075)
 use_collision = true
 size = Vector3(3.7836914, 0.69421387, 36)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor28" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor28" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1373503471]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.87504, 20.089764, -2.7527618)
 use_collision = true
 size = Vector3(11, 0.69421387, 19.84047)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor29" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor29" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1560638858]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.37504, 2.0897636, -2.7527618)
 use_collision = true
 size = Vector3(20, 0.69421387, 19.84047)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor30" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor30" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1882201103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.87503, 13.755055, -2.8901443)
 use_collision = true
 size = Vector3(7, 0.69421387, 20.115234)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor31" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor31" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1841004968]
 transform = Transform3D(-0.8660254, -0.5, 8.742278e-08, -0.5, 0.8660254, 0, -7.5710346e-08, -4.371139e-08, -1, 122.36286, -2.259047, -40.343876)
 use_collision = true
 size = Vector3(17.496338, 0.7246094, 6.0302124)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor32" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor32" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=472990697]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.26614, 2.0897636, -40.340973)
 use_collision = true
 size = Vector3(5, 0.69421387, 6.0321655)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor33" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor33" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1694924749]
 transform = Transform3D(-1, -4.371139e-08, 7.5710346e-08, -4.371139e-08, 1, 0, -7.5710346e-08, 0, -1, 83.60709, -0.74096656, 1.9139256)
 use_collision = true
 size = Vector3(16.033203, 0.69421387, 36)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor34" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor34" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=773992393]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.46054, 4.7624245, -55.732132)
 use_collision = true
 size = Vector3(12, 0.69421387, 11)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor35" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor35" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=167288953]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.42398, 18.139868, -43.603714)
 use_collision = true
 size = Vector3(1, 0.69421387, 14.403564)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor36" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor36" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1022697668]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.92398, 18.139868, -36.39659)
 use_collision = true
 size = Vector3(4, 0.69421387, 10.026428)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor37" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor37" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=335686866]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.42398, 19.139868, -31.396591)
 use_collision = true
 size = Vector3(5, 0.69421387, 10.026428)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor38" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor38" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=133346559]
 transform = Transform3D(0.9999999, 0, -7.54979e-08, 0, 1, 0, 7.54979e-08, 0, 0.9999999, 117.976654, 10.089764, -23.58742)
 use_collision = true
 size = Vector3(2.0215437, 0.69421387, 22)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor39" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor39" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=195103251]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.26694, 13.762424, -32.23313)
 use_collision = true
 size = Vector3(6.387207, 0.69421387, 40)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor40" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor40" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1603820779]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.274406, 17.313526, -25.688107)
 use_collision = true
 size = Vector3(5.029419, 0.8520508, 11)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor41" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor41" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=954318325]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 123.82232, 19.141665, -31.465233)
 use_collision = true
 size = Vector3(2.0215437, 0.69421387, 22)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor42" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor42" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1546536412]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 86.44197, 7.098151, -36.543644)
 use_collision = true
 size = Vector3(5.027832, 0.69421387, 5.012207)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor43" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor43" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1413092588]
 transform = Transform3D(0.9999999, 0, -7.54979e-08, 0, 1, 0, 7.54979e-08, 0, 0.9999999, 30.468628, 4.0897636, -59.118423)
 use_collision = true
 size = Vector3(5.0375977, 0.69421387, 7.0620117)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor44" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor44" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1652872125]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 118.08568, 10.098151, -36.864986)
 use_collision = true
 size = Vector3(5, 0.69421387, 4.635742)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor45" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor45" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1132225902]
 transform = Transform3D(-1, -4.371139e-08, 7.5710346e-08, -4.371139e-08, 1, 0, -7.5710346e-08, 0, -1, 69.48234, -4.740967, -65.086075)
 use_collision = true
 size = Vector3(3.7836914, 0.69421387, 36)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor46" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor46" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1850954575]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.725594, 2.313526, -11.136513)
 use_collision = true
 size = Vector3(5.029419, 0.8520508, 5.029785)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor47" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor47" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=997207332]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.72559, 2.313526, -58.54694)
 use_collision = true
 size = Vector3(5.029419, 0.8520508, 5.029785)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor48" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor48" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=651904841]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.43814, 24.139868, -41.908806)
 use_collision = true
 size = Vector3(15.02832, 0.69421387, 1)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor49" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor49" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1074011017]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.42499, 24.139868, -36.39659)
 use_collision = true
 size = Vector3(1, 0.69421387, 10.026428)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor50" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor50" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=244582691]
 transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, 29.79708, 16.259422, 8.096332)
 use_collision = true
 size = Vector3(11.629761, 0.69421387, 10)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor51" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor51" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1101772201]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.75613, 8.722042, -15.103832)
 use_collision = true
 size = Vector3(12.137231, 0.69421387, 7.4018555)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor52" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor52" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=697811369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.562008, 19.127748, -57.23629)
 use_collision = true
 size = Vector3(10, 0.69421387, 8)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor53" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor53" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=286640092]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.4827, 20.56785, 1.2572479)
 use_collision = true
 size = Vector3(5.6503906, 0.69421387, 7.257324)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor54" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor54" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=771848475]
 transform = Transform3D(-1, -4.371139e-08, 7.5710346e-08, -4.371139e-08, 1, 0, -7.5710346e-08, 0, -1, 107.912125, 0.25903356, -26.887405)
 use_collision = true
 size = Vector3(10.012909, 0.69421387, 9)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor55" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor55" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1435925529]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.210884, 0.31352592, -36.53232)
 use_collision = true
 size = Vector3(10, 0.8520508, 9.732544)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor65" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor65" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=724838289]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.710884, 5.7135262, -20.532318)
 use_collision = true
 size = Vector3(27, 0.8520508, 9.732544)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor56" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor56" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=765864661]
 transform = Transform3D(5.8416333e-08, -0.31796667, 0.94810194, -1.1842479e-08, 0.94810194, 0.31796667, -1, -2.9802326e-08, 7.450582e-08, 72.707634, 3.2906768, -36.655178)
 use_collision = true
 size = Vector3(2.012207, 0.69421387, 24)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor57" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor57" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=101396046]
 transform = Transform3D(0.9999999, 0, -7.54979e-08, 0, 1, 0, 7.54979e-08, 0, 0.9999999, 18.663574, 8.089764, -49.34694)
 use_collision = true
 size = Vector3(10.647705, 0.69421387, 10.486816)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor58" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor58" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=173364124]
 transform = Transform3D(1, 0, 0, 0, 0.96445143, 0.26426017, 0, -0.26426017, 0.96445143, 133.29852, 15.182732, -46.97262)
 use_collision = true
 size = Vector3(3.7836914, 0.64886475, 30.252686)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor59" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor59" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=928787297]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.75613, 11.751643, -14.100903)
 use_collision = true
 size = Vector3(12.137231, 0.69421387, 1.0131836)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor60" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor60" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1750443097]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.680794, 5.2338514, -43.12162)
 use_collision = true
 size = Vector3(7, 0.8520508, 7)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor61" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor61" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1406105094]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.274406, 17.313526, -56.34543)
 use_collision = true
 size = Vector3(5.029419, 0.8520508, 11)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor62" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor62" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=579482902]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.788116, 17.313526, -22.688107)
 use_collision = true
 size = Vector3(8, 0.8520508, 5)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor63" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor63" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=1563277467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6807938, 17.233852, 2.8783798)
 use_collision = true
 size = Vector3(7, 0.8520508, 7)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="BasicFloor64" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors"]
+[node name="BasicFloor64" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Floors" unique_id=2115812119]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -41.517838, 8.449959, -40.596558)
 use_collision = true
 size = Vector3(3.7836914, 0.69421387, 36)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="Walls" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors"]
+[node name="Walls" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors" unique_id=812018892]
 
-[node name="RunWall" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls"]
+[node name="RunWall" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls" unique_id=1147775799]
 
-[node name="Curved Wall Convex2" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="Curved Wall Convex2" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=750086524]
 transform = Transform3D(-0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, -0.7071068, 41, 21, -34)
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2"]
+[node name="CSGBox3D15" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2" unique_id=2052447114]
 transform = Transform3D(0.70710653, 0, -0.70710653, 0, 1, 0, 0.70710653, 0, 0.70710653, -17.119228, 3.0178719, -53.736465)
 use_collision = true
 size = Vector3(10.18457, 11, 0.87867737)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2"]
+[node name="RunWall6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2" unique_id=656809308]
 transform = Transform3D(0.70710653, 0, -0.70710653, 0, 1, 0, 0.70710653, 0, 0.70710653, -17.239162, 0.37346077, -53.607376)
 use_collision = true
 collision_layer = 5
@@ -585,13 +585,13 @@ collision_mask = 5
 size = Vector3(10.165596, 4, 0.68167114)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2"]
+[node name="CSGBox3D11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2" unique_id=2112633110]
 transform = Transform3D(0.9661511, 0, -0.25797588, 0, 1, 0, 0.25797588, 0, 0.9661511, -11.612339, 3.009016, -49.709305)
 use_collision = true
 size = Vector3(4.4911203, 11.023407, 0.87867737)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2"]
+[node name="RunWall2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2" unique_id=588525204]
 transform = Transform3D(0.9661511, 0, -0.25797588, 0, 1, 0, 0.25797588, 0, 0.9661511, -11.650875, 0.37346077, -49.537323)
 use_collision = true
 collision_layer = 5
@@ -599,13 +599,13 @@ collision_mask = 5
 size = Vector3(4.4708405, 4, 0.68167114)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2"]
+[node name="CSGBox3D12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2" unique_id=1193254666]
 transform = Transform3D(0.97616696, 0, 0.21701899, 0, 1, 0, -0.21701899, 0, 0.97616696, -7.510605, 3.0060558, -49.617012)
 use_collision = true
 size = Vector3(4.4911203, 11.001511, 0.87867737)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2"]
+[node name="RunWall3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2" unique_id=587896345]
 transform = Transform3D(0.97616744, 0, 0.21701878, 0, 1, 0, -0.21701878, 0, 0.97616744, -7.4653854, 0.37346077, -49.446655)
 use_collision = true
 collision_layer = 5
@@ -613,13 +613,13 @@ collision_mask = 5
 size = Vector3(4.4708405, 4, 0.68167114)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2"]
+[node name="CSGBox3D13" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2" unique_id=2037907951]
 transform = Transform3D(0.8317796, 0, 0.5551058, 0, 1, 0, -0.5551058, 0, 0.8317796, -3.6372337, 2.9976788, -51.248062)
 use_collision = true
 size = Vector3(4.4911203, 10.992065, 0.87867737)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2"]
+[node name="RunWall4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2" unique_id=278985895]
 transform = Transform3D(0.8317795, 0, 0.55510557, 0, 1, 0, -0.55510557, 0, 0.8317795, -3.5335808, 0.37346077, -51.105545)
 use_collision = true
 collision_layer = 5
@@ -627,13 +627,13 @@ collision_mask = 5
 size = Vector3(4.4708405, 4, 0.68167114)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2"]
+[node name="CSGBox3D14" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2" unique_id=814730412]
 transform = Transform3D(0.70710653, 0, -0.70710653, 0, 1, 0, 0.70710653, 0, 0.70710653, 2.4025536, 3.0102673, -56.699783)
 use_collision = true
 size = Vector3(0.923035, 10.995972, 12)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2"]
+[node name="RunWall5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex2" unique_id=188603434]
 transform = Transform3D(0.70710653, 0, -0.70710653, 0, 1, 0, 0.70710653, 0, 0.70710653, 2.1615486, 0.37346077, -55.81179)
 use_collision = true
 collision_layer = 5
@@ -641,15 +641,15 @@ collision_mask = 5
 size = Vector3(0.098153114, 4, 10.461189)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Curved Wall Convex" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="Curved Wall Convex" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=3572073]
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex"]
+[node name="CSGBox3D15" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex" unique_id=1908383831]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, -16.870592, 11.702318, 0.38645267)
 use_collision = true
 size = Vector3(27.448492, 35.522587, 0.87867737)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex"]
+[node name="RunWall6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex" unique_id=346579223]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, -16.69449, 5.3251143, -8.251976)
 use_collision = true
 collision_layer = 5
@@ -657,13 +657,13 @@ collision_mask = 5
 size = Vector3(10.165596, 5.057007, 0.68167114)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex"]
+[node name="CSGBox3D11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex" unique_id=1028396976]
 transform = Transform3D(-0.5007556, 0, 0.8655887, 0, 1, 0, -0.8655887, 0, -0.5007556, -17.916916, 11.45919, -14.987096)
 use_collision = true
 size = Vector3(4.4911203, 35.946472, 0.87867737)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex"]
+[node name="RunWall2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex" unique_id=46239480]
 transform = Transform3D(-0.5007556, 0, 0.8655887, 0, 1, 0, -0.8655887, 0, -0.5007556, -17.768051, 5.3251143, -15.081443)
 use_collision = true
 collision_layer = 5
@@ -671,13 +671,13 @@ collision_mask = 5
 size = Vector3(4.4708405, 5.057007, 0.68167114)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex"]
+[node name="CSGBox3D12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex" unique_id=554625205]
 transform = Transform3D(-0.8437102, 0, 0.53679895, 0, 1, 0, -0.53679895, 0, -0.8437102, -20.752052, 11.66234, -17.952734)
 use_collision = true
 size = Vector3(4.4911203, 35.532475, 0.87867737)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex"]
+[node name="RunWall3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex" unique_id=315246236]
 transform = Transform3D(-0.8437102, 0, 0.53679895, 0, 1, 0, -0.53679895, 0, -0.8437102, -20.663528, 5.3251143, -18.105135)
 use_collision = true
 collision_layer = 5
@@ -685,13 +685,13 @@ collision_mask = 5
 size = Vector3(4.4708405, 5.057007, 0.68167114)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex"]
+[node name="CSGBox3D13" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex" unique_id=2082073058]
 transform = Transform3D(-0.9806762, 0, 0.19563797, 0, 1, 0, -0.19563797, 0, -0.9806762, -24.644217, 11.623528, -19.538258)
 use_collision = true
 size = Vector3(4.4911203, 35.63257, 0.87867737)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex"]
+[node name="RunWall4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex" unique_id=767969516]
 transform = Transform3D(-0.9806762, 0, 0.19563797, 0, 1, 0, -0.19563797, 0, -0.9806762, -24.616747, 5.3251143, -19.712349)
 use_collision = true
 collision_layer = 5
@@ -699,13 +699,13 @@ collision_mask = 5
 size = Vector3(4.4708405, 5.057007, 0.68167114)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex"]
+[node name="CSGBox3D14" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex" unique_id=1067378332]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -34.632874, 11.480843, -20.308802)
 use_collision = true
 size = Vector3(0.21362448, 35.947784, 15.725773)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex"]
+[node name="RunWall5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curved Wall Convex" unique_id=362438974]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -31.971659, 5.3251143, -20.090912)
 use_collision = true
 collision_layer = 5
@@ -713,9 +713,9 @@ collision_mask = 5
 size = Vector3(0.7395191, 5.057007, 10.461189)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="Curver Wall Concave" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="Curver Wall Concave" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=2071048468]
 
-[node name="RunWall" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="RunWall" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=1063450497]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 61.170227, 21.515846, 13.7894)
 use_collision = true
 collision_layer = 5
@@ -723,13 +723,13 @@ collision_mask = 5
 size = Vector3(1, 4, 8)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="BasicWall2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="BasicWall2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=946768533]
 transform = Transform3D(0.258819, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.258819, 53.305294, 24.468637, 12.85649)
 use_collision = true
 size = Vector3(1.0605469, 10, 8.317383)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="RunWall2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=964765422]
 transform = Transform3D(0.258819, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.258819, 53.179058, 21.515846, 12.771619)
 use_collision = true
 collision_layer = 5
@@ -737,13 +737,13 @@ collision_mask = 5
 size = Vector3(1, 4, 8)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="BasicWall3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="BasicWall3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=577199455]
 transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 44.729935, 24.468637, 9.172495)
 use_collision = true
 size = Vector3(1.0605469, 10, 11.307129)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="RunWall3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=715462039]
 transform = Transform3D(0.5, 0, 0.8660255, 0, 1, 0, -0.8660255, 0, 0.5, 44.625526, 21.515846, 9.055281)
 use_collision = true
 collision_layer = 5
@@ -751,13 +751,13 @@ collision_mask = 5
 size = Vector3(1, 4, 11)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="BasicWall4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="BasicWall4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=912322872]
 transform = Transform3D(0.70710677, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.70710677, 36.01609, 24.468637, 2.574758)
 use_collision = true
 size = Vector3(1.0605469, 10, 11.307129)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="RunWall4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=568734727]
 transform = Transform3D(0.7071067, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.7071067, 35.94558, 21.515846, 2.4345145)
 use_collision = true
 collision_layer = 5
@@ -765,13 +765,13 @@ collision_mask = 5
 size = Vector3(1, 4, 11)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="BasicWall5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="BasicWall5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=2129445231]
 transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 28.37651, 24.468637, -7.7282186)
 use_collision = true
 size = Vector3(1.0605469, 10, 15)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="RunWall5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=392382440]
 transform = Transform3D(0.8660253, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.8660253, 28.267921, 21.515846, -8.014923)
 use_collision = true
 collision_layer = 5
@@ -779,13 +779,13 @@ collision_mask = 5
 size = Vector3(1, 4, 15)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="BasicWall6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="BasicWall6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=1014736801]
 transform = Transform3D(0.9659258, 0, 0.25881907, 0, 1, 0, -0.25881907, 0, 0.9659258, 23.249964, 24.468637, -19.41701)
 use_collision = true
 size = Vector3(1.0605469, 10, 11.307129)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="RunWall6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=1291404627]
 transform = Transform3D(0.96592575, 0, 0.2588191, 0, 1, 0, -0.2588191, 0, 0.96592575, 23.25902, 21.515846, -19.573719)
 use_collision = true
 collision_layer = 5
@@ -793,27 +793,27 @@ collision_mask = 5
 size = Vector3(1, 4, 11)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="BasicWall7" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="BasicWall7" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=672112958]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 21.797268, 23.61976, -37.56836)
 use_collision = true
 size = Vector3(1, 11.698, 47.017)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave/BasicWall7"]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave/BasicWall7" unique_id=2019185631]
 transform = Transform3D(-4.5459842e-08, 0, 1.04, 0, 1.04, 0, -1.04, 0, -4.5459842e-08, -0.050693512, -1.2039146, -17.180275)
 operation = 2
 size = Vector3(5.8, 6, 1.061)
 
-[node name="Door3" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave/BasicWall7" instance=ExtResource("6_kf75o")]
+[node name="Door3" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave/BasicWall7" unique_id=1041826324 instance=ExtResource("6_kf75o")]
 transform = Transform3D(-7.351371e-08, 0, -1, 0, 1, 0, 1, 0, -7.351371e-08, -0.0063171387, -4.176878, -17.21849)
 
-[node name="CellCharger2" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave/BasicWall7/Door3" node_paths=PackedStringArray("Doors") instance=ExtResource("5_kf75o")]
+[node name="CellCharger2" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave/BasicWall7/Door3" unique_id=1331728706 node_paths=PackedStringArray("Doors") instance=ExtResource("5_kf75o")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -4.550003, 2.9, 0.5)
 visible = false
 Doors = [NodePath("../Left/DoorComponent"), NodePath("../Right/DoorComponent")]
 NoLock = true
 
-[node name="RunWall7" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="RunWall7" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=2040991083]
 transform = Transform3D(0.99999994, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999994, 21.846575, 21.515846, -32.748634)
 use_collision = true
 collision_layer = 5
@@ -821,37 +821,37 @@ collision_mask = 5
 size = Vector3(1, 4, 15.652344)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="BasicWall8" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="BasicWall8" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=1791664561]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 23.037136, 24.471445, -13.485352)
 use_collision = true
 size = Vector3(3.581787, 9.994385, 1.1743164)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall9" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="BasicWall9" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=2043850189]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 23.03915, 13.770884, -14.1553955)
 use_collision = true
 size = Vector3(3.5777588, 12, 2.5029297)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall10" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="BasicWall10" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=1865718162]
 transform = Transform3D(0.9659258, 0, 0.25881907, 0, 1, 0, -0.25881907, 0, 0.9659258, 23.154203, 18.62855, -20.06162)
 use_collision = true
 size = Vector3(0.91186523, 1.6801758, 9.83844)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="BasicWall11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=1816414808]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 23.161007, 18.770884, -16.90586)
 use_collision = true
 size = Vector3(1.6669312, 2, 3)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave"]
+[node name="BasicWall12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall/Curver Wall Concave" unique_id=1893932485]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 22.580036, 18.122118, -20.258865)
 use_collision = true
 size = Vector3(1, 0.7290039, 3.7080078)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="RunWall" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=740820330]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.774855, 4.3536177, -20.69712)
 use_collision = true
 collision_layer = 5
@@ -859,7 +859,7 @@ collision_mask = 5
 size = Vector3(19.749298, 7, 0.68167114)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=237192878]
 transform = Transform3D(0.86602545, 0, 0.5000001, 0, 1, 0, -0.5000001, 0, 0.86602545, 71.191185, 10.749297, 8.984939)
 use_collision = true
 collision_layer = 5
@@ -867,7 +867,7 @@ collision_mask = 5
 size = Vector3(18.9805, 5.057007, 0.68167114)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=528257193]
 transform = Transform3D(-0.3704117, 0, -0.92886776, 0, 1, 0, 0.92886776, 0, -0.3704117, 46.026596, 8.124169, -5.2976565)
 use_collision = true
 collision_layer = 5
@@ -875,7 +875,7 @@ collision_mask = 5
 size = Vector3(18.8667, 5, 1)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=204780551]
 transform = Transform3D(0.99999994, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999994, 13.008448, 22.015846, -43.77085)
 use_collision = true
 collision_layer = 5
@@ -883,7 +883,7 @@ collision_mask = 5
 size = Vector3(1, 3, 9)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall7" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall7" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=198773008]
 transform = Transform3D(0.99999994, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999994, 21.540007, 21.515846, -25.770851)
 use_collision = true
 collision_layer = 5
@@ -891,7 +891,7 @@ collision_mask = 5
 size = Vector3(0.5756836, 4, 9)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall8" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall8" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=1246068526]
 transform = Transform3D(0.99999994, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999994, 13.008448, 18.015846, -7.770851)
 use_collision = true
 collision_layer = 5
@@ -899,7 +899,7 @@ collision_mask = 5
 size = Vector3(1, 11, 9)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall9" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall9" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=1198628598]
 transform = Transform3D(0.99999994, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999994, 55.623375, 19.055923, -31.400978)
 use_collision = true
 collision_layer = 5
@@ -907,7 +907,7 @@ collision_mask = 5
 size = Vector3(7.4071045, 2, 10)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall10" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall10" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=1171698635]
 transform = Transform3D(0.99999994, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999994, 55.623375, 10.055923, -33.086525)
 use_collision = true
 collision_layer = 5
@@ -915,7 +915,7 @@ collision_mask = 5
 size = Vector3(7.4071045, 2, 6.6289063)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=1535716661]
 transform = Transform3D(0.99999994, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999994, 102.91982, 17.555923, -62.196144)
 use_collision = true
 collision_layer = 5
@@ -923,7 +923,7 @@ collision_mask = 5
 size = Vector3(34, 5, 2.409668)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=1197804713]
 transform = Transform3D(0.9999999, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, 0.9999999, 123.863045, 9.125546, -4.283669)
 use_collision = true
 collision_layer = 5
@@ -931,7 +931,7 @@ collision_mask = 5
 size = Vector3(1, 3, 12.493408)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall13" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall13" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=415263027]
 transform = Transform3D(-1.1821719e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -1.1821719e-07, 103.4014, -2.8744545, -36.453926)
 use_collision = true
 collision_layer = 5
@@ -939,7 +939,7 @@ collision_mask = 5
 size = Vector3(7, 3, 1)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall14" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall14" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=498231071]
 transform = Transform3D(-1.1821719e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -1.1821719e-07, 93.4014, 2.1255455, -36.453926)
 use_collision = true
 collision_layer = 5
@@ -947,7 +947,7 @@ collision_mask = 5
 size = Vector3(7, 3, 1)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall15" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall15" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=2050566208]
 transform = Transform3D(-1.1821719e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -1.1821719e-07, 103.4014, 7.1255455, -36.453926)
 use_collision = true
 collision_layer = 5
@@ -955,7 +955,7 @@ collision_mask = 5
 size = Vector3(7, 3, 1)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall16" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall16" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=180112551]
 transform = Transform3D(-1.1821719e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -1.1821719e-07, 93.4014, 11.1255455, -36.453926)
 use_collision = true
 collision_layer = 5
@@ -963,7 +963,7 @@ collision_mask = 5
 size = Vector3(7, 3, 1)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall17" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall17" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=1849830815]
 transform = Transform3D(-1.1821719e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -1.1821719e-07, 103.4014, 15.1255455, -36.453926)
 use_collision = true
 collision_layer = 5
@@ -971,7 +971,7 @@ collision_mask = 5
 size = Vector3(7, 3, 1)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall18" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall18" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=1872856617]
 transform = Transform3D(-1.1821719e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -1.1821719e-07, 105.416534, 22.125546, -33.880825)
 use_collision = true
 collision_layer = 5
@@ -979,7 +979,7 @@ collision_mask = 5
 size = Vector3(5.0460205, 3, 5.0302734)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=1935202206]
 transform = Transform3D(1.5893256e-08, 0, 1, 0, 1, 0, -1, 0, 1.5893256e-08, 118.47781, 4.6241693, -24.634989)
 use_collision = true
 collision_layer = 5
@@ -987,7 +987,7 @@ collision_mask = 5
 size = Vector3(24, 4, 1)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall19" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall19" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=822365474]
 transform = Transform3D(0.99999994, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999994, -1.6262312, 11.055923, 13.64767)
 use_collision = true
 collision_layer = 5
@@ -995,7 +995,7 @@ collision_mask = 5
 size = Vector3(30, 23, 0.6661377)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall20" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall20" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=395212542]
 transform = Transform3D(-1.1821719e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -1.1821719e-07, 127.43167, 15.910412, -31.477139)
 use_collision = true
 collision_layer = 5
@@ -1003,7 +1003,7 @@ collision_mask = 5
 size = Vector3(2.0526733, 3, 9)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall21" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall21" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=532590743]
 transform = Transform3D(-1.1821719e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -1.1821719e-07, 91.375275, 9.41897, -35.179817)
 use_collision = true
 collision_layer = 5
@@ -1011,7 +1011,7 @@ collision_mask = 5
 size = Vector3(7.727173, 3, 4.947754)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall22" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall22" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=591110551]
 transform = Transform3D(0.99999994, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999994, 49.73365, 0.27527666, -29.095638)
 use_collision = true
 collision_layer = 5
@@ -1019,7 +1019,7 @@ collision_mask = 5
 size = Vector3(0.44128418, 5, 25)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=220979478]
 transform = Transform3D(1.5893256e-08, 0, 1, 0, 1, 0, -1, 0, 1.5893256e-08, 134.84944, 4.6241693, -24.634989)
 use_collision = true
 collision_layer = 5
@@ -1027,7 +1027,7 @@ collision_mask = 5
 size = Vector3(24, 4, 1)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall23" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall23" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=783771782]
 transform = Transform3D(0.99999994, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999994, 38.346573, 6.0158463, -61.52243)
 use_collision = true
 collision_layer = 5
@@ -1035,7 +1035,7 @@ collision_mask = 5
 size = Vector3(8, 3, 1)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall24" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall24" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=940050027]
 transform = Transform3D(0.99999994, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999994, 50.346573, 10.015846, -61.52243)
 use_collision = true
 collision_layer = 5
@@ -1043,7 +1043,7 @@ collision_mask = 5
 size = Vector3(8, 3, 1)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall25" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall25" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=234945794]
 transform = Transform3D(0.99999994, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999994, 62.346573, 6.0158463, -61.52243)
 use_collision = true
 collision_layer = 5
@@ -1051,7 +1051,7 @@ collision_mask = 5
 size = Vector3(8, 3, 1)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall26" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall26" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=70911469]
 transform = Transform3D(0.99999994, 0, 7.4505806e-08, 0, 1, 0, -7.4505806e-08, 0, 0.99999994, 62.346573, 14.015846, -61.52243)
 use_collision = true
 collision_layer = 5
@@ -1059,7 +1059,7 @@ collision_mask = 5
 size = Vector3(8, 3, 1)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall27" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall27" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=74755772]
 transform = Transform3D(0.9999999, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, 0.9999999, 28.269197, 5.5158463, 13.52285)
 use_collision = true
 collision_layer = 5
@@ -1067,7 +1067,7 @@ collision_mask = 5
 size = Vector3(12, 4, 0.41259766)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall28" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall28" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=1375784284]
 transform = Transform3D(-1.1821719e-07, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -1.1821719e-07, 96.4014, 21.001505, -42.21894)
 use_collision = true
 collision_layer = 5
@@ -1075,7 +1075,7 @@ collision_mask = 5
 size = Vector3(0.35107422, 3, 13)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="RunWall29" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall"]
+[node name="RunWall29" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/RunWall" unique_id=1005704404]
 transform = Transform3D(1.5893256e-08, 0, 1, 0, 1, 0, -1, 0, 1.5893256e-08, 110.84944, 22.624168, 4.488185)
 use_collision = true
 collision_layer = 5
@@ -1083,1112 +1083,1112 @@ collision_mask = 5
 size = Vector3(1, 2, 57)
 material = SubResource("StandardMaterial3D_kf75o")
 
-[node name="BasicWall" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls"]
+[node name="BasicWall" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls" unique_id=396662274]
 
-[node name="BasicWall2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1763636669]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -42.686546, 14.741104, -41.018482)
 use_collision = true
 size = Vector3(41.629868, 29.482208, 0.7541504)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=815835147]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.0672092, 20.239868, -61.443798)
 use_collision = true
 size = Vector3(0.77923584, 18.546997, 29.261963)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall99" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall99" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=228306183]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.0672092, 14.96637, -7.443798)
 use_collision = true
 size = Vector3(0.77923584, 30, 29.261963)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=586876167]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 43.119194, -0.8294574, -38.98844)
 use_collision = true
 size = Vector3(9.079758, 11.133596, 13.608219)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1422658152]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 48.69027, 10.784393, -26.102)
 use_collision = true
 size = Vector3(7.3963423, 7.19411, 7.2445717)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=984981192]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 21.149496, -4.1058087, -23.986446)
 use_collision = true
 size = Vector3(75.729576, 6.7787704, 0.87867737)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall7" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall7" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=59187410]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 28.34686, -3.5100908, -38.98844)
 use_collision = true
 size = Vector3(9.079758, 5.573721, 16.006168)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall8" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall8" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1620528559]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.000064, -4.1774216, -7.790515)
 use_collision = true
 size = Vector3(1.2566757, 6.903824, 30.722916)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="GrapplePoint" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall/BasicWall8" instance=ExtResource("24_imwdw")]
+[node name="GrapplePoint" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall/BasicWall8" unique_id=340384950 instance=ExtResource("24_imwdw")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.209484, 23.177422, 15.500065)
 
-[node name="BasicWall9" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall9" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1434869620]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.07495, -4.1774216, -32.59649)
 use_collision = true
 size = Vector3(1.2566757, 6.903824, 46.87269)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall10" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall10" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1157269315]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -33.236572, -4.1774216, -26.594719)
 use_collision = true
 size = Vector3(13.260214, 6.903824, 0.75129795)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1925547838]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.4944906, -4.1774216, -19.727814)
 use_collision = true
 size = Vector3(5.060507, 6.903824, 5.0561237)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=799933008]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 37.73147, -2.2960074, 10.881494)
 use_collision = true
 size = Vector3(5.060507, 8.4230995, 5.0561237)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall14" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall14" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1165709488]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -29.549997, 14.745842, -61.443798)
 use_collision = true
 size = Vector3(0.77923584, 29.491684, 28)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall15" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall15" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=769168250]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 48.94099, -0.76053727, -24.58801)
 use_collision = true
 size = Vector3(19.72453, 11.271437, 1.9646245)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall16" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall16" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1249024153]
 transform = Transform3D(-5.1619136e-08, 0.5, 0.8660254, 2.9802322e-08, 0.8660254, -0.5, -1, 0, -5.9604645e-08, 24.823566, -5.882355, 10.296092)
 use_collision = true
 size = Vector3(5.9388046, 5.573721, 13.828157)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall13" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall13" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1542695690]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 54.73147, -0.084457636, 10.881494)
 use_collision = true
 size = Vector3(5.060507, 14, 5.0561237)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall17" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall17" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1881079735]
 transform = Transform3D(-5.1619136e-08, 0.5, 0.8660254, 2.9802322e-08, 0.8660254, -0.5, -1, 0, -5.9604645e-08, -29.653322, -5.882355, -21.562237)
 use_collision = true
 size = Vector3(5.9388046, 5.573721, 13.828157)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall18" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall18" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=48504340]
 transform = Transform3D(0.8660253, 0, 0.5000002, 0, 1, 0, -0.5000002, 0, 0.8660253, 73.83001, 5.2781615, 13.547926)
 use_collision = true
 size = Vector3(19, 25, 11)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall19" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall19" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=951554534]
 transform = Transform3D(-0.37041155, 0, -0.92886764, 0, 1, 0, 0.92886764, 0, -0.37041155, 46.478756, 8.708213, -5.0784845)
 use_collision = true
 size = Vector3(18.944336, 8, 1.9646245)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall20" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall20" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=279688514]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 110.59728, 10.945374, 9.055)
 use_collision = true
 size = Vector3(10, 37.149414, 62.588013)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall21" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall21" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1463852171]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 25.944866, 18.287153, -50.000553)
 use_collision = true
 size = Vector3(22.434011, 1, 7.2445717)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall22" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall22" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=738766095]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 17.82358, 18.287153, -56.233185)
 use_collision = true
 size = Vector3(9.96875, 1, 9)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall23" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall23" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=218121571]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 19.123873, 18.287153, 8.094127)
 use_collision = true
 size = Vector3(9.96875, 1, 11.600586)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall24" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall24" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=716281487]
 transform = Transform3D(1, 0, 1.5893256e-08, 0, 1, 0, -1.5893256e-08, 0, 1, 55.623337, 20.423744, -29.399925)
 use_collision = true
 size = Vector3(7.3963423, 7.19411, 14)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall25" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall25" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1949981762]
 transform = Transform3D(1, 0, 1.5893256e-08, 0, 1, 0, -1.5893256e-08, 0, 1, 58.128128, 13.881449, -26.100052)
 use_collision = true
 size = Vector3(11.615234, 1, 7.4002542)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall26" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall26" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=536000337]
 transform = Transform3D(0.8660254, 0.5, 7.907747e-09, -0.5, 0.8660254, -2.9802322e-08, -2.1749472e-08, 2.1855698e-08, 1, 69.37189, 14.393883, -20.540918)
 use_collision = true
 size = Vector3(35.95984, 1.4140625, 3.781372)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall27" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall27" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=23742029]
 transform = Transform3D(1, 0, 1.5893256e-08, 0, 1, 0, -1.5893256e-08, 0, 1, 53.027077, 23.207811, -20.533983)
 use_collision = true
 size = Vector3(2.203822, 1.6259766, 3.7338867)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall28" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall28" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1341777221]
 transform = Transform3D(1, 0, 1.5893256e-08, 0, 1, 0, -1.5893256e-08, 0, 1, 55.623337, 2.8276882, -33.096855)
 use_collision = true
 size = Vector3(7.3963423, 28, 6.60614)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall29" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall29" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=764406906]
 transform = Transform3D(-5.1619136e-08, 0.5, 0.8660254, 2.9802322e-08, 0.8660254, -0.5, -1, 0, -5.9604645e-08, 24.823566, -5.882355, -58.168465)
 use_collision = true
 size = Vector3(5.9388046, 5.573721, 13.828157)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall30" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall30" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=474898182]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32.63848, 10.945618, 13.721077)
 use_collision = true
 size = Vector3(0.77923584, 37.149902, 100)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall31" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall31" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=145694336]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 34.73147, -3.2960074, -20.118507)
 use_collision = true
 size = Vector3(5.060507, 8.4230995, 5.0561237)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall32" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall32" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1206047620]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 88.86652, -1.4109497, -4.296938)
 use_collision = true
 size = Vector3(16.705877, 12.436768, 18.959747)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall33" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall33" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=2121120084]
 transform = Transform3D(-1.6105702e-08, -4.3711392e-08, -1, 0, 1, -4.371139e-08, 1, 0, -1.6105702e-08, 69.48217, 8.815241, -65.08473)
 use_collision = true
 size = Vector3(35.95984, 1.4140625, 3.781372)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall34" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall34" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1401597776]
 transform = Transform3D(-1.6105702e-08, -4.3711392e-08, -1, 0, 1, -4.371139e-08, 1, 0, -1.6105702e-08, 80.48217, 14.815241, -65.08473)
 use_collision = true
 size = Vector3(35.95984, 1.4140625, 3.781372)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall35" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall35" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1338672521]
 transform = Transform3D(-1.6105702e-08, -4.3711392e-08, -1, 0, 1, -4.371139e-08, 1, 0, -1.6105702e-08, 69.48217, 20.81524, -65.08473)
 use_collision = true
 size = Vector3(35.95984, 1.4140625, 3.781372)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall36" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall36" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1615368418]
 transform = Transform3D(-1.6105702e-08, -4.3711392e-08, -1, 0, 1, -4.371139e-08, 1, 0, -1.6105702e-08, 129.46895, 11.022272, -56.798157)
 use_collision = true
 size = Vector3(9.1315, 5, 16)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall37" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall37" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=30448702]
 transform = Transform3D(-1.6105702e-08, -4.3711392e-08, -1, 0, 1, -4.371139e-08, 1, 0, -1.6105702e-08, 80.48217, 1.8152409, -65.08473)
 use_collision = true
 size = Vector3(35.95984, 1.4140625, 3.781372)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall38" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall38" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1564336348]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 127.3464, -2.692566, -4.296938)
 use_collision = true
 size = Vector3(16.705877, 9, 20)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall39" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall39" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=925698018]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 118.88058, 12.807434, -4.296938)
 use_collision = true
 size = Vector3(16.705877, 14, 10.931641)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall40" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall40" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=35386496]
 transform = Transform3D(1, 0, 1.5893256e-08, 0, 1, 0, -1.5893256e-08, 0, 1, 105.42516, 14.327688, -33.899925)
 use_collision = true
 size = Vector3(5, 43, 5)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall41" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall41" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1168168244]
 transform = Transform3D(1, 0, 1.5893256e-08, 0, 1, 0, -1.5893256e-08, 0, 1, 110.42516, 5.827688, -31.399925)
 use_collision = true
 size = Vector3(5, 26, 10)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall42" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall42" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=152184077]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 134.91476, 3.307434, -28.944)
 use_collision = true
 size = Vector3(66, 21, 1)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall43" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall43" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1833320133]
 transform = Transform3D(-3.580364e-08, -0.5, -0.8660254, 2.9802322e-08, 0.8660254, -0.5, 1, -4.371139e-08, -1.6105702e-08, 124.71275, -6.4934235, -40.318565)
 use_collision = true
 size = Vector3(5.9388046, 9, 17.318375)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall44" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall44" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=291999522]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 132.46545, -2.692566, -40.345856)
 use_collision = true
 size = Vector3(6, 9, 7)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall45" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall45" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1317168192]
 transform = Transform3D(-1.6105702e-08, -4.3711392e-08, -1, 0, 1, -4.371139e-08, 1, 0, -1.6105702e-08, 83.591484, -4.013235, 1.9152681)
 use_collision = true
 size = Vector3(35.95984, 6, 16)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall46" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall46" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1124524796]
 transform = Transform3D(-1.6105702e-08, -4.3711392e-08, -1, 0, 1, -4.371139e-08, 1, 0, -1.6105702e-08, 131.46895, -0.9777279, -55.810745)
 use_collision = true
 size = Vector3(11.106323, 11, 12)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall47" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall47" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=34130322]
 transform = Transform3D(-1.6105702e-08, -4.3711392e-08, -1, 0, 1, -4.371139e-08, 1, 0, -1.6105702e-08, 123.46895, 0.52227163, -54.732407)
 use_collision = true
 size = Vector3(5, 16, 4)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall49" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall49" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=109295078]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 91.90809, 5.307434, -36.377365)
 use_collision = true
 size = Vector3(3.9119873, 25, 10)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall50" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall50" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=186065739]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 103.42187, 4.807434, -38.877365)
 use_collision = true
 size = Vector3(0.97546387, 26, 5)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall48" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall48" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1374705954]
 transform = Transform3D(1.5893256e-08, 0, 1, 0, 1, 0, -1, 0, 1.5893256e-08, 117.97663, 5.708213, -24.660524)
 use_collision = true
 size = Vector3(24.056519, 8, 1.9646245)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall51" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall51" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=93615012]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 134.91476, 21.649635, -33.444)
 use_collision = true
 size = Vector3(41, 15.686401, 1)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall52" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall52" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=887667374]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 134.91476, 24.1428, -56.943)
 use_collision = true
 size = Vector3(6, 10.6727295, 1)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall53" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall53" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=134584076]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 134.91476, 21.13462, -60.943)
 use_collision = true
 size = Vector3(2, 16.656372, 1)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall54" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall54" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=111830001]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 141.5319, 21.657997, -27.396149)
 use_collision = true
 size = Vector3(69, 15.703125, 1)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall55" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall55" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1587593522]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 138.41376, 24.992836, -37.444)
 use_collision = true
 size = Vector3(49, 9, 6)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall56" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall56" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1298067802]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 103.42187, 16.307434, -46.090294)
 use_collision = true
 size = Vector3(0.97546387, 3, 9.427856)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall57" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall57" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=885899400]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -32.26872, 15.915543, -56.347126)
 use_collision = true
 size = Vector3(11, 2, 5.012322)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall58" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall58" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1713975355]
 transform = Transform3D(-1, 0, -1.0331603e-07, 0, 1, 0, 1.0331603e-07, 0, -1, 121.21829, 24.739239, -31.214493)
 use_collision = true
 size = Vector3(7.3963423, 7, 7.2445717)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall59" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall59" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1076767936]
 transform = Transform3D(-1, 0, -1.0331603e-07, 0, 1, 0, 1.0331603e-07, 0, -1, 126.196884, 28.8696, -31.214493)
 use_collision = true
 size = Vector3(17.353516, 1.2861328, 7.2445717)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall60" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall60" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1767206202]
 transform = Transform3D(1, 0, 1.5893256e-08, 0, 1, 0, -1.5893256e-08, 0, 1, 123.69622, 15.520559, -31.479996)
 use_collision = true
 size = Vector3(21.542114, 6.614258, 2.0263672)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall61" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall61" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=417944152]
 transform = Transform3D(-1, 0, -1.0331603e-07, 0, 1, 0, 1.0331603e-07, 0, -1, 86.438965, -0.80427456, -36.541794)
 use_collision = true
 size = Vector3(5, 16, 5)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall62" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall62" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1683764569]
 transform = Transform3D(1.5893256e-08, 0, 1, 0, 1, 0, -1, 0, 1.5893256e-08, 30.458939, 3.2082129, -59.132263)
 use_collision = true
 size = Vector3(7, 1, 5)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall63" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall63" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1361856805]
 transform = Transform3D(-1, 0, -1.0331603e-07, 0, 1, 0, 1.0331603e-07, 0, -1, 118.07191, 9.665879, -36.850166)
 use_collision = true
 size = Vector3(4.5655518, 1.0596924, 4.9520264)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall64" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall64" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1181414072]
 transform = Transform3D(-1.6105702e-08, -4.3711392e-08, -1, 0, 1, -4.371139e-08, 1, 0, -1.6105702e-08, 69.48217, -5.481634, -65.08473)
 use_collision = true
 size = Vector3(35.95984, 2.0078125, 3.781372)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall65" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall65" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=385676199]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 62.73147, -2.2960074, -11.118507)
 use_collision = true
 size = Vector3(5.060507, 8.4230995, 5.0561237)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall66" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall66" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=92599518]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 106.73147, -2.2960074, -58.528934)
 use_collision = true
 size = Vector3(5.060507, 8.4230995, 5.0561237)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall67" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall67" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=118884833]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 89.4531, 8.307434, -36.877365)
 use_collision = true
 size = Vector3(1, 31, 11)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall68" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall68" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=996197911]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 91.90809, 5.307434, -41.876366)
 use_collision = true
 size = Vector3(3.9119873, 25, 1)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall69" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall69" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=534520379]
 transform = Transform3D(-5.1619136e-08, 0.5, 0.8660254, 2.9802322e-08, 0.8660254, -0.5, -1, 0, -5.9604645e-08, 29.388147, 15.524883, 8.099437)
 use_collision = true
 size = Vector3(9.96875, 1, 11.600586)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall70" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall70" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=140499904]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 96.952095, 20.789711, -41.876366)
 use_collision = true
 size = Vector3(14, 6.0334473, 1)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall71" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall71" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1472027767]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 34.56615, 18.287153, -57.21756)
 use_collision = true
 size = Vector3(8, 1, 10)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall72" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall72" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1258589505]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 19.06708, 5.3335323, -15.101999)
 use_collision = true
 size = Vector3(7.3963423, 7.19411, 11.509048)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall73" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall73" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=91018877]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 38.3216, 25.352062, -57.29901)
 use_collision = true
 size = Vector3(8, 8.291513, 7)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall74" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall74" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=255146331]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 103.8464, 7.114929, 1.5055002)
 use_collision = true
 size = Vector3(2, 45, 5)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall75" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall75" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=715543596]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 96.8464, 8.614929, 1.5055002)
 use_collision = true
 size = Vector3(2, 42, 5)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall76" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall76" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=65395945]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 89.8464, 17.11493, 1.5055002)
 use_collision = true
 size = Vector3(2, 25, 5)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall77" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall77" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=544711493]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 84.34792, 24.150818, 1.5055001)
 use_collision = true
 size = Vector3(2, 10.928223, 2.0030518)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall78" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall78" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1820703883]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 110.37552, 29.11493, 2.4937203)
 use_collision = true
 size = Vector3(4.0235596, 1, 62)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall79" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall79" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=502520674]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 82.537254, 19.434021, 1.0682445)
 use_collision = true
 size = Vector3(6.8745117, 1.6381836, 5.5369873)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall80" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall80" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=237490540]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 83.799576, -0.5469818, -20.540192)
 use_collision = true
 size = Vector3(3.7392578, 13.321747, 2.3875732)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall81" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall81" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=363830466]
 transform = Transform3D(1, 0, 1.5893256e-08, 0, 1, 0, -1.5893256e-08, 0, 1, 107.92211, -3.6341648, -26.900925)
 use_collision = true
 size = Vector3(9.9938965, 7.076294, 9)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall82" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall82" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1216520838]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 59.235504, -3.0075572, -36.542015)
 use_collision = true
 size = Vector3(9.712891, 7, 9.949097)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall83" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall83" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=117185353]
 transform = Transform3D(-0.94810194, -0.31796667, 2.3085168e-08, -0.31796667, 0.94810194, -3.6124664e-08, -2.9802322e-08, -2.9802317e-08, -1, 73.30248, 3.0220847, -36.65041)
 use_collision = true
 size = Vector3(23, 1.4140625, 2)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall84" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall84" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1615586770]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 23.10579, 5.292019, -45.04019)
 use_collision = true
 size = Vector3(3, 25, 3)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall85" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall85" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=2032167769]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 23.10579, 5.292019, -53.622227)
 use_collision = true
 size = Vector3(3, 25, 3)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall86" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall86" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1437332900]
 transform = Transform3D(1.5893256e-08, 0, 1, 0, 1, 0, -1, 0, 1.5893256e-08, 18.467682, 7.243763, -49.34836)
 use_collision = true
 size = Vector3(10.476624, 1, 11.017487)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall88" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall88" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1621503219]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 23.19633, -2.8980389, -15.0175295)
 use_collision = true
 size = Vector3(3.2406006, 9.480469, 4)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall89" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall89" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=816097335]
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 46.502598, -0.13827324, -26.096882)
 use_collision = true
 size = Vector3(2.843338, 15, 4)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall90" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall90" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1106788668]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 61.10579, 3.1003685, -25.040192)
 use_collision = true
 size = Vector3(2.5, 20.617, 2.5)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall91" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall91" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=488030268]
 transform = Transform3D(1.5893256e-08, 0, 1, 0, 1, 0, -1, 0, 1.5893256e-08, 117.97663, -2.790787, -35.68878)
 use_collision = true
 size = Vector3(2, 9, 1.9646245)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=809679101]
 transform = Transform3D(-8.940697e-08, 4.3186467e-16, -0.9999995, -1.1137732e-08, 1, -1.8664592e-08, 0.9999995, 2.6112663e-16, -8.940697e-08, 95.032555, 29.08681, -3.5999415)
 use_collision = true
 size = Vector3(8.204041, 1.0088501, 0.87867737)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall87" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall87" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1342227771]
 transform = Transform3D(-5.9604645e-08, 3.5527137e-15, 1, -0.26426017, 0.96445143, -1.5751134e-08, -0.96445143, -0.26426017, -5.7485785e-08, 133.2987, 14.687667, -47.014244)
 use_collision = true
 size = Vector3(30.610596, 1.4140625, 3.781372)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall92" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall92" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=253557841]
 transform = Transform3D(-8.940697e-08, 4.3186467e-16, -0.9999995, -1.1137732e-08, 1, -1.8664592e-08, 0.9999995, 2.6112663e-16, -8.940697e-08, 86.032555, 29.094622, -3.5999415)
 use_collision = true
 size = Vector3(8.204041, 0.9932251, 0.87867737)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall93" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall93" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=267588368]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 17.312555, 11.322941, -14.10461)
 use_collision = true
 size = Vector3(1, 1, 8)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall94" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall94" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1980288277]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, -26.678398, 3.3076496, -43.101997)
 use_collision = true
 size = Vector3(7, 3, 7)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall95" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall95" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=605429768]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -32.26636, 15.915543, -25.682026)
 use_collision = true
 size = Vector3(11, 2, 5.0100994)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall96" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall96" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1660410225]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -38.770412, 15.915543, -22.682026)
 use_collision = true
 size = Vector3(5, 2, 8)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall97" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall97" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1166252838]
 transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, -2.6783981, 15.30765, 2.8980026)
 use_collision = true
 size = Vector3(7, 3, 7)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="BasicWall98" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall"]
+[node name="BasicWall98" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=659603599]
 transform = Transform3D(-5.9604645e-08, 3.5527137e-15, 1, -0.5, 0.8660254, -2.9802322e-08, -0.8660254, -0.5, -5.1619136e-08, -41.517662, 8.064947, -40.37583)
 use_collision = true
 size = Vector3(35.95984, 1.4140625, 3.781372)
 material = SubResource("StandardMaterial3D_krafm")
 
-[node name="WeaponWall" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" instance=ExtResource("7_n8uhs")]
+[node name="WeaponWall" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=1847104501 instance=ExtResource("7_n8uhs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 2.5, -60.8)
 
-[node name="LightWalkerTest2" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" node_paths=PackedStringArray("LIMBS") instance=ExtResource("7_erjw0")]
+[node name="LightWalkerTest2" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Walls/BasicWall" unique_id=924169200 node_paths=PackedStringArray("LIMBS") instance=ExtResource("7_erjw0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -47)
 LIMBS = [NodePath("Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L/Finger_In_L"), NodePath("Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Foot_R/Toe_Front_Out_R"), NodePath("Entity/Body/Pelvis2"), null]
 
-[node name="PleasePutADoorHere" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors"]
+[node name="PleasePutADoorHere" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors" unique_id=1360933016]
 
-[node name="Barriers" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors"]
+[node name="Barriers" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors" unique_id=116724657]
 
-[node name="HallwayBarriers" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers"]
+[node name="HallwayBarriers" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers" unique_id=587652415]
 
-[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/HallwayBarriers"]
+[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/HallwayBarriers" unique_id=1422848723]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 138.47423, 18.306366, -14.639852)
 use_collision = true
 size = Vector3(0.001, 5, 6.1401367)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/HallwayBarriers"]
+[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/HallwayBarriers" unique_id=1896782047]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 138.47423, 18.306366, -33.581207)
 use_collision = true
 size = Vector3(0.001, 5, 6.1401367)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/HallwayBarriers"]
+[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/HallwayBarriers" unique_id=1803105265]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 138.47423, 18.306366, -52.796326)
 use_collision = true
 size = Vector3(0.001, 5, 6.1401367)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/HallwayBarriers"]
+[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/HallwayBarriers" unique_id=1869229871]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 138.47423, 13.682705, -43.326447)
 use_collision = true
 size = Vector3(0.001, 5, 6.1401367)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/HallwayBarriers"]
+[node name="BasicBarrier5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/HallwayBarriers" unique_id=1854273558]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 138.47423, 13.659841, -23.84936)
 use_collision = true
 size = Vector3(0.001, 5, 6.1401367)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="Hoop" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers"]
+[node name="Hoop" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers" unique_id=1722589265]
 
-[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop"]
+[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop" unique_id=929963071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.46473, 18.789888, -60.30105)
 use_collision = true
 size = Vector3(0.001, 8, 3)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop"]
+[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop" unique_id=533884129]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.46473, 20.789888, -51.80105)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop"]
+[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop" unique_id=807561864]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.46473, 23.789888, -57.30105)
 use_collision = true
 size = Vector3(0.001, 2, 9)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop"]
+[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop" unique_id=1024651744]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.46473, 15.789888, -54.80105)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="Hoop2" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers"]
+[node name="Hoop2" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers" unique_id=1350117887]
 
-[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop2"]
+[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop2" unique_id=1427944171]
 transform = Transform3D(0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.86602545, 61.69741, 12.789888, -45.711044)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop2"]
+[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop2" unique_id=134619758]
 transform = Transform3D(0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.86602545, 65.69741, 14.789888, -38.782837)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop2"]
+[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop2" unique_id=1161212660]
 transform = Transform3D(0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.86602545, 63.19741, 17.789888, -43.112965)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop2"]
+[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop2" unique_id=2080633247]
 transform = Transform3D(0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, 0.86602545, 64.19741, 9.789888, -41.380917)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="Hoop3" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers"]
+[node name="Hoop3" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers" unique_id=683274233]
 
-[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop3"]
+[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop3" unique_id=1379538837]
 transform = Transform3D(-0.7071067, -0.7071066, 0, 0.7071066, -0.7071067, 0, 0, 0, 1, 106.01497, 11.496995, -7.8010483)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop3"]
+[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop3" unique_id=1543257214]
 transform = Transform3D(-0.7071067, -0.7071066, 0, 0.7071066, -0.7071067, 0, 0, 0, 1, 104.60075, 10.082782, 0.19895172)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop3"]
+[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop3" unique_id=557580654]
 transform = Transform3D(-0.7071067, -0.7071066, 0, 0.7071066, -0.7071067, 0, 0, 0, 1, 102.47943, 7.961461, -4.8010483)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop3"]
+[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop3" unique_id=1672881163]
 transform = Transform3D(-0.7071067, -0.7071066, 0, 0.7071066, -0.7071067, 0, 0, 0, 1, 108.13629, 13.618316, -2.8010483)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="Hoop4" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers"]
+[node name="Hoop4" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers" unique_id=1262731656]
 
-[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop4"]
+[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop4" unique_id=397228618]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.40416, 2.806366, -7.7963276)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop4"]
+[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop4" unique_id=2124328165]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.40416, 4.806366, 0.20367241)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop4"]
+[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop4" unique_id=1480991065]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.40416, 7.806366, -4.7963276)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop4"]
+[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop4" unique_id=578441583]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.40416, -0.19363403, -2.7963276)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="Hoop5" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers"]
+[node name="Hoop5" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers" unique_id=97367089]
 
-[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=408941231]
 transform = Transform3D(-4.371138e-08, 0, 1, 0.49999997, 0.8660253, 2.1855692e-08, -0.8660253, 0.49999997, -3.785517e-08, 49.40416, 26.94034, -6.2963276)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=905786908]
 transform = Transform3D(-4.371138e-08, 0, 1, 0.49999997, 0.8660253, 2.1855692e-08, -0.8660253, 0.49999997, -3.785517e-08, 57.40416, 28.672392, -5.2963276)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=2114287277]
 transform = Transform3D(-4.371138e-08, 0, 1, 0.49999997, 0.8660253, 2.1855692e-08, -0.8660253, 0.49999997, -3.785517e-08, 52.40416, 31.270466, -3.7963276)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=492011598]
 transform = Transform3D(-4.371138e-08, 0, 1, 0.49999997, 0.8660253, 2.1855692e-08, -0.8660253, 0.49999997, -3.785517e-08, 54.40416, 24.342266, -7.7963276)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier5" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=728429445]
 transform = Transform3D(-4.3711385e-08, 1.7763567e-15, 1, 0.8660253, 0.49999994, 3.7855177e-08, -0.49999994, 0.8660253, -2.1855692e-08, 49.40416, 22.306366, -3.6623535)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier6" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=270339672]
 transform = Transform3D(-4.3711385e-08, 1.7763567e-15, 1, 0.8660253, 0.49999994, 3.7855177e-08, -0.49999994, 0.8660253, -2.1855692e-08, 57.40416, 23.306366, -1.9303017)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier7" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier7" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=501387582]
 transform = Transform3D(-4.3711385e-08, 1.7763567e-15, 1, 0.8660253, 0.49999994, 3.7855177e-08, -0.49999994, 0.8660253, -2.1855692e-08, 52.40416, 24.806366, 0.66777325)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier8" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier8" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=1028915945]
 transform = Transform3D(-4.3711385e-08, 1.7763567e-15, 1, 0.8660253, 0.49999994, 3.7855177e-08, -0.49999994, 0.8660253, -2.1855692e-08, 54.40416, 20.806366, -6.2604284)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier9" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier9" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=1512439300]
 transform = Transform3D(-4.371138e-08, 2.0143432e-15, 1, 0.9999999, -2.9802322e-08, 4.371138e-08, 2.9802322e-08, 0.9999999, 3.5527137e-15, 49.40416, 14.806366, -2.796328)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier10" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier10" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=897100798]
 transform = Transform3D(-4.371138e-08, 2.0143432e-15, 1, 0.9999999, -2.9802322e-08, 4.371138e-08, 2.9802322e-08, 0.9999999, 3.5527137e-15, 57.40416, 14.806366, -0.7963271)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier11" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=74173806]
 transform = Transform3D(-4.371138e-08, 2.0143432e-15, 1, 0.9999999, -2.9802322e-08, 4.371138e-08, 2.9802322e-08, 0.9999999, 3.5527137e-15, 52.40416, 14.806366, 2.2036717)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier12" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=1907622851]
 transform = Transform3D(-4.371138e-08, 2.0143432e-15, 1, 0.9999999, -2.9802322e-08, 4.371138e-08, 2.9802322e-08, 0.9999999, 3.5527137e-15, 54.40416, 14.806366, -5.7963266)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier13" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier13" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=1791836001]
 transform = Transform3D(-4.3711378e-08, 3.552713e-15, 1, -2.9802322e-08, 0.9999999, -1.7763568e-15, -0.9999999, -2.9802322e-08, -4.3711378e-08, 49.40416, 10.536982, 3.7120347)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier14" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier14" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=370033560]
 transform = Transform3D(-4.3711378e-08, 3.552713e-15, 1, -2.9802322e-08, 0.9999999, -1.7763568e-15, -0.9999999, -2.9802322e-08, -4.3711378e-08, 57.40416, 12.5369835, 3.7120347)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier15" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier15" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=1029580305]
 transform = Transform3D(-4.3711378e-08, 3.552713e-15, 1, -2.9802322e-08, 0.9999999, -1.7763568e-15, -0.9999999, -2.9802322e-08, -4.3711378e-08, 52.40416, 15.536983, 3.7120342)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier16" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5"]
+[node name="BasicBarrier16" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop5" unique_id=678566070]
 transform = Transform3D(-4.3711378e-08, 3.552713e-15, 1, -2.9802322e-08, 0.9999999, -1.7763568e-15, -0.9999999, -2.9802322e-08, -4.3711378e-08, 54.40416, 7.5369835, 3.7120347)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="Hoop6" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers"]
+[node name="Hoop6" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers" unique_id=597021010]
 
-[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop6"]
+[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop6" unique_id=1267925211]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.40416, 24.806366, -15.796328)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop6"]
+[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop6" unique_id=575918218]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.40416, 26.806366, -7.7963276)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop6"]
+[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop6" unique_id=831968554]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.40416, 29.806366, -12.796328)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop6"]
+[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop6" unique_id=450859924]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.40416, 21.806366, -10.796328)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="Hoop7" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers"]
+[node name="Hoop7" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers" unique_id=578953839]
 
-[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop7"]
+[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop7" unique_id=678763866]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.40416, 6.806366, -28.796328)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop7"]
+[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop7" unique_id=2011967378]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.40416, 8.806366, -20.796328)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop7"]
+[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop7" unique_id=2009989897]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.40416, 11.806366, -25.796328)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop7"]
+[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop7" unique_id=1579854241]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.40416, 3.806366, -23.796328)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="Hoop8" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers"]
+[node name="Hoop8" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers" unique_id=980364755]
 
-[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop8"]
+[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop8" unique_id=1377398486]
 transform = Transform3D(0.86602545, -0.5, 0, 0.5, 0.86602545, 0, 0, 0, 1, 49.96473, 20.923862, -60.30105)
 use_collision = true
 size = Vector3(0.001, 8, 3)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop8"]
+[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop8" unique_id=357818821]
 transform = Transform3D(0.86602545, -0.5, 0, 0.5, 0.86602545, 0, 0, 0, 1, 48.96473, 22.655914, -51.80105)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop8"]
+[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop8" unique_id=510986347]
 transform = Transform3D(0.86602545, -0.5, 0, 0.5, 0.86602545, 0, 0, 0, 1, 47.46473, 25.25399, -57.30105)
 use_collision = true
 size = Vector3(0.001, 2, 9)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop8"]
+[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop8" unique_id=1910579907]
 transform = Transform3D(0.86602545, -0.5, 0, 0.5, 0.86602545, 0, 0, 0, 1, 51.464725, 18.325787, -54.80105)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="Hoop9" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers"]
+[node name="Hoop9" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers" unique_id=1983725632]
 
-[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop9"]
+[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop9" unique_id=2060385852]
 transform = Transform3D(-8.940697e-08, 0, 1, 0, 1, 0, -1, 0, -8.940697e-08, 13.755123, 13.269651, -31.24694)
 use_collision = true
 size = Vector3(0.001, 7, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop9"]
+[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop9" unique_id=1231642674]
 transform = Transform3D(-8.940697e-08, 0, 1, 0, 1, 0, -1, 0, -8.940697e-08, 21.255127, 14.269651, -31.24694)
 use_collision = true
 size = Vector3(0.001, 7, 1)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop9"]
+[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop9" unique_id=2038717496]
 transform = Transform3D(-8.940697e-08, 0, 1, 0, 1, 0, -1, 0, -8.940697e-08, 16.755127, 17.26965, -31.24694)
 use_collision = true
 size = Vector3(0.001, 1, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop9"]
+[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop9" unique_id=954842315]
 transform = Transform3D(-8.940697e-08, 0, 1, 0, 1, 0, -1, 0, -8.940697e-08, 18.255123, 10.269651, -31.24694)
 use_collision = true
 size = Vector3(0.001, 1, 7)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="Hoop10" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers"]
+[node name="Hoop10" type="Node3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers" unique_id=1019693881]
 
-[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop10"]
+[node name="BasicBarrier" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop10" unique_id=1109875149]
 transform = Transform3D(0, 0, -1.0000001, -2.9802322e-08, 1, 0, 1.0000001, 2.9802326e-08, 0, -28.055805, 20.789888, -41.05105)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop10"]
+[node name="BasicBarrier2" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop10" unique_id=1207116758]
 transform = Transform3D(0, 0, -1.0000001, -2.9802322e-08, 1, 0, 1.0000001, 2.9802326e-08, 0, -36.055805, 22.789888, -41.051044)
 use_collision = true
 size = Vector3(0.001, 8, 2)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop10"]
+[node name="BasicBarrier3" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop10" unique_id=530392569]
 transform = Transform3D(0, 0, -1.0000001, -2.9802322e-08, 1, 0, 1.0000001, 2.9802326e-08, 0, -31.055805, 25.789888, -41.05105)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop10"]
+[node name="BasicBarrier4" type="CSGBox3D" parent="NavigationRegion3D/Walls/WillsWalls&Floors/Barriers/Hoop10" unique_id=655661911]
 transform = Transform3D(0, 0, -1.0000001, -2.9802322e-08, 1, 0, 1.0000001, 2.9802326e-08, 0, -33.055805, 17.78989, -41.051052)
 use_collision = true
 size = Vector3(0.001, 2, 8)
 material = SubResource("StandardMaterial3D_vvfp6")
 
-[node name="Floors" type="Node3D" parent="NavigationRegion3D"]
+[node name="Floors" type="Node3D" parent="NavigationRegion3D" unique_id=2104138069]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Floors"]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Floors" unique_id=1152964776]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -1, 2.800293)
 use_collision = true
 size = Vector3(30, 2, 22.399414)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/Floors"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/Floors" unique_id=506314975]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 29, 2.800293)
 use_collision = true
 size = Vector3(30, 2, 22.399414)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/Floors"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/Floors" unique_id=758679106]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.310333, -0.99999905, -46.99684)
 use_collision = true
 size = Vector3(55.89026, 2, 30)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/Floors"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/Floors" unique_id=1635072342]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -1, -77)
 use_collision = true
 size = Vector3(18, 2, 30)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/Floors"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/Floors" unique_id=1694850959]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4934998, -1, -19.729937)
 use_collision = true
 size = Vector3(5.025818, 2, 5)
 material = SubResource("StandardMaterial3D_n57o6")
 
-[node name="Boxes" type="Node3D" parent="NavigationRegion3D"]
+[node name="Boxes" type="Node3D" parent="NavigationRegion3D" unique_id=601428882]
 
-[node name="LargeTarp" parent="NavigationRegion3D/Boxes" instance=ExtResource("4_cg56m")]
+[node name="LargeTarp" parent="NavigationRegion3D/Boxes" unique_id=1420743316 instance=ExtResource("4_cg56m")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -13.927688, 0.009374738, -59.083588)
 
-[node name="LargeBigTarp" parent="NavigationRegion3D/Boxes" instance=ExtResource("5_bnlx1")]
+[node name="LargeBigTarp" parent="NavigationRegion3D/Boxes" unique_id=1257570492 instance=ExtResource("5_bnlx1")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 5, 0, -59)
 
-[node name="WideTarp" parent="NavigationRegion3D/Boxes" instance=ExtResource("7_lt333")]
+[node name="WideTarp" parent="NavigationRegion3D/Boxes" unique_id=820652498 instance=ExtResource("7_lt333")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14, 0, -56)
 
-[node name="FrameTall" parent="NavigationRegion3D/Boxes" instance=ExtResource("8_i3wmk")]
+[node name="FrameTall" parent="NavigationRegion3D/Boxes" unique_id=853644690 instance=ExtResource("8_i3wmk")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -11.6, 0, -60)
 
-[node name="FrameCrate" parent="NavigationRegion3D/Boxes" instance=ExtResource("9_xuiht")]
+[node name="FrameCrate" parent="NavigationRegion3D/Boxes" unique_id=1514013832 instance=ExtResource("9_xuiht")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -8, 0, -59)
 
-[node name="LargeTarp2" parent="NavigationRegion3D/Boxes" instance=ExtResource("4_cg56m")]
+[node name="LargeTarp2" parent="NavigationRegion3D/Boxes" unique_id=187247677 instance=ExtResource("4_cg56m")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.7, 0, -59)
 
-[node name="SmallTallTarp" parent="NavigationRegion3D/Boxes" instance=ExtResource("10_fdwi1")]
+[node name="SmallTallTarp" parent="NavigationRegion3D/Boxes" unique_id=1326905431 instance=ExtResource("10_fdwi1")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14, 0, -54)
 
-[node name="TallCrate" parent="NavigationRegion3D/Boxes" instance=ExtResource("11_kf75o")]
+[node name="TallCrate" parent="NavigationRegion3D/Boxes" unique_id=1624934408 instance=ExtResource("11_kf75o")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -10, 0, -58.4)
 
-[node name="SmallCrate" parent="NavigationRegion3D/Boxes" instance=ExtResource("12_6wt63")]
+[node name="SmallCrate" parent="NavigationRegion3D/Boxes" unique_id=1510367918 instance=ExtResource("12_6wt63")]
 transform = Transform3D(1.0606601, 0, -1.0606601, 0, 1.5, 0, 1.0606601, 0, 1.0606601, -11.6, 0, -57)
 
-[node name="SmallCrate2" parent="NavigationRegion3D/Boxes" instance=ExtResource("12_6wt63")]
+[node name="SmallCrate2" parent="NavigationRegion3D/Boxes" unique_id=107462713 instance=ExtResource("12_6wt63")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -9.200001, 0, -57)
 
-[node name="LargeBox" parent="NavigationRegion3D/Boxes" instance=ExtResource("13_6582d")]
+[node name="LargeBox" parent="NavigationRegion3D/Boxes" unique_id=746145588 instance=ExtResource("13_6582d")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14, 0, -52)
 
-[node name="TallCrate2" parent="NavigationRegion3D/Boxes" instance=ExtResource("11_kf75o")]
+[node name="TallCrate2" parent="NavigationRegion3D/Boxes" unique_id=127036764 instance=ExtResource("11_kf75o")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.0000002, 0, -60)
 
-[node name="Lights" type="Node3D" parent="NavigationRegion3D"]
+[node name="Lights" type="Node3D" parent="NavigationRegion3D" unique_id=1187857941]
 
-[node name="LightingRect" parent="NavigationRegion3D/Lights" instance=ExtResource("21_8e2af")]
+[node name="LightingRect" parent="NavigationRegion3D/Lights" unique_id=1398751114 instance=ExtResource("21_8e2af")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 27, 0)
 
-[node name="WallsWithMesh" type="Node3D" parent="NavigationRegion3D"]
+[node name="WallsWithMesh" type="Node3D" parent="NavigationRegion3D" unique_id=708416812]
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="NavigationRegion3D/WallsWithMesh"]
+[node name="CSGBox3D11" type="CSGBox3D" parent="NavigationRegion3D/WallsWithMesh" unique_id=1377056316]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5.5, -42.500004)
 use_collision = true
 size = Vector3(1, 11, 19)
 
-[node name="Obstacle" type="Node3D" parent="NavigationRegion3D"]
+[node name="Obstacle" type="Node3D" parent="NavigationRegion3D" unique_id=1704433694]
 
-[node name="PowerCell" parent="NavigationRegion3D" instance=ExtResource("14_i3wmk")]
+[node name="PowerCell" parent="NavigationRegion3D" unique_id=941264339 instance=ExtResource("14_i3wmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6999998, 0, -53)
 
-[node name="Explosive" parent="NavigationRegion3D" instance=ExtResource("23_6g866")]
+[node name="Explosive" parent="NavigationRegion3D" unique_id=1648003498 instance=ExtResource("23_6g866")]
 transform = Transform3D(-1, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, -1, -6, 0, -54)
 
-[node name="EnemySpawnLocations" type="Node3D" parent="NavigationRegion3D"]
+[node name="EnemySpawnLocations" type="Node3D" parent="NavigationRegion3D" unique_id=1393039455]
 
-[node name="EnemySpawn" parent="NavigationRegion3D/EnemySpawnLocations" node_paths=PackedStringArray("player_nav") instance=ExtResource("23_imwdw")]
+[node name="EnemySpawn" parent="NavigationRegion3D/EnemySpawnLocations" unique_id=345226479 node_paths=PackedStringArray("player_nav") instance=ExtResource("23_imwdw")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, 0.010000013, -48.6)
 enemy = ExtResource("24_errcn")
 EnemySpawnTime = 2.0
 player_nav = NodePath("../../../CharacterBody3D")
 
-[node name="EnemySpawn2" parent="NavigationRegion3D/EnemySpawnLocations" node_paths=PackedStringArray("player_nav") instance=ExtResource("23_imwdw")]
+[node name="EnemySpawn2" parent="NavigationRegion3D/EnemySpawnLocations" unique_id=1153760858 node_paths=PackedStringArray("player_nav") instance=ExtResource("23_imwdw")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 0.010000013, -74.6)
 enemy = ExtResource("24_errcn")
 EnemySpawnTime = 3.0
 player_nav = NodePath("../../../CharacterBody3D")
 
-[node name="EnemySpawn3" parent="NavigationRegion3D/EnemySpawnLocations" node_paths=PackedStringArray("player_nav") instance=ExtResource("23_imwdw")]
+[node name="EnemySpawn3" parent="NavigationRegion3D/EnemySpawnLocations" unique_id=1564736011 node_paths=PackedStringArray("player_nav") instance=ExtResource("23_imwdw")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.6, 0.010000013, -81.2)
 enemy = ExtResource("24_errcn")
 EnemySpawnTime = 2.0
 player_nav = NodePath("../../../CharacterBody3D")
 
-[node name="LightDrone" parent="NavigationRegion3D/EnemySpawnLocations" instance=ExtResource("24_errcn")]
+[node name="LightDrone" parent="NavigationRegion3D/EnemySpawnLocations" unique_id=1802027240 instance=ExtResource("24_errcn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -42)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=708517132]
 transform = Transform3D(0.96592575, 0.22414383, -0.1294095, -0.066987254, 0.6994692, 0.7115163, 0.25, -0.6786032, 0.6906502, 0, 6, 4)
 shadow_enabled = true
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=489621147]
 transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 6, 4)
 layers = 2
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1040784786]
 environment = SubResource("Environment_n57o6")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_82owt")]
+[node name="CharacterBody3D" parent="." unique_id=485714559 instance=ExtResource("1_82owt")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.4, 1.3000001, -43)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=944836497]
 process_mode = 3
 
-[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("18_6wt63")]
+[node name="Pause Menu" parent="CanvasLayer" unique_id=767287745 instance=ExtResource("18_6wt63")]
 
 [editable path="NavigationRegion3D/Walls/CSGBox3D5/Door"]
 [editable path="NavigationRegion3D/Walls/CSGBox3D5/Door2"]

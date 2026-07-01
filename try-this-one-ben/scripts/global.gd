@@ -2,7 +2,6 @@ extends Node
 
 var debug
 var player
-var gotCell : bool = false
 var double_jumped : bool = false
 var has_dashed: bool = false
 var cooldown : float = 0.0
@@ -10,7 +9,6 @@ var cooldown : float = 0.0
 var ammo : int = 10
 var autoShoot : bool = false
 
-var defaultGotCell : bool = false
 var defaultDouble_jumped : bool = false
 var defaultHas_dashed: bool = false
 var defaultCooldown : float = 0.0
@@ -19,6 +17,7 @@ var weaponInventory: Array = []
 var defaultWeaponInventory: Array = []
 var current_weapon_i : int  = 0
 var weapon_instances = {}
+var object_instances = {}
 
 var player_nav
 
@@ -41,7 +40,6 @@ func remove_item(fileName: String) -> void:
 			break
 
 func reset():
-	gotCell = defaultGotCell
 	double_jumped = defaultDouble_jumped
 	has_dashed = defaultHas_dashed
 	cooldown = defaultCooldown

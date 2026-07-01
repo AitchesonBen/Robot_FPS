@@ -16,9 +16,8 @@ height = 3.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_vo6oy"]
 radius = 7.0
 
-[node name="AILightWalker" type="CharacterBody3D" node_paths=PackedStringArray("animation_player") groups=["Enemy"]]
+[node name="AILightWalker" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_j18fv")
-animation_player = NodePath("LightWalkerTest/AnimationPlayer")
 
 [node name="LightWalkerTest" parent="." node_paths=PackedStringArray("LIMBS") instance=ExtResource("2_k84ew")]
 LIMBS = [NodePath("Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L/Finger_In_L"), NodePath("Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Foot_R/Toe_Front_Out_R"), NodePath("Entity/Body/Pelvis2"), null]
@@ -37,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4856703, 0)
 shape = SubResource("CapsuleShape3D_ad4bv")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-target_desired_distance = 1.1
+target_desired_distance = 2.0
 avoidance_enabled = true
 height = 3.0
 

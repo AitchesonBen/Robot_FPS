@@ -12,6 +12,8 @@ signal fired
 signal ammo_count(name: String, ammo: int, ammoCap: int)
 signal weapon_name(fileName: String, weaponName: String)
 signal weapon_removed(fileName: String)
+signal object_name(fileName: String, objectName: String)
+signal object_removed(fileName: String)
 
 var current_weapon := ""
 var ammo := 0

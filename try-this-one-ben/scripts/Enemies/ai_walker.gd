@@ -6,7 +6,7 @@ const GRAVITY = 9.8
 @export var speed : float = 4.0
 @onready var state_chart: StateChart = $StateChart
 @onready var nav_agent = $NavigationAgent3D
-@export var animation_player: AnimationPlayer
+@onready var animation_player = $LightWalkerTest/AnimationPlayer
 
 var target: Node3D
 
@@ -50,6 +50,8 @@ func _on_follow_state_physics_processing(delta: float) -> void:
 	if not target:
 		return
 	
+	
+	
 	nav_agent.target_position = target.global_position
 	
 	if nav_agent.is_navigation_finished():
@@ -60,8 +62,9 @@ func _on_follow_state_physics_processing(delta: float) -> void:
 	var direction = (next_pos - global_position).normalized()
 	
 	nav_agent.velocity = direction * speed
-	#velocity.x = direction.x * speed
-	#velocity.z = direction.z * speed
+	
+	if animation_player and animation_player.current_animation != "Missing Leg Hop":
+		animation_player.play("Missing Leg Hop")
 	
 	if direction.length() > 0.01:
 		var target_rotation = atan2(direction.x, direction.z)

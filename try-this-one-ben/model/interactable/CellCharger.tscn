@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://5giwamtjgrmd"]
+[gd_scene format=3 uid="uid://5giwamtjgrmd"]
 
 [ext_resource type="PackedScene" uid="uid://bgm7nbvi54xbp" path="res://model/interactable/WillStuff/Power Cell Charger.gltf" id="1_bdqea"]
 [ext_resource type="Script" uid="uid://dtbkuwmg6qav0" path="res://scripts/Interaction/charger_component.gd" id="2_jtrpk"]
 [ext_resource type="Script" uid="uid://cx0krm0mt2238" path="res://scripts/Interaction/MainCell.gd" id="2_m34jr"]
 [ext_resource type="Script" uid="uid://d2x2ex6en6u0n" path="res://scripts/Interaction/interact_component.gd" id="2_r0mfd"]
 
-[node name="CellCharger" node_paths=PackedStringArray("ChargerInteraction") instance=ExtResource("1_bdqea")]
+[node name="CellCharger" unique_id=1840759284 node_paths=PackedStringArray("ChargerInteraction") instance=ExtResource("1_bdqea")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 script = ExtResource("2_m34jr")
 ChargerInteraction = NodePath("Object/Charger/Hitbox_Main2/StaticBody3D/ChargerComponent")
@@ -16,12 +16,12 @@ visible = false
 [node name="CollisionShape3D" parent="Object/Power Cell/mesh/Hitbox_Main/StaticBody3D" index="0"]
 disabled = true
 
-[node name="ChargerComponent" type="Node" parent="Object/Charger/Hitbox_Main2/StaticBody3D" index="0" node_paths=PackedStringArray("Cell", "Cell_Collision")]
+[node name="ChargerComponent" type="Node" parent="Object/Charger/Hitbox_Main2/StaticBody3D" index="0" unique_id=1127336231 node_paths=PackedStringArray("Cell", "Cell_Collision")]
 script = ExtResource("2_jtrpk")
 Cell = NodePath("../../../../Power Cell")
 Cell_Collision = NodePath("../../../../Power Cell/mesh/Hitbox_Main/StaticBody3D/CollisionShape3D")
 
-[node name="InteractionComponent" type="Node" parent="Object/Charger/Hitbox_Main2/StaticBody3D" index="2" node_paths=PackedStringArray("mesh")]
+[node name="InteractionComponent" type="Node" parent="Object/Charger/Hitbox_Main2/StaticBody3D" index="2" unique_id=374195517 node_paths=PackedStringArray("mesh")]
 script = ExtResource("2_r0mfd")
 mesh = NodePath("../..")
 context = "Insert Cell"

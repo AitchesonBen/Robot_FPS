@@ -22,11 +22,6 @@ func not_in_range() -> void:
 	#mesh.material_overlay = null
 	MessageBus.interaction_unfocused.emit()
 
-func on_interact() -> void:
-	isActive = !isActive
-	print(parent.name)
-	parent.emit_signal("changed", isActive)
-
 func connect_parent() -> void:
 	parent.add_user_signal("focused")
 	parent.add_user_signal("unfocused")
@@ -35,6 +30,11 @@ func connect_parent() -> void:
 	parent.connect("focused", Callable(self, "in_range"))
 	parent.connect("unfocused", Callable(self, "not_in_range"))
 	parent.connect("interacted", Callable(self, "on_interact"))
+
+func on_interact() -> void:
+	isActive = !isActive
+	print(parent.name)
+	parent.emit_signal("changed", isActive)
 
 func set_default_mesh() -> void:
 	if mesh:

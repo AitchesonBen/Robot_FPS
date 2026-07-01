@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5blk6vftnf5q"]
+[gd_scene format=3 uid="uid://c5blk6vftnf5q"]
 
 [ext_resource type="Script" uid="uid://4nddntaffm2w" path="res://scripts/Weapon/init_weapon.gd" id="1_f7kkn"]
 [ext_resource type="Resource" uid="uid://c2bvv0xeyi3ct" path="res://model/Weapon/WeaponResources/Empty.tres" id="2_1h7w7"]
@@ -45,30 +45,30 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_kvmcy")
 size = Vector2(0.2, 0.2)
 
-[node name="Weapon" type="Node3D"]
+[node name="Weapon" type="Node3D" unique_id=592095602]
 script = ExtResource("1_f7kkn")
 WEAPON_TYPE = ExtResource("2_1h7w7")
 sway_noise = SubResource("NoiseTexture2D_kvmcy")
 sway_speed = 35.0
 
-[node name="Recoil Position" type="Node3D" parent="." node_paths=PackedStringArray("weapon")]
+[node name="Recoil Position" type="Node3D" parent="." unique_id=802162161 node_paths=PackedStringArray("weapon")]
 script = ExtResource("3_1h7w7")
 recoil_amount = Vector3(0.01, 0.1, 0.3)
 snap_amount = 10.0
 speed = 20.0
 weapon = NodePath("..")
 
-[node name="weapon_pivot" type="Node3D" parent="Recoil Position"]
+[node name="weapon_pivot" type="Node3D" parent="Recoil Position" unique_id=458461557]
 
-[node name="MuzzleFlash" type="Node3D" parent="."]
+[node name="MuzzleFlash" type="Node3D" parent="." unique_id=2002666437]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, -0.15)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="MuzzleFlash"]
+[node name="OmniLight3D" type="OmniLight3D" parent="MuzzleFlash" unique_id=828898615]
 visible = false
 light_color = Color(0.5949351, 1, 0.98583645, 1)
 omni_range = 6.2
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="MuzzleFlash"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="MuzzleFlash" unique_id=28965662]
 emitting = false
 lifetime = 0.01
 one_shot = true

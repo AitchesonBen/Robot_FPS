@@ -18,8 +18,6 @@ class_name Player extends CharacterBody3D
 @export var HUD : Node
 @export var DASH_IMAGE : Control
 
-@export var Cell : Node3D
-
 @export var DASH_COOLDOWN : float = 2.0
 var dash_cooldown_timer := 0.0
 
@@ -89,12 +87,6 @@ func _physics_process(delta: float) -> void:
 	if dash_cooldown_timer > 0.0:
 		dash_cooldown_timer -= delta
 		Global.cooldown = dash_cooldown_timer
-	
-	if Global.gotCell:
-		Cell.visible = true
-	
-	if !Global.gotCell:
-		Cell.visible = false
 	
 	if position.y <= -10:
 		position = Vector3(-26, 7, -43)

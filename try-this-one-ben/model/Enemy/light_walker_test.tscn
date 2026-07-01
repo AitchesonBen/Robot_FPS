@@ -39,9 +39,10 @@ data = PackedVector3Array(-0.1094, 0.375, 0.125, -0.1094, -0.25, -0.125, -0.1094
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jn4ef"]
 data = PackedVector3Array(0.1875, -0.0625, -0.1563, 0.1875, 0.1875, 0.1563, 0.1875, 0.1875, -0.1563, 0.1875, -0.0625, -0.1563, 0.1875, -0.0625, 0.1563, 0.1875, 0.1875, 0.1563, 0.1875, 0.1875, 0.1563, -0.1875, 0.1875, -0.1563, 0.1875, 0.1875, -0.1563, 0.1875, 0.1875, 0.1563, -0.1875, 0.1875, 0.1563, -0.1875, 0.1875, -0.1563, 0.1875, -0.0625, -0.1563, -0.1875, -0.0625, 0.1563, 0.1875, -0.0625, 0.1563, 0.1875, -0.0625, -0.1563, -0.1875, -0.0625, -0.1563, -0.1875, -0.0625, 0.1563, 0.1875, -0.0625, 0.1563, -0.1875, 0.1875, 0.1563, 0.1875, 0.1875, 0.1563, 0.1875, -0.0625, 0.1563, -0.1875, -0.0625, 0.1563, -0.1875, 0.1875, 0.1563, -0.1875, -0.0625, -0.1563, 0.1875, 0.1875, -0.1563, -0.1875, 0.1875, -0.1563, -0.1875, -0.0625, -0.1563, 0.1875, -0.0625, -0.1563, 0.1875, 0.1875, -0.1563, -0.1875, 0.1875, 0.1563, -0.1875, -0.0625, -0.1563, -0.1875, 0.1875, -0.1563, -0.1875, 0.1875, 0.1563, -0.1875, -0.0625, 0.1563, -0.1875, -0.0625, -0.1563)
 
-[node name="LightWalkerTest" node_paths=PackedStringArray("LIMBS", "Model") groups=["Enemy"] instance=ExtResource("1_1iqm2")]
+[node name="LightWalkerTest" node_paths=PackedStringArray("LIMBS", "ANIMATIONPLAYER", "Model") groups=["Enemy"] instance=ExtResource("1_1iqm2")]
 script = ExtResource("2_cwgcp")
 LIMBS = [NodePath("Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L/Finger_In_L"), NodePath("Entity/Body/Pelvis2/Legs/Right_Leg/Lower_R/Foot_R/Toe_Front_Out_R"), NodePath("Entity/Body/Pelvis2"), null]
+ANIMATIONPLAYER = NodePath("AnimationPlayer")
 Model = NodePath("Entity")
 
 [node name="Area3D" type="Area3D" parent="Entity/Head/Hitbox _Head-nocollider" index="0"]
@@ -50,19 +51,16 @@ Model = NodePath("Entity")
 shape = SubResource("ConcavePolygonShape3D_cwgcp")
 
 [node name="Left_Arm" parent="Entity/Body/Torso2/Arms" index="0" node_paths=PackedStringArray("HITBOX")]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, -0.4375, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.4375, 0, 0)
 script = ExtResource("3_u8j2a")
 HITBOX = NodePath("Hitbox_Arm_Left-nocollider/Area3D/CollisionShape3D")
 HEALTH = 3
 
-[node name="Lower_Arm_L" parent="Entity/Body/Torso2/Arms/Left_Arm" index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.1125, -0.484375, 0.05625)
-
 [node name="Finger_In_L" parent="Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L" index="1"]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.034375, -0.09375, -0.034375)
+transform = Transform3D(0.70710665, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710665, 0.034375, -0.09375, -0.034375)
 
 [node name="Finger_Out_L" parent="Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hand_L" index="2"]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.034375, -0.09375, -0.034375)
+transform = Transform3D(0.70710665, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710665, -0.034375, -0.09375, -0.034375)
 
 [node name="Area3D" type="Area3D" parent="Entity/Body/Torso2/Arms/Left_Arm/Lower_Arm_L/Hitbox_Arm_Left_Extension-nocollider" index="0"]
 
@@ -147,6 +145,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0014954805, 0.045539737, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Entity/Body/Pelvis2/Hitbox_Main_Extension-nocollider/Area3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_jn4ef")
+
+[node name="NEED TO  RESIZE UV LAYERS" parent="." index="1"]
+visible = false
 
 [node name="Explosion" parent="." index="3" instance=ExtResource("4_jyxbf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5140468, 0)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Interactable" format=3 uid="uid://tjivwnb7rf8h"]
+
+[ext_resource type="PackedScene" uid="uid://cl8ebuxppfcsa" path="res://model/interactable/PowerCellPlayer.tscn" id="1_yiury"]
+[ext_resource type="Script" uid="uid://dlurwfmiwtvow" path="res://scripts/Interaction/interactable_resource.gd" id="2_rhioo"]
+
+[resource]
+script = ExtResource("2_rhioo")
+name = &"PowerCell"
+position = Vector3(-1.285, 0.157, -1.51)
+scene = ExtResource("1_yiury")
+metadata/_custom_type_script = "uid://dlurwfmiwtvow"

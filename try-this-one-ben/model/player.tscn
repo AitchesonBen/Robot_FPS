@@ -1,10 +1,11 @@
-[gd_scene load_steps=41 format=3 uid="uid://l66v3s8xrv5c"]
+[gd_scene format=3 uid="uid://l66v3s8xrv5c"]
 
 [ext_resource type="Script" uid="uid://dnguk1ygniers" path="res://scripts/player.gd" id="1_gbl1t"]
 [ext_resource type="Script" uid="uid://hqy25httlnxt" path="res://scripts/Weapon/weapon_recoil.gd" id="2_1m16y"]
 [ext_resource type="PackedScene" uid="uid://c5blk6vftnf5q" path="res://model/Weapon/weapon.tscn" id="2_gbmfk"]
 [ext_resource type="Script" uid="uid://brt888aumwlad" path="res://scripts/reticle.gd" id="2_ynuub"]
 [ext_resource type="Theme" uid="uid://d3nq0ldiofmv1" path="res://ui/debug.tres" id="3_x5mhj"]
+[ext_resource type="PackedScene" uid="uid://ugkb4bedkvwo" path="res://model/interactable/interactableObject.tscn" id="3_y8rvq"]
 [ext_resource type="Script" uid="uid://dgk4gl3qcdl7q" path="res://scripts/debug.gd" id="4_4s6qj"]
 [ext_resource type="Script" uid="uid://dibr3v5r85kbs" path="res://scripts/state_machine.gd" id="5_p0pvw"]
 [ext_resource type="Script" uid="uid://duvim8t6g5ido" path="res://scripts/Interaction/interaction_raycast.gd" id="5_xa3qw"]
@@ -21,8 +22,6 @@
 [ext_resource type="Script" uid="uid://8hndqsnb5cb3" path="res://scripts/States/FallingPlayerState.gd" id="13_urp6f"]
 [ext_resource type="Script" uid="uid://cnxh3y4hr2ixw" path="res://scripts/Weapon/WeaponViewport.gd" id="14_bwjto"]
 [ext_resource type="Script" uid="uid://baub5jgf125s8" path="res://scripts/Weapon/WeaponCamera.gd" id="15_606se"]
-[ext_resource type="PackedScene" uid="uid://bg4icuyadata5" path="res://model/interactable/PowerCell.tscn" id="17_ngsdc"]
-[ext_resource type="PackedScene" uid="uid://cl8ebuxppfcsa" path="res://model/interactable/PowerCellPlayer.tscn" id="17_w3hl1"]
 [ext_resource type="Script" uid="uid://cqqrms3uwmvp7" path="res://scripts/States/WallRunPlayerState.gd" id="18_ejh3u"]
 [ext_resource type="Script" uid="uid://cfs4ttivjis1n" path="res://scripts/States/DashPlayerState.gd" id="19_hbtid"]
 [ext_resource type="Script" uid="uid://bb6gd2yi0ttom" path="res://scripts/UI Scripts/ammo_container.gd" id="22_5d00c"]
@@ -491,7 +490,7 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_j68t0"]
 radius = 0.6
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WALL_SHAPECAST", "WEAPON_CONTROLLER", "DASH_ANIMATION_IMAGE", "HUD", "DASH_IMAGE", "Cell") groups=["Player"]]
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=750284719 node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER", "CROUCH_SHAPECAST", "WALL_SHAPECAST", "WEAPON_CONTROLLER", "DASH_ANIMATION_IMAGE", "HUD", "DASH_IMAGE") groups=["Player"]]
 script = ExtResource("1_gbl1t")
 CAMERA_CONTROLLER = NodePath("Camera/Recoil/Camera3D")
 ANIMATIONPLAYER = NodePath("AnimationPlayer")
@@ -501,135 +500,129 @@ WEAPON_CONTROLLER = NodePath("Camera/Recoil/Camera3D/WeaponRig/Weapon")
 DASH_ANIMATION_IMAGE = NodePath("UI/DashRed/AnimationComponent")
 HUD = NodePath("Camera/Recoil/Camera3D/HUD")
 DASH_IMAGE = NodePath("UI/DashRed")
-Cell = NodePath("WeaponViewport/SubViewport/Camera3DWeap/PowerCell2")
 DASH_COOLDOWN = 1.5
 
-[node name="Collision" type="CollisionShape3D" parent="." groups=["Player"]]
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1368505648 groups=["Player"]]
 shape = SubResource("CapsuleShape3D_lrm1h")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Collision"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Collision" unique_id=1256054880]
 transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, 0.23067832, 0)
 mesh = SubResource("CapsuleMesh_ek63y")
 
-[node name="Camera" type="Node3D" parent="."]
+[node name="Camera" type="Node3D" parent="." unique_id=1591124106]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Recoil" type="Node3D" parent="Camera" node_paths=PackedStringArray("weapon")]
+[node name="Recoil" type="Node3D" parent="Camera" unique_id=514169191 node_paths=PackedStringArray("weapon")]
 script = ExtResource("2_1m16y")
 recoil_amount = Vector3(0.1, 0.03, 0)
 snap_amount = 10.0
 speed = 20.0
 weapon = NodePath("Camera3D/WeaponRig/Weapon")
 
-[node name="Camera3D" type="Camera3D" parent="Camera/Recoil"]
+[node name="Camera3D" type="Camera3D" parent="Camera/Recoil" unique_id=1453092751]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41215014, 0)
 cull_mask = 1048573
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="Camera/Recoil/Camera3D"]
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Camera/Recoil/Camera3D" unique_id=947857845]
 update_mode = 1
 blend_distance = 6.05
 
-[node name="WeaponRig" type="Node3D" parent="Camera/Recoil/Camera3D"]
+[node name="ObjectRig" type="Node3D" parent="Camera/Recoil/Camera3D" unique_id=1428306844]
 transform = Transform3D(0.9865724, 0.16332598, 0, -0.1633101, 0.9864761, -0.0139621785, -0.002280387, 0.0137747, 0.9999024, 0.44877958, -0.6382694, -0.7411317)
 
-[node name="Weapon" parent="Camera/Recoil/Camera3D/WeaponRig" instance=ExtResource("2_gbmfk")]
+[node name="InteractableObject" parent="Camera/Recoil/Camera3D/ObjectRig" unique_id=984521892 instance=ExtResource("3_y8rvq")]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Camera/Recoil/Camera3D"]
+[node name="WeaponRig" type="Node3D" parent="Camera/Recoil/Camera3D" unique_id=2037104433]
+transform = Transform3D(0.9865724, 0.16332598, 0, -0.1633101, 0.9864761, -0.0139621785, -0.002280387, 0.0137747, 0.9999024, 0.44877958, -0.6382694, -0.7411317)
+
+[node name="Weapon" parent="Camera/Recoil/Camera3D/WeaponRig" unique_id=736470766 instance=ExtResource("2_gbmfk")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Camera/Recoil/Camera3D" unique_id=532014240]
 transform = Transform3D(0.98472905, 0.05557202, 0.16498636, -0.034279745, 0.9910254, -0.12920476, -0.17068578, 0.121576, 0.9777964, -0.53599703, -0.35093808, -0.6536727)
 visible = false
 size = Vector3(0.14013672, 0.14147949, 0.58551025)
 
-[node name="InteractionRaycast" type="RayCast3D" parent="Camera/Recoil/Camera3D"]
+[node name="InteractionRaycast" type="RayCast3D" parent="Camera/Recoil/Camera3D" unique_id=442652343]
 transform = Transform3D(1, 0, 0, 0, 0.9429615, -0.33290184, 0, 0.33290184, 0.9429615, 0, 0, 0)
 target_position = Vector3(0, -1, -3)
 collision_mask = 3
 script = ExtResource("5_xa3qw")
 
-[node name="HUD" parent="Camera/Recoil/Camera3D" instance=ExtResource("5_y8rvq")]
+[node name="HUD" parent="Camera/Recoil/Camera3D" unique_id=2003659647 instance=ExtResource("5_y8rvq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.848, -3.96)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_4j1qc")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=242647940]
+libraries/ = SubResource("AnimationLibrary_4j1qc")
 
-[node name="CrouchShapeCast3D" type="ShapeCast3D" parent="."]
+[node name="CrouchShapeCast3D" type="ShapeCast3D" parent="." unique_id=1664111926]
 transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 0.8, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_hbtid")
 target_position = Vector3(0, -0.5, 0)
 
-[node name="WallShapeCast3D2" type="ShapeCast3D" parent="."]
+[node name="WallShapeCast3D2" type="ShapeCast3D" parent="." unique_id=1773719689]
 transform = Transform3D(1.271, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -0.02297315, 0.31869173, 0)
 shape = SubResource("SphereShape3D_j68t0")
 target_position = Vector3(0, -0.5, 0)
 collision_mask = 4
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+[node name="StateMachine" type="Node" parent="." unique_id=1699646021 node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("5_p0pvw")
 CURRENT_STATE = NodePath("IdlePlayerState")
 
-[node name="IdlePlayerState" type="Node" parent="StateMachine"]
+[node name="IdlePlayerState" type="Node" parent="StateMachine" unique_id=1321394191]
 script = ExtResource("6_udyl3")
 
-[node name="WalkingPlayerState" type="Node" parent="StateMachine"]
+[node name="WalkingPlayerState" type="Node" parent="StateMachine" unique_id=139230166]
 script = ExtResource("7_helrf")
 
-[node name="CrouchingPlayerState" type="Node" parent="StateMachine"]
+[node name="CrouchingPlayerState" type="Node" parent="StateMachine" unique_id=1276134925]
 script = ExtResource("8_h7pl7")
 WEAPON_BOB_H = 1.0
 WEAPON_BOB_V = 0.5
 
-[node name="SlidingPlayerState" type="Node" parent="StateMachine"]
+[node name="SlidingPlayerState" type="Node" parent="StateMachine" unique_id=1373704706]
 script = ExtResource("9_s5g8d")
 SPEED = null
 SLIDE_ANIM_SPEED = 6.0
 
-[node name="JumpingPlayerState" type="Node" parent="StateMachine"]
+[node name="JumpingPlayerState" type="Node" parent="StateMachine" unique_id=87852065]
 script = ExtResource("10_lyj86")
 JUMP_VELOCITY = 12.0
 DOUBLE_JUMP_VELOCITY = 15.0
 WALL_DELAY = 0.5
 
-[node name="FallingPlayerState" type="Node" parent="StateMachine"]
+[node name="FallingPlayerState" type="Node" parent="StateMachine" unique_id=859795493]
 script = ExtResource("13_urp6f")
 SPEED = 10.0
 DOUBLE_JUMP_VELOCITY = 15.0
 
-[node name="WallRunPlayerState" type="Node" parent="StateMachine"]
+[node name="WallRunPlayerState" type="Node" parent="StateMachine" unique_id=1563352822]
 script = ExtResource("18_ejh3u")
 
-[node name="DashPlayerState" type="Node" parent="StateMachine"]
+[node name="DashPlayerState" type="Node" parent="StateMachine" unique_id=1930475618]
 script = ExtResource("19_hbtid")
 
-[node name="WeaponViewport" type="SubViewportContainer" parent="."]
+[node name="WeaponViewport" type="SubViewportContainer" parent="." unique_id=811014101]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="WeaponViewport"]
+[node name="SubViewport" type="SubViewport" parent="WeaponViewport" unique_id=250843577]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 script = ExtResource("14_bwjto")
 
-[node name="Camera3DWeap" type="Camera3D" parent="WeaponViewport/SubViewport" node_paths=PackedStringArray("MAIN_CAMERA")]
+[node name="Camera3DWeap" type="Camera3D" parent="WeaponViewport/SubViewport" unique_id=461509967 node_paths=PackedStringArray("MAIN_CAMERA")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83, 0)
 cull_mask = 2
 script = ExtResource("15_606se")
 MAIN_CAMERA = NodePath("../../../Camera/Recoil/Camera3D")
 
-[node name="PowerCell" parent="WeaponViewport/SubViewport/Camera3DWeap" instance=ExtResource("17_ngsdc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.285, -1.157, -1.81)
-visible = false
-
-[node name="PowerCell2" parent="WeaponViewport/SubViewport/Camera3DWeap" instance=ExtResource("17_w3hl1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.285, -1.157, -1.81)
-visible = false
-
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=1023398196]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -638,7 +631,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Reticle" type="CenterContainer" parent="UI" node_paths=PackedStringArray("RETICLE_LINES", "PLAYER_CONTROLLER")]
+[node name="Reticle" type="CenterContainer" parent="UI" unique_id=1218684851 node_paths=PackedStringArray("RETICLE_LINES", "PLAYER_CONTROLLER")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -653,23 +646,23 @@ PLAYER_CONTROLLER = NodePath("../..")
 RETICLE_SPEED = 0.05
 RETICLE_DISTANCE = 1.0
 
-[node name="Top" type="Line2D" parent="UI/Reticle"]
+[node name="Top" type="Line2D" parent="UI/Reticle" unique_id=1998590532]
 points = PackedVector2Array(0, -5, 0, -15)
 width = 2.0
 
-[node name="Right" type="Line2D" parent="UI/Reticle"]
+[node name="Right" type="Line2D" parent="UI/Reticle" unique_id=720504509]
 points = PackedVector2Array(5, 0, 15, 0)
 width = 2.0
 
-[node name="Bottom" type="Line2D" parent="UI/Reticle"]
+[node name="Bottom" type="Line2D" parent="UI/Reticle" unique_id=1169117465]
 points = PackedVector2Array(0, 5, 0, 15)
 width = 2.0
 
-[node name="Left" type="Line2D" parent="UI/Reticle"]
+[node name="Left" type="Line2D" parent="UI/Reticle" unique_id=902128206]
 points = PackedVector2Array(-5, 0, -15, 0)
 width = 2.0
 
-[node name="Debug" type="PanelContainer" parent="UI"]
+[node name="Debug" type="PanelContainer" parent="UI" unique_id=1989436922]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
 offset_left = 10.0
@@ -679,13 +672,13 @@ offset_bottom = 90.0
 theme = ExtResource("3_x5mhj")
 script = ExtResource("4_4s6qj")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/Debug"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Debug" unique_id=442304666]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Debug/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Debug/MarginContainer" unique_id=1339548323]
 layout_mode = 2
 
-[node name="ContextContainter" type="CenterContainer" parent="UI" node_paths=PackedStringArray("icon", "context")]
+[node name="ContextContainter" type="CenterContainer" parent="UI" unique_id=989834787 node_paths=PackedStringArray("icon", "context")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -699,17 +692,17 @@ icon = NodePath("HBoxContainer/TextureRect")
 context = NodePath("HBoxContainer/Label")
 default_icon = ExtResource("9_7jrhr")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/ContextContainter"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ContextContainter" unique_id=1012923368]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/ContextContainter/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/ContextContainter/HBoxContainer" unique_id=2082765291]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/ContextContainter/HBoxContainer"]
+[node name="Label" type="Label" parent="UI/ContextContainter/HBoxContainer" unique_id=708467723]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 
-[node name="AmmoContainer" type="CenterContainer" parent="UI" node_paths=PackedStringArray("context")]
+[node name="AmmoContainer" type="CenterContainer" parent="UI" unique_id=2138400490 node_paths=PackedStringArray("context")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -722,17 +715,17 @@ grow_vertical = 2
 script = ExtResource("22_5d00c")
 context = NodePath("HBoxContainer/Label")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/AmmoContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/AmmoContainer" unique_id=1754299348]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/AmmoContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/AmmoContainer/HBoxContainer" unique_id=2081388726]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/AmmoContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="UI/AmmoContainer/HBoxContainer" unique_id=1378252187]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 
-[node name="Dash" type="TextureRect" parent="UI"]
+[node name="Dash" type="TextureRect" parent="UI" unique_id=1189314682]
 visible = false
 layout_mode = 0
 offset_left = 920.0
@@ -742,7 +735,7 @@ offset_bottom = 1191.0
 scale = Vector2(0.27999997, 0.27999997)
 texture = ExtResource("11_j64lu")
 
-[node name="DashRed" type="TextureRect" parent="UI"]
+[node name="DashRed" type="TextureRect" parent="UI" unique_id=1023610815]
 visible = false
 layout_mode = 0
 offset_left = 920.0
@@ -752,9 +745,9 @@ offset_bottom = 1191.0
 scale = Vector2(0.27999997, 0.27999997)
 texture = ExtResource("12_5d00c")
 
-[node name="AnimationComponent" type="Node" parent="UI/DashRed"]
+[node name="AnimationComponent" type="Node" parent="UI/DashRed" unique_id=616958363]
 
-[node name="DashReady" type="TextureRect" parent="UI"]
+[node name="DashReady" type="TextureRect" parent="UI" unique_id=250107007]
 visible = false
 layout_mode = 0
 offset_left = 6.1035156e-05
@@ -763,9 +756,9 @@ offset_bottom = 3857.143
 scale = Vector2(0.27999997, 0.27999997)
 texture = ExtResource("27_fkbr2")
 
-[node name="AnimationComponent" type="Node" parent="UI/DashReady"]
+[node name="AnimationComponent" type="Node" parent="UI/DashReady" unique_id=298416462]
 
-[node name="WeaponInventory" type="Node" parent="."]
+[node name="WeaponInventory" type="Node" parent="." unique_id=1046106767]
 script = ExtResource("27_w3hl1")
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
