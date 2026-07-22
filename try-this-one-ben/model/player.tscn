@@ -520,7 +520,7 @@ speed = 20.0
 weapon = NodePath("Camera3D/WeaponRig/Weapon")
 
 [node name="Camera3D" type="Camera3D" parent="Camera/Recoil" unique_id=1453092751]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41215014, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4953642, 0)
 cull_mask = 1048573
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="Camera/Recoil/Camera3D" unique_id=947857845]

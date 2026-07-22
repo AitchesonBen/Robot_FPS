@@ -3,6 +3,8 @@ class_name WeaponComponent extends Node
 @export var FileName : String
 @export var WeaponName : String
 
+@export var OneTimePistolThing : bool = true
+
 var original_materials := {}
 
 var parent
@@ -21,7 +23,12 @@ func connect_parent() -> void:
 
 func got_gun(state: bool) -> void:
 	stop = !stop
-	if stop:
+	if stop && OneTimePistolThing:
+		MessageBus.weapon_name.emit(FileName, WeaponName)
+		recolor_weapon(Color("00ffff30"))
+		MessageBus.weapon_open_door.emit()
+		print("Hold")
+	elif stop:
 		MessageBus.weapon_name.emit(FileName, WeaponName)
 		recolor_weapon(Color("00ffff30"))
 	elif !stop:

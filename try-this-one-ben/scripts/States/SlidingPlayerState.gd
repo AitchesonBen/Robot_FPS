@@ -15,11 +15,11 @@ class_name SlidingPlayerState extends PlayerMovementState
 var ifJumped : bool = false
 var is_uncrouching = false
 var allow_animation_functions: bool = true
-var was_on_sloop : bool = false
+var was_on_slope : bool = false
 var thing : bool = false
 
 func enter(_previous_state) -> void:
-	was_on_sloop = false
+	was_on_slope = false
 	thing = false
 	set_tilt(PLAYER._current_rotation)
 	ANIMATION.get_animation("Sliding_Intro").track_set_key_value(5, 0, PLAYER.velocity.length())
@@ -61,7 +61,9 @@ func update(delta):
 			ANIMATION.stop()
 			finish()
 	
-	was_on_sloop = is_on_slope()
+	if is_on_slope():
+		was_on_slope = true
+	#was_on_slope = is_on_slope()
 	
 	#print(PLAYER.is_on_floor())
 
@@ -78,7 +80,10 @@ func update(delta):
 	
 	#THERE WAS A ISONFLOOR CONDITION IF SOMETHING BROKE CHECK THIS (THAT BREAKS JUMPING FROM SLIDE SOMETIMES
 	#Reaching top of slope
-	if was_on_sloop and not is_on_slope():
+	print("was:", was_on_slope, " is: ", is_on_slope())
+	
+	if was_on_slope and not is_on_slope():
+		print("Test")
 		allow_animation_functions = true
 		if ANIMATION.is_playing():
 			await ANIMATION.animation_finished
@@ -157,6 +162,8 @@ func set_tilt(player_rotation) -> void:
 func finish():
 	if not allow_animation_functions:
 		return
+	
+	was_on_slope = false
 		
 	if ifJumped == false:
 		if !can_stand():

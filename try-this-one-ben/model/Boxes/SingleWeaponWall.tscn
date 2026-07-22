@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c88qu5w51gg8p"]
+
+[ext_resource type="Texture2D" uid="uid://dfpg2k8sit5kt" path="res://ui/Textures/checkboard.png" id="1_qvcox"]
+[ext_resource type="Texture2D" uid="uid://c81sp6dbi6gyc" path="res://ui/boy_got_rizz.png" id="2_iwms5"]
+[ext_resource type="Script" uid="uid://f4dny2p73ou6" path="res://scripts/Weapon/WeaponWallAttach.gd" id="4_a0c4a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8pdm"]
+albedo_color = Color(0.8862745, 0.05490196, 0.20784314, 1)
+albedo_texture = ExtResource("1_qvcox")
+metallic = 0.44
+normal_texture = ExtResource("2_iwms5")
+bent_normal_texture = ExtResource("2_iwms5")
+rim = 0.4
+rim_tint = 1.0
+subsurf_scatter_strength = 1.0
+subsurf_scatter_texture = ExtResource("2_iwms5")
+detail_albedo = ExtResource("2_iwms5")
+uv1_triplanar = true
+
+[node name="WeaponWall" type="Node3D" unique_id=192113461]
+
+[node name="BasicWall" type="CSGBox3D" parent="." unique_id=1429265292]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 4.371139e-08)
+use_collision = true
+size = Vector3(0.779, 5, 6)
+material = SubResource("StandardMaterial3D_i8pdm")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=506512484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.19999999, 0.6)
+script = ExtResource("4_a0c4a")

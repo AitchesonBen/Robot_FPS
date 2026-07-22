@@ -12,6 +12,7 @@ func _ready() -> void:
 	parent = get_parent()
 	parent.ready.connect(connect_parent)
 	MessageBus.object_name.connect(player_has_cell)
+	MessageBus.weapon_open_door.connect(force_open)
 
 func connect_parent() -> void:
 	parent.connect("interacted", Callable(self, "got_cell"))
@@ -23,6 +24,11 @@ func got_cell() -> void:
 		Cell.visible = true
 		MessageBus.cell_recieved.emit()
 		MessageBus.object_removed.emit(file)
+	elif force_open():
+		print('Lol')
+
+func force_open() -> bool:
+	return true
 
 func player_has_cell(fileName: String, objectName: String) -> bool:
 	if objectName == "PowerCell":

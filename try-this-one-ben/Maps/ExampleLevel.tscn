@@ -64,24 +64,24 @@ albedo_color = Color(0.56078434, 0.16078432, 1, 1)
 albedo_texture = ExtResource("2_cg56m")
 uv1_triplanar = true
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n8uhs"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_erjw0"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6g866"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_errcn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_65204"]
 shader = ExtResource("1_6582d")
-shader_parameter/sky_background = SubResource("CompressedTexture2D_6g866")
-shader_parameter/clouds = SubResource("CompressedTexture2D_n8uhs")
+shader_parameter/sky_background = SubResource("CompressedTexture2D_errcn")
+shader_parameter/clouds = SubResource("CompressedTexture2D_erjw0")
 shader_parameter/cloud_color = ExtResource("2_n8uhs")
 shader_parameter/exposure = 0.0
 
-[sub_resource type="Sky" id="Sky_8e2af"]
+[sub_resource type="Sky" id="Sky_unmu4"]
 sky_material = SubResource("ShaderMaterial_65204")
 
 [sub_resource type="Environment" id="Environment_n57o6"]
 background_mode = 1
 background_color = Color(0.7708395, 0.77083945, 0.77083945, 1)
-sky = SubResource("Sky_8e2af")
+sky = SubResource("Sky_unmu4")
 fog_enabled = true
 fog_light_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
 fog_height_density = 0.3
