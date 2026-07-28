@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Weapons" load_steps=3 format=3 uid="uid://cg332uykm5cxn"]
+[gd_resource type="Resource" script_class="Weapons" format=3 uid="uid://cg332uykm5cxn"]
 
 [ext_resource type="PackedScene" uid="uid://drde27anb6nhq" path="res://model/Weapon/Pistol.tscn" id="1_3a8rb"]
 [ext_resource type="Script" uid="uid://248vpyxv5gvs" path="res://scripts/Weapon/weapons.gd" id="2_144vj"]
@@ -12,5 +12,6 @@ scene = ExtResource("1_3a8rb")
 AmmoCapa = 10
 Ammoo = 10
 Prev_Ammo = 10
-rpm = 320.0
+rpm = 400.0
+damage = 2
 metadata/_custom_type_script = "uid://248vpyxv5gvs"
